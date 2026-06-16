@@ -24,24 +24,43 @@
 </head>
 
 <body>
+	<!-- Page Preloader (Sanvithi inspired) -->
+	<div id="preloader">
+		<div class="preloader-bg-sheets">
+			<div class="preloader-sheet"></div>
+			<div class="preloader-sheet"></div>
+			<div class="preloader-sheet"></div>
+			<div class="preloader-sheet"></div>
+		</div>
+		<div class="preloader-content">
+			<div class="preloader-word active" id="preloaderWord">REUBEN ABRAHAM</div>
+			<div class="preloader-counter" id="preloaderCounter">0%</div>
+		</div>
+	</div>
+
 	<!-- Scroll Progress Bar -->
 	<div class="scroll-progress" id="scrollProgress"></div>
 
 	<!-- Navigation Header -->
 	<header id="mainHeader">
 		<div class="header-container">
-			<a href="#Home" class="logo-container">
+			<a href="#Home" class="logo-container interactive-el">
 				<div class="logo-dot"></div>
 				<span class="logo-text">REUBEN ABRAHAM</span>
 			</a>
 			
 			<nav>
 				<ul class="nav-menu">
-					<li><a href="#Home" class="nav-link active">Home</a></li>
-					<li><a href="#UX" class="nav-link">UX</a></li>
-					<li><a href="#Branding" class="nav-link">Branding</a></li>
-					<li><a href="#Others" class="nav-link">Others</a></li>
+					<li><a href="#Home" class="nav-link active interactive-el">Home</a></li>
+					<li><a href="#UX" class="nav-link interactive-el">UX</a></li>
+					<li><a href="#Branding" class="nav-link interactive-el">Branding</a></li>
+					<li><a href="#Others" class="nav-link interactive-el">Others</a></li>
 				</ul>
+				
+				<!-- Sound control toggle (Marco-style) -->
+				<button class="sound-toggle-btn interactive-el" id="soundToggle" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+					<i class="fa-solid fa-volume-xmark"></i>
+				</button>
 			</nav>
 
 			<div class="time-widget" id="timeWidget">
@@ -54,21 +73,34 @@
 	<main class="container">
 		<!-- Hero Section -->
 		<section class="hero" id="Home">
-			<div class="hero-tag">Product Designer</div>
-			<h1 class="hero-title">
-				<span class="hero-typing" id="typingElement">नमस्ते!</span><br>
-				I am Reuben.
-			</h1>
-			<p class="hero-description">
-				"I design premium digital experiences, laugh at lame jokes, and bake delicious cheesecakes."
-			</p>
-			<div class="hero-buttons">
-				<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-primary">
-					Read my Story <i class="fa-solid fa-arrow-right"></i>
-				</a>
-				<a href="#UX" class="btn btn-secondary">
-					Unravel the experience <i class="fa-solid fa-angle-down"></i>
-				</a>
+			<div class="hero-content">
+				<div class="hero-tag">Product Designer</div>
+				<h1 class="hero-title">
+					<span class="hero-typing" id="typingElement">नमस्ते!</span><br>
+					I am Reuben. <span class="italic-title">I design premium digital experiences.</span>
+				</h1>
+				<p class="hero-description">
+					I solve complex user experience problems, laugh at extremely lame jokes, and bake delicious cheesecakes in Bengaluru, India.
+				</p>
+				<div class="hero-buttons">
+					<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-primary interactive-el">
+						Read my Story <i class="fa-solid fa-arrow-right"></i>
+					</a>
+					<a href="#UX" class="btn btn-secondary interactive-el">
+						Unravel the experience <i class="fa-solid fa-angle-down"></i>
+					</a>
+				</div>
+			</div>
+			
+			<div class="hero-visual">
+				<div class="stamp-wrapper">
+					<!-- Generated stamp decoration -->
+					<img src="wp-content/uploads/2026/landing/stamp_reuben_designer.png" alt="Reuben Design Stamp" class="interactive-stamp" id="heroStamp" />
+					<!-- Floating baker badge decoration -->
+					<div class="floating-badge" id="heroBadge">
+						<img src="wp-content/uploads/2026/landing/badge_cheesecake_baker.png" alt="Cheesecake Baker Seal" />
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -77,13 +109,13 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">01 / Selected Work</span>
-					<h2 class="section-title">UX Case Studies</h2>
+					<h2 class="section-title">UX Case Studies <span class="italic-section">&amp; Solutions</span></h2>
 				</div>
 			</div>
 
 			<div class="projects-feed">
-				<!-- Case Study 1: Grab Scan to Order -->
-				<a href="scan-to-order-2-0.html" class="project-card scroll-animate">
+				<!-- Case Study 1: Grab Scan to Order (Featured - Spans 2 cols) -->
+				<a href="scan-to-order-2-0.html" class="project-card featured scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Menu1.jpg" alt="Grab Scan To Order 2.0" class="project-image" loading="lazy" />
 					</div>
@@ -101,7 +133,7 @@
 				</a>
 
 				<!-- Case Study 2: Disney+ Hotstar Browsing -->
-				<a href="browse-sheet.html" class="project-card scroll-animate">
+				<a href="browse-sheet.html" class="project-card scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/BS.png" alt="Disney+ Hotstar - Reimagining the Browsing Experience" class="project-image" loading="lazy" />
 					</div>
@@ -110,7 +142,7 @@
 							<span class="project-type">UX Case Study</span>
 							<span class="project-read-time">&bull; 9 min read</span>
 						</div>
-						<h3 class="project-title">Disney+ Hotstar - Reimagining Browsing</h3>
+						<h3 class="project-title italic-title">Disney+ Hotstar - Reimagining Browsing</h3>
 						<p class="project-desc">
 							An in-depth look into reimagining the mobile content details browsing experience with a keen focus on data analysis, hierarchy, and user research.
 						</p>
@@ -119,7 +151,7 @@
 				</a>
 
 				<!-- Case Study 3: Disney+ Hotstar TV Subscription -->
-				<a href="subscriber-tv.html" class="project-card scroll-animate">
+				<a href="subscriber-tv.html" class="project-card scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/TV.png" alt="Disney+ Hotstar Subscription on TV" class="project-image" loading="lazy" />
 					</div>
@@ -137,7 +169,7 @@
 				</a>
 
 				<!-- Case Study 4: Disney+ Hotstar Helpdesk -->
-				<a href="helpdesk.html" class="project-card scroll-animate">
+				<a href="helpdesk.html" class="project-card scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Helpdesk-1.png" alt="Disney+ Hotstar Helpdesk" class="project-image" loading="lazy" />
 					</div>
@@ -155,7 +187,7 @@
 				</a>
 
 				<!-- Case Study 5: Barter -->
-				<a href="barter.html" class="project-card scroll-animate">
+				<a href="barter.html" class="project-card scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Barter1.jpg" alt="Of Lendings and Borrowings: Barter" class="project-image" loading="lazy" />
 					</div>
@@ -164,16 +196,16 @@
 							<span class="project-type">UX Case Study</span>
 							<span class="project-read-time">&bull; 9 min read</span>
 						</div>
-						<h3 class="project-title">Of Lendings and Borrowings: Barter</h3>
+						<h3 class="project-title italic-title">Of Lendings and Borrowings: Barter</h3>
 						<p class="project-desc">
-							What if you don’t have to buy all the stuff you need? A conceptual peer-to-peer bartering system enabling local communities to easily list and exchange item access.
+							What if you don’t have to buy all the stuff you need? A peer-to-peer bartering system enabling local communities to easily list and exchange item access.
 						</p>
 						<span class="project-cta">Read Case Study <i class="fa-solid fa-arrow-right"></i></span>
 					</div>
 				</a>
 
-				<!-- Case Study 6: Grab Airport Transfers -->
-				<a href="airport-transfers.html" class="project-card scroll-animate">
+				<!-- Case Study 6: Grab Airport Transfers (Featured - Spans 2 cols) -->
+				<a href="airport-transfers.html" class="project-card featured scroll-animate interactive-el">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2025/airport-transfers/page_33_img_3.png" alt="Grab Airport Transfers &amp; Reserved Rides" class="project-image" loading="lazy" />
 					</div>
@@ -189,37 +221,6 @@
 						<span class="project-cta">Read Case Study <i class="fa-solid fa-arrow-right"></i></span>
 					</div>
 				</a>
-
-				<!-- Commented Out case studies kept for code reference as requested -->
-				<!--
-				<a href="https://medium.com/twocreative/redesigning-the-menu-card-truly-a-very-fruitful-project-6c7afa573f7d" target="_blank" rel="noopener" class="project-card scroll-animate">
-					<div class="project-media"><img src="./wp-content/uploads/2020/03/Menu1.jpg" class="project-image" /></div>
-					<div class="project-info">
-						<div class="project-meta"><span class="project-type">UX Case Study</span><span class="project-read-time">&bull; 5 min read</span></div>
-						<h3 class="project-title">Revamping the Menu Card</h3>
-						<p class="project-desc">Helping indecisive diners choose what to order without being at the mercy of friends.</p>
-						<span class="project-cta">Read on Medium <i class="fa-solid fa-arrow-right"></i></span>
-					</div>
-				</a>
-				<a href="https://medium.com/dsc-nit-rourkela/designing-for-easier-access-to-mental-healthcare-e35a14699de6" target="_blank" rel="noopener" class="project-card scroll-animate">
-					<div class="project-media"><img src="./wp-content/uploads/2020/02/Thumbnail1-02-02.jpg" class="project-image" /></div>
-					<div class="project-info">
-						<div class="project-meta"><span class="project-type">UX Case Study</span><span class="project-read-time">&bull; 12 min read</span></div>
-						<h3 class="project-title">Institute Counselling Services</h3>
-						<p class="project-desc">Designing user-centered portals to ease access to in-house mental healthcare and guidance services.</p>
-						<span class="project-cta">Read on Medium <i class="fa-solid fa-arrow-right"></i></span>
-					</div>
-				</a>
-				<a href="https://medium.com/@reubenabraham.official/refining-the-user-experience-for-monday-morning-c19f6e185bac" target="_blank" rel="noopener" class="project-card scroll-animate">
-					<div class="project-media"><img src="./wp-content/uploads/2020/02/02-01.jpg" class="project-image" /></div>
-					<div class="project-info">
-						<div class="project-meta"><span class="project-type">UX Case Study</span><span class="project-read-time">&bull; 7 min read</span></div>
-						<h3 class="project-title">Monday Morning App</h3>
-						<p class="project-desc">App redesign revamping user experience for the largest student media body in the country.</p>
-						<span class="project-cta">Read on Medium <i class="fa-solid fa-arrow-right"></i></span>
-					</div>
-				</a>
-				-->
 			</div>
 		</section>
 
@@ -228,31 +229,35 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">02 / Identity Design</span>
-					<h2 class="section-title">Branding Works</h2>
+					<h2 class="section-title">Branding <span class="italic-section">Works</span></h2>
 				</div>
 			</div>
 
 			<div class="branding-grid">
 				<!-- Branding 1: Innovision -->
-				<a href="innovision.html" class="branding-card scroll-animate">
+				<a href="innovision.html" class="branding-card scroll-animate interactive-el">
 					<div class="branding-media">
 						<img src="./wp-content/uploads/2020/03/INNO-COVER.jpg" alt="Innovision 2019" class="branding-image" loading="lazy" />
 					</div>
-					<h3 class="branding-title">Innovision 2019 Brand Identity</h3>
-					<p class="branding-desc">
-						Leading a design team to establish a bold, cohesive, and futuristic identity for Eastern India's largest techno-management festival, serving over 10,000 attendees.
-					</p>
+					<div class="branding-info">
+						<h3 class="branding-title">Innovision 2019 Brand Identity</h3>
+						<p class="branding-desc">
+							Leading a design team to establish a bold, cohesive, and futuristic identity for Eastern India's largest techno-management festival, serving over 10,000 attendees.
+						</p>
+					</div>
 				</a>
 
 				<!-- Branding 2: IMUN -->
-				<a href="mun.html" class="branding-card scroll-animate">
+				<a href="mun.html" class="branding-card scroll-animate interactive-el">
 					<div class="branding-media">
 						<img src="./wp-content/uploads/2020/03/MUN-COVER.jpg" alt="International Model United Nations" class="branding-image" loading="lazy" />
 					</div>
-					<h3 class="branding-title">International Model United Nations</h3>
-					<p class="branding-desc">
-						Crafting a professional, highly credible, and elegant visual identity system for NIT Rourkela's prestigious global student-run conference.
-					</p>
+					<div class="branding-info">
+						<h3 class="branding-title italic-title">International Model United Nations</h3>
+						<p class="branding-desc">
+							Crafting a professional, highly credible, and elegant visual identity system for NIT Rourkela's prestigious global student-run conference.
+						</p>
+					</div>
 				</a>
 			</div>
 		</section>
@@ -262,18 +267,18 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">03 / Creative Vault</span>
-					<h2 class="section-title">Other Works</h2>
+					<h2 class="section-title">Other Creative <span class="italic-section">Works</span></h2>
 				</div>
 			</div>
 
 			<!-- Filter tabs -->
 			<ul class="gallery-filters" id="galleryFilters">
-				<li><button class="filter-btn active" data-filter="all">All</button></li>
-				<li><button class="filter-btn" data-filter="video-editing">Video Editing</button></li>
-				<li><button class="filter-btn" data-filter="motion-graphics">Motion Graphics</button></li>
-				<li><button class="filter-btn" data-filter="illustrations">Illustrations</button></li>
-				<li><button class="filter-btn" data-filter="poster-design">Poster Design</button></li>
-				<li><button class="filter-btn" data-filter="logo-design">Logo Design</button></li>
+				<li><button class="filter-btn active interactive-el" data-filter="all">All</button></li>
+				<li><button class="filter-btn interactive-el" data-filter="video-editing">Video Editing</button></li>
+				<li><button class="filter-btn interactive-el" data-filter="motion-graphics">Motion Graphics</button></li>
+				<li><button class="filter-btn interactive-el" data-filter="illustrations">Illustrations</button></li>
+				<li><button class="filter-btn interactive-el" data-filter="poster-design">Poster Design</button></li>
+				<li><button class="filter-btn interactive-el" data-filter="logo-design">Logo Design</button></li>
 			</ul>
 
 			<!-- Gallery Grid -->
@@ -461,35 +466,42 @@
 		<div class="container footer-grid">
 			<div>
 				<h2 class="footer-heading">
-					Let's design something<br>
-					great together.<br>
-					<a href="mailto:reubenabraham.official@gmail.com">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="interactive-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
 				</h2>
-				<p class="footer-label" style="margin-top: 1rem;">Direct Email</p>
-				<p style="font-size: 1.1rem; margin-top: 0.5rem;"><a href="mailto:reubenabraham.official@gmail.com" style="color: var(--text-secondary); text-decoration: none;">reubenabraham.official@gmail.com</a></p>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.1rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="interactive-el" style="color: var(--text-secondary); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
 			</div>
 
 			<div class="footer-links">
 				<span class="footer-label">Navigation</span>
 				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-					<li><a href="#Home" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Back to Top</a></li>
-					<li><a href="#UX" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
-					<li><a href="#Branding" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
-					<li><a href="#Others" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+					<li><a href="#Home" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Back to Top</a></li>
+					<li><a href="#UX" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="#Branding" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="#Others" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
 				</ul>
 				
 				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
 				<ul class="social-links">
-					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link">LinkedIn</a></li>
-					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link">Vimeo</a></li>
-					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link">Medium</a></li>
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link interactive-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link interactive-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link interactive-el">Medium</a></li>
 				</ul>
 			</div>
 		</div>
 		
-		<div class="container footer-copyright">
+		<div class="container footer-copyright" style="position: relative;">
 			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham. Crafted with vanilla speed.</span>
-			<span>Classy Aesthetics &bull; Zero Bloat</span>
+			<div style="display: flex; align-items: center; gap: 1.5rem;">
+				<span>Classy Aesthetics &bull; Zero Bloat</span>
+				<!-- Generated hand craftsmanship stamp badge -->
+				<div style="width: 45px; height: 45px; opacity: 0.85;">
+					<img src="wp-content/uploads/2026/landing/badge_crafted_pride.png" alt="Crafted with Pride stamp badge" style="width: 100%; height: 100%; object-fit: contain;" />
+				</div>
+			</div>
 		</div>
 	</footer>
 
@@ -512,7 +524,187 @@
 
 	<!-- Core Interactions Script -->
 	<script>
-		// --- 1. Dynamic Clock & Status ---
+		// --- 1. Audio FX Synthesizer Class (Marco-inspired Web Audio Synth) ---
+		class AudioFX {
+			constructor() {
+				this.ctx = null;
+				this.enabled = false;
+			}
+			init() {
+				if (this.ctx) return;
+				try {
+					this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+				} catch (e) {
+					console.warn("Web Audio API is not supported in this browser.");
+				}
+			}
+			enable() {
+				this.init();
+				this.enabled = true;
+			}
+			disable() {
+				this.enabled = false;
+			}
+			playTick() {
+				if (!this.enabled || !this.ctx) return;
+				if (this.ctx.state === 'suspended') this.ctx.resume();
+				
+				const osc = this.ctx.createOscillator();
+				const gain = this.ctx.createGain();
+				
+				osc.type = 'sine';
+				osc.frequency.setValueAtTime(1400, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(3200, this.ctx.currentTime + 0.012);
+				
+				gain.gain.setValueAtTime(0.01, this.ctx.currentTime); // Very quiet tick
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.012);
+				
+				osc.connect(gain);
+				gain.connect(this.ctx.destination);
+				
+				osc.start();
+				osc.stop(this.ctx.currentTime + 0.012);
+			}
+			playTock() {
+				if (!this.enabled || !this.ctx) return;
+				if (this.ctx.state === 'suspended') this.ctx.resume();
+				
+				const osc = this.ctx.createOscillator();
+				const gain = this.ctx.createGain();
+				
+				osc.type = 'triangle';
+				osc.frequency.setValueAtTime(300, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(80, this.ctx.currentTime + 0.04);
+				
+				gain.gain.setValueAtTime(0.08, this.ctx.currentTime); // Soft woody tock
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.04);
+				
+				osc.connect(gain);
+				gain.connect(this.ctx.destination);
+				
+				osc.start();
+				osc.stop(this.ctx.currentTime + 0.04);
+			}
+		}
+		const audiofx = new AudioFX();
+
+		// Sound FX Toggle Logic
+		const soundToggle = document.getElementById('soundToggle');
+		let soundEnabled = localStorage.getItem('sound_fx_enabled') === 'true';
+
+		function updateSoundToggleState() {
+			const icon = soundToggle.querySelector('i');
+			if (soundEnabled) {
+				soundToggle.classList.add('sound-on');
+				icon.className = 'fa-solid fa-volume-high';
+				audiofx.enable();
+			} else {
+				soundToggle.classList.remove('sound-on');
+				icon.className = 'fa-solid fa-volume-xmark';
+				audiofx.disable();
+			}
+		}
+
+		soundToggle.addEventListener('click', () => {
+			soundEnabled = !soundEnabled;
+			localStorage.setItem('sound_fx_enabled', soundEnabled);
+			audiofx.init(); // Init context
+			updateSoundToggleState();
+			if (soundEnabled) {
+				audiofx.playTock();
+			}
+		});
+
+		updateSoundToggleState();
+
+		// Bind click sounds globally
+		document.addEventListener('click', (e) => {
+			if (e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item')) {
+				audiofx.playTock();
+			}
+		});
+
+		// Bind hover sounds
+		document.addEventListener('mouseenter', (e) => {
+			const target = e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
+			if (target && !target.dataset.hovered) {
+				audiofx.playTick();
+				target.dataset.hovered = 'true';
+			}
+		}, true);
+
+		document.addEventListener('mouseleave', (e) => {
+			const target = e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
+			if (target) {
+				delete target.dataset.hovered;
+			}
+		}, true);
+
+		// --- 2. Page Loading Preloader Controller (Sanvithi-inspired) ---
+		const preloader = document.getElementById('preloader');
+		const preloaderWord = document.getElementById('preloaderWord');
+		const preloaderCounter = document.getElementById('preloaderCounter');
+		
+		const loaderWords = ["REUBEN ABRAHAM", "UX CASE STUDIES", "BRANDING IDENTITY", "CHEESECAKE & PIZZA", "HELLO!"];
+		let currentWordIdx = 0;
+		let loadingPercent = 0;
+		
+		const wordCycleInterval = setInterval(() => {
+			currentWordIdx = (currentWordIdx + 1) % loaderWords.length;
+			preloaderWord.classList.remove('active');
+			setTimeout(() => {
+				preloaderWord.textContent = loaderWords[currentWordIdx];
+				preloaderWord.classList.add('active');
+			}, 100);
+		}, 250);
+		
+		const percentInterval = setInterval(() => {
+			loadingPercent += Math.floor(Math.random() * 8) + 4;
+			if (loadingPercent >= 100) {
+				loadingPercent = 100;
+				clearInterval(percentInterval);
+				clearInterval(wordCycleInterval);
+				finishPreloader();
+			}
+			preloaderCounter.textContent = `${loadingPercent}%`;
+		}, 60);
+		
+		function finishPreloader() {
+			preloaderWord.textContent = "HELLO!";
+			preloaderWord.classList.add('active');
+			setTimeout(() => {
+				preloader.classList.add('exited');
+				setTimeout(() => {
+					preloader.style.display = 'none';
+					document.body.classList.add('loaded');
+				}, 1100);
+			}, 300);
+		}
+
+		// --- 3. Floating Hero Stamp Parallax / Magnetic Interaction ---
+		const stampWrapper = document.querySelector('.stamp-wrapper');
+		const heroStamp = document.getElementById('heroStamp');
+		const heroBadge = document.getElementById('heroBadge');
+		
+		if (stampWrapper && heroStamp && heroBadge) {
+			stampWrapper.addEventListener('mousemove', (e) => {
+				const rect = stampWrapper.getBoundingClientRect();
+				const x = e.clientX - rect.left - rect.width / 2;
+				const y = e.clientY - rect.top - rect.height / 2;
+				
+				// Skew and pull stamp gently
+				heroStamp.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px) rotateX(${-y * 0.05}deg) rotateY(${x * 0.05}deg)`;
+				// Magnetic BADGE rotates and pulls faster
+				heroBadge.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) rotate(${(x + y) * 0.15}deg) scale(1.05)`;
+			});
+			
+			stampWrapper.addEventListener('mouseleave', () => {
+				heroStamp.style.transform = 'translate(0, 0) rotateX(0) rotateY(0)';
+				heroBadge.style.transform = 'translate(0, 0)';
+			});
+		}
+
+		// --- 4. Dynamic Clock ---
 		function updateClock() {
 			const timeWidget = document.getElementById('currentTime');
 			const options = {
@@ -532,7 +724,7 @@
 		// Set current copyright year automatically
 		document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-		// --- 2. Dynamic Typing greeting effect ---
+		// --- 5. Dynamic Greeting Typing Effect (Hero) ---
 		const greetings = ["नमस्ते!", "Hello!", "Bonjour!", "Namaste!", "Vanakkam!"];
 		let greetingIndex = 0;
 		const typingElement = document.getElementById('typingElement');
@@ -540,18 +732,18 @@
 		function cycleGreetings() {
 			typingElement.style.opacity = 0;
 			typingElement.style.transform = 'translateY(10px)';
-			typingElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+			typingElement.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 			
 			setTimeout(() => {
 				greetingIndex = (greetingIndex + 1) % greetings.length;
 				typingElement.textContent = greetings[greetingIndex];
 				typingElement.style.opacity = 1;
 				typingElement.style.transform = 'translateY(0)';
-			}, 500);
+			}, 400);
 		}
-		setInterval(cycleGreetings, 3500);
+		setInterval(cycleGreetings, 3200);
 
-		// --- 3. Scroll Progress Indicator & Header shadow ---
+		// --- 6. Scroll Progress Indicator & Header Shadow/Padding ---
 		const scrollProgress = document.getElementById('scrollProgress');
 		const mainHeader = document.getElementById('mainHeader');
 		
@@ -562,15 +754,15 @@
 			scrollProgress.style.width = scrolled + '%';
 			
 			if (scrollTop > 50) {
-				mainHeader.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
-				mainHeader.style.padding = '0.25rem 0';
+				mainHeader.style.boxShadow = '0 10px 30px rgba(24, 25, 27, 0.05)';
+				mainHeader.style.padding = '0';
 			} else {
 				mainHeader.style.boxShadow = 'none';
-				mainHeader.style.padding = '0';
+				mainHeader.style.padding = '0.5rem 0';
 			}
 		});
 
-		// --- 4. Navigation Spy Scroll Active Link Tracking ---
+		// --- 7. Navigation Spy Scroll ---
 		const navLinks = document.querySelectorAll('.nav-link');
 		const sections = document.querySelectorAll('section');
 
@@ -578,8 +770,7 @@
 			let current = 'Home';
 			sections.forEach(section => {
 				const sectionTop = section.offsetTop;
-				const sectionHeight = section.clientHeight;
-				if (window.scrollY >= (sectionTop - 200)) {
+				if (window.scrollY >= (sectionTop - 220)) {
 					current = section.getAttribute('id');
 				}
 			});
@@ -592,13 +783,12 @@
 			});
 		});
 
-		// --- 5. Filterable Gallery Controller ---
+		// --- 8. Filterable Gallery Controller ---
 		const filterButtons = document.querySelectorAll('.filter-btn');
 		const galleryItems = document.querySelectorAll('.gallery-item');
 
 		filterButtons.forEach(button => {
 			button.addEventListener('click', () => {
-				// Set active button style
 				filterButtons.forEach(btn => btn.classList.remove('active'));
 				button.classList.add('active');
 				
@@ -607,26 +797,24 @@
 				galleryItems.forEach(item => {
 					const category = item.getAttribute('data-category');
 					
-					// Filter visibility
 					if (filter === 'all' || category === filter) {
 						item.style.display = 'block';
-						// Trigger animation refresh
 						setTimeout(() => {
 							item.style.opacity = '1';
 							item.style.transform = 'scale(1)';
 						}, 50);
 					} else {
 						item.style.opacity = '0';
-						item.style.transform = 'scale(0.8)';
+						item.style.transform = 'scale(0.85)';
 						setTimeout(() => {
 							item.style.display = 'none';
-						}, 350); // Match transit timing
+						}, 300);
 					}
 				});
 			});
 		});
 
-		// --- 6. Custom native vanilla Lightbox Modal (Images & Vimeo API) ---
+		// --- 9. Lightbox Modal (Images & Vimeo API) ---
 		const lightbox = document.getElementById('galleryLightbox');
 		const lightboxClose = document.getElementById('lightboxClose');
 		const mediaArea = document.getElementById('lightboxMediaArea');
@@ -639,14 +827,11 @@
 				const title = item.getAttribute('data-title');
 				const desc = item.getAttribute('data-desc') || '';
 				
-				// Clear previous content
 				mediaArea.innerHTML = '';
 				
-				// Inject Vimeo player or standard image based on media URL
 				if (mediaUrl.includes('vimeo.com')) {
-					// Extract Vimeo ID (e.g., https://vimeo.com/441734242 -> 441734242)
 					const vimeoId = mediaUrl.split('/').pop();
-					const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=d97706&title=0&byline=0&portrait=0`;
+					const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=c64d32&title=0&byline=0&portrait=0`;
 					
 					mediaArea.innerHTML = `
 						<div class="lightbox-video-container">
@@ -654,64 +839,55 @@
 						</div>
 					`;
 				} else {
-					// Fallback to load source image
 					mediaArea.innerHTML = `<img src="${mediaUrl}" alt="${title}" class="lightbox-img" />`;
 				}
 				
-				// Populate tags
 				lTitle.textContent = title;
 				lDesc.textContent = desc;
 				
-				// Open lightbox
 				lightbox.classList.add('active');
-				document.body.style.overflow = 'hidden'; // Lock scrolling
+				document.body.style.overflow = 'hidden';
 			});
 		});
 
-		// Close lightbox event handles
 		function closeLightbox() {
 			lightbox.classList.remove('active');
-			document.body.style.overflow = ''; // Unlock scrolling
-			// Stop video playing by clearing iframe src
+			document.body.style.overflow = '';
 			mediaArea.innerHTML = '';
 		}
 
 		lightboxClose.addEventListener('click', closeLightbox);
 		
-		// Close on clicking outside lightbox container
 		lightbox.addEventListener('click', (e) => {
 			if (e.target === lightbox) {
 				closeLightbox();
 			}
 		});
 
-		// Close on Escape keyboard key
 		window.addEventListener('keydown', (e) => {
 			if (e.key === 'Escape' && lightbox.classList.contains('active')) {
 				closeLightbox();
 			}
 		});
 
-		// --- 7. IntersectionObserver scroll animation fallback strategy ---
-		// If browser doesn't natively support scroll View Timelines, apply standard scroll triggers.
-		if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+		// --- 10. IntersectionObserver Scroll Animations Fallback ---
+		if (!CSS.supports('(animation-timeline: view()) and (animation-range: 0% 100%)')) {
 			const revealObserver = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						entry.target.style.opacity = '1';
 						entry.target.style.transform = 'translateY(0) scale(1)';
-						entry.target.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+						entry.target.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
 					}
 				});
 			}, {
-				threshold: 0.1,
-				rootMargin: '0px 0px -100px 0px'
+				threshold: 0.05,
+				rootMargin: '0px 0px -80px 0px'
 			});
 
 			document.querySelectorAll('.scroll-animate').forEach(el => {
-				// Set initial styles for fallback browsers
 				el.style.opacity = '0';
-				el.style.transform = 'translateY(50px) scale(0.97)';
+				el.style.transform = 'translateY(40px) scale(0.98)';
 				revealObserver.observe(el);
 			});
 		}
