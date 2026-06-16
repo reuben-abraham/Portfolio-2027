@@ -24,19 +24,26 @@
 </head>
 
 <body>
-	<!-- Page Preloader (Sanvithi inspired) -->
+	<!-- Custom Interactive Cursor Elements -->
+	<div class="cursor-dot" id="cursorDot"></div>
+	<div class="cursor-ring" id="cursorRing">
+		<div class="cursor-text" id="cursorText">VIEW</div>
+	</div>
+
+	<!-- Page Preloader (Circular Reveal) -->
 	<div id="preloader">
-		<div class="preloader-bg-sheets">
-			<div class="preloader-sheet"></div>
-			<div class="preloader-sheet"></div>
-			<div class="preloader-sheet"></div>
-			<div class="preloader-sheet"></div>
-		</div>
 		<div class="preloader-content">
 			<div class="preloader-word active" id="preloaderWord">REUBEN ABRAHAM</div>
+			<div class="preloader-progress-track">
+				<div class="preloader-progress-bar" id="preloaderBar"></div>
+			</div>
 			<div class="preloader-counter" id="preloaderCounter">0%</div>
 		</div>
 	</div>
+
+	<!-- Glowing Spotlights -->
+	<div class="glow-backdrop glow-hero"></div>
+	<div class="glow-backdrop glow-footer"></div>
 
 	<!-- Scroll Progress Bar -->
 	<div class="scroll-progress" id="scrollProgress"></div>
@@ -44,21 +51,21 @@
 	<!-- Navigation Header -->
 	<header id="mainHeader">
 		<div class="header-container">
-			<a href="#Home" class="logo-container interactive-el">
+			<a href="#Home" class="logo-container magnetic-el">
 				<div class="logo-dot"></div>
 				<span class="logo-text">REUBEN ABRAHAM</span>
 			</a>
 			
 			<nav>
 				<ul class="nav-menu">
-					<li><a href="#Home" class="nav-link active interactive-el">Home</a></li>
-					<li><a href="#UX" class="nav-link interactive-el">UX</a></li>
-					<li><a href="#Branding" class="nav-link interactive-el">Branding</a></li>
-					<li><a href="#Others" class="nav-link interactive-el">Others</a></li>
+					<li><a href="#Home" class="nav-link active magnetic-el">Home</a></li>
+					<li><a href="#UX" class="nav-link magnetic-el">UX</a></li>
+					<li><a href="#Branding" class="nav-link magnetic-el">Branding</a></li>
+					<li><a href="#Others" class="nav-link magnetic-el">Others</a></li>
 				</ul>
 				
-				<!-- Sound control toggle (Marco-style) -->
-				<button class="sound-toggle-btn interactive-el" id="soundToggle" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+				<!-- Sound control toggle -->
+				<button class="sound-toggle-btn magnetic-el" id="soundToggle" title="Toggle Sound FX" aria-label="Toggle Sound FX">
 					<i class="fa-solid fa-volume-xmark"></i>
 				</button>
 			</nav>
@@ -73,31 +80,45 @@
 	<main class="container">
 		<!-- Hero Section -->
 		<section class="hero" id="Home">
+			<!-- Interactive Grid Canvas Background -->
+			<div class="hero-grid-canvas" id="heroGrid"></div>
+			
 			<div class="hero-content">
 				<div class="hero-tag">Product Designer</div>
-				<h1 class="hero-title">
-					<span class="hero-typing" id="typingElement">नमस्ते!</span><br>
-					I am Reuben. <span class="italic-title">I design premium digital experiences.</span>
+				<h1 class="hero-title" id="heroTitle">
+					CREATING <span class="italic-highlight" id="typingElement">नमस्ते!</span><br>
+					DIGITAL EXPERIENCES.
 				</h1>
-				<p class="hero-description">
-					I solve complex user experience problems, laugh at extremely lame jokes, and bake delicious cheesecakes in Bengaluru, India.
+				<p class="hero-description" id="heroDesc">
+					I design premium user experiences, laugh at extremely lame jokes, and bake delicious cheesecakes in Bengaluru, India.
 				</p>
-				<div class="hero-buttons">
-					<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-primary interactive-el">
+				<div class="hero-buttons" id="heroBtns">
+					<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-primary magnetic-el">
 						Read my Story <i class="fa-solid fa-arrow-right"></i>
 					</a>
-					<a href="#UX" class="btn btn-secondary interactive-el">
-						Unravel the experience <i class="fa-solid fa-angle-down"></i>
+					<a href="#UX" class="btn btn-secondary magnetic-el">
+						Selected Work <i class="fa-solid fa-angle-down"></i>
 					</a>
 				</div>
 			</div>
 			
-			<div class="hero-visual">
-				<div class="stamp-wrapper">
-					<!-- Generated stamp decoration -->
-					<img src="wp-content/uploads/2026/landing/stamp_reuben_designer.png" alt="Reuben Design Stamp" class="interactive-stamp" id="heroStamp" />
-					<!-- Floating baker badge decoration -->
-					<div class="floating-badge" id="heroBadge">
+			<div class="hero-visual" id="heroVisual">
+				<!-- 3D Tilting Card -->
+				<div class="poster-3d-container" id="heroPoster">
+					<div class="poster-card">
+						<div class="poster-media">
+							<img src="wp-content/uploads/2020/03/Menu1.jpg" alt="Featured Work - Grab Scan To Order" />
+						</div>
+						<div class="poster-info">
+							<span class="poster-tag">FEATURED PROJECT</span>
+							<h3 class="poster-title">Grab Scan To Order 2.0</h3>
+						</div>
+					</div>
+					<!-- Floating stamps in 3D space -->
+					<div class="decor-badge decor-badge-stamp">
+						<img src="wp-content/uploads/2026/landing/stamp_reuben_designer.png" alt="Reuben Design Postage Stamp" />
+					</div>
+					<div class="decor-badge decor-badge-seal">
 						<img src="wp-content/uploads/2026/landing/badge_cheesecake_baker.png" alt="Cheesecake Baker Seal" />
 					</div>
 				</div>
@@ -109,13 +130,13 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">01 / Selected Work</span>
-					<h2 class="section-title">UX Case Studies <span class="italic-section">&amp; Solutions</span></h2>
+					<h2 class="section-title">UX Case Studies <span class="italic-span">&amp; Solutions</span></h2>
 				</div>
 			</div>
 
 			<div class="projects-feed">
-				<!-- Case Study 1: Grab Scan to Order (Featured - Spans 2 cols) -->
-				<a href="scan-to-order-2-0.html" class="project-card featured scroll-animate interactive-el">
+				<!-- Case Study 1: Grab Scan to Order (Featured - Full Width) -->
+				<a href="scan-to-order-2-0.html" class="project-card featured-card scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Menu1.jpg" alt="Grab Scan To Order 2.0" class="project-image" loading="lazy" />
 					</div>
@@ -132,8 +153,8 @@
 					</div>
 				</a>
 
-				<!-- Case Study 2: Disney+ Hotstar Browsing -->
-				<a href="browse-sheet.html" class="project-card scroll-animate interactive-el">
+				<!-- Case Study 2: Disney+ Hotstar Browsing (Span 8) -->
+				<a href="browse-sheet.html" class="project-card span-8 scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/BS.png" alt="Disney+ Hotstar - Reimagining the Browsing Experience" class="project-image" loading="lazy" />
 					</div>
@@ -142,7 +163,7 @@
 							<span class="project-type">UX Case Study</span>
 							<span class="project-read-time">&bull; 9 min read</span>
 						</div>
-						<h3 class="project-title italic-title">Disney+ Hotstar - Reimagining Browsing</h3>
+						<h3 class="project-title">Disney+ Hotstar - Reimagining Browsing</h3>
 						<p class="project-desc">
 							An in-depth look into reimagining the mobile content details browsing experience with a keen focus on data analysis, hierarchy, and user research.
 						</p>
@@ -150,8 +171,8 @@
 					</div>
 				</a>
 
-				<!-- Case Study 3: Disney+ Hotstar TV Subscription -->
-				<a href="subscriber-tv.html" class="project-card scroll-animate interactive-el">
+				<!-- Case Study 3: Disney+ Hotstar TV Subscription (Span 4) -->
+				<a href="subscriber-tv.html" class="project-card span-4 scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/TV.png" alt="Disney+ Hotstar Subscription on TV" class="project-image" loading="lazy" />
 					</div>
@@ -160,16 +181,16 @@
 							<span class="project-type">UX Case Study</span>
 							<span class="project-read-time">&bull; 5 min read</span>
 						</div>
-						<h3 class="project-title">Transitioning to Subscriber-Only TV Service</h3>
+						<h3 class="project-title">Transitioning to Subscriber-Only TV</h3>
 						<p class="project-desc">
-							Strategizing and designing the transition of India's biggest streaming service from a freemium to premium-only layout on smart TVs without damaging user retention.
+							Strategizing the transition of India's biggest streaming service from freemium to premium on smart TVs.
 						</p>
 						<span class="project-cta">Read Case Study <i class="fa-solid fa-arrow-right"></i></span>
 					</div>
 				</a>
 
-				<!-- Case Study 4: Disney+ Hotstar Helpdesk -->
-				<a href="helpdesk.html" class="project-card scroll-animate interactive-el">
+				<!-- Case Study 4: Disney+ Hotstar Helpdesk (Span 4) -->
+				<a href="helpdesk.html" class="project-card span-4 scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Helpdesk-1.png" alt="Disney+ Hotstar Helpdesk" class="project-image" loading="lazy" />
 					</div>
@@ -180,14 +201,14 @@
 						</div>
 						<h3 class="project-title">Building Disney+ Hotstar’s Helpdesk</h3>
 						<p class="project-desc">
-							Designing a robust, functional, and self-serving customer support platform that helps millions of users easily find resolutions and reach out for assistance.
+							Designing a robust, functional, and self-serving customer support platform for millions of active users.
 						</p>
 						<span class="project-cta">Read Case Study <i class="fa-solid fa-arrow-right"></i></span>
 					</div>
 				</a>
 
-				<!-- Case Study 5: Barter -->
-				<a href="barter.html" class="project-card scroll-animate interactive-el">
+				<!-- Case Study 5: Barter (Span 8) -->
+				<a href="barter.html" class="project-card span-8 scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Barter1.jpg" alt="Of Lendings and Borrowings: Barter" class="project-image" loading="lazy" />
 					</div>
@@ -196,16 +217,16 @@
 							<span class="project-type">UX Case Study</span>
 							<span class="project-read-time">&bull; 9 min read</span>
 						</div>
-						<h3 class="project-title italic-title">Of Lendings and Borrowings: Barter</h3>
+						<h3 class="project-title">Of Lendings and Borrowings: Barter</h3>
 						<p class="project-desc">
-							What if you don’t have to buy all the stuff you need? A peer-to-peer bartering system enabling local communities to easily list and exchange item access.
+							What if you don’t have to buy all the stuff you need? A peer-to-peer bartering system enabling local communities to exchange item access.
 						</p>
 						<span class="project-cta">Read Case Study <i class="fa-solid fa-arrow-right"></i></span>
 					</div>
 				</a>
 
-				<!-- Case Study 6: Grab Airport Transfers (Featured - Spans 2 cols) -->
-				<a href="airport-transfers.html" class="project-card featured scroll-animate interactive-el">
+				<!-- Case Study 6: Grab Airport Transfers (Featured - Full Width) -->
+				<a href="airport-transfers.html" class="project-card featured-card scroll-animate badge-trigger">
 					<div class="project-media">
 						<img src="./wp-content/uploads/2025/airport-transfers/page_33_img_3.png" alt="Grab Airport Transfers &amp; Reserved Rides" class="project-image" loading="lazy" />
 					</div>
@@ -229,13 +250,13 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">02 / Identity Design</span>
-					<h2 class="section-title">Branding <span class="italic-section">Works</span></h2>
+					<h2 class="section-title">Branding <span class="italic-span">Works</span></h2>
 				</div>
 			</div>
 
 			<div class="branding-grid">
 				<!-- Branding 1: Innovision -->
-				<a href="innovision.html" class="branding-card scroll-animate interactive-el">
+				<a href="innovision.html" class="branding-card scroll-animate badge-trigger">
 					<div class="branding-media">
 						<img src="./wp-content/uploads/2020/03/INNO-COVER.jpg" alt="Innovision 2019" class="branding-image" loading="lazy" />
 					</div>
@@ -248,12 +269,12 @@
 				</a>
 
 				<!-- Branding 2: IMUN -->
-				<a href="mun.html" class="branding-card scroll-animate interactive-el">
+				<a href="mun.html" class="branding-card scroll-animate badge-trigger">
 					<div class="branding-media">
 						<img src="./wp-content/uploads/2020/03/MUN-COVER.jpg" alt="International Model United Nations" class="branding-image" loading="lazy" />
 					</div>
 					<div class="branding-info">
-						<h3 class="branding-title italic-title">International Model United Nations</h3>
+						<h3 class="branding-title">International Model United Nations</h3>
 						<p class="branding-desc">
 							Crafting a professional, highly credible, and elegant visual identity system for NIT Rourkela's prestigious global student-run conference.
 						</p>
@@ -267,24 +288,24 @@
 			<div class="section-header">
 				<div class="section-title-wrapper">
 					<span class="section-label">03 / Creative Vault</span>
-					<h2 class="section-title">Other Creative <span class="italic-section">Works</span></h2>
+					<h2 class="section-title">Other Creative <span class="italic-span">Works</span></h2>
 				</div>
 			</div>
 
 			<!-- Filter tabs -->
 			<ul class="gallery-filters" id="galleryFilters">
-				<li><button class="filter-btn active interactive-el" data-filter="all">All</button></li>
-				<li><button class="filter-btn interactive-el" data-filter="video-editing">Video Editing</button></li>
-				<li><button class="filter-btn interactive-el" data-filter="motion-graphics">Motion Graphics</button></li>
-				<li><button class="filter-btn interactive-el" data-filter="illustrations">Illustrations</button></li>
-				<li><button class="filter-btn interactive-el" data-filter="poster-design">Poster Design</button></li>
-				<li><button class="filter-btn interactive-el" data-filter="logo-design">Logo Design</button></li>
+				<li><button class="filter-btn active magnetic-el" data-filter="all">All</button></li>
+				<li><button class="filter-btn magnetic-el" data-filter="video-editing">Video Editing</button></li>
+				<li><button class="filter-btn magnetic-el" data-filter="motion-graphics">Motion Graphics</button></li>
+				<li><button class="filter-btn magnetic-el" data-filter="illustrations">Illustrations</button></li>
+				<li><button class="filter-btn magnetic-el" data-filter="poster-design">Poster Design</button></li>
+				<li><button class="filter-btn magnetic-el" data-filter="logo-design">Logo Design</button></li>
 			</ul>
 
 			<!-- Gallery Grid -->
 			<div class="gallery-grid" id="galleryGrid">
 				<!-- Item 1 -->
-				<div class="gallery-item" data-category="video-editing" data-media="https://vimeo.com/441734242" data-title="Innovision Promo Film" data-desc="Official video editing and editing sequence direction for the Innovision festival promotional media.">
+				<div class="gallery-item badge-trigger" data-category="video-editing" data-media="https://vimeo.com/441734242" data-title="Innovision Promo Film" data-desc="Official video editing and editing sequence direction for the Innovision festival promotional media.">
 					<img src="./wp-content/uploads/2020/07/Inno-18.jpg" alt="Innovision Promo Film" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -293,7 +314,7 @@
 					</div>
 				</div>
 				<!-- Item 2 -->
-				<div class="gallery-item" data-category="video-editing" data-media="https://vimeo.com/441732770" data-title="Innovision Aftermovie" data-desc="Official video edits and color grading sequence for the post-fest recap trailer.">
+				<div class="gallery-item badge-trigger" data-category="video-editing" data-media="https://vimeo.com/441732770" data-title="Innovision Aftermovie" data-desc="Official video edits and color grading sequence for the post-fest recap trailer.">
 					<img src="./wp-content/uploads/2020/04/INNO2.jpg" alt="Innovision Aftermovie" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -302,7 +323,7 @@
 					</div>
 				</div>
 				<!-- Item 3 -->
-				<div class="gallery-item" data-category="video-editing" data-media="https://vimeo.com/441732572" data-title="Fusion Fashion Show Reel" data-desc="Creative video editing and tempo synchronization for the Fusion fashion event introduction reel.">
+				<div class="gallery-item badge-trigger" data-category="video-editing" data-media="https://vimeo.com/441732572" data-title="Fusion Fashion Show Reel" data-desc="Creative video editing and tempo synchronization for the Fusion fashion event introduction reel.">
 					<img src="./wp-content/uploads/2020/04/FUSION2.jpg" alt="Fusion Fashion Show Reel" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -311,7 +332,7 @@
 					</div>
 				</div>
 				<!-- Item 4 -->
-				<div class="gallery-item" data-category="motion-graphics" data-media="https://vimeo.com/441733536" data-title="Engineers Day Motion Opener" data-desc="A kinetic title animation sequence celebrating Engineers Day, animated in After Effects.">
+				<div class="gallery-item badge-trigger" data-category="motion-graphics" data-media="https://vimeo.com/441733536" data-title="Engineers Day Motion Opener" data-desc="A kinetic title animation sequence celebrating Engineers Day, animated in After Effects.">
 					<img src="./wp-content/uploads/2020/04/ENGDAY.jpg" alt="Engineers Day Title Sequence" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -320,7 +341,7 @@
 					</div>
 				</div>
 				<!-- Item 5 -->
-				<div class="gallery-item" data-category="motion-graphics" data-media="https://vimeo.com/441732656" data-title="Innovision Liquid Animation" data-desc="Liquid simulation text reveal used as transition elements in promotional campaigns.">
+				<div class="gallery-item badge-trigger" data-category="motion-graphics" data-media="https://vimeo.com/441732656" data-title="Innovision Liquid Animation" data-desc="Liquid simulation text reveal used as transition elements in promotional campaigns.">
 					<img src="./wp-content/uploads/2020/04/INNOANIMATION2.jpg" alt="Innovision Liquid Animation" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -329,7 +350,7 @@
 					</div>
 				</div>
 				<!-- Item 6 -->
-				<div class="gallery-item" data-category="motion-graphics" data-media="https://vimeo.com/441733554" data-title="Friendship Day Promo" data-desc="Subtle vector graphic loop animation for Friendship day social handles.">
+				<div class="gallery-item badge-trigger" data-category="motion-graphics" data-media="https://vimeo.com/441733554" data-title="Friendship Day Promo" data-desc="Subtle vector graphic loop animation for Friendship day social handles.">
 					<img src="./wp-content/uploads/2020/07/Happy-Friendship-Day.png" alt="Friendship Day Loop" class="gallery-thumb" loading="lazy" />
 					<div class="gallery-play-icon"><i class="fa-solid fa-play"></i></div>
 					<div class="gallery-overlay">
@@ -465,30 +486,30 @@
 	<footer>
 		<div class="container footer-grid">
 			<div>
-				<h2 class="footer-heading">
+				<h2 class="footer-heading" id="footerHeading">
 					Let's design <span class="italic-heading">something great</span> together.<br>
-					<a href="mailto:reubenabraham.official@gmail.com" class="interactive-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
 				</h2>
 				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
-				<p style="font-size: 1.1rem; margin-top: 0.5rem;">
-					<a href="mailto:reubenabraham.official@gmail.com" class="interactive-el" style="color: var(--text-secondary); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: var(--text-secondary); text-decoration: none;">reubenabraham.official@gmail.com</a>
 				</p>
 			</div>
 
 			<div class="footer-links">
 				<span class="footer-label">Navigation</span>
 				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-					<li><a href="#Home" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Back to Top</a></li>
-					<li><a href="#UX" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
-					<li><a href="#Branding" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
-					<li><a href="#Others" class="interactive-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+					<li><a href="#Home" class="magnetic-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Back to Top</a></li>
+					<li><a href="#UX" class="magnetic-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="#Branding" class="magnetic-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="#Others" class="magnetic-el" style="color: var(--text-secondary); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
 				</ul>
 				
 				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
 				<ul class="social-links">
-					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link interactive-el">LinkedIn</a></li>
-					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link interactive-el">Vimeo</a></li>
-					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link interactive-el">Medium</a></li>
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
 				</ul>
 			</div>
 		</div>
@@ -497,7 +518,7 @@
 			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham. Crafted with vanilla speed.</span>
 			<div style="display: flex; align-items: center; gap: 1.5rem;">
 				<span>Classy Aesthetics &bull; Zero Bloat</span>
-				<!-- Generated hand craftsmanship stamp badge -->
+				<!-- Craft stamp seal signature -->
 				<div style="width: 45px; height: 45px; opacity: 0.85;">
 					<img src="wp-content/uploads/2026/landing/badge_crafted_pride.png" alt="Crafted with Pride stamp badge" style="width: 100%; height: 100%; object-fit: contain;" />
 				</div>
@@ -510,9 +531,8 @@
 		<div class="lightbox-content">
 			<button class="lightbox-close" id="lightboxClose" aria-label="Close modal">&times;</button>
 			
-			<!-- Modal Visual Area -->
 			<div id="lightboxMediaArea" style="width:100%; display:flex; justify-content:center;">
-				<!-- Image or iframe will be inserted here dynamically -->
+				<!-- Dynamic Image/Vimeo Iframe -->
 			</div>
 			
 			<div class="lightbox-caption">
@@ -522,9 +542,14 @@
 		</div>
 	</div>
 
-	<!-- Core Interactions Script -->
+	<!-- CDNs: GSAP + ScrollTrigger + Lenis -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+
+	<!-- Core Script Code -->
 	<script>
-		// --- 1. Audio FX Synthesizer Class (Marco-inspired Web Audio Synth) ---
+		// --- 1. Audio FX Synthesizer ---
 		class AudioFX {
 			constructor() {
 				this.ctx = null;
@@ -535,7 +560,7 @@
 				try {
 					this.ctx = new (window.AudioContext || window.webkitAudioContext)();
 				} catch (e) {
-					console.warn("Web Audio API is not supported in this browser.");
+					console.warn("Web Audio API not supported.");
 				}
 			}
 			enable() {
@@ -553,17 +578,17 @@
 				const gain = this.ctx.createGain();
 				
 				osc.type = 'sine';
-				osc.frequency.setValueAtTime(1400, this.ctx.currentTime);
-				osc.frequency.exponentialRampToValueAtTime(3200, this.ctx.currentTime + 0.012);
+				osc.frequency.setValueAtTime(1600, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(3500, this.ctx.currentTime + 0.01);
 				
-				gain.gain.setValueAtTime(0.01, this.ctx.currentTime); // Very quiet tick
-				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.012);
+				gain.gain.setValueAtTime(0.008, this.ctx.currentTime); // Soft tick
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.01);
 				
 				osc.connect(gain);
 				gain.connect(this.ctx.destination);
 				
 				osc.start();
-				osc.stop(this.ctx.currentTime + 0.012);
+				osc.stop(this.ctx.currentTime + 0.01);
 			}
 			playTock() {
 				if (!this.enabled || !this.ctx) return;
@@ -573,22 +598,22 @@
 				const gain = this.ctx.createGain();
 				
 				osc.type = 'triangle';
-				osc.frequency.setValueAtTime(300, this.ctx.currentTime);
-				osc.frequency.exponentialRampToValueAtTime(80, this.ctx.currentTime + 0.04);
+				osc.frequency.setValueAtTime(280, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(70, this.ctx.currentTime + 0.045);
 				
-				gain.gain.setValueAtTime(0.08, this.ctx.currentTime); // Soft woody tock
-				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.04);
+				gain.gain.setValueAtTime(0.06, this.ctx.currentTime); // Satisfying woody tock
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.045);
 				
 				osc.connect(gain);
 				gain.connect(this.ctx.destination);
 				
 				osc.start();
-				osc.stop(this.ctx.currentTime + 0.04);
+				osc.stop(this.ctx.currentTime + 0.045);
 			}
 		}
 		const audiofx = new AudioFX();
 
-		// Sound FX Toggle Logic
+		// Sound toggle trigger
 		const soundToggle = document.getElementById('soundToggle');
 		let soundEnabled = localStorage.getItem('sound_fx_enabled') === 'true';
 
@@ -608,7 +633,7 @@
 		soundToggle.addEventListener('click', () => {
 			soundEnabled = !soundEnabled;
 			localStorage.setItem('sound_fx_enabled', soundEnabled);
-			audiofx.init(); // Init context
+			audiofx.init();
 			updateSoundToggleState();
 			if (soundEnabled) {
 				audiofx.playTock();
@@ -617,16 +642,16 @@
 
 		updateSoundToggleState();
 
-		// Bind click sounds globally
+		// Bind click sounds
 		document.addEventListener('click', (e) => {
-			if (e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item')) {
+			if (e.target.closest('.magnetic-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item')) {
 				audiofx.playTock();
 			}
 		});
 
 		// Bind hover sounds
 		document.addEventListener('mouseenter', (e) => {
-			const target = e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
+			const target = e.target.closest('.magnetic-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
 			if (target && !target.dataset.hovered) {
 				audiofx.playTick();
 				target.dataset.hovered = 'true';
@@ -634,77 +659,338 @@
 		}, true);
 
 		document.addEventListener('mouseleave', (e) => {
-			const target = e.target.closest('.interactive-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
+			const target = e.target.closest('.magnetic-el') || e.target.closest('.project-card') || e.target.closest('.branding-card') || e.target.closest('.gallery-item');
 			if (target) {
 				delete target.dataset.hovered;
 			}
 		}, true);
 
-		// --- 2. Page Loading Preloader Controller (Sanvithi-inspired) ---
-		const preloader = document.getElementById('preloader');
-		const preloaderWord = document.getElementById('preloaderWord');
-		const preloaderCounter = document.getElementById('preloaderCounter');
-		
-		const loaderWords = ["REUBEN ABRAHAM", "UX CASE STUDIES", "BRANDING IDENTITY", "CHEESECAKE & PIZZA", "HELLO!"];
-		let currentWordIdx = 0;
-		let loadingPercent = 0;
-		
-		const wordCycleInterval = setInterval(() => {
-			currentWordIdx = (currentWordIdx + 1) % loaderWords.length;
-			preloaderWord.classList.remove('active');
-			setTimeout(() => {
-				preloaderWord.textContent = loaderWords[currentWordIdx];
-				preloaderWord.classList.add('active');
-			}, 100);
-		}, 250);
-		
-		const percentInterval = setInterval(() => {
-			loadingPercent += Math.floor(Math.random() * 8) + 4;
-			if (loadingPercent >= 100) {
-				loadingPercent = 100;
-				clearInterval(percentInterval);
-				clearInterval(wordCycleInterval);
-				finishPreloader();
+		// --- 2. Lenis Smooth Scroll ---
+		let lenis;
+		try {
+			lenis = new Lenis({
+				duration: 1.2,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				direction: 'vertical',
+				gestureDirection: 'vertical',
+				smooth: true,
+				mouseMultiplier: 1,
+				smoothTouch: false,
+				touchMultiplier: 2,
+				infinite: false,
+			});
+
+			function raf(time) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
 			}
-			preloaderCounter.textContent = `${loadingPercent}%`;
-		}, 60);
-		
-		function finishPreloader() {
-			preloaderWord.textContent = "HELLO!";
-			preloaderWord.classList.add('active');
-			setTimeout(() => {
-				preloader.classList.add('exited');
-				setTimeout(() => {
-					preloader.style.display = 'none';
-					document.body.classList.add('loaded');
-				}, 1100);
-			}, 300);
+
+			requestAnimationFrame(raf);
+		} catch (e) {
+			console.warn("Lenis Smooth Scroll failed to load:", e);
 		}
 
-		// --- 3. Floating Hero Stamp Parallax / Magnetic Interaction ---
-		const stampWrapper = document.querySelector('.stamp-wrapper');
-		const heroStamp = document.getElementById('heroStamp');
-		const heroBadge = document.getElementById('heroBadge');
-		
-		if (stampWrapper && heroStamp && heroBadge) {
-			stampWrapper.addEventListener('mousemove', (e) => {
-				const rect = stampWrapper.getBoundingClientRect();
+		// --- 3. Custom Cursor with SNAPPING & Badge modes ---
+		const cursorDot = document.getElementById('cursorDot');
+		const cursorRing = document.getElementById('cursorRing');
+		const cursorText = document.getElementById('cursorText');
+
+		let mouseX = window.innerWidth / 2;
+		let mouseY = window.innerHeight / 2;
+		let ringX = window.innerWidth / 2;
+		let ringY = window.innerHeight / 2;
+
+		let snapTarget = null;
+		let isBadgeMode = false;
+
+		window.addEventListener('mousemove', (e) => {
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+			
+			// Update dot position instantly
+			cursorDot.style.top = `${mouseY}px`;
+			cursorDot.style.left = `${mouseX}px`;
+		});
+
+		// Interpolation loop (lerp) for the cursor ring
+		function updateCursor() {
+			if (snapTarget) {
+				const rect = snapTarget.getBoundingClientRect();
+				// Smoothly snap to center of the target bounding box
+				const targetX = rect.left + rect.width / 2;
+				const targetY = rect.top + rect.height / 2;
+				
+				ringX += (targetX - ringX) * 0.25;
+				ringY += (targetY - ringY) * 0.25;
+				
+				cursorRing.style.top = `${ringY}px`;
+				cursorRing.style.left = `${ringX}px`;
+				
+				// Scale ring to fit bounding box
+				cursorRing.style.width = `${rect.width + 12}px`;
+				cursorRing.style.height = `${rect.height + 12}px`;
+			} else {
+				// Standard smooth trailing lerp
+				const lerpVal = isBadgeMode ? 0.08 : 0.15;
+				ringX += (mouseX - ringX) * lerpVal;
+				ringY += (mouseY - ringY) * lerpVal;
+				
+				cursorRing.style.top = `${ringY}px`;
+				cursorRing.style.left = `${ringX}px`;
+				
+				if (!isBadgeMode) {
+					cursorRing.style.width = '36px';
+					cursorRing.style.height = '36px';
+				}
+			}
+			requestAnimationFrame(updateCursor);
+		}
+		requestAnimationFrame(updateCursor);
+
+		// Click Ripple effect
+		window.addEventListener('click', (e) => {
+			const ripple = document.createElement('div');
+			ripple.className = 'click-ripple';
+			ripple.style.top = `${e.clientY}px`;
+			ripple.style.left = `${e.clientX}px`;
+			ripple.style.width = '30px';
+			ripple.style.height = '30px';
+			document.body.appendChild(ripple);
+			
+			setTimeout(() => {
+				ripple.remove();
+			}, 600);
+		});
+
+		// Hover interactions: Snapping & Magnetic Pull
+		document.querySelectorAll('.magnetic-el').forEach(el => {
+			el.addEventListener('mouseenter', () => {
+				snapTarget = el;
+				cursorRing.classList.add('snap-mode');
+				cursorDot.style.opacity = '0';
+			});
+			
+			el.addEventListener('mousemove', (e) => {
+				const rect = el.getBoundingClientRect();
 				const x = e.clientX - rect.left - rect.width / 2;
 				const y = e.clientY - rect.top - rect.height / 2;
 				
-				// Skew and pull stamp gently
-				heroStamp.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px) rotateX(${-y * 0.05}deg) rotateY(${x * 0.05}deg)`;
-				// Magnetic BADGE rotates and pulls faster
-				heroBadge.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) rotate(${(x + y) * 0.15}deg) scale(1.05)`;
+				// Pull element slightly towards pointer
+				gsap.to(el, {
+					x: x * 0.35,
+					y: y * 0.35,
+					duration: 0.3,
+					ease: "power2.out"
+				});
 			});
 			
-			stampWrapper.addEventListener('mouseleave', () => {
-				heroStamp.style.transform = 'translate(0, 0) rotateX(0) rotateY(0)';
-				heroBadge.style.transform = 'translate(0, 0)';
+			el.addEventListener('mouseleave', () => {
+				snapTarget = null;
+				cursorRing.classList.remove('snap-mode');
+				cursorDot.style.opacity = '1';
+				
+				// Snap back element
+				gsap.to(el, {
+					x: 0,
+					y: 0,
+					duration: 0.5,
+					ease: "elastic.out(1, 0.3)"
+				});
+			});
+		});
+
+		// Hover interactions: Badge mode for grid cards
+		document.querySelectorAll('.badge-trigger').forEach(card => {
+			card.addEventListener('mouseenter', () => {
+				isBadgeMode = true;
+				cursorRing.classList.add('badge-mode');
+				cursorText.textContent = "VIEW";
+				cursorDot.style.backgroundColor = '#08080a';
+			});
+			
+			card.addEventListener('mouseleave', () => {
+				isBadgeMode = false;
+				cursorRing.classList.remove('badge-mode');
+				cursorDot.style.backgroundColor = 'var(--accent)';
+			});
+		});
+
+		// --- 4. Page Loader Controller (Circular Clip-Path Wipe) ---
+		const preloader = document.getElementById('preloader');
+		const preloaderWord = document.getElementById('preloaderWord');
+		const preloaderBar = document.getElementById('preloaderBar');
+		const preloaderCounter = document.getElementById('preloaderCounter');
+		
+		const loaderWords = ["REUBEN ABRAHAM", "UX CASE STUDIES", "BRANDING WORKS", "INTERACTION DESIGN", "HELLO!"];
+		let wordIdx = 0;
+		let percent = 0;
+
+		const wordInterval = setInterval(() => {
+			wordIdx = (wordIdx + 1) % loaderWords.length;
+			preloaderWord.classList.remove('active');
+			setTimeout(() => {
+				preloaderWord.textContent = loaderWords[wordIdx];
+				preloaderWord.classList.add('active');
+			}, 80);
+		}, 280);
+
+		const percentInterval = setInterval(() => {
+			percent += Math.floor(Math.random() * 8) + 4;
+			if (percent >= 100) {
+				percent = 100;
+				clearInterval(percentInterval);
+				clearInterval(wordInterval);
+				executePageReveal();
+			}
+			preloaderBar.style.width = `${percent}%`;
+			preloaderCounter.textContent = `${percent}%`;
+		}, 70);
+
+		function executePageReveal() {
+			preloaderWord.textContent = "HELLO!";
+			preloaderWord.classList.add('active');
+			
+			setTimeout(() => {
+				// Set clip-path center coordinate on user's cursor position
+				preloader.style.setProperty('--cx', `${mouseX}px`);
+				preloader.style.setProperty('--cy', `${mouseY}px`);
+				
+				preloader.classList.add('exited');
+				
+				setTimeout(() => {
+					preloader.style.display = 'none';
+					
+					// Trigger GSAP entrance timelines
+					triggerHeroEntrances();
+				}, 1200);
+			}, 300);
+		}
+
+		// --- 5. Dynamic Hero Grid Crosshairs field distortion ---
+		const heroGrid = document.getElementById('heroGrid');
+		const gridNodes = [];
+		const rows = 12;
+		const cols = 24;
+		const totalNodes = rows * cols;
+
+		// Dynamically generate the grid nodes to keep DOM clean
+		for (let i = 0; i < totalNodes; i++) {
+			const node = document.createElement('div');
+			node.className = 'grid-node';
+			node.textContent = '+';
+			heroGrid.appendChild(node);
+			gridNodes.push(node);
+		}
+
+		window.addEventListener('mousemove', (e) => {
+			const mX = e.clientX;
+			const mY = e.clientY;
+			
+			gridNodes.forEach(node => {
+				const rect = node.getBoundingClientRect();
+				const nX = rect.left + rect.width / 2;
+				const nY = rect.top + rect.height / 2;
+				
+				const dx = mX - nX;
+				const dy = mY - nY;
+				const distance = Math.sqrt(dx*dx + dy*dy);
+				
+				if (distance < 160) {
+					// Field distortion: rotate and scale nearest crosshairs to point at pointer
+					const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+					const scale = 1 + (160 - distance) * 0.007;
+					node.style.transform = `rotate(${angle}deg) scale(${scale})`;
+					node.style.color = 'var(--accent)';
+					node.style.opacity = '1';
+				} else {
+					node.style.transform = 'none';
+					node.style.color = 'var(--text-muted)';
+					node.style.opacity = '0.35';
+				}
+			});
+		});
+
+		// --- 6. GSAP Entrances and ScrollTrigger reveals ---
+		function triggerHeroEntrances() {
+			gsap.registerPlugin(ScrollTrigger);
+			
+			// Hero Entrance Sequence
+			const tl = gsap.timeline();
+			
+			tl.fromTo("#heroTitle", 
+				{ opacity: 0, y: 50 }, 
+				{ opacity: 1, y: 0, duration: 1, ease: "power4.out" }
+			);
+			
+			tl.fromTo("#heroDesc", 
+				{ opacity: 0, y: 30 }, 
+				{ opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 
+				"-=0.6"
+			);
+			
+			tl.fromTo("#heroBtns", 
+				{ opacity: 0, y: 20 }, 
+				{ opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 
+				"-=0.6"
+			);
+			
+			tl.fromTo("#heroVisual", 
+				{ opacity: 0, scale: 0.95, y: 40 }, 
+				{ opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power4.out" }, 
+				"-=1"
+			);
+			
+			// Scroll triggered project cards reveals
+			document.querySelectorAll('.scroll-animate').forEach(section => {
+				gsap.fromTo(section, 
+					{ opacity: 0, y: 70, scale: 0.98 },
+					{ 
+						opacity: 1, 
+						y: 0, 
+						scale: 1,
+						duration: 1.2, 
+						ease: "power3.out",
+						scrollTrigger: {
+							trigger: section,
+							start: "top 85%",
+							toggleActions: "play none none none"
+						}
+					}
+				);
 			});
 		}
 
-		// --- 4. Dynamic Clock ---
+		// --- 7. Poster 3D Mouse Tilt & Floating stamp badge parallax ---
+		const heroPoster = document.getElementById('heroPoster');
+		
+		if (heroPoster) {
+			heroPoster.addEventListener('mousemove', (e) => {
+				const rect = heroPoster.getBoundingClientRect();
+				const x = e.clientX - rect.left - rect.width / 2;
+				const y = e.clientY - rect.top - rect.height / 2;
+				
+				// Tilt poster in 3D perspective
+				gsap.to(heroPoster, {
+					rotateY: x * 0.08,
+					rotateX: -y * 0.08,
+					transformPerspective: 1000,
+					duration: 0.3,
+					ease: "power2.out"
+				});
+			});
+			
+			heroPoster.addEventListener('mouseleave', () => {
+				// Snap back smoothly
+				gsap.to(heroPoster, {
+					rotateX: 0,
+					rotateY: 0,
+					duration: 0.6,
+					ease: "power3.out"
+				});
+			});
+		}
+
+		// --- 8. Dynamic Clock ---
 		function updateClock() {
 			const timeWidget = document.getElementById('currentTime');
 			const options = {
@@ -721,29 +1007,28 @@
 		setInterval(updateClock, 1000);
 		updateClock();
 
-		// Set current copyright year automatically
 		document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-		// --- 5. Dynamic Greeting Typing Effect (Hero) ---
+		// --- 9. Dynamic Typing Greetings Cycle ---
 		const greetings = ["नमस्ते!", "Hello!", "Bonjour!", "Namaste!", "Vanakkam!"];
-		let greetingIndex = 0;
+		let greetIdx = 0;
 		const typingElement = document.getElementById('typingElement');
 		
 		function cycleGreetings() {
-			typingElement.style.opacity = 0;
-			typingElement.style.transform = 'translateY(10px)';
-			typingElement.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-			
-			setTimeout(() => {
-				greetingIndex = (greetingIndex + 1) % greetings.length;
-				typingElement.textContent = greetings[greetingIndex];
-				typingElement.style.opacity = 1;
-				typingElement.style.transform = 'translateY(0)';
-			}, 400);
+			gsap.to(typingElement, {
+				opacity: 0,
+				y: 8,
+				duration: 0.3,
+				onComplete: () => {
+					greetIdx = (greetIdx + 1) % greetings.length;
+					typingElement.textContent = greetings[greetIdx];
+					gsap.to(typingElement, { opacity: 1, y: 0, duration: 0.3 });
+				}
+			});
 		}
 		setInterval(cycleGreetings, 3200);
 
-		// --- 6. Scroll Progress Indicator & Header Shadow/Padding ---
+		// --- 10. Scroll Progress Bar & Header Shadow ---
 		const scrollProgress = document.getElementById('scrollProgress');
 		const mainHeader = document.getElementById('mainHeader');
 		
@@ -754,15 +1039,15 @@
 			scrollProgress.style.width = scrolled + '%';
 			
 			if (scrollTop > 50) {
-				mainHeader.style.boxShadow = '0 10px 30px rgba(24, 25, 27, 0.05)';
-				mainHeader.style.padding = '0';
+				mainHeader.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.4)';
+				mainHeader.style.backgroundColor = 'rgba(8, 8, 10, 0.9)';
 			} else {
 				mainHeader.style.boxShadow = 'none';
-				mainHeader.style.padding = '0.5rem 0';
+				mainHeader.style.backgroundColor = 'rgba(8, 8, 10, 0.7)';
 			}
 		});
 
-		// --- 7. Navigation Spy Scroll ---
+		// --- 11. Navigation Spy Scroll Active Link Tracking ---
 		const navLinks = document.querySelectorAll('.nav-link');
 		const sections = document.querySelectorAll('section');
 
@@ -770,7 +1055,7 @@
 			let current = 'Home';
 			sections.forEach(section => {
 				const sectionTop = section.offsetTop;
-				if (window.scrollY >= (sectionTop - 220)) {
+				if (window.scrollY >= (sectionTop - 250)) {
 					current = section.getAttribute('id');
 				}
 			});
@@ -783,7 +1068,7 @@
 			});
 		});
 
-		// --- 8. Filterable Gallery Controller ---
+		// --- 12. Filterable Gallery Controller ---
 		const filterButtons = document.querySelectorAll('.filter-btn');
 		const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -811,10 +1096,12 @@
 						}, 300);
 					}
 				});
+				// Force ScrollTrigger to refresh since layout heights might change
+				setTimeout(() => { ScrollTrigger.refresh(); }, 350);
 			});
 		});
 
-		// --- 9. Lightbox Modal (Images & Vimeo API) ---
+		// --- 13. Lightbox Modal (Images & Vimeo API) ---
 		const lightbox = document.getElementById('galleryLightbox');
 		const lightboxClose = document.getElementById('lightboxClose');
 		const mediaArea = document.getElementById('lightboxMediaArea');
@@ -831,7 +1118,7 @@
 				
 				if (mediaUrl.includes('vimeo.com')) {
 					const vimeoId = mediaUrl.split('/').pop();
-					const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=c64d32&title=0&byline=0&portrait=0`;
+					const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=b4ff39&title=0&byline=0&portrait=0`;
 					
 					mediaArea.innerHTML = `
 						<div class="lightbox-video-container">
@@ -869,28 +1156,6 @@
 				closeLightbox();
 			}
 		});
-
-		// --- 10. IntersectionObserver Scroll Animations Fallback ---
-		if (!CSS.supports('(animation-timeline: view()) and (animation-range: 0% 100%)')) {
-			const revealObserver = new IntersectionObserver((entries) => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						entry.target.style.opacity = '1';
-						entry.target.style.transform = 'translateY(0) scale(1)';
-						entry.target.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
-					}
-				});
-			}, {
-				threshold: 0.05,
-				rootMargin: '0px 0px -80px 0px'
-			});
-
-			document.querySelectorAll('.scroll-animate').forEach(el => {
-				el.style.opacity = '0';
-				el.style.transform = 'translateY(40px) scale(0.98)';
-				revealObserver.observe(el);
-			});
-		}
 	</script>
 </body>
 </html>
