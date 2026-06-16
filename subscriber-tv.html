@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<title>Disney+ Hotstar TV Subscription | Reuben Abraham</title>
+	
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="Transitioning Disney+ Hotstar TV app from freemium to premium-only, designing new login and living room payment flows." />
+	<meta name="robots" content="index, follow" />
+	
+	<link rel="icon" href="wp-content/uploads/2020/04/cropped-Favicon-32x32.png" sizes="32x32" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<link rel="stylesheet" href="case-study.css" />
+	
+	<style>
+		:root {
+			--accent: #1f80e0; /* Hotstar Premium Blue */
+		}
+	</style>
+</head>
+<body class="case-study-body">
+	<div class="scroll-progress" id="scrollProgress"></div>
+
+	<header class="case-study-header">
+		<div class="header-container">
+			<a href="index.html#UX" class="back-btn">
+				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
+			</a>
+			<div class="time-widget">
+				<span class="time-dot" style="background-color: var(--accent);"></span>
+				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="cs-hero">
+			<span class="cs-tag">UX Case Study</span>
+			<h1 class="cs-title">Transitioning to Subscriber-Only TV Service</h1>
+			<p class="cs-subtitle">From Freemium to Premium: Driving subscription growth on Living Room (LR) devices without impacting user retention.</p>
+			
+			<div class="cs-meta-grid">
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Role</span>
+					<span class="cs-meta-value">Product Designer (User Journeys, Visual Assets, Interactions)</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Team</span>
+					<span class="cs-meta-value">1 Senior Designer, 1 Product Manager, Engineering</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Platform</span>
+					<span class="cs-meta-value">Smart TV (Android TV, TizenOS, Apple TV, FireTV, Roku)</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Date</span>
+					<span class="cs-meta-value">April 2021</span>
+				</div>
+			</div>
+		</section>
+
+		<div class="cs-hero-visual">
+			<img src="./wp-content/uploads/2025/subscriber-tv/image_1.png" alt="Transitioning to Subscriber-Only TV Service" class="cs-hero-img" />
+		</div>
+
+		<div class="cs-content">
+			<!-- Section 1 -->
+			<section class="section-editorial-center">
+				<span class="section-label">01 / Context</span>
+				<h2 class="section-title">Background &amp; Hypothesis</h2>
+				<div class="cs-body-text">
+					<p>
+						Disney+ Hotstar is India's biggest streaming service with more than 28 million paid users (as of April 2021). The app is available across multiple living room (LR) platforms. Historically, the app functioned as a secondary node, depending on mobile or web for login and payments. However, these devices account for a significant share of watch time.
+					</p>
+					<div class="hmw-callout" style="border-left-color: var(--accent); background-color: rgba(31, 128, 224, 0.03);">
+						<h4 style="color: var(--accent) !important;">Initial Hypothesis</h4>
+						<p>Users watching on LR devices like smart TVs can afford a subscription to Disney+ Hotstar, and making the app subscriber-only on these devices can increase acquisitions without hurting retention.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 2 -->
+			<section class="section-editorial-center">
+				<span class="section-label">02 / Research</span>
+				<h2 class="section-title">User Research</h2>
+				<div class="cs-body-text">
+					<p><strong>Validating through Data:</strong></p>
+					<ul style="padding-left: 1.25rem; margin-bottom: 2rem;">
+						<li>Over 4 times as many users are on active subscriptions on LR devices compared to Android &amp; iOS mobile devices.</li>
+						<li>Majority of free account users on TV watch live news and free daily serials.</li>
+					</ul>
+					<p><strong>User Interviews:</strong></p>
+					<p>We talked to free account users on LR devices to understand what prevented them from subscribing to a paid plan. Key findings are shown in the cards below:</p>
+
+					<!-- Cards Grid -->
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 3rem auto; max-width: 1000px;">
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_2.png" alt="User Interview Learning 1" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_3.png" alt="User Interview Learning 2" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_4.png" alt="User Interview Learning 3" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_5.png" alt="User Interview Learning 4" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
+					</div>
+					
+					<div class="editorial-card" style="border-left: 4px solid var(--accent); margin-top: 2rem;">
+						<h4 style="margin-top: 0; font-family: var(--font-display); font-weight: 700;">Identified Problems</h4>
+						<ul style="margin-bottom: 0; padding-left: 1.25rem;">
+							<li>Complicated and incoherent login flow.</li>
+							<li>Failure to surface relevant value propositions to drive subscription.</li>
+							<li>Broken flow for plan selection and payment via TV.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 3 -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">03 / Login UX</span>
+					<h2 class="section-title">Frictionless Login</h2>
+					<p class="section-desc">
+						<strong>Status Quo Login:</strong> Users were required to open a web link on their phone, sign in, and enter a code shown on the TV.
+					</p>
+				</div>
+				<div class="editorial-split-visual">
+					<div class="tv-device-frame">
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_6.png" alt="Login - Status Quo" />
+					</div>
+				</div>
+			</section>
+
+			<section class="section-editorial-split reverse" style="border-top: none; padding-top: 0;">
+				<div class="editorial-split-visual">
+					<div class="tv-grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_7.png" alt="Phone Number Login flow" /></div>
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_8.png" alt="Email/Facebook Login flow" /></div>
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_9.png" alt="Login verification details" /></div>
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_10.png" alt="Success state" /></div>
+					</div>
+				</div>
+				<div class="editorial-split-text">
+					<h2 class="section-title">New OTP Login Flow</h2>
+					<p class="section-desc">
+						Introduced direct phone number login. Users can enter their phone number on the TV screen, receive an OTP on their mobile, and log in instantly without opening websites. Email/Facebook login remains as a fallback.
+					</p>
+				</div>
+			</section>
+
+			<!-- Section 4 -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">04 / Landing UX</span>
+					<h2 class="section-title">Communicating Value</h2>
+					<p class="section-desc">
+						<strong>Status Quo Landing Page:</strong> A generic page explaining how to log in was displayed, offering no emotional connection or plan comparison.
+					</p>
+				</div>
+				<div class="editorial-split-visual">
+					<div class="tv-device-frame">
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_11.png" alt="Landing Page - Status Quo" />
+					</div>
+				</div>
+			</section>
+
+			<section class="section-editorial-split reverse" style="border-top: none; padding-top: 0;">
+				<div class="editorial-split-visual">
+					<div class="tv-grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_12.png" alt="New Plan Selection" /></div>
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_13.png" alt="Plan details grid" /></div>
+					</div>
+				</div>
+				<div class="editorial-split-text">
+					<h2 class="section-title">New Landing &amp; Plan Selection</h2>
+					<p class="section-desc">
+						Implemented enticing show cards, clear subscription benefits, and a high-contrast side-by-side plan comparison page.
+					</p>
+				</div>
+			</section>
+
+			<!-- Section 5 -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">05 / Payments</span>
+					<h2 class="section-title">Frictionless Payment</h2>
+					<p class="section-desc">
+						<strong>Status Quo Payments:</strong> Smart TV payments were not supported; users had to drop off and navigate manually to mobile or web checkout.
+					</p>
+				</div>
+				<div class="editorial-split-visual">
+					<div class="tv-device-frame">
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_14.png" alt="Payment - Status Quo" />
+					</div>
+				</div>
+			</section>
+
+			<section class="section-editorial-split reverse" style="border-top: none; padding-top: 0;">
+				<div class="editorial-split-visual">
+					<div class="tv-grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_15.png" alt="New Payment Interface" /></div>
+						<div class="tv-device-frame"><img src="./wp-content/uploads/2025/subscriber-tv/image_16.png" alt="Payment confirmation loop" /></div>
+						<div class="tv-device-frame" style="grid-column: span 2; max-width: 280px; margin: 0 auto;"><img src="./wp-content/uploads/2025/subscriber-tv/image_17.png" alt="SMS link payment" /></div>
+					</div>
+				</div>
+				<div class="editorial-split-text">
+					<h2 class="section-title">Seamless Checkout Experience</h2>
+					<p class="section-desc">
+						Users can select their desired plan directly on TV and transition to checkout instantly. They can choose to receive a payment link via SMS to complete payment on mobile, or scan the UPI QR code on the TV screen via any UPI app.
+					</p>
+				</div>
+			</section>
+
+			<!-- Section 6 -->
+			<section class="section-editorial-center">
+				<span class="section-label">06 / Execution</span>
+				<h2 class="section-title">Staggered Launch</h2>
+				<div class="cs-body-text">
+					<p>
+						To safeguard user experience, the features were deployed in three staggered steps, validating user response and tracking conversion metrics continuously:
+					</p>
+					
+					<div style="max-width: 800px; margin: 3rem auto; border: 1px solid var(--border-color); border-radius: 1rem; overflow: hidden; background: var(--bg-card);">
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_18.png" alt="Three Step Launch Framework" style="width: 100%; display: block;" />
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 7 -->
+			<section class="section-editorial-center" style="border-bottom: none; padding-bottom: 4rem;">
+				<span class="section-label">07 / Results</span>
+				<h2 class="section-title">Impact Metrics</h2>
+				<div class="cs-body-text">
+					<p>
+						Launched on Android TV, local checkout and direct login features significantly improved conversion rates and acquisition rates on living room devices:
+					</p>
+					
+					<div class="metrics-deck" style="max-width: 800px; margin: 3rem auto; justify-content: center; gap: 2rem;">
+						<div class="metric-card" style="border-color: rgba(31, 128, 224, 0.2);">
+							<div class="metric-val" style="color: var(--accent);">+35%</div>
+							<div class="metric-label" style="color: var(--text-primary); font-family: var(--font-display); font-weight: 700;">Paid Conversions</div>
+							<p class="metric-desc" style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">Growth in free-to-paid conversions on Android TV.</p>
+						</div>
+						<div class="metric-card" style="border-color: rgba(31, 128, 224, 0.2);">
+							<div class="metric-val" style="color: var(--accent);">+600%</div>
+							<div class="metric-label" style="color: var(--text-primary); font-family: var(--font-display); font-weight: 700;">Login Rate</div>
+							<p class="metric-desc" style="color: var(--text-secondary); margin: 0.25rem 0 0 0;">Massive jump in user login rates on Living Room screens.</p>
+						</div>
+					</div>
+					
+					<p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 2rem auto 0; line-height: 1.6;">
+						Today, Disney+ Hotstar users can sign up, log in, select plans, and complete checkout directly on their living room devices.
+					</p>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer Navigation -->
+		<section class="cs-footer-nav" style="border-top: none;">
+			<span class="cs-footer-label">Up Next</span>
+			<a href="helpdesk.html" class="cs-footer-link">
+				Building Disney+ Hotstar's Helpdesk <i class="fa-solid fa-arrow-right"></i>
+			</a>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
+			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		</div>
+	</footer>
+
+	<script>
+		const scrollProgress = document.getElementById('scrollProgress');
+		window.addEventListener('scroll', () => {
+			const scrollTop = window.scrollY;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const scrolled = (scrollTop / docHeight) * 100;
+			scrollProgress.style.width = scrolled + '%';
+		});
+	</script>
+</body>
+</html>

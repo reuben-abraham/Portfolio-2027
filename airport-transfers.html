@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<title>Grab Airport Transfers &amp; Reserved Rides | Reuben Abraham</title>
+	
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="A design validation case study on Grab's Airport Transfers, optimizing advance airport bookings, flight delay synchronization, and terminal pickup guidance." />
+	<meta name="robots" content="index, follow" />
+	
+	<link rel="icon" href="wp-content/uploads/2020/04/cropped-Favicon-32x32.png" sizes="32x32" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<link rel="stylesheet" href="case-study.css" />
+	
+	<style>
+		:root {
+			--accent: #00b14f; /* Grab Green */
+			--accent-secondary: #008f3f; /* Darker Grab Green */
+			--accent-light: rgba(0, 177, 79, 0.15);
+		}
+
+		/* Grab Brand Banner Styling */
+		.grab-hero-banner {
+			background: linear-gradient(135deg, #00b14f 0%, #006838 60%, #003d21 100%);
+			border-radius: 1rem;
+			padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+			margin-bottom: 6rem;
+			position: relative;
+			overflow: hidden;
+		}
+		.grab-hero-banner::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -20%;
+			width: 60%;
+			height: 200%;
+			background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		.grab-hero-banner::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		}
+		.grab-hero-banner .hero-label {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: rgba(255,255,255,0.7);
+			margin-bottom: 1.5rem;
+			display: block;
+		}
+		.grab-hero-banner h2 {
+			font-family: var(--font-serif);
+			font-size: clamp(2rem, 4vw, 3.5rem);
+			color: #fff;
+			font-weight: 700;
+			line-height: 1.15;
+			margin-bottom: 1rem;
+			max-width: 750px;
+		}
+		.grab-hero-banner p {
+			font-size: 1.15rem;
+			color: rgba(255,255,255,0.85);
+			max-width: 650px;
+			line-height: 1.6;
+			margin: 0;
+		}
+
+		/* Custom Funnel Visualizer */
+		.funnel-container {
+			max-width: 600px;
+			margin: 3.5rem auto;
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 1.5rem;
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 1rem;
+		}
+		.funnel-stage {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.25rem 1.75rem;
+			border-radius: 0.5rem;
+			font-weight: 500;
+			color: #fff;
+			transition: var(--transition);
+		}
+		.funnel-stage:hover {
+			transform: scale(1.01);
+		}
+		.stage-100 {
+			background: linear-gradient(90deg, #00b14f, #008f3f);
+			width: 100%;
+		}
+		.stage-15 {
+			background: linear-gradient(90deg, #f59e0b, #d97706);
+			width: 60%;
+			align-self: center;
+		}
+		.stage-8 {
+			background: linear-gradient(90deg, #ef4444, #dc2626);
+			width: 45%;
+			align-self: center;
+		}
+		.funnel-label {
+			font-family: var(--font-mono);
+			font-size: 0.8rem;
+			opacity: 0.9;
+		}
+		.funnel-value {
+			font-size: 1.1rem;
+			font-weight: 700;
+		}
+
+		/* Market Share Info Cards */
+		.market-share-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.5rem;
+			margin: 2.5rem 0;
+		}
+		.market-share-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 0.75rem;
+			padding: 2.5rem;
+			text-align: left;
+			transition: var(--transition);
+		}
+		.market-share-card:hover {
+			border-color: var(--border-hover);
+			transform: translateY(-2px);
+		}
+		@media (max-width: 480px) {
+			.market-share-card {
+				padding: 1.5rem;
+			}
+		}
+		.share-percentage {
+			font-size: 3.5rem;
+			font-weight: 800;
+			color: var(--accent);
+			font-family: var(--font-display);
+			line-height: 1;
+			margin-bottom: 0.5rem;
+		}
+		.share-title {
+			font-weight: 600;
+			font-size: 1.1rem;
+			color: var(--text-primary);
+			margin-bottom: 0.75rem;
+		}
+		.share-desc {
+			font-size: 0.95rem;
+			color: var(--text-secondary);
+			line-height: 1.5;
+			margin: 0;
+		}
+
+		/* User Quotes Section */
+		.quotes-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+			margin: 3rem 0;
+		}
+		@media (max-width: 768px) {
+			.quotes-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+		.quote-card {
+			background: rgba(255, 255, 255, 0.02);
+			border-left: 3px solid var(--accent);
+			border-top: 1px solid var(--border-color);
+			border-right: 1px solid var(--border-color);
+			border-bottom: 1px solid var(--border-color);
+			border-radius: 0 0.75rem 0.75rem 0;
+			padding: 2rem;
+			text-align: left;
+			position: relative;
+		}
+		.quote-card p {
+			font-style: italic;
+			font-size: 1.05rem;
+			line-height: 1.6;
+			color: var(--text-primary);
+			margin: 0 0 1rem 0;
+		}
+		.quote-source {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			color: var(--text-muted);
+			text-transform: uppercase;
+		}
+
+		/* Double Device Mockup Layout */
+		.double-device-container {
+			display: flex;
+			gap: 2rem;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin: 3rem 0;
+		}
+		.double-device-container .device-canvas {
+			max-width: 270px;
+			aspect-ratio: 9 / 19.5;
+			background-color: #0b0b0e;
+		}
+		.double-device-container .device-canvas img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: top;
+		}
+
+		/* Align all iterations to the bottom of the card */
+		.editorial-card .device-canvas {
+			margin-top: auto !important;
+		}
+
+		/* Key Takeaways Card */
+		.takeaways-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 1rem;
+			padding: 2.5rem;
+			margin: 3.5rem 0;
+			text-align: left;
+		}
+		.takeaways-card h3 {
+			font-size: 1.25rem;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			color: var(--text-primary);
+		}
+		.takeaways-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.takeaways-list li {
+			position: relative;
+			padding-left: 2rem;
+			font-size: 1.05rem;
+			color: var(--text-secondary);
+			line-height: 1.5;
+		}
+		.takeaways-list li::before {
+			content: '\f058';
+			font-family: 'Font Awesome 6 Free';
+			font-weight: 900;
+			color: var(--accent);
+			position: absolute;
+			left: 0;
+			top: 0.15rem;
+		}
+	</style>
+</head>
+<body class="case-study-body">
+	<div class="scroll-progress" id="scrollProgress"></div>
+
+	<header class="case-study-header">
+		<div class="header-container">
+			<a href="index.html#UX" class="back-btn">
+				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
+			</a>
+			<div class="time-widget">
+				<span class="time-dot" style="background-color: var(--accent);"></span>
+				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="cs-hero">
+			<span class="cs-tag">UX Case Study</span>
+			<h1 class="cs-title">Grab Airport Transfers &amp; Reserved Rides</h1>
+			<p class="cs-subtitle">Optimizing advance airport bookings to reduce passenger no-shows, handle flight delays automatically, and guide travelers directly to their pickup terminal doors.</p>
+			
+			<div class="cs-meta-grid">
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Role</span>
+					<span class="cs-meta-value">Lead Product Designer (Research, Visuals, Interaction Flow)</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Team</span>
+					<span class="cs-meta-value">Grab Design Team (1 PM, 1 Designer, 2 Engineers, 1 Researcher)</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Platform</span>
+					<span class="cs-meta-value">iOS &amp; Android Mobile Application</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Date</span>
+					<span class="cs-meta-value">May 2025</span>
+				</div>
+			</div>
+		</section>
+
+		<div class="grab-hero-banner">
+			<span class="hero-label">UX Design &bull; Grab Transfers</span>
+			<h2>Advance Bookings &amp; Airport Pickups</h2>
+			<p>A complete redesign of Grab's premium reserved rides framework, streamlining flight selection, synchronizing pickup times with flight delays, and designing door-to-door exit instructions.</p>
+		</div>
+
+		<div class="cs-content">
+			<!-- Section 1: Context & Opportunity -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">01 / Context</span>
+					<h2 class="section-title">The Market Dynamics of Airport Pickups</h2>
+					<div class="section-desc">
+						<p>
+							Airport rides represent some of the highest-value transactions in the ride-hailing space. At Grab, airport pickups are split between two distinct user behaviors:
+						</p>
+						<p>
+							While on-demand bookings represent the vast majority of volume (80%), advance reserved bookings account for 20% of trips. This 20% forms a highly lucrative, premium segment of users seeking maximum reliability and peace of mind.
+						</p>
+					</div>
+				</div>
+				<div class="editorial-split-visual">
+					<div class="market-share-grid" style="width: 100%;">
+						<div class="market-share-card">
+							<div class="share-percentage">80%</div>
+							<div class="share-title">On-Demand Pickups</div>
+							<p class="share-desc">Lower value rides with high volume. Highly saturated and subject to immediate driver availability.</p>
+						</div>
+						<div class="market-share-card">
+							<div class="share-percentage">20%</div>
+							<div class="share-title">Reserved / Advance</div>
+							<p class="share-desc">Premium service with high reliability. High growth potential and superior margins.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 2: Gaps & Funnel -->
+			<section class="section-editorial-center">
+				<span class="section-label">02 / Problem Statement</span>
+				<h2 class="section-title">Gaps in the Reserved Ride Experience</h2>
+				<p class="section-desc">
+					Despite being a premium offering, data revealed significant leakage in the advance bookings funnel. Out of all reserved airport requests, <strong>15% resulted in incomplete rides</strong>. Alarmingly, <strong>8% of all bookings were cancelled due to passenger no-show</strong>.
+				</p>
+
+				<div class="funnel-container">
+					<div class="funnel-stage stage-100">
+						<span class="funnel-label">All Reserved Airport Requests</span>
+						<span class="funnel-value">100%</span>
+					</div>
+					<div class="funnel-stage stage-15">
+						<span class="funnel-label">Incomplete Rides</span>
+						<span class="funnel-value">15%</span>
+					</div>
+					<div class="funnel-stage stage-8">
+						<span class="funnel-label">Passenger No-Show Cancelled</span>
+						<span class="funnel-value">8%</span>
+					</div>
+				</div>
+
+				<p class="section-desc" style="margin-top: 3rem;">
+					We conducted cold calling and qualitative interviews with users who had cancelled or missed their scheduled pickups to understand the root causes:
+				</p>
+
+				<div class="quotes-grid">
+					<div class="quote-card">
+						<p>"I reached late at the pickup point because my flight was delayed."</p>
+						<span class="quote-source">Rider Interview &bull; Flight Delay</span>
+					</div>
+					<div class="quote-card">
+						<p>"I didn’t expect the wait time at immigration to be so long."</p>
+						<span class="quote-source">Rider Interview &bull; Customs Wait</span>
+					</div>
+					<div class="quote-card">
+						<p>"My flight got postponed but I couldn’t modify my ride in time."</p>
+						<span class="quote-source">Rider Interview &bull; Reservation Lock</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 3: HMW -->
+			<section class="section-editorial-center" style="background-color: var(--accent-light); border-radius: 1rem; padding: 5rem 2rem; border-bottom: none; margin: 2rem 0;">
+				<span class="section-label" style="color: var(--accent);">The Objective</span>
+				<h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--font-serif); font-style: italic; font-weight: 400; max-width: 700px; margin: 0 auto 1.5rem auto; line-height: 1.3;">
+					"How might we reduce cancellations for reserved rides to improve fulfilment, and in turn, user retention?"
+				</h2>
+				<p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 1.05rem;">
+					We focused on building a flight-synced, worry-free booking flow to automatically account for flight schedules and eliminate manual user modifications.
+				</p>
+			</section>
+
+			<!-- Section 4: Competitive Analysis -->
+			<section class="section-editorial-split reverse">
+				<div class="editorial-split-visual">
+					<div class="double-device-container">
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_23_img_1.png" alt="Uber US Booking Flow" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Uber (US) Flow</p>
+						</div>
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_24_img_1.png" alt="Didi China Flight Sync" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Didi (China) Flow</p>
+						</div>
+					</div>
+				</div>
+				<div class="editorial-split-text">
+					<span class="section-label">04 / Competitors</span>
+					<h2 class="section-title">Analyzing Global Standards</h2>
+					<div class="section-desc">
+						<p>
+							We audited competitors to see how they handled advance bookings and airport transfers:
+						</p>
+						<p>
+							<strong>Uber (US)</strong> requests flight details upfront during booking to track arrivals but keeps the pickup scheduling and driver matching disconnected from real-time delay tracking.
+						</p>
+						<p>
+							<strong>Didi (China)</strong> heavily integrates airport layouts and check-in flight tracking, automatically adjusting driver schedules and notifying riders immediately upon landing.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 5: Solutions Concept & Engineering Feedback -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">05 / Solution Concept</span>
+					<h2 class="section-title">Flight-Synced Itinerary Planning</h2>
+					<div class="section-desc">
+						<p>
+							Our solution centered around a <strong>Universal Flight Search</strong> and <strong>Smart Itinerary Recommendations</strong>. By linking flight numbers directly to bookings, the system could automatically recommend the optimal pickup time and automatically adjust booking schedules if flights are delayed.
+						</p>
+						<p style="border-left: 2px solid var(--accent); padding-left: 1rem; font-style: italic; color: var(--text-primary);">
+							"My biggest concern is usually finding a driver once I land. Airports are a maze to navigate through." &mdash; User Feedback
+						</p>
+						<p style="color: var(--text-muted); font-size: 0.95rem;">
+							<strong>Engineering constraint:</strong> The engineering team raised concerns that building a fully custom airport map rendering system could bloat the MVP timeline. We needed to focus on lightweight, highly guided landmark directions instead.
+						</p>
+					</div>
+				</div>
+				<div class="editorial-split-visual">
+					<div style="text-align: center; width: 100%;">
+						<div style="max-width: 480px; margin: 0 auto; border: 1px solid var(--border-color); border-radius: 0.75rem; overflow: hidden; background: var(--bg-card); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+							<img src="./wp-content/uploads/2025/airport-transfers/page_26_img_3.png" alt="MVP Concept Sketches &amp; Layouts" style="width: 100%; display: block;" />
+						</div>
+						<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">MVP Itinerary Recommendation Concept</p>
+						
+						<div class="takeaways-card">
+							<h3>Key MVP Takeaways</h3>
+							<ul class="takeaways-list">
+								<li><strong>Simplify Flight Selection UX:</strong> Keep inputs minimal and query databases instantly.</li>
+								<li><strong>Focus on Pickups for MVP:</strong> Optimize the landing experience rather than departures.</li>
+								<li><strong>Refine IA on Post-Booking Page:</strong> Emphasize delayed-sync assurances immediately.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 6: Flight Selection Evolution -->
+			<section class="section-editorial-grid">
+				<div class="grid-header">
+					<span class="section-label">06 / Design Evolution</span>
+					<h2 class="section-title">Select Flight Interface Iterations</h2>
+				</div>
+				<div class="grid-deck">
+					<!-- Iteration 1 -->
+					<div class="editorial-card">
+						<span class="card-icon" style="color: #ef4444;"><i class="fa-solid fa-1"></i></span>
+						<h4>Iteration 1: Simple Inputs</h4>
+						<p>
+							<strong>What worked:</strong> A simpler search bar for entering flight numbers.
+						</p>
+						<p>
+							<strong>What failed:</strong> The pickup time selector following flight selection was highly non-intuitive. Users faced a disconnected experience between choosing a flight and deciding when they would actually get out.
+						</p>
+						<div class="device-canvas" style="margin-top: 1rem; max-width: 220px;">
+							<img src="./wp-content/uploads/2025/airport-transfers/page_27_img_2.png" alt="Flight Iteration 1 Mockup" />
+						</div>
+					</div>
+
+					<!-- Iteration 2 -->
+					<div class="editorial-card">
+						<span class="card-icon" style="color: #f59e0b;"><i class="fa-solid fa-2"></i></span>
+						<h4>Iteration 2: Segmented Selectors</h4>
+						<p>
+							<strong>What worked:</strong> Splitting the date and time selection, adding a guided pickup recommendation nudge, and showing flight benefit callouts.
+						</p>
+						<p>
+							<strong>What failed:</strong> Re-introducing bottom sheets for date and time selections broke the flow and felt visually disconnected.
+						</p>
+						<div class="device-canvas" style="margin-top: 1rem; max-width: 220px;">
+							<img src="./wp-content/uploads/2025/airport-transfers/page_28_img_2.png" alt="Flight Iteration 2 Mockup" />
+						</div>
+					</div>
+
+					<!-- Iteration 3 -->
+					<div class="editorial-card">
+						<span class="card-icon" style="color: var(--accent);"><i class="fa-solid fa-3"></i></span>
+						<h4>Iteration 3: Guided Itinerary (Final)</h4>
+						<p>
+							<strong>What worked:</strong> Simpler flight inputs first to get users committed, followed by an API-driven guided lookup that automatically displays flight schedules and suggests recommended pickup times (e.g. 45 mins post-landing).
+						</p>
+						<div class="device-canvas" style="margin-top: 1rem; max-width: 220px;">
+							<img src="./wp-content/uploads/2025/airport-transfers/page_29_img_1.png" alt="Flight Iteration 3 Mockup" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 7: Drop-off & Taxi Selection -->
+			<section class="section-editorial-split reverse">
+				<div class="editorial-split-visual">
+					<div class="double-device-container">
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_30_img_3.png" alt="Dropoff Selection Mockup" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Address Entry</p>
+						</div>
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_30_img_15.png" alt="Taxi Tier Selection" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Taxi Selector</p>
+						</div>
+					</div>
+				</div>
+				<div class="editorial-split-text">
+					<span class="section-label">07 / Status Quo</span>
+					<h2 class="section-title">Familiar Drop-off &amp; Taxi Selection</h2>
+					<div class="section-desc">
+						<p>
+							When designing a new service, it is critical not to overhaul elements that users already trust and find intuitive. We maintained the familiar Grab taxi selection and drop-off input interface.
+						</p>
+						<p>
+							We allocated dedicated spaces for choosing standard vs. premium taxi classes, and retained the standard address autocomplete.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 8: Boarding & Door Guidance -->
+			<section class="section-editorial-split">
+				<div class="editorial-split-text">
+					<span class="section-label">08 / Boarding UX</span>
+					<h2 class="section-title">Door-to-Door Landing Guidance</h2>
+					<div class="section-desc">
+						<p>
+							The post-landing experience is where most cancellations occurred due to confusion and driver coordination delays. We designed the boarding experience through two distinct iterations:
+						</p>
+						<p>
+							<strong>Iteration 1:</strong> Used proximity-based geofences to automatically trigger driver notification when a passenger approached the baggage claim area. However, false triggers caused operational friction when users got stuck in immigration.
+						</p>
+						<p>
+							<strong>Iteration 2 (Final):</strong> Replaced automated triggers with a <strong>live flight-tracking card</strong> that reassures users: <em>"If your flight is delayed, we'll push back your pickup time automatically."</em>
+						</p>
+						<p>
+							Crucially, we added <strong>Landmark-Based Directions</strong> to guide users from baggage claim directly to the pickup door (e.g., Terminal 1 Door 4 via the Balinese Gate) to solve the airport maze problem.
+						</p>
+					</div>
+				</div>
+				<div class="editorial-split-visual">
+					<div class="double-device-container">
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_31_img_1.png" alt="Boarding Iteration 1" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Iteration 1: Proximity Trigger</p>
+						</div>
+						<div style="text-align: center;">
+							<div class="device-canvas">
+								<img src="./wp-content/uploads/2025/airport-transfers/page_32_img_9.png" alt="Boarding Iteration 2 (Final)" />
+							</div>
+							<p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin: 0.75rem 0 0 0;">Iteration 2: Flight Sync &amp; Guide</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 9: Visual Design System -->
+			<section class="section-full-width-showcase" style="border-bottom: 1px solid var(--border-color);">
+				<div class="showcase-header">
+					<span class="section-label">09 / Design System</span>
+					<h2 class="section-title">Premium Visual Identity Updates</h2>
+					<p class="section-desc">
+						To elevate Reserved Rides as a premium offering while maintaining core brand cohesion, we designed high-contrast cards, branded flight icons, and a custom arrival date-picker component with haptic feedback.
+					</p>
+				</div>
+				<div style="max-width: 900px; margin: 0 auto; border: 1px solid var(--border-color); border-radius: 1rem; overflow: hidden; background: var(--bg-card); box-shadow: 0 15px 40px rgba(0,0,0,0.4);">
+					<img src="./wp-content/uploads/2025/airport-transfers/page_33_img_1_optimized.jpg" alt="Grab Airport Transfers Design System Assets" style="width: 100%; display: block;" />
+				</div>
+			</section>
+
+			<!-- Section 10: Impact Metrics & Learnings -->
+			<section class="section-editorial-center" style="border-bottom: none;">
+				<span class="section-label">10 / Results</span>
+				<h2 class="section-title">Impact &amp; Key Learnings</h2>
+				
+				<div class="metrics-deck">
+					<div class="metric-card" style="border-top: 4px solid var(--accent);">
+						<div class="metric-val" style="color: var(--accent);">+39%</div>
+						<div class="metric-label">Booked Rides</div>
+						<p class="metric-desc">Significant increase in overall advance airport booking adoption post-launch.</p>
+					</div>
+					<div class="metric-card" style="border-top: 4px solid #ef4444;">
+						<div class="metric-val" style="color: #ef4444;">-4.5pp</div>
+						<div class="metric-label">Passenger No-Shows</div>
+						<p class="metric-desc">Substantial decrease in rider no-show cancellations due to flight delay synchronization.</p>
+					</div>
+					<div class="metric-card" style="border-top: 4px solid #f59e0b;">
+						<div class="metric-val" style="color: #f59e0b;">+1.2pp</div>
+						<div class="metric-label">Driver Cancellations</div>
+						<p class="metric-desc">Slight increase in driver-side cancellations, monitored for driver-waiting policies.</p>
+					</div>
+				</div>
+
+				<div class="quotes-grid" style="margin-top: 4rem;">
+					<div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 0.75rem; text-align: left;">
+						<h4 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin: 0 0 1rem 0;">Validate UX with Operational Constraints</h4>
+						<p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+							Always optimize for real-world operations. Automated proximity triggers sound perfect in a design file, but real-world queues at immigration require manual buffers and flight-delay sync overrides.
+						</p>
+					</div>
+					<div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 0.75rem; text-align: left;">
+						<h4 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--text-primary); margin: 0 0 1rem 0;">Flexibility is Not Always Best</h4>
+						<p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+							A super-adaptive, dynamic UI that shifts constantly can increase user anxiety when landing. Simple, step-by-step landmark directions and clear delays assurances provide far greater reassurance.
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer Navigation -->
+		<section class="cs-footer-nav" style="border-top: none;">
+			<span class="cs-footer-label">Up Next</span>
+			<a href="innovision.html" class="cs-footer-link">
+				Innovision 2019 Brand Identity <i class="fa-solid fa-arrow-right"></i>
+			</a>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
+			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		</div>
+	</footer>
+
+	<script>
+		const scrollProgress = document.getElementById('scrollProgress');
+		window.addEventListener('scroll', () => {
+			const scrollTop = window.scrollY;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const scrolled = (scrollTop / docHeight) * 100;
+			scrollProgress.style.width = scrolled + '%';
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<title>Grab Dineout: Scan to Order 2.0 | Reuben Abraham</title>
+	
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="A design concept validation case study on Grab Dineout's Scan to Order 2.0, revamping group ordering and menu personalization." />
+	<meta name="robots" content="index, follow" />
+	
+	<link rel="icon" href="wp-content/uploads/2020/04/cropped-Favicon-32x32.png" sizes="32x32" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="case-study.css" />
+	<style>
+		/* Grab-specific styles for text-driven layout */
+		.grab-hero-banner {
+			background: linear-gradient(135deg, #00b14f 0%, #006838 60%, #003d21 100%);
+			border-radius: 1rem;
+			padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+			margin-bottom: 6rem;
+			position: relative;
+			overflow: hidden;
+		}
+		.grab-hero-banner::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -20%;
+			width: 60%;
+			height: 200%;
+			background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		.grab-hero-banner::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		}
+		.grab-hero-banner .hero-label {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: rgba(255,255,255,0.6);
+			margin-bottom: 1.5rem;
+			display: block;
+		}
+		.grab-hero-banner h2 {
+			font-family: var(--font-serif);
+			font-size: clamp(2rem, 4vw, 3.5rem);
+			color: #fff;
+			font-weight: 700;
+			line-height: 1.15;
+			margin-bottom: 1rem;
+			max-width: 700px;
+		}
+		.grab-hero-banner p {
+			font-size: 1.1rem;
+			color: rgba(255,255,255,0.75);
+			max-width: 600px;
+			line-height: 1.6;
+		}
+
+		/* Pain Point Cards */
+		.pain-point-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5rem;
+			margin: 2.5rem 0;
+		}
+		.pain-point-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 0.75rem;
+			padding: 2rem;
+			transition: var(--transition);
+		}
+		.pain-point-card:hover {
+			border-color: var(--border-hover);
+			transform: translateY(-2px);
+		}
+		.pain-point-card .pp-icon {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			display: block;
+		}
+		.pain-point-card h4 {
+			font-family: var(--font-display);
+			font-size: 1rem;
+			color: var(--text-primary);
+			margin-bottom: 0.75rem;
+			font-weight: 600;
+		}
+		.pain-point-card p {
+			font-size: 0.9rem;
+			color: var(--text-secondary);
+			line-height: 1.5;
+		}
+
+		/* Iteration Timeline Cards */
+		.iteration-timeline {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			margin: 3rem 0;
+			position: relative;
+		}
+		.iteration-timeline::before {
+			content: '';
+			position: absolute;
+			left: 1.5rem;
+			top: 0;
+			bottom: 0;
+			width: 1px;
+			background: var(--border-color);
+		}
+		@media (max-width: 600px) {
+			.iteration-timeline::before {
+				left: 1rem;
+			}
+		}
+		.iter-card {
+			display: grid;
+			grid-template-columns: 3rem 1fr;
+			gap: 1.5rem;
+			align-items: start;
+		}
+		.iter-marker {
+			width: 3rem;
+			height: 3rem;
+			border-radius: 50%;
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			color: var(--text-muted);
+			position: relative;
+			z-index: 1;
+		}
+		.iter-card.preferred .iter-marker {
+			border-color: #00b14f;
+			color: #00b14f;
+			box-shadow: 0 0 12px rgba(0,177,79,0.15);
+		}
+		.iter-body {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 0.75rem;
+			padding: 2rem;
+		}
+		.iter-card.preferred .iter-body {
+			border-color: rgba(0,177,79,0.3);
+		}
+		.iter-body h4 {
+			font-family: var(--font-display);
+			font-size: 1.1rem;
+			color: var(--text-primary);
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		.iter-card.preferred .iter-body h4::after {
+			content: ' ✓ Preferred';
+			font-family: var(--font-mono);
+			font-size: 0.7rem;
+			color: #00b14f;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			margin-left: 0.5rem;
+		}
+		.iter-feedback {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+		.iter-tag {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			font-size: 0.85rem;
+			line-height: 1.4;
+			color: var(--text-secondary);
+		}
+		.iter-tag.working::before {
+			content: '✓';
+			color: #10b981;
+			font-weight: 700;
+		}
+		.iter-tag.not-working::before {
+			content: '✗';
+			color: #ef4444;
+			font-weight: 700;
+		}
+
+		/* Solution Pillars */
+		.solution-pillars {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+			margin: 2.5rem 0;
+		}
+		@media (max-width: 700px) {
+			.solution-pillars {
+				grid-template-columns: 1fr;
+			}
+		}
+		.solution-pillar {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 0.75rem;
+			padding: 2rem;
+			text-align: center;
+			transition: var(--transition);
+		}
+		.solution-pillar:hover {
+			border-color: var(--border-hover);
+			transform: translateY(-3px);
+		}
+		.solution-pillar .pillar-icon {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+			display: block;
+		}
+		.solution-pillar h4 {
+			font-family: var(--font-display);
+			font-size: 1rem;
+			color: var(--text-primary);
+			margin-bottom: 0.75rem;
+			font-weight: 600;
+		}
+		.solution-pillar p {
+			font-size: 0.85rem;
+			color: var(--text-secondary);
+			line-height: 1.5;
+		}
+
+		/* Quote Cards */
+		.feedback-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+			margin: 2.5rem 0;
+		}
+		@media (max-width: 700px) {
+			.feedback-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+		.feedback-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-color);
+			border-radius: 0.75rem;
+			padding: 2rem;
+		}
+		.feedback-card blockquote {
+			font-family: var(--font-serif);
+			font-size: 1.1rem;
+			font-style: italic;
+			color: var(--text-primary);
+			line-height: 1.5;
+			margin-bottom: 1rem;
+		}
+		.feedback-card cite {
+			font-family: var(--font-mono);
+			font-size: 0.75rem;
+			color: var(--text-muted);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			font-style: normal;
+		}
+
+		/* Theme Section Headers */
+		.theme-header {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin: 3rem 0 1.5rem;
+			padding-bottom: 0.75rem;
+			border-bottom: 1px solid var(--border-color);
+		}
+		.theme-letter {
+			font-family: var(--font-display);
+			font-size: 2rem;
+			font-weight: 800;
+			color: #00b14f;
+			line-height: 1;
+		}
+		.theme-header h3 {
+			font-family: var(--font-display);
+			font-size: 1.25rem;
+			color: var(--text-primary);
+			font-weight: 600;
+			margin: 0;
+		}
+	</style>
+</head>
+<body class="case-study-body">
+	<!-- Scroll Progress Bar -->
+	<div class="scroll-progress" id="scrollProgress"></div>
+
+	<!-- Navigation Header -->
+	<header class="case-study-header">
+		<div class="header-container">
+			<a href="index.html#UX" class="back-btn">
+				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
+			</a>
+			<div class="time-widget">
+				<span class="time-dot" style="background-color: #00b14f;"></span>
+				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container">
+		<!-- Hero Section -->
+		<section class="cs-hero">
+			<span class="cs-tag">UX Case Study</span>
+			<h1 class="cs-title">Grab Dineout: Scan to Order 2.0</h1>
+			<p class="cs-subtitle">A collaborative, frictionless shared ordering and payment flow for restaurants, elevating diner experience and boosting merchant adoption.</p>
+			
+			<div class="cs-meta-grid">
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Role</span>
+					<span class="cs-meta-value">Lead Product Designer (Concept & UX Research)</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Team</span>
+					<span class="cs-meta-value">Product Managers, Field Researchers, Engineers</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Platform</span>
+					<span class="cs-meta-value">Mobile Web</span>
+				</div>
+				<div class="cs-meta-item">
+					<span class="cs-meta-label">Date</span>
+					<span class="cs-meta-value">July 2025</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Hero Cover image -->
+		<div class="cs-hero-visual" style="aspect-ratio: 16/9;">
+			<img src="./wp-content/uploads/2025/scan-to-order/hero-sto.jpg" alt="Grab Dineout STO 2.0 Cover" class="cs-hero-img" />
+		</div>
+
+		<!-- 01: Challenge / Context -->
+		<section class="section-editorial-split">
+			<div class="editorial-split-text">
+				<span class="section-label">01 / Challenge</span>
+				<h2 class="section-title">Context: STO 1.0</h2>
+				<p class="section-desc">Grab launched the first version of Scan To Order (STO) to help restaurant diners browse, order, and pay via QR code. While it solved the need for contactless ordering, adoption was low. Merchants faced operational pain points and diners dropped off due to friction-filled flows.</p>
+				
+				<div class="pain-point-grid" style="grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem;">
+					<div class="pain-point-card">
+						<span class="pp-icon">📉</span>
+						<h4>54% User Drop-Off</h4>
+						<p>Majority of users abandoned orders during account verification. The login wall was killing conversion.</p>
+					</div>
+					<div class="pain-point-card">
+						<span class="pp-icon">🔧</span>
+						<h4>Feature Gaps</h4>
+						<p>No takeaway options, guest ordering, or payment method localisation. Competitors offered all of these.</p>
+					</div>
+					<div class="pain-point-card">
+						<span class="pp-icon">⛓️</span>
+						<h4>No POS Integration</h4>
+						<p>Cashiers manually re-entered orders, causing delays, errors, and reconciliation nightmares for merchants.</p>
+					</div>
+					<div class="pain-point-card">
+						<span class="pp-icon">📊</span>
+						<h4>Operational Inefficiency</h4>
+						<p>Merchants couldn't track table-level spend, with orders scattered across invoices.</p>
+					</div>
+				</div>
+			</div>
+			<div class="editorial-split-visual">
+				<figure style="margin: 0; width: 100%;">
+					<img src="./wp-content/uploads/2025/scan-to-order/Context.png" alt="Context: STO 1.0 Flow Diagram" style="width: 100%; border-radius: 0.75rem; border: 1px solid var(--border-color); background: var(--bg-card); box-shadow: 0 15px 40px rgba(0,0,0,0.4);" />
+					<figcaption class="cs-media-caption" style="margin-top: 0.75rem;">STO 1.0 User Flow Friction Map</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- 02: Competitive Research -->
+		<section class="section-editorial-grid">
+			<div class="grid-header">
+				<span class="section-label">02 / Research</span>
+				<h2 class="section-title">Competitive Analysis &amp; Learnings</h2>
+			</div>
+			<p class="cs-body-text" style="margin-bottom: 3.5rem; font-size: 1.05rem;">To do this the right way this time, we looked at leading Southeast Asian STO solutions, went down to the field to see how people actually order, and identified common patterns.</p>
+			
+			<div class="grid-deck">
+				<!-- TabSquare -->
+				<div class="editorial-card" style="padding: 0; overflow: hidden;">
+					<div style="aspect-ratio: 16/9; overflow: hidden;">
+						<img src="./wp-content/uploads/2025/scan-to-order/Tabsquare.png" alt="TabSquare Product Screen" style="width: 100%; height: 100%; object-fit: cover;" />
+					</div>
+					<div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+						<h4>TabSquare</h4>
+						<ul style="padding-left: 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+							<li>Deep menu customization lets restaurants express their brand identity.</li>
+							<li>Strong recommendation &amp; upselling nudges on menu.</li>
+							<li>Extensive metadata to support complex add-ons.</li>
+						</ul>
+						<div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: auto;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.7rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em;">Opportunity</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">No quick switch for takeaway or per-item takeaway routing.</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Xilnex -->
+				<div class="editorial-card" style="padding: 0; overflow: hidden;">
+					<div style="aspect-ratio: 16/9; overflow: hidden;">
+						<img src="./wp-content/uploads/2025/scan-to-order/Xilnex.png" alt="Xilnex Product Screen" style="width: 100%; height: 100%; object-fit: cover;" />
+					</div>
+					<div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+						<h4>Xilnex</h4>
+						<ul style="padding-left: 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+							<li>Live order status tracking keeps staff and diners aligned.</li>
+						</ul>
+						<div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: auto;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.7rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em;">Opportunity</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Basic search capabilities, no intelligent ranking or context matching. Interface often feels glitchy.</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- FeedMe -->
+				<div class="editorial-card" style="padding: 0; overflow: hidden;">
+					<div style="aspect-ratio: 16/9; overflow: hidden;">
+						<img src="./wp-content/uploads/2025/scan-to-order/Feedme.png" alt="FeedMe Product Screen" style="width: 100%; height: 100%; object-fit: cover;" />
+					</div>
+					<div style="padding: 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+						<h4>FeedMe</h4>
+						<ul style="padding-left: 1.25rem; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+							<li>Rich merchant profiles highlight story, hours, and operational detail.</li>
+							<li>Semantic search and sorting help guests surface dishes fast.</li>
+							<li>Built-in membership programme keeps loyalty within the flow.</li>
+						</ul>
+						<div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: auto;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.7rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em;">Opportunity</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Personalisation is limited — the same menu appears for every guest.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Field Learnings full-width backdrop -->
+		<section class="section-full-width-showcase" style="padding-top: 0;">
+			<div style="position: relative; overflow: hidden; border-radius: 1rem; border: 1px solid var(--border-color); min-height: 480px; display: flex; align-items: flex-end; padding: 2rem;">
+				<img src="./wp-content/uploads/2025/scan-to-order/images/field-learnings-bg.jpg" alt="Group ordering field learning backdrop" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.45);" />
+				<div style="position: relative; z-index: 2; width: 100%; background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 0.75rem; border: 1px solid var(--glass-border); padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+					<h3 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.1rem;">Field Research</h3>
+					<h4 style="margin: 0 0 1rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--text-primary);">Field Learnings &amp; User Insights</h4>
+					<p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 2rem;">We went down to the field to see how people actually order in group dining. This helped us understand the gaps in current offerings. We realised how dynamic the ordering process in store could be — from individuals to groups, cafes to buffets, there's a lot of nuance in how people order.</p>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
+						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Family Group Dining</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">One coordinator goes around the table asking for everyone's orders.</p>
+						</div>
+						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Friends Group Dining</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">Confusion around how to split the bill and what to order for the table.</p>
+						</div>
+						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
+							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Solo Dining</h5>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">Lack of clarity around portion sizes.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 03: Objective -->
+		<section class="section-editorial-center">
+			<span class="section-label">03 / Objective</span>
+			<h2 class="section-title">Goal: Redefining STO</h2>
+			<div class="hmw-callout" style="background-color: rgba(0, 177, 79, 0.03); border-left-color: #00b14f; text-align: left; max-width: 660px; margin: 2rem auto 0;">
+				<h4 style="color: #00b14f !important;">Problem Statement</h4>
+				<p>How might we rebuild STO into a merchant-first, data-driven solution that reduces friction for diners and boosts average order value (AOV) through personalisation and ecosystem integration?</p>
+			</div>
+		</section>
+
+		<!-- 04: Differentiators -->
+		<section class="section-editorial-grid">
+			<div class="grid-header">
+				<span class="section-label">04 / Concept</span>
+				<h2 class="section-title">Differentiators</h2>
+			</div>
+			<p class="cs-body-text" style="margin-bottom: 3.5rem; font-size: 1.05rem;">QR ordering in 2025 is a crowded space with many high-quality solutions. To stand out, we needed our product to deliver value not just to end consumers but also to merchants. We identified four key differentiators:</p>
+			
+			<div class="grid-deck" style="grid-template-columns: repeat(2, 1fr);">
+				<div class="editorial-card">
+					<span class="card-icon">✨</span>
+					<h4>AI-Driven Upsells</h4>
+					<p>Increase AOV through intelligent recommendations using Grab's ecosystem data.</p>
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Merchants</span>
+				</div>
+				<div class="editorial-card">
+					<span class="card-icon">🎯</span>
+					<h4>Contextual Loyalty</h4>
+					<p>Enables Grab loyalty within the ordering flow to capture user consent and drive retention.</p>
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Merchants</span>
+				</div>
+				<div class="editorial-card">
+					<span class="card-icon">🧺</span>
+					<h4>Shared Ordering Experience</h4>
+					<p>Plan and modify a shared basket for the table together in real-time, reducing total time to order.</p>
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Customers</span>
+				</div>
+				<div class="editorial-card">
+					<span class="card-icon">📱</span>
+					<h4>Personalisation</h4>
+					<p>Intelligent and personalised ordering experience based on user preferences and history.</p>
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Customers</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- 05: Design Evolution -->
+		<section class="section-full-width-showcase">
+			<div class="showcase-header">
+				<span class="section-label">05 / Evolution</span>
+				<h2 class="section-title">Design Evolution</h2>
+				<p class="showcase-desc">STO 2.0 streamlines entry, reduces friction at checkout, and supports group dining with shared context. Click the tabs to explore how standard views were redesigned to solve user drop-offs:</p>
+			</div>
+			
+			<!-- Before/After Slider Widget -->
+			<div class="sto-comparison-widget">
+				<div class="sto-tabs-header">
+					<button class="sto-tab-btn active" data-evolution-tab="landing">Landing Page</button>
+					<button class="sto-tab-btn" data-evolution-tab="menu">Rich Menu</button>
+					<button class="sto-tab-btn" data-evolution-tab="group">Group Ordering</button>
+					<button class="sto-tab-btn" data-evolution-tab="loyalty">Unobtrusive Loyalty &amp; Deals</button>
+				</div>
+				
+				<div class="sto-comparison-display" style="max-width: 680px; margin: 2rem auto;">
+					<div class="sto-comparison-screen">
+						<span class="sto-screen-label before">Before: STO 1.0</span>
+						<div class="sto-device-frame" style="max-height: 520px;">
+							<img id="evolution-before-img" src="./wp-content/uploads/2025/scan-to-order/STO1Landing.png" alt="Before Screen Mockup" />
+						</div>
+					</div>
+					
+					<div class="sto-comparison-screen">
+						<span class="sto-screen-label after">After: STO 2.0</span>
+						<div class="sto-device-frame" style="border-color: #00b14f; box-shadow: 0 15px 40px rgba(0, 177, 79, 0.15); max-height: 520px;">
+							<img id="evolution-after-img" src="./wp-content/uploads/2025/scan-to-order/STO2Menu.png" alt="After Screen Mockup" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="sto-comparison-info">
+					<h4 id="evolution-title">Landing Page</h4>
+					<p id="evolution-desc">Scanning QR lands users directly-to-menu with items exposed, reducing time to first action.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 06: Testing & Learnings -->
+		<section class="section-full-width-showcase" style="padding-bottom: 0; position: relative; overflow: visible;">
+			<!-- UT.gif full-bleed background -->
+			<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); position: relative; z-index: 1;">
+				<img src="./wp-content/uploads/2025/scan-to-order/UT.gif" alt="Usability Testing Session Recording" style="width: 100%; height: 100%; object-fit: cover;" />
+			</div>
+		</section>
+
+		<!-- Overlapping card container -->
+		<section class="section-full-width-showcase" style="padding-top: 0; margin-top: -6rem; position: relative; z-index: 2; overflow: visible;">
+			<div class="editorial-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 3rem; box-shadow: var(--shadow-lg); max-width: 1100px; margin: 0 auto;">
+				<div class="showcase-header" style="text-align: left; margin-bottom: 3rem; padding: 0;">
+					<span class="section-label">06 / Testing</span>
+					<h2 class="section-title" style="margin: 0.5rem 0 1rem 0;">Testing &amp; Learnings</h2>
+					<p class="showcase-desc" style="max-width: 100%; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+						In-person usability testing and interviews with 12 participants
+					</p>
+				</div>
+				
+				<!-- Live Prototype Simulator Wrapper -->
+				<div class="prototype-simulator-wrapper" style="margin-top: 0; border: none; padding: 0; background: transparent; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;">
+					<div class="simulator-info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+						<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600;">Prototype Testing</span>
+							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Vibecoded MVP</span>
+						</div>
+						<h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0;">Multi-User Shared Basket Simulation</h3>
+						<p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+							To validate the communal basket concept, we built a scrappy backend prototype that simulated multiple users interacting with a shared basket in real-time. This allowed us to test how users would interact with the shared basket and how it would affect the overall ordering process.
+						</p>
+						
+						<button class="trigger-notification-btn" id="triggerNotificationBtn" style="margin-top: 1rem;">
+							<i class="fa-solid fa-bell"></i> Trigger Notification
+						</button>
+					</div>
+					
+					<div class="simulator-device-container">
+						<div class="simulator-device-frame">
+							<!-- Simulated smartphone notification banner -->
+							<div class="device-toast-notification" id="deviceToast">
+								<div class="device-toast-text">
+									<i class="fa-solid fa-cart-shopping" style="color: #00b14f;"></i>
+									<span>1 x Chicken Fried Rice added by Reuben</span>
+								</div>
+								<button class="device-toast-close" id="closeToastBtn">&times;</button>
+							</div>
+							
+							<iframe src="https://scan-to-order.lovable.app/menu" title="Grab STO Live Prototype Demo"></iframe>
+						</div>
+					</div>
+				</div>
+
+				<!-- Key Findings -->
+				<div style="margin-top: 4rem; border-top: 1px solid var(--border-color); padding-top: 3rem;">
+					<h3 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 2rem;">Key Findings</h3>
+					
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+						<div style="background: var(--bg-card-hover); border: 1px solid var(--border-color); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 0 0.75rem 0.75rem 0; display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+							<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Core Flow</h4>
+							<p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+								Core flow was smooth and intuitive, with no major issues, users were able to navigate the flow quickly and easily.
+							</p>
+						</div>
+						<div style="background: var(--bg-card-hover); border: 1px solid var(--border-color); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: 0 0.75rem 0.75rem 0; display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+							<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Shared Basket</h4>
+							<p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+								Users liked seeing others items in the basket and being able to modify them in real-time. It worked best in group settings like family or close friends.
+							</p>
+						</div>
+						<div style="background: var(--bg-card-hover); border: 1px solid var(--border-color); border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 0 0.75rem 0.75rem 0; display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+							<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Item Attribution</h4>
+							<p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+								Users wanted to know who ordered what in the shared basket to ensure there's no confusion around who owes what.
+							</p>
+						</div>
+						<div style="background: var(--bg-card-hover); border: 1px solid var(--border-color); border-left: 4px solid #ef4444; padding: 1.5rem; border-radius: 0 0.75rem 0.75rem 0; display: flex; flex-direction: column; gap: 0.5rem; text-align: left;">
+							<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Payment</h4>
+							<p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+								Users were unclear on when they were supposed to pay and who is supposed to pay how much.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 07: Post-Launch Impact -->
+		<section class="section-editorial-center" style="border-bottom: none;">
+			<span class="section-label">07 / Impact</span>
+			<h2 class="section-title">Post-Launch Impact</h2>
+			<p class="section-desc">Early rollout data and pilot feedback highlighted the following outcomes:</p>
+			
+			<div class="metrics-deck" style="max-width: 1100px; margin: 3rem auto 0; justify-content: center; gap: 1.5rem;">
+				<!-- PAX Metric 1 -->
+				<div class="metric-card" style="border-color: rgba(0, 177, 79, 0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; text-align: left; padding: 2rem;">
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600;">PAX Benefit</span>
+					<div class="metric-val" style="color: #00b14f; font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; font-family: var(--font-display); line-height: 1;">33%</div>
+					<div class="metric-label" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Time Reduction</div>
+					<p class="metric-desc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin: 0.25rem 0 0;">Reduction in time to order for all users.</p>
+				</div>
+				
+				<!-- PAX Metric 2 -->
+				<div class="metric-card" style="border-color: rgba(0, 177, 79, 0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; text-align: left; padding: 2rem;">
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600;">PAX Benefit</span>
+					<div class="metric-val" style="color: #00b14f; font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; font-family: var(--font-display); line-height: 1;">89%</div>
+					<div class="metric-label" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Completion Rate</div>
+					<p class="metric-desc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin: 0.25rem 0 0;">Order completion rate for all users.</p>
+				</div>
+				
+				<!-- MEX Metric 1 -->
+				<div class="metric-card" style="border-color: rgba(0, 177, 79, 0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; text-align: left; padding: 2rem;">
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600;">MEX Benefit</span>
+					<div class="metric-val" style="color: #00b14f; font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; font-family: var(--font-display); line-height: 1;">25pp</div>
+					<div class="metric-label" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Order Coverage</div>
+					<p class="metric-desc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin: 0.25rem 0 0;">Improvement in order coverage per merchant.</p>
+				</div>
+				
+				<!-- MEX Metric 2 -->
+				<div class="metric-card" style="border-color: rgba(0, 177, 79, 0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; text-align: left; padding: 2rem;">
+					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600;">MEX Benefit</span>
+					<div class="metric-val" style="color: #00b14f; font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; font-family: var(--font-display); line-height: 1;">60%</div>
+					<div class="metric-label" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">POS Adoption</div>
+					<p class="metric-desc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin: 0.25rem 0 0;">Average merchant adoption rate per POS partner.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 08: Final Reflection -->
+		<section class="section-editorial-center" style="padding-top: 0; padding-bottom: 6rem;">
+			<div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 3rem; text-align: left; border-left: 4px solid #00b14f; display: flex; flex-direction: column; gap: 1rem;">
+				<span class="section-label" style="margin-bottom: 0;">08 / Reflection</span>
+				<h2 class="section-title" style="margin: 0; font-size: 1.75rem; color: var(--text-primary);">Final Reflection</h2>
+				<p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin: 0.5rem 0 0 0;">
+					The redesign of STO wasn't just about fixing UX friction, it was about <strong>rethinking the role of data in dining</strong>. By merging POS intelligence, ecosystem integration, and customer insights, Grab STO 2.0 transforms every meal into a smarter, more rewarding experience for both diners and merchants.
+				</p>
+			</div>
+		</section>
+
+		<!-- Footer Navigation -->
+		<section class="cs-footer-nav">
+			<span class="cs-footer-label">Up Next</span>
+			<a href="browse-sheet.html" class="cs-footer-link">
+				Disney+ Hotstar - Reimagining Browsing <i class="fa-solid fa-arrow-right"></i>
+			</a>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
+			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		</div>
+	</footer>
+
+	<script>
+		// Scroll Progress Indicator
+		const scrollProgress = document.getElementById('scrollProgress');
+		window.addEventListener('scroll', () => {
+			const scrollTop = window.scrollY;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const scrolled = (scrollTop / docHeight) * 100;
+			scrollProgress.style.width = scrolled + '%';
+		});
+
+		// Design Evolution Slider Data
+		const evolutionTabs = {
+			landing: {
+				title: "Landing Page",
+				desc: "Scanning QR lands users directly-to-menu with items exposed, reducing time to first action.",
+				before: "./wp-content/uploads/2025/scan-to-order/STO1Landing.png",
+				after: "./wp-content/uploads/2025/scan-to-order/STO2Menu.png"
+			},
+			menu: {
+				title: "Rich Menu",
+				desc: "Visual categories, upfront search bar, and guest checkout by default with optional login for rewards.",
+				before: "./wp-content/uploads/2025/scan-to-order/STO1Menu.png",
+				after: "./wp-content/uploads/2025/scan-to-order/STO2Menu.png"
+			},
+			group: {
+				title: "Group Ordering",
+				desc: "Common shared basket for the table reduces back and forth between people and gets everyone on the same page, with smart recommendations based on past order history and store upsells.",
+				before: "./wp-content/uploads/2025/scan-to-order/STO1Basket.png",
+				after: "./wp-content/uploads/2025/scan-to-order/STO2Basket.png"
+			},
+			loyalty: {
+				title: "Unobtrusive Loyalty & Deals",
+				desc: "Deals and loyalty program nudges don't distract from the ordering flow, but show up prominently right when checking the bill before checkout.",
+				before: "./wp-content/uploads/2025/scan-to-order/STO1Bill.png",
+				after: "./wp-content/uploads/2025/scan-to-order/STO2Bill.png"
+			}
+		};
+
+		const tabBtns = document.querySelectorAll('[data-evolution-tab]');
+		const beforeImg = document.getElementById('evolution-before-img');
+		const afterImg = document.getElementById('evolution-after-img');
+		const evoTitle = document.getElementById('evolution-title');
+		const evoDesc = document.getElementById('evolution-desc');
+
+		tabBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				tabBtns.forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+				const tab = btn.getAttribute('data-evolution-tab');
+				const data = evolutionTabs[tab];
+				if (data) {
+					beforeImg.src = data.before;
+					afterImg.src = data.after;
+					evoTitle.innerText = data.title;
+					evoDesc.innerText = data.desc;
+				}
+			});
+		});
+
+		// Simulated Prototype Notification Banner logic
+		const triggerBtn = document.getElementById('triggerNotificationBtn');
+		const toast = document.getElementById('deviceToast');
+		const closeToast = document.getElementById('closeToastBtn');
+		let toastTimeout;
+
+		if (triggerBtn && toast) {
+			triggerBtn.addEventListener('click', () => {
+				clearTimeout(toastTimeout);
+				toast.classList.add('show');
+				toastTimeout = setTimeout(() => {
+					toast.classList.remove('show');
+				}, 4500);
+			});
+		}
+
+		if (closeToast && toast) {
+			closeToast.addEventListener('click', () => {
+				clearTimeout(toastTimeout);
+				toast.classList.remove('show');
+			});
+		}
+	</script>
+</body>
+</html>
