@@ -24,24 +24,6 @@
 </head>
 
 <body>
-	<!-- Notebook Blueprint Columns grid lines -->
-	<div class="editorial-grid-lines">
-		<div class="grid-line-col">
-			<span class="grid-intersection" style="top: 15%; left: 100%;">+</span>
-			<span class="grid-intersection" style="top: 45%; left: 100%;">+</span>
-			<span class="grid-intersection" style="top: 75%; left: 100%;">+</span>
-		</div>
-		<div class="grid-line-col">
-			<span class="grid-intersection" style="top: 25%; left: 100%;">+</span>
-			<span class="grid-intersection" style="top: 65%; left: 100%;">+</span>
-		</div>
-		<div class="grid-line-col">
-			<span class="grid-intersection" style="top: 35%; left: 100%;">+</span>
-			<span class="grid-intersection" style="top: 80%; left: 100%;">+</span>
-		</div>
-		<div class="grid-line-col"></div>
-	</div>
-
 	<!-- Custom Interactive Cursor Elements -->
 	<div class="cursor-dot" id="cursorDot"></div>
 	<div class="cursor-ring" id="cursorRing">
@@ -77,7 +59,8 @@
 					<li><a href="#Home" class="nav-link active magnetic-el">Journal</a></li>
 					<li><a href="#UX" class="nav-link magnetic-el">Case Studies</a></li>
 					<li><a href="#Branding" class="nav-link magnetic-el">Identity</a></li>
-					<li><a href="#Others" class="nav-link magnetic-el">Other Vault</a></li>
+					<li><a href="#Others" class="nav-link magnetic-el">Vault</a></li>
+					<li><a href="about.html" class="nav-link magnetic-el">About</a></li>
 				</ul>
 				
 				<!-- Sound control toggle -->
@@ -88,8 +71,7 @@
 
 			<div class="time-widget" id="timeWidget">
 				<span class="time-dot"></span>
-				<span id="currentTime">BENGALURU, IN 12:00:00 PM</span>
-				<span class="handwritten-note" style="font-size: 1.15rem; margin-left: 0.50rem; --rot: 2deg; color: var(--ink-color);">Chai time! ☕</span>
+				<span id="currentTime">SINGAPORE 12:00:00 PM</span>
 			</div>
 		</div>
 	</header>
@@ -107,7 +89,7 @@
 					HUMAN INTERFACES.
 				</h1>
 				<p class="hero-description" id="heroDesc">
-					I design premium user experiences, laugh at extremely lame jokes, and bake delicious cheesecakes in Bengaluru, India.
+					I design premium user experiences, laugh at extremely lame jokes, and bake delicious cheesecakes in Singapore.
 				</p>
 				<div class="hero-buttons" id="heroBtns">
 					<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-primary magnetic-el">
@@ -159,9 +141,7 @@
 				</div>
 
 				<!-- Draggable Physics Stickers -->
-				<div class="draggable-sticker" id="stickerChai" style="top: 15px; left: -110px;" title="Drag me!">
-					<img src="wp-content/uploads/2026/landing/stamp_bengaluru_chai.png" alt="Bengaluru Chai Sticker" />
-				</div>
+
 				<div class="draggable-sticker" id="stickerCheesecake" style="bottom: 30px; right: -75px;" title="Drag me!">
 					<img src="wp-content/uploads/2026/landing/stamp_cheesecake_slice.png" alt="Cheesecake Baker Sticker" />
 				</div>
@@ -230,60 +210,6 @@
 					</div>
 				</a>
 
-				<!-- Case Study 3: Notion-Style Memo Bento (Span 4) -->
-				<div class="notion-memo-bento" id="notionBento">
-					<div class="masking-tape tape-top-right"></div>
-					<div class="memo-notion-bar">
-						<span class="notion-dot notion-dot-red"></span>
-						<span class="notion-dot notion-dot-yellow"></span>
-						<span class="notion-dot notion-dot-green"></span>
-						<span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-secondary); margin-left: 0.5rem;">reuben_memo.md</span>
-					</div>
-					
-					<ul class="memo-tabs" id="memoTabs">
-						<li><button class="memo-tab-btn active" data-tab="philosophy">Philosophy</button></li>
-						<li><button class="memo-tab-btn" data-tab="stack">Toolbox</button></li>
-						<li><button class="memo-tab-btn" data-tab="recipe">Cheesecake</button></li>
-					</ul>
-					
-					<div class="memo-content-area">
-						<!-- Tab 1: Philosophy -->
-						<div class="memo-tab-pane active" id="pane-philosophy">
-							<h5 class="memo-title">Designing for Humans</h5>
-							<p class="memo-text">
-								I believe digital tools should feel as tangible and delightful as a well-bound sketchbook. Every pixel deserves intent, and every interaction should spark joy.
-							</p>
-							<ul class="memo-list">
-								<li><i class="fa-solid fa-feather"></i> Intentional Simplicity</li>
-								<li><i class="fa-solid fa-heart-pulse"></i> Fluid Physics Animations</li>
-								<li><i class="fa-solid fa-gauge-high"></i> Zero Visual Bloat</li>
-							</ul>
-						</div>
-						<!-- Tab 2: Stack -->
-						<div class="memo-tab-pane" id="pane-stack">
-							<h5 class="memo-title">Mediums &amp; Stack</h5>
-							<p class="memo-text">
-								My toolkit covers the spectrum from conceptual design blueprints to frontend script execution.
-							</p>
-							<ul class="memo-list">
-								<li><i class="fa-solid fa-compass-drafting"></i> Figma &amp; After Effects</li>
-								<li><i class="fa-solid fa-code"></i> Vanilla JS, CSS &amp; GSAP</li>
-								<li><i class="fa-solid fa-cookie-bite"></i> Mixing Bowls &amp; Espresso</li>
-							</ul>
-						</div>
-						<!-- Tab 3: Cheesecake Recipe -->
-						<div class="memo-tab-pane" id="pane-recipe">
-							<h5 class="memo-title">Cheesecake Formula</h5>
-							<p class="memo-text">
-								A premium New York cheesecake is 60% temperature control, 30% quality cheese, and 10% pure passion.
-							</p>
-							<p class="memo-text" style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--ink-color);">
-								"Always bake in a water bath at 160°C and let it cool inside the oven for 1 hour to prevent cracks."
-							</p>
-						</div>
-					</div>
-				</div>
-
 				<!-- Case Study 4: Disney+ Hotstar TV Subscription (Span 4) -->
 				<a href="subscriber-tv.html" class="project-card span-4 badge-trigger" data-label="VIEW CASE • ">
 					<div class="masking-tape tape-top-left"></div>
@@ -303,8 +229,8 @@
 					</div>
 				</a>
 
-				<!-- Case Study 5: Disney+ Hotstar Helpdesk (Span 4) -->
-				<a href="helpdesk.html" class="project-card span-4 badge-trigger" data-label="VIEW CASE • ">
+				<!-- Case Study 5: Disney+ Hotstar Helpdesk (Span 6) -->
+				<a href="helpdesk.html" class="project-card span-6 badge-trigger" data-label="VIEW CASE • ">
 					<div class="masking-tape tape-center-top"></div>
 					<div class="project-media">
 						<img src="./wp-content/uploads/2020/03/Helpdesk-1.png" alt="Disney+ Hotstar Helpdesk" class="project-image" loading="lazy" />
@@ -322,8 +248,8 @@
 					</div>
 				</a>
 
-				<!-- Case Study 6: Barter (Span 4) -->
-				<a href="barter.html" class="project-card span-4 badge-trigger" data-label="VIEW CASE • ">
+				<!-- Case Study 6: Barter (Span 6) -->
+				<a href="barter.html" class="project-card span-6 badge-trigger" data-label="VIEW CASE • ">
 					<div class="masking-tape tape-top-right"></div>
 					<span class="handwritten-note" style="position: absolute; left: 1rem; bottom: -2rem; --rot: -3deg; font-size: 1.1rem; z-index: 50;">Saved local groups $12k+ in purchases! 🤝</span>
 					
@@ -1333,9 +1259,9 @@
 						if (deck) {
 							const cards = deck.querySelectorAll('.cascade-card');
 							deck.addEventListener('mouseenter', () => {
-								gsap.to(cards[0], { rotation: -16, x: -50, y: -20, z: 30, duration: 0.6, ease: "power2.out" });
-								gsap.to(cards[1], { rotation: 0, x: 0, y: -10, z: 10, duration: 0.6, ease: "power2.out" });
-								gsap.to(cards[2], { rotation: 16, x: 50, y: -20, z: 0, duration: 0.6, ease: "power2.out" });
+								gsap.to(cards[0], { rotation: -12, x: -40, y: -15, z: 20, duration: 0.6, ease: "power2.out" });
+								gsap.to(cards[1], { rotation: 0, x: 0, y: -8, z: 10, duration: 0.6, ease: "power2.out" });
+								gsap.to(cards[2], { rotation: 12, x: 40, y: -15, z: 0, duration: 0.6, ease: "power2.out" });
 							});
 							deck.addEventListener('mouseleave', () => {
 								gsap.to(cards[0], { rotation: -6, x: -10, y: -5, z: 0, duration: 0.8, ease: "elastic.out(1, 0.75)" });
@@ -1349,7 +1275,7 @@
 			);
 
 			// Animating scroll project cards (Offset paper blocks)
-			document.querySelectorAll('.project-card, .branding-card, .notion-memo-bento').forEach(section => {
+			document.querySelectorAll('.project-card, .branding-card').forEach(section => {
 				gsap.fromTo(section, 
 					{ opacity: 0, y: 60 },
 					{ 
@@ -1371,7 +1297,7 @@
 		function updateClock() {
 			const timeWidget = document.getElementById('currentTime');
 			const options = {
-				timeZone: 'Asia/Kolkata',
+				timeZone: 'Asia/Singapore',
 				hour12: true,
 				hour: '2-digit',
 				minute: '2-digit',
@@ -1379,7 +1305,7 @@
 			};
 			const now = new Date();
 			const timeString = now.toLocaleTimeString('en-US', options);
-			timeWidget.textContent = `BENGALURU, IN ${timeString}`;
+			timeWidget.textContent = `SINGAPORE ${timeString}`;
 		}
 		setInterval(updateClock, 1000);
 		updateClock();

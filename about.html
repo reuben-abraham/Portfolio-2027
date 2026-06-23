@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	<title>About Reuben Abraham | Designer & Baker</title>
+	
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="I design premium digital experiences and bake delicious cheesecakes in Singapore. Read about my philosophy, tools, and background." />
+	<meta name="robots" content="index, follow" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="About Reuben Abraham | Designer Portfolio" />
+	<meta property="og:description" content="I design premium digital experiences and bake delicious cheesecakes in Singapore. Read about my philosophy, tools, and background." />
+	<meta property="og:site_name" content="Reuben Abraham" />
+	<meta name="twitter:card" content="summary_large_image" />
+	
+	<!-- Icons & Styles -->
+	<link rel="icon" href="wp-content/uploads/2020/04/cropped-Favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" href="wp-content/uploads/2020/04/cropped-Favicon-192x192.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="wp-content/uploads/2020/04/cropped-Favicon-180x180.png" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+	<!-- Custom Interactive Cursor Elements -->
+	<div class="cursor-dot" id="cursorDot"></div>
+	<div class="cursor-ring" id="cursorRing">
+		<div class="cursor-text" id="cursorText">VIEW CASE • </div>
+	</div>
+
+	<!-- Page Preloader (Artsy Caliper Seal Reveal) -->
+	<div id="preloader">
+		<div class="preloader-content">
+			<div class="preloader-stamp-wrapper" id="preloaderStamp">
+				<div class="preloader-stamp-center">
+					<img src="wp-content/uploads/2026/landing/badge_interaction.png" alt="Reuben Abraham stamp logo" />
+				</div>
+			</div>
+			<div class="preloader-counter" id="preloaderCounter">00%</div>
+			<div class="preloader-progress-track">
+				<div class="preloader-progress-bar" id="preloaderBar"></div>
+			</div>
+			<div class="preloader-status" id="preloaderStatus">INKING PLATES...</div>
+		</div>
+	</div>
+
+	<!-- Navigation Header -->
+	<header id="mainHeader">
+		<div class="header-container">
+			<a href="index.html#Home" class="logo-container magnetic-el">
+				<div class="logo-dot"></div>
+				<span class="logo-text">REUBEN ABRAHAM</span>
+			</a>
+			
+			<nav>
+				<ul class="nav-menu">
+					<li><a href="index.html#Home" class="nav-link magnetic-el">Journal</a></li>
+					<li><a href="index.html#UX" class="nav-link magnetic-el">Case Studies</a></li>
+					<li><a href="index.html#Branding" class="nav-link magnetic-el">Identity</a></li>
+					<li><a href="index.html#Others" class="nav-link magnetic-el">Vault</a></li>
+					<li><a href="about.html" class="nav-link active magnetic-el">About</a></li>
+				</ul>
+				
+				<!-- Sound control toggle -->
+				<button class="sound-toggle-btn magnetic-el" id="soundToggle" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+					<i class="fa-solid fa-volume-xmark"></i>
+				</button>
+			</nav>
+
+			<div class="time-widget" id="timeWidget">
+				<span class="time-dot"></span>
+				<span id="currentTime">SINGAPORE 12:00:00 PM</span>
+			</div>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="about-hero" id="aboutHero">
+			<!-- Column 1: Bio -->
+			<div class="about-bio" id="aboutBio">
+				<span class="handwritten-note" style="position: absolute; top: -3rem; left: 0; --rot: -4deg; font-size: 1.1rem; color: var(--ink-color);">story &amp; background</span>
+				
+				<h1>
+					About <span class="italic-highlight" id="typingElement">Reuben</span>
+				</h1>
+				
+				<div class="about-bio-text">
+					<p style="margin-bottom: 1.25rem;">
+						Hi, I'm Reuben. I'm an interaction and product designer focusing on digital tools and high-fidelity systems that feel as satisfying as a well-bound sketchbook. I believe that digital interfaces should be responsive, tactile, and designed with human physics in mind.
+					</p>
+					<p style="margin-bottom: 1.25rem;">
+						Over the past years, I've had the privilege of designing premium digital experiences for millions of users at <span style="font-weight: 600; color: var(--text-primary);">Grab</span> and <span style="font-weight: 600; color: var(--text-primary);">Disney+ Hotstar</span>. From reshaping in-store restaurant dining systems to scaling advanced booking interfaces and streaming video discovery, my work bridges the gap between complex engineering architectures and visual elegance.
+					</p>
+					<p>
+						Currently based in <span style="font-weight: 600; color: var(--text-primary);">Singapore</span>, I split my time between writing clean frontend code, refining micro-interactions, and perfecting my New York-style cheesecake recipe.
+					</p>
+				</div>
+				
+				<div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="btn btn-primary magnetic-el">
+						Get in touch <i class="fa-solid fa-envelope"></i>
+					</a>
+					<a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="btn btn-secondary magnetic-el">
+						LinkedIn <i class="fa-brands fa-linkedin"></i>
+					</a>
+				</div>
+				
+				<!-- Draggable physical stickers for playfulness -->
+				<div class="draggable-sticker" id="stickerDesigner" style="top: 10px; right: -60px;" title="Drag me!">
+					<img src="wp-content/uploads/2026/landing/stamp_reuben_designer.png" alt="Reuben Designer Sticker" />
+				</div>
+				<div class="draggable-sticker" id="stickerSeal" style="bottom: -40px; left: 10px;" title="Drag me!">
+					<img src="wp-content/uploads/2026/landing/badge_cheesecake_baker.png" alt="Cheesecake Baker Seal" />
+				</div>
+			</div>
+
+			<!-- Column 2: Scrapbook sheets -->
+			<div class="about-scrapbook">
+				<!-- Sheet 1: Philosophy -->
+				<div class="about-paper-sheet sheet-1">
+					<div class="masking-tape tape-top-left"></div>
+					<h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Designing for Humans</h3>
+					<p style="font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.25rem;">
+						I believe digital tools should feel as tangible and delightful as a well-bound sketchbook. Every pixel deserves intent, and every interaction should spark joy.
+					</p>
+					<ul class="about-list">
+						<li><i class="fa-solid fa-feather"></i> Intentional Simplicity</li>
+						<li><i class="fa-solid fa-heart-pulse"></i> Fluid Physics Animations</li>
+						<li><i class="fa-solid fa-gauge-high"></i> Zero Visual Bloat</li>
+					</ul>
+					<img src="wp-content/uploads/2026/landing/badge_interaction.png" class="about-sticker-img" alt="Interaction Badge" />
+				</div>
+
+				<!-- Sheet 2: Toolbox -->
+				<div class="about-paper-sheet sheet-2">
+					<div class="masking-tape tape-top-right"></div>
+					<h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Mediums &amp; Stack</h3>
+					<p style="font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.25rem;">
+						My toolkit covers the spectrum from conceptual design blueprints to frontend script execution.
+					</p>
+					<ul class="about-list">
+						<li><i class="fa-solid fa-compass-drafting"></i> Figma &amp; After Effects</li>
+						<li><i class="fa-solid fa-code"></i> Vanilla JS, CSS &amp; GSAP</li>
+						<li><i class="fa-solid fa-cookie-bite"></i> Mixing Bowls &amp; Espresso</li>
+					</ul>
+					<img src="wp-content/uploads/2026/landing/badge_crafted_pride.png" class="about-sticker-img" alt="Crafted with Pride Badge" />
+				</div>
+
+				<!-- Sheet 3: Cheesecake Recipe -->
+				<div class="about-paper-sheet sheet-3">
+					<div class="masking-tape tape-center-top"></div>
+					<h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem;">Cheesecake Formula</h3>
+					<p style="font-family: var(--font-sans); font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1rem;">
+						A premium New York cheesecake is 60% temperature control, 30% quality cheese, and 10% pure passion.
+					</p>
+					<p style="font-family: var(--font-script); font-size: 1.35rem; color: var(--ink-color); line-height: 1.3; transform: rotate(-1.5deg);">
+						"Always bake in a water bath at 160°C and let it cool inside the oven for 1 hour to prevent cracks."
+					</p>
+					<img src="wp-content/uploads/2026/landing/stamp_cheesecake_slice.png" class="about-sticker-img" alt="Cheesecake Stamp" />
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container footer-grid">
+			<div>
+				<h2 class="footer-heading">
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+				</h2>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<span class="footer-label">Navigation</span>
+				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+					<li><a href="index.html#Home" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Back to Home</a></li>
+					<li><a href="index.html#UX" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="index.html#Branding" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="index.html#Others" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+				</ul>
+				
+				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
+				<ul class="social-links">
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="container footer-copyright" style="position: relative;">
+			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham. Crafted with organic speed.</span>
+			<div style="display: flex; align-items: center; gap: 1.5rem;">
+				<span>Classy Aesthetics &bull; Lived-in Physicality</span>
+				<div style="width: 45px; height: 45px; opacity: 0.85;">
+					<img src="wp-content/uploads/2026/landing/badge_crafted_pride.png" alt="Crafted with Pride stamp badge" style="width: 100%; height: 100%; object-fit: contain;" />
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+	<script src="https://unpkg.com/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+	
+	<script>
+		// --- Audio FX Synthesizer ---
+		class AudioFX {
+			constructor() {
+				this.ctx = null;
+				this.enabled = false;
+			}
+			init() {
+				if (this.ctx) return;
+				try {
+					this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+				} catch (e) {
+					console.warn("Web Audio API not supported.");
+				}
+			}
+			enable() {
+				this.init();
+				this.enabled = true;
+			}
+			disable() {
+				this.enabled = false;
+			}
+			playTick() {
+				if (!this.enabled || !this.ctx) return;
+				if (this.ctx.state === 'suspended') this.ctx.resume();
+				
+				const osc = this.ctx.createOscillator();
+				const gain = this.ctx.createGain();
+				
+				osc.type = 'sine';
+				osc.frequency.setValueAtTime(1500, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(3200, this.ctx.currentTime + 0.008);
+				
+				gain.gain.setValueAtTime(0.006, this.ctx.currentTime);
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.008);
+				
+				osc.connect(gain);
+				gain.connect(this.ctx.destination);
+				
+				osc.start();
+				osc.stop(this.ctx.currentTime + 0.008);
+			}
+			playTock() {
+				if (!this.enabled || !this.ctx) return;
+				if (this.ctx.state === 'suspended') this.ctx.resume();
+				
+				const osc = this.ctx.createOscillator();
+				const gain = this.ctx.createGain();
+				
+				osc.type = 'triangle';
+				osc.frequency.setValueAtTime(260, this.ctx.currentTime);
+				osc.frequency.exponentialRampToValueAtTime(65, this.ctx.currentTime + 0.05);
+				
+				gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+				gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.05);
+				
+				osc.connect(gain);
+				gain.connect(this.ctx.destination);
+				
+				osc.start();
+				osc.stop(this.ctx.currentTime + 0.05);
+			}
+		}
+		const audiofx = new AudioFX();
+
+		// Sound toggle trigger
+		const soundToggle = document.getElementById('soundToggle');
+		let soundEnabled = localStorage.getItem('sound_fx_enabled') === 'true';
+
+		function updateSoundToggleState() {
+			const icon = soundToggle.querySelector('i');
+			if (soundEnabled) {
+				soundToggle.classList.add('sound-on');
+				icon.className = 'fa-solid fa-volume-high';
+				audiofx.enable();
+			} else {
+				soundToggle.classList.remove('sound-on');
+				icon.className = 'fa-solid fa-volume-xmark';
+				audiofx.disable();
+			}
+		}
+
+		soundToggle.addEventListener('click', () => {
+			soundEnabled = !soundEnabled;
+			localStorage.setItem('sound_fx_enabled', soundEnabled);
+			audiofx.init();
+			updateSoundToggleState();
+			if (soundEnabled) {
+				audiofx.playTock();
+			}
+		});
+
+		updateSoundToggleState();
+
+		// Bind click sounds
+		document.addEventListener('click', (e) => {
+			if (e.target.closest('.magnetic-el') || e.target.closest('.about-paper-sheet') || e.target.closest('.btn')) {
+				audiofx.playTock();
+			}
+		});
+
+		// Bind hover sounds
+		document.addEventListener('mouseenter', (e) => {
+			const target = e.target.closest('.magnetic-el') || e.target.closest('.about-paper-sheet') || e.target.closest('.btn');
+			if (target && !target.dataset.hovered) {
+				audiofx.playTick();
+				target.dataset.hovered = 'true';
+			}
+		}, true);
+
+		document.addEventListener('mouseleave', (e) => {
+			const target = e.target.closest('.magnetic-el') || e.target.closest('.about-paper-sheet') || e.target.closest('.btn');
+			if (target) {
+				delete target.dataset.hovered;
+			}
+		}, true);
+
+		// --- Lenis Smooth Scroll ---
+		let lenis;
+		try {
+			lenis = new Lenis({
+				duration: 1.3,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				direction: 'vertical',
+				smooth: true,
+				touchMultiplier: 1.5,
+			});
+
+			function raf(time) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			requestAnimationFrame(raf);
+		} catch (e) {
+			console.warn("Lenis failed to load:", e);
+		}
+
+		// --- Elastic Cursor & Snapping ---
+		const cursorDot = document.getElementById('cursorDot');
+		const cursorRing = document.getElementById('cursorRing');
+		const cursorText = document.getElementById('cursorText');
+
+		let mouseX = window.innerWidth / 2;
+		let mouseY = window.innerHeight / 2;
+		let ringX = window.innerWidth / 2;
+		let ringY = window.innerHeight / 2;
+		
+		let prevMouseX = mouseX;
+		let prevMouseY = mouseY;
+		
+		let snapTarget = null;
+		let isBadgeMode = false;
+		let badgeLabel = "ABOUT • ";
+
+		window.addEventListener('mousemove', (e) => {
+			mouseX = e.clientX;
+			mouseY = e.clientY;
+			
+			cursorDot.style.top = `${mouseY}px`;
+			cursorDot.style.left = `${mouseX}px`;
+		});
+
+		let badgeRotation = 0;
+
+		function updateCursor() {
+			const vx = mouseX - prevMouseX;
+			const vy = mouseY - prevMouseY;
+			prevMouseX = mouseX;
+			prevMouseY = mouseY;
+
+			const speed = Math.sqrt(vx * vx + vy * vy);
+			const squish = Math.min(speed * 0.012, 0.4);
+			const angle = Math.atan2(vy, vx) * 180 / Math.PI;
+
+			if (snapTarget) {
+				const rect = snapTarget.getBoundingClientRect();
+				const targetX = rect.left + rect.width / 2;
+				const targetY = rect.top + rect.height / 2;
+				
+				ringX += (targetX - ringX) * 0.25;
+				ringY += (targetY - ringY) * 0.25;
+				
+				cursorRing.style.top = `${ringY}px`;
+				cursorRing.style.left = `${ringX}px`;
+				cursorRing.style.width = `${rect.width + 12}px`;
+				cursorRing.style.height = `${rect.height + 12}px`;
+				cursorRing.style.transform = `translate(-50%, -50%)`;
+			} else {
+				const lerpVal = isBadgeMode ? 0.08 : 0.15;
+				ringX += (mouseX - ringX) * lerpVal;
+				ringY += (mouseY - ringY) * lerpVal;
+				
+				cursorRing.style.top = `${ringY}px`;
+				cursorRing.style.left = `${ringX}px`;
+				
+				if (isBadgeMode) {
+					cursorRing.style.width = '85px';
+					cursorRing.style.height = '85px';
+					
+					badgeRotation += 0.8;
+					cursorRing.style.transform = `translate(-50%, -50%) rotate(${badgeRotation}deg)`;
+				} else {
+					cursorRing.style.width = '32px';
+					cursorRing.style.height = '32px';
+					cursorRing.style.transform = `translate(-50%, -50%) rotate(${angle}deg) scale(${1 + squish}, ${1 - squish})`;
+				}
+			}
+
+			requestAnimationFrame(updateCursor);
+		}
+		requestAnimationFrame(updateCursor);
+
+		// Click Ripple
+		window.addEventListener('click', (e) => {
+			const ripple = document.createElement('div');
+			ripple.className = 'click-ripple';
+			ripple.style.top = `${e.clientY}px`;
+			ripple.style.left = `${e.clientX}px`;
+			ripple.style.width = '24px';
+			ripple.style.height = '24px';
+			document.body.appendChild(ripple);
+			
+			setTimeout(() => {
+				ripple.remove();
+			}, 600);
+		});
+
+		// Hover interactions: Snapping
+		document.querySelectorAll('.magnetic-el').forEach(el => {
+			el.addEventListener('mouseenter', () => {
+				snapTarget = el;
+				cursorRing.classList.add('snap-mode');
+				cursorDot.style.opacity = '0';
+			});
+			
+			el.addEventListener('mousemove', (e) => {
+				const rect = el.getBoundingClientRect();
+				const x = e.clientX - rect.left - rect.width / 2;
+				const y = e.clientY - rect.top - rect.height / 2;
+				
+				gsap.to(el, {
+					x: x * 0.35,
+					y: y * 0.35,
+					duration: 0.3,
+					ease: "power2.out"
+				});
+			});
+			
+			el.addEventListener('mouseleave', () => {
+				snapTarget = null;
+				cursorRing.classList.remove('snap-mode');
+				cursorDot.style.opacity = '1';
+				
+				gsap.to(el, {
+					x: 0,
+					y: 0,
+					duration: 0.5,
+					ease: "elastic.out(1, 0.3)"
+				});
+			});
+		});
+
+		// --- Page Preloader Logic ---
+		const preloader = document.getElementById('preloader');
+		const preloaderStamp = document.getElementById('preloaderStamp');
+		const preloaderBar = document.getElementById('preloaderBar');
+		const preloaderCounter = document.getElementById('preloaderCounter');
+		const preloaderStatus = document.getElementById('preloaderStatus');
+		
+		let percent = 0;
+		const statusPhrases = [
+			{ limit: 25, text: "OPENING JOURNAL..." },
+			{ limit: 60, text: "LOADING BLUEPRINTS..." },
+			{ limit: 90, text: "PRESSING BADGES..." },
+			{ limit: 100, text: "DONE!" }
+		];
+
+		const percentInterval = setInterval(() => {
+			percent += Math.floor(Math.random() * 10) + 6;
+			if (percent >= 100) {
+				percent = 100;
+				clearInterval(percentInterval);
+				executePageReveal();
+			}
+			preloaderBar.style.width = `${percent}%`;
+			preloaderCounter.textContent = `${percent}%`;
+			
+			const status = statusPhrases.find(p => percent <= p.limit);
+			if (status) preloaderStatus.textContent = status.text;
+		}, 40);
+
+		function executePageReveal() {
+			preloaderStatus.textContent = "DONE!";
+			
+			gsap.timeline()
+				.to(preloaderStamp, { scale: 0.8, duration: 0.12, ease: "power2.in" })
+				.to(preloaderStamp, { 
+					scale: 1.3, 
+					duration: 0.4, 
+					ease: "power4.out",
+					onStart: () => {
+						audiofx.playTock();
+					},
+					onComplete: () => {
+						preloader.style.setProperty('--cx', `${mouseX}px`);
+						preloader.style.setProperty('--cy', `${mouseY}px`);
+						preloader.classList.add('exited');
+						
+						if (typeof stickers !== 'undefined') {
+							stickers.forEach(s => s.recalculateStartPos());
+						}
+						
+						setTimeout(() => {
+							preloader.style.display = 'none';
+							triggerEntrances();
+						}, 1200);
+					}
+				});
+		}
+
+		// --- Draggable Physics Stickers ---
+		class PhysicalSticker {
+			constructor(el) {
+				this.el = el;
+				this.initialStyle = el.getAttribute('style') || '';
+				this.startX = 0;
+				this.startY = 0;
+				this.x = 0;
+				this.y = 0;
+				this.vx = 0;
+				this.vy = 0;
+				this.mass = 1;
+				this.spring = 0.007;
+				this.friction = 0.94;
+				this.isDragging = false;
+				this.dragX = 0;
+				this.dragY = 0;
+				
+				this.initEvents();
+				this.recalculateStartPos();
+			}
+
+			initEvents() {
+				this.el.addEventListener('mousedown', (e) => this.startDrag(e));
+				window.addEventListener('mousemove', (e) => this.drag(e));
+				window.addEventListener('mouseup', () => this.endDrag());
+				
+				this.el.addEventListener('touchstart', (e) => this.startDrag(e.touches[0]));
+				window.addEventListener('touchmove', (e) => this.drag(e.touches[0]));
+				window.addEventListener('touchend', () => this.endDrag());
+			}
+
+			recalculateStartPos() {
+				if (!this.isDragging) {
+					this.el.setAttribute('style', this.initialStyle);
+				}
+				const rect = this.el.getBoundingClientRect();
+				const parentRect = this.el.parentNode.getBoundingClientRect();
+				
+				this.startX = rect.left - parentRect.left;
+				this.startY = rect.top - parentRect.top;
+				
+				if (!this.isDragging) {
+					this.x = this.startX;
+					this.y = this.startY;
+					this.updatePosition();
+				}
+			}
+
+			startDrag(e) {
+				this.isDragging = true;
+				const rect = this.el.getBoundingClientRect();
+				this.dragX = e.clientX - rect.left;
+				this.dragY = e.clientY - rect.top;
+				this.vx = 0;
+				this.vy = 0;
+				this.el.style.zIndex = 300;
+				this.el.style.transform = `scale(1.05)`;
+				audiofx.playTick();
+			}
+
+			drag(e) {
+				if (!this.isDragging) return;
+				const parentRect = this.el.parentNode.getBoundingClientRect();
+				const targetX = e.clientX - parentRect.left - this.dragX;
+				const targetY = e.clientY - parentRect.top - this.dragY;
+				
+				this.vx = targetX - this.x;
+				this.vy = targetY - this.y;
+				this.x = targetX;
+				this.y = targetY;
+				this.updatePosition();
+			}
+
+			endDrag() {
+				if (!this.isDragging) return;
+				this.isDragging = false;
+				this.el.style.transform = `scale(1)`;
+				audiofx.playTock();
+			}
+
+			updatePosition() {
+				this.el.style.left = `${this.x}px`;
+				this.el.style.top = `${this.y}px`;
+			}
+
+			updatePhysics(containerWidth, containerHeight) {
+				if (this.isDragging) return;
+				if (containerWidth <= 0 || containerHeight <= 0) return;
+				
+				const ax = (this.startX - this.x) * this.spring;
+				const ay = (this.startY - this.y) * this.spring;
+				
+				this.vx += ax;
+				this.vy += ay;
+				this.vx *= this.friction;
+				this.vy *= this.friction;
+				this.x += this.vx;
+				this.y += this.vy;
+				
+				if (this.x < -100) {
+					this.x = -100;
+					this.vx *= -0.5;
+				} else if (this.x > (containerWidth + 50)) {
+					this.x = containerWidth + 50;
+					this.vx *= -0.5;
+				}
+				
+				if (this.y < -100) {
+					this.y = -100;
+					this.vy *= -0.5;
+				} else if (this.y > (containerHeight + 50)) {
+					this.y = containerHeight + 50;
+					this.vy *= -0.5;
+				}
+
+				this.updatePosition();
+			}
+		}
+
+		const stickers = [];
+		document.querySelectorAll('.draggable-sticker').forEach(el => {
+			stickers.push(new PhysicalSticker(el));
+		});
+
+		window.addEventListener('load', () => {
+			stickers.forEach(s => s.recalculateStartPos());
+		});
+		window.addEventListener('resize', () => {
+			stickers.forEach(s => s.recalculateStartPos());
+		});
+
+		const aboutBio = document.getElementById('aboutBio');
+		function physicsLoop() {
+			if (aboutBio) {
+				const w = aboutBio.offsetWidth;
+				const h = aboutBio.offsetHeight;
+				stickers.forEach(s => s.updatePhysics(w, h));
+			}
+			requestAnimationFrame(physicsLoop);
+		}
+		requestAnimationFrame(physicsLoop);
+
+		// --- GSAP Entrances ---
+		function triggerEntrances() {
+			gsap.registerPlugin(ScrollTrigger);
+			const tl = gsap.timeline();
+			
+			tl.fromTo(".about-bio h1", 
+				{ opacity: 0, y: 30 }, 
+				{ opacity: 1, y: 0, duration: 1, ease: "power4.out" }
+			);
+			tl.fromTo(".about-bio-text", 
+				{ opacity: 0, y: 20 }, 
+				{ opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 
+				"-=0.6"
+			);
+			tl.fromTo(".about-bio .btn", 
+				{ opacity: 0, y: 15 }, 
+				{ opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }, 
+				"-=0.6"
+			);
+			tl.fromTo(".about-paper-sheet", 
+				{ opacity: 0, y: 40, rotation: 0 }, 
+				{ 
+					opacity: 1, 
+					y: 0, 
+					rotation: (i) => i === 0 ? -0.3 : (i === 1 ? 0.2 : -0.1),
+					duration: 1, 
+					ease: "power4.out", 
+					stagger: 0.15 
+				}, 
+				"-=0.7"
+			);
+		}
+
+		// --- Dynamic Clock ---
+		function updateClock() {
+			const timeWidget = document.getElementById('currentTime');
+			const options = {
+				timeZone: 'Asia/Singapore',
+				hour12: true,
+				hour: '2-digit',
+				minute: '2-digit',
+				second: '2-digit'
+			};
+			const now = new Date();
+			const timeString = now.toLocaleTimeString('en-US', options);
+			timeWidget.textContent = `SINGAPORE ${timeString}`;
+		}
+		setInterval(updateClock, 1000);
+		updateClock();
+
+		document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+		// --- Cyclic title greeting cycling ---
+		const traits = ["Reuben", "Designer", "Baker", "Thinker"];
+		let traitIdx = 0;
+		const typingElement = document.getElementById('typingElement');
+		
+		function cycleTraits() {
+			gsap.to(typingElement, {
+				opacity: 0,
+				y: 6,
+				duration: 0.3,
+				onComplete: () => {
+					traitIdx = (traitIdx + 1) % traits.length;
+					typingElement.textContent = traits[traitIdx];
+					gsap.to(typingElement, { opacity: 1, y: 0, duration: 0.3 });
+				}
+			});
+		}
+		setInterval(cycleTraits, 3200);
+	</script>
+</body>
+</html>
