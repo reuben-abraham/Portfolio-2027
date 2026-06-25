@@ -13,57 +13,446 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="case-study.css" />
 	<style>
-		/* Grab-specific styles for text-driven layout */
-		.grab-hero-banner {
-			background: linear-gradient(135deg, #00b14f 0%, #006838 60%, #003d21 100%);
-			border-radius: 1rem;
-			padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
-			margin-bottom: 6rem;
+		/* Friction Map Image - align to top, remove bg/shadow, make bigger globally */
+		.cs-context-section .editorial-split-visual img {
+			width: 100% !important;
+			max-height: calc(100vh - 10rem) !important;
+			object-fit: contain !important;
+			border: none !important;
+			background: transparent !important;
+			box-shadow: none !important;
+			border-radius: 0 !important;
+			padding: 0 !important;
+			mix-blend-mode: multiply !important;
+		}
+
+		/* Custom page-specific overrides for 100vh fits and layouts */
+		@media (min-width: 901px) {
+			/* Global Editorial Section height fits */
+			.cs-context-section {
+				display: grid !important;
+				grid-template-columns: 5fr 7fr !important; /* wider context section, larger visual */
+				gap: 4.5rem !important;
+				padding: 3.5rem 0 !important;
+				align-items: start !important; /* align to top of section */
+				min-height: 100vh;
+				height: auto;
+				max-height: none;
+				box-sizing: border-box;
+				overflow: visible;
+				border-bottom: 1px solid var(--border-color);
+			}
+
+			.cs-context-section .editorial-split-text {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				gap: 1rem !important;
+			}
+
+			/* Pain point grid to 2x2 */
+			.cs-context-section .pain-point-grid {
+				display: grid !important;
+				grid-template-columns: repeat(2, 1fr) !important;
+				gap: 1rem !important;
+				margin-top: 1rem !important;
+			}
+
+			.cs-context-section .pain-point-card {
+				padding: 1.25rem !important;
+				display: flex;
+				flex-direction: column;
+				gap: 0.35rem;
+				border-radius: 0.5rem;
+			}
+
+			.cs-context-section .pain-point-card h4 {
+				margin: 0 !important;
+				font-size: 0.95rem !important;
+			}
+
+			.cs-context-section .pain-point-card p {
+				margin: 0 !important;
+				font-size: 0.8rem !important;
+				line-height: 1.45 !important;
+			}
+
+			/* Friction Map Image - align to top, remove bg/shadow, make bigger */
+			.cs-context-section .editorial-split-visual {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+
+			.cs-context-section .editorial-split-visual figure {
+				margin: 0 !important;
+				width: 100% !important;
+			}
+
+			/* Reduce spacing between title and body in Competitive Analysis */
+			.competitive-section {
+				padding: 4rem 0 !important;
+			}
+			.competitive-section .grid-header {
+				margin-bottom: 1.25rem !important;
+			}
+			.competitive-section .cs-body-text {
+				margin-bottom: 2rem !important;
+			}
+
+			/* Differentiators fit in 100vh */
+			.differentiators-section {
+				min-height: 100vh;
+				height: auto !important;
+				max-height: none !important;
+				padding: 4rem 0 !important;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				box-sizing: border-box;
+				overflow: visible !important;
+				border-bottom: 1px solid var(--border-color);
+			}
+
+			.differentiators-section .grid-header {
+				margin-bottom: 1.25rem !important;
+			}
+
+			.differentiators-section .cs-body-text {
+				margin-bottom: 1.5rem !important;
+			}
+
+			.differentiators-section .grid-deck {
+				display: grid !important;
+				grid-template-columns: repeat(4, 1fr) !important;
+				gap: 1.25rem !important;
+			}
+
+			.differentiators-section .editorial-card {
+				padding: 1.5rem 1.75rem !important;
+				gap: 0.75rem !important;
+				border-radius: 0.75rem !important;
+			}
+
+			.differentiators-section .editorial-card p {
+				font-size: 0.85rem !important;
+				line-height: 1.5 !important;
+			}
+
+			/* Design Evolution (Section 5) fit */
+			.evolution-section {
+				min-height: 100vh;
+				height: auto !important;
+				max-height: none !important;
+				padding: 4rem 0 !important;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				box-sizing: border-box;
+				overflow: visible !important;
+				border-bottom: 1px solid var(--border-color);
+			}
+
+			.evolution-section .showcase-header {
+				margin-bottom: 1.5rem !important;
+				flex-shrink: 0;
+			}
+
+			.evolution-section .sto-comparison-widget {
+				display: grid !important;
+				grid-template-columns: 4.8fr 7.2fr !important;
+				gap: 3.5rem !important;
+				align-items: center !important;
+				height: 100% !important;
+				width: 100% !important;
+			}
+
+			.evolution-section .sto-evolution-left {
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 1.5rem !important;
+				align-items: flex-start !important;
+				text-align: left !important;
+			}
+
+			.evolution-nav-controls {
+				display: flex !important;
+				gap: 1rem !important;
+				margin-top: 1.5rem !important;
+			}
+
+			.evo-nav-btn {
+				background: rgba(255, 255, 255, 0.03) !important;
+				border: 1px solid var(--border-color) !important;
+				color: var(--text-primary) !important;
+				padding: 0.6rem 1.2rem !important;
+				border-radius: 2rem !important;
+				font-family: var(--font-mono) !important;
+				font-size: 0.8rem !important;
+				cursor: pointer !important;
+				display: inline-flex !important;
+				align-items: center !important;
+				gap: 0.5rem !important;
+				transition: all 0.3s ease !important;
+			}
+
+			.evo-nav-btn:hover:not(:disabled) {
+				background: rgba(255, 255, 255, 0.08) !important;
+				border-color: var(--border-hover) !important;
+				color: var(--text-primary) !important;
+			}
+
+			.evo-nav-btn:disabled {
+				opacity: 0.3 !important;
+				cursor: not-allowed !important;
+			}
+
+			.evolution-section .sto-comparison-info {
+				text-align: left !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+			}
+
+			.evolution-section .sto-comparison-display {
+				display: grid !important;
+				grid-template-columns: 1fr 1fr !important;
+				gap: 1.25rem !important;
+				width: 100% !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+			}
+
+			/* Remove outline border/bg/shadow from mocks and make them taller */
+			.evolution-section .sto-device-frame {
+				border: none !important;
+				background: transparent !important;
+				box-shadow: none !important;
+				width: 100% !important;
+				max-width: 280px !important;
+				height: 70vh !important;
+				max-height: 640px !important;
+				border-radius: 0 !important;
+			}
+
+			.evolution-section .sto-device-frame img {
+				width: 100% !important;
+				height: 100% !important;
+				object-fit: contain !important;
+			}
+		}
+
+		/* Mobile evolution section overrides */
+		@media (max-width: 900px) {
+			.evolution-section {
+				height: auto !important;
+				max-height: none !important;
+				padding: 4rem 0 !important;
+			}
+			.evolution-section .sto-comparison-widget {
+				grid-template-columns: 1fr !important;
+				gap: 2rem !important;
+				height: auto !important;
+			}
+			.evolution-section .sto-evolution-left {
+				align-items: center !important;
+				text-align: center !important;
+			}
+			.evolution-nav-controls {
+				justify-content: center !important;
+			}
+			.evolution-section .sto-comparison-info {
+				text-align: center !important;
+			}
+			.evolution-section .sto-device-frame {
+				height: 48vh !important;
+				max-height: 440px !important;
+			}
+		}
+
+		/* Desktop Testing & Simulator Section */
+		@media (min-width: 901px) {
+			.testing-section-container {
+				min-height: 100vh;
+				height: auto;
+				max-height: none;
+				padding: 5rem 0 !important;
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-bottom: 1px solid var(--border-color);
+				margin-top: -30vh !important;
+				position: relative !important;
+				z-index: 2 !important;
+			}
+
+			.testing-section-container .editorial-card {
+				height: auto !important;
+				max-height: none !important;
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: center !important;
+				padding: 2.5rem !important;
+				overflow: visible !important;
+				box-shadow: none !important;
+			}
+
+			.testing-section-container .showcase-header {
+				margin-bottom: 2rem !important;
+				flex-shrink: 0;
+			}
+
+			.testing-section-container .prototype-simulator-wrapper {
+				display: grid !important;
+				grid-template-columns: 1.2fr 1fr !important;
+				gap: 3.5rem !important;
+				align-items: center !important;
+				height: auto !important;
+			}
+
+			.testing-section-container .simulator-info {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 1rem;
+			}
+
+			/* Force iframe to exactly 375x812 and scale down to fit cleanly */
+			.testing-section-container .simulator-device-container {
+				width: 255px !important;
+				height: 552px !important;
+				margin: 0 auto !important;
+				position: relative;
+				overflow: visible;
+				flex-shrink: 0;
+			}
+
+			.testing-section-container .simulator-device-frame {
+				width: 375px !important;
+				height: 812px !important;
+				transform: scale(0.68) !important;
+				transform-origin: top left !important;
+			}
+		}
+
+		/* Mobile Testing & Simulator Section */
+		@media (max-width: 900px) {
+			.testing-section-container .prototype-simulator-wrapper {
+				grid-template-columns: 1fr !important;
+				gap: 2rem !important;
+			}
+		}
+
+		.testing-section-container .prototype-simulator-wrapper {
+			background: transparent !important;
+			border: none !important;
+			border-radius: 0 !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		/* Metrics post launch impact 2x2 grid on tablet & desktop */
+		@media (min-width: 601px) {
+			.metrics-deck {
+				display: grid !important;
+				grid-template-columns: repeat(2, 1fr) !important;
+				max-width: 900px !important;
+				margin: 3rem auto 0 !important;
+				gap: 1.5rem !important;
+			}
+		}
+
+		/* Field research breakout container styling - Desktop & Mobile */
+		.field-research-breakout {
+			width: 100vw !important;
+			position: relative !important;
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+			margin: 4rem 0 !important;
+			padding: 0 !important;
+		}
+
+		.field-research-breakout .inner-container {
 			position: relative;
 			overflow: hidden;
+			height: 70vh;
+			min-height: 70vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 3rem 10%;
 		}
-		.grab-hero-banner::before {
-			content: '';
+
+		.field-research-breakout .inner-container img {
 			position: absolute;
-			top: -50%;
-			right: -20%;
-			width: 60%;
-			height: 200%;
-			background: radial-gradient(ellipse, rgba(255,255,255,0.07) 0%, transparent 70%);
-			pointer-events: none;
-		}
-		.grab-hero-banner::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
+			inset: 0;
 			width: 100%;
-			height: 1px;
-			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+			height: 100%;
+			object-fit: cover;
+			z-index: 1;
+			filter: brightness(0.28); /* Make image darker for ultimate text contrast */
 		}
-		.grab-hero-banner .hero-label {
-			font-family: var(--font-mono);
-			font-size: 0.75rem;
-			text-transform: uppercase;
-			letter-spacing: 0.15em;
-			color: rgba(255,255,255,0.6);
-			margin-bottom: 1.5rem;
-			display: block;
+
+		/* High contrast glass card */
+		.field-research-breakout .glass-card {
+			position: relative;
+			z-index: 2;
+			width: 100%;
+			max-width: 960px;
+			background: rgba(18, 19, 22, 0.78) !important;
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border-radius: 0.75rem;
+			border: 1px solid rgba(255, 255, 255, 0.12) !important;
+			padding: 3rem;
+			box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+			color: #ffffff !important;
 		}
-		.grab-hero-banner h2 {
-			font-family: var(--font-serif);
-			font-size: clamp(2rem, 4vw, 3.5rem);
-			color: #fff;
-			font-weight: 700;
-			line-height: 1.15;
-			margin-bottom: 1rem;
-			max-width: 700px;
+
+		.field-research-breakout .glass-card h4 {
+			color: #ffffff !important;
 		}
-		.grab-hero-banner p {
-			font-size: 1.1rem;
-			color: rgba(255,255,255,0.75);
-			max-width: 600px;
-			line-height: 1.6;
+
+		.field-research-breakout .glass-card p {
+			color: #e2e8f0 !important;
+		}
+
+		.field-research-breakout .research-card {
+			border-left: 3px solid #00b14f !important;
+			background: rgba(255,255,255,0.06) !important;
+			padding: 1.25rem !important;
+			border-radius: 0 0.5rem 0.5rem 0 !important;
+		}
+
+		.field-research-breakout .research-card h5 {
+			color: #ffffff !important;
+			margin: 0 0 0.25rem 0 !important;
+		}
+
+		.field-research-breakout .research-card p {
+			color: #cbd5e1 !important;
+			margin: 0 !important;
+		}
+
+		/* Post-launch metric card updates to prevent overflow */
+		@media (max-width: 600px) {
+			.metrics-deck {
+				grid-template-columns: 1fr !important;
+			}
+		}
+
+		.metric-card {
+			padding: 1.5rem 1.25rem !important;
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.metric-card .metric-desc {
+			font-size: 0.8rem !important;
+			line-height: 1.4 !important;
 		}
 
 		/* Pain Point Cards */
@@ -305,18 +694,7 @@
 	<!-- Scroll Progress Bar -->
 	<div class="scroll-progress" id="scrollProgress"></div>
 
-	<!-- Navigation Header -->
-	<header class="case-study-header">
-		<div class="header-container">
-			<a href="index.html#UX" class="back-btn">
-				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
-			</a>
-			<div class="time-widget">
-				<span class="time-dot" style="background-color: #00b14f;"></span>
-				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
-			</div>
-		</div>
-	</header>
+
 
 	<main class="container">
 		<!-- Hero Section -->
@@ -345,56 +723,53 @@
 			</div>
 		</section>
 
-		<!-- Hero Cover image -->
-		<div class="cs-hero-visual" style="aspect-ratio: 16/9;">
-			<img src="./wp-content/uploads/2025/scan-to-order/hero-sto.jpg" alt="Grab Dineout STO 2.0 Cover" class="cs-hero-img" />
-		</div>
+
 
 		<!-- 01: Challenge / Context -->
-		<section class="section-editorial-split">
+		<section class="section-editorial-split cs-context-section">
 			<div class="editorial-split-text">
 				<span class="section-label">01 / Challenge</span>
 				<h2 class="section-title">Context: STO 1.0</h2>
 				<p class="section-desc">Grab launched the first version of Scan To Order (STO) to help restaurant diners browse, order, and pay via QR code. While it solved the need for contactless ordering, adoption was low. Merchants faced operational pain points and diners dropped off due to friction-filled flows.</p>
 				
-				<div class="pain-point-grid" style="grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem;">
+				<div class="pain-point-grid">
 					<div class="pain-point-card">
-						<span class="pp-icon">📉</span>
+						<span class="pp-icon"><i class="fa-regular fa-chart-bar" style="color: var(--accent);"></i></span>
 						<h4>54% User Drop-Off</h4>
 						<p>Majority of users abandoned orders during account verification. The login wall was killing conversion.</p>
 					</div>
 					<div class="pain-point-card">
-						<span class="pp-icon">🔧</span>
+						<span class="pp-icon"><i class="fa-regular fa-compass" style="color: var(--accent);"></i></span>
 						<h4>Feature Gaps</h4>
 						<p>No takeaway options, guest ordering, or payment method localisation. Competitors offered all of these.</p>
 					</div>
 					<div class="pain-point-card">
-						<span class="pp-icon">⛓️</span>
+						<span class="pp-icon"><i class="fa-regular fa-handshake" style="color: var(--accent);"></i></span>
 						<h4>No POS Integration</h4>
 						<p>Cashiers manually re-entered orders, causing delays, errors, and reconciliation nightmares for merchants.</p>
 					</div>
 					<div class="pain-point-card">
-						<span class="pp-icon">📊</span>
+						<span class="pp-icon"><i class="fa-regular fa-clock" style="color: var(--accent);"></i></span>
 						<h4>Operational Inefficiency</h4>
 						<p>Merchants couldn't track table-level spend, with orders scattered across invoices.</p>
 					</div>
 				</div>
 			</div>
 			<div class="editorial-split-visual">
-				<figure style="margin: 0; width: 100%;">
-					<img src="./wp-content/uploads/2025/scan-to-order/Context.png" alt="Context: STO 1.0 Flow Diagram" style="width: 100%; border-radius: 0.75rem; border: 1px solid var(--border-color); background: var(--bg-card); box-shadow: 0 15px 40px rgba(0,0,0,0.4);" />
+				<figure>
+					<img src="./wp-content/uploads/2025/scan-to-order/Context.png" alt="Context: STO 1.0 Flow Diagram" />
 					<figcaption class="cs-media-caption" style="margin-top: 0.75rem;">STO 1.0 User Flow Friction Map</figcaption>
 				</figure>
 			</div>
 		</section>
 
 		<!-- 02: Competitive Research -->
-		<section class="section-editorial-grid">
+		<section class="section-editorial-grid competitive-section">
 			<div class="grid-header">
 				<span class="section-label">02 / Research</span>
 				<h2 class="section-title">Competitive Analysis &amp; Learnings</h2>
 			</div>
-			<p class="cs-body-text" style="margin-bottom: 3.5rem; font-size: 1.05rem;">To do this the right way this time, we looked at leading Southeast Asian STO solutions, went down to the field to see how people actually order, and identified common patterns.</p>
+			<p class="cs-body-text" style="font-size: 1.05rem;">To do this the right way this time, we looked at leading Southeast Asian STO solutions, went down to the field to see how people actually order, and identified common patterns.</p>
 			
 			<div class="grid-deck">
 				<!-- TabSquare -->
@@ -447,33 +822,7 @@
 						</ul>
 						<div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: auto;">
 							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.7rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.05em;">Opportunity</h5>
-							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Personalisation is limited — the same menu appears for every guest.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Field Learnings full-width backdrop -->
-		<section class="section-full-width-showcase" style="padding-top: 0;">
-			<div style="position: relative; overflow: hidden; border-radius: 1rem; border: 1px solid var(--border-color); min-height: 480px; display: flex; align-items: flex-end; padding: 2rem;">
-				<img src="./wp-content/uploads/2025/scan-to-order/images/field-learnings-bg.jpg" alt="Group ordering field learning backdrop" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.45);" />
-				<div style="position: relative; z-index: 2; width: 100%; background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 0.75rem; border: 1px solid var(--glass-border); padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-					<h3 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.1rem;">Field Research</h3>
-					<h4 style="margin: 0 0 1rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--text-primary);">Field Learnings &amp; User Insights</h4>
-					<p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 2rem;">We went down to the field to see how people actually order in group dining. This helped us understand the gaps in current offerings. We realised how dynamic the ordering process in store could be — from individuals to groups, cafes to buffets, there's a lot of nuance in how people order.</p>
-					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
-						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
-							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Family Group Dining</h5>
-							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">One coordinator goes around the table asking for everyone's orders.</p>
-						</div>
-						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
-							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Friends Group Dining</h5>
-							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">Confusion around how to split the bill and what to order for the table.</p>
-						</div>
-						<div style="border-left: 3px solid #00b14f; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0;">
-							<h5 style="margin: 0 0 0.25rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Solo Dining</h5>
-							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">Lack of clarity around portion sizes.</p>
+							<p style="margin: 0; font-size: 0.8rem; color: var(--text-muted);">Fragmented payment options and weak local POS sync.</p>
 						</div>
 					</div>
 				</div>
@@ -491,34 +840,34 @@
 		</section>
 
 		<!-- 04: Differentiators -->
-		<section class="section-editorial-grid">
+		<section class="section-editorial-grid differentiators-section">
 			<div class="grid-header">
 				<span class="section-label">04 / Concept</span>
 				<h2 class="section-title">Differentiators</h2>
 			</div>
-			<p class="cs-body-text" style="margin-bottom: 3.5rem; font-size: 1.05rem;">QR ordering in 2025 is a crowded space with many high-quality solutions. To stand out, we needed our product to deliver value not just to end consumers but also to merchants. We identified four key differentiators:</p>
+			<p class="cs-body-text" style="font-size: 1.05rem;">QR ordering in 2025 is a crowded space with many high-quality solutions. To stand out, we needed our product to deliver value not just to end consumers but also to merchants. We identified four key differentiators:</p>
 			
-			<div class="grid-deck" style="grid-template-columns: repeat(2, 1fr);">
+			<div class="grid-deck">
 				<div class="editorial-card">
-					<span class="card-icon">✨</span>
+					<span class="card-icon"><i class="fa-regular fa-star" style="color: var(--accent);"></i></span>
 					<h4>AI-Driven Upsells</h4>
 					<p>Increase AOV through intelligent recommendations using Grab's ecosystem data.</p>
 					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Merchants</span>
 				</div>
 				<div class="editorial-card">
-					<span class="card-icon">🎯</span>
+					<span class="card-icon"><i class="fa-regular fa-circle-dot" style="color: var(--accent);"></i></span>
 					<h4>Contextual Loyalty</h4>
 					<p>Enables Grab loyalty within the ordering flow to capture user consent and drive retention.</p>
 					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Merchants</span>
 				</div>
 				<div class="editorial-card">
-					<span class="card-icon">🧺</span>
+					<span class="card-icon"><i class="fa-regular fa-comments" style="color: var(--accent);"></i></span>
 					<h4>Shared Ordering Experience</h4>
 					<p>Plan and modify a shared basket for the table together in real-time, reducing total time to order.</p>
 					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Customers</span>
 				</div>
 				<div class="editorial-card">
-					<span class="card-icon">📱</span>
+					<span class="card-icon"><i class="fa-regular fa-user" style="color: var(--accent);"></i></span>
 					<h4>Personalisation</h4>
 					<p>Intelligent and personalised ordering experience based on user preferences and history.</p>
 					<span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: auto;">For Customers</span>
@@ -526,79 +875,109 @@
 			</div>
 		</section>
 
-		<!-- 05: Design Evolution -->
-		<section class="section-full-width-showcase">
-			<div class="showcase-header">
-				<span class="section-label">05 / Evolution</span>
-				<h2 class="section-title">Design Evolution</h2>
-				<p class="showcase-desc">STO 2.0 streamlines entry, reduces friction at checkout, and supports group dining with shared context. Click the tabs to explore how standard views were redesigned to solve user drop-offs:</p>
+		<!-- Field Learnings full-width backdrop -->
+		<section class="field-research-breakout">
+			<div class="inner-container">
+				<img src="./wp-content/uploads/2025/scan-to-order/images/field-learnings-bg.jpg" alt="Group ordering field learning backdrop" />
+				<div class="glass-card">
+					<h3 style="margin: 0 0 0.25rem; font-family: var(--font-mono); font-size: 0.75rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.1rem;">Field Research</h3>
+					<h4 style="margin: 0 0 1rem; font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: #ffffff;">Field Learnings &amp; User Insights</h4>
+					<p style="font-size: 0.9rem; color: #e2e8f0; line-height: 1.5; margin-bottom: 2rem;">We went down to the field to see how people actually order in group dining. This helped us understand the gaps in current offerings. We realised how dynamic the ordering process in store could be — from individuals to groups, cafes to buffets, there's a lot of nuance in how people order.</p>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;">
+						<div class="research-card">
+							<h5>Family Group Dining</h5>
+							<p>One coordinator goes around the table asking for everyone's orders.</p>
+						</div>
+						<div class="research-card">
+							<h5>Friends Group Dining</h5>
+							<p>Confusion around how to split the bill and what to order for the table.</p>
+						</div>
+						<div class="research-card">
+							<h5>Solo Dining</h5>
+							<p>Lack of clarity around portion sizes.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			
+		</section>
+
+		<!-- 05: Design Evolution -->
+		<section class="section-full-width-showcase evolution-section">
 			<!-- Before/After Slider Widget -->
 			<div class="sto-comparison-widget">
-				<div class="sto-tabs-header">
-					<button class="sto-tab-btn active" data-evolution-tab="landing">Landing Page</button>
-					<button class="sto-tab-btn" data-evolution-tab="menu">Rich Menu</button>
-					<button class="sto-tab-btn" data-evolution-tab="group">Group Ordering</button>
-					<button class="sto-tab-btn" data-evolution-tab="loyalty">Unobtrusive Loyalty &amp; Deals</button>
+				<div class="sto-evolution-left">
+					<div class="showcase-header" style="text-align: left; margin-bottom: 1.5rem; padding: 0;">
+						<span class="section-label">05 / Evolution</span>
+						<h2 class="section-title" style="margin: 0.25rem 0 0.5rem 0;">Design Evolution</h2>
+						<p class="showcase-desc" style="max-width: 100%; font-size: 0.95rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+							STO 2.0 streamlines entry, reduces friction at checkout, and supports group dining with shared context. Explore how standard views were redesigned to solve user drop-offs:
+						</p>
+					</div>
+					
+					<div class="sto-comparison-info">
+						<h4 id="evolution-title">Landing Page</h4>
+						<p id="evolution-desc">Scanning QR lands users directly-to-menu with items exposed, reducing time to first action.</p>
+					</div>
+
+					<div class="evolution-nav-controls">
+						<button id="evoPrevBtn" class="evo-nav-btn" aria-label="Previous step">
+							<i class="fa-solid fa-arrow-left"></i> Previous
+						</button>
+						<button id="evoNextBtn" class="evo-nav-btn" aria-label="Next step">
+							Next <i class="fa-solid fa-arrow-right"></i>
+						</button>
+					</div>
 				</div>
 				
-				<div class="sto-comparison-display" style="max-width: 680px; margin: 2rem auto;">
+				<div class="sto-comparison-display">
 					<div class="sto-comparison-screen">
 						<span class="sto-screen-label before">Before: STO 1.0</span>
-						<div class="sto-device-frame" style="max-height: 520px;">
+						<div class="sto-device-frame">
 							<img id="evolution-before-img" src="./wp-content/uploads/2025/scan-to-order/STO1Landing.png" alt="Before Screen Mockup" />
 						</div>
 					</div>
 					
 					<div class="sto-comparison-screen">
 						<span class="sto-screen-label after">After: STO 2.0</span>
-						<div class="sto-device-frame" style="border-color: #00b14f; box-shadow: 0 15px 40px rgba(0, 177, 79, 0.15); max-height: 520px;">
+						<div class="sto-device-frame">
 							<img id="evolution-after-img" src="./wp-content/uploads/2025/scan-to-order/STO2Menu.png" alt="After Screen Mockup" />
 						</div>
 					</div>
-				</div>
-				
-				<div class="sto-comparison-info">
-					<h4 id="evolution-title">Landing Page</h4>
-					<p id="evolution-desc">Scanning QR lands users directly-to-menu with items exposed, reducing time to first action.</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- 06: Testing & Learnings -->
-		<section class="section-full-width-showcase" style="padding-bottom: 0; position: relative; overflow: visible;">
+		<section style="width: 100vw; height: 100vh; position: relative; left: 50%; transform: translateX(-50%); overflow: hidden; margin: 0; padding: 0;">
 			<!-- UT.gif full-bleed background -->
-			<div style="width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); position: relative; z-index: 1;">
-				<img src="./wp-content/uploads/2025/scan-to-order/UT.gif" alt="Usability Testing Session Recording" style="width: 100%; height: 100%; object-fit: cover;" />
-			</div>
+			<img src="./wp-content/uploads/2025/scan-to-order/UT.gif" alt="Usability Testing Session Recording" style="width: 100%; height: 100%; object-fit: cover; border: none; border-radius: 0;" />
 		</section>
 
 		<!-- Overlapping card container -->
-		<section class="section-full-width-showcase" style="padding-top: 0; margin-top: -6rem; position: relative; z-index: 2; overflow: visible;">
-			<div class="editorial-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 3rem; box-shadow: var(--shadow-lg); max-width: 1100px; margin: 0 auto;">
-				<div class="showcase-header" style="text-align: left; margin-bottom: 3rem; padding: 0;">
-					<span class="section-label">06 / Testing</span>
-					<h2 class="section-title" style="margin: 0.5rem 0 1rem 0;">Testing &amp; Learnings</h2>
-					<p class="showcase-desc" style="max-width: 100%; font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
-						In-person usability testing and interviews with 12 participants
-					</p>
-				</div>
-				
+		<section class="section-full-width-showcase testing-section-container" style="position: relative; z-index: 2; overflow: visible; margin-top: -30vh;">
+			<div class="editorial-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; max-width: 1100px; margin: 0 auto;">
 				<!-- Live Prototype Simulator Wrapper -->
-				<div class="prototype-simulator-wrapper" style="margin-top: 0; border: none; padding: 0; background: transparent; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;">
-					<div class="simulator-info" style="display: flex; flex-direction: column; gap: 1.5rem;">
+				<div class="prototype-simulator-wrapper">
+					<div class="simulator-info">
+						<div class="showcase-header" style="text-align: left; margin-bottom: 1.5rem; padding: 0;">
+							<span class="section-label">06 / Testing</span>
+							<h2 class="section-title" style="margin: 0.25rem 0 0.5rem 0;">Testing &amp; Learnings</h2>
+							<p class="showcase-desc" style="max-width: 100%; font-size: 0.95rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+								In-person usability testing and interviews with 12 participants
+							</p>
+						</div>
+
 						<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
 							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: #00b14f; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(0, 177, 79, 0.08); padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600;">Prototype Testing</span>
 							<span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">Vibecoded MVP</span>
 						</div>
-						<h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0;">Multi-User Shared Basket Simulation</h3>
-						<p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+						<h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin: 0;">Multi-User Shared Basket Simulation</h3>
+						<p style="font-size: 0.9rem; line-height: 1.5; color: var(--text-secondary); margin: 0;">
 							To validate the communal basket concept, we built a scrappy backend prototype that simulated multiple users interacting with a shared basket in real-time. This allowed us to test how users would interact with the shared basket and how it would affect the overall ordering process.
 						</p>
 						
 						<button class="trigger-notification-btn" id="triggerNotificationBtn" style="margin-top: 1rem;">
-							<i class="fa-solid fa-bell"></i> Trigger Notification
+							<i class="fa-regular fa-bell"></i> Trigger Notification
 						</button>
 					</div>
 					
@@ -607,7 +986,7 @@
 							<!-- Simulated smartphone notification banner -->
 							<div class="device-toast-notification" id="deviceToast">
 								<div class="device-toast-text">
-									<i class="fa-solid fa-cart-shopping" style="color: #00b14f;"></i>
+									<i class="fa-regular fa-bell" style="color: #00b14f;"></i>
 									<span>1 x Chicken Fried Rice added by Reuben</span>
 								</div>
 								<button class="device-toast-close" id="closeToastBtn">&times;</button>
@@ -695,9 +1074,9 @@
 
 		<!-- 08: Final Reflection -->
 		<section class="section-editorial-center" style="padding-top: 0; padding-bottom: 6rem;">
-			<div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1.5rem; padding: 3rem; text-align: left; border-left: 4px solid #00b14f; display: flex; flex-direction: column; gap: 1rem;">
+			<div style="text-align: left; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
 				<span class="section-label" style="margin-bottom: 0;">08 / Reflection</span>
-				<h2 class="section-title" style="margin: 0; font-size: 1.75rem; color: var(--text-primary);">Final Reflection</h2>
+				<h2 class="section-title" style="margin: 0; font-size: 1.75rem; color: var(--text-primary); text-transform: uppercase;">Final Reflection</h2>
 				<p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin: 0.5rem 0 0 0;">
 					The redesign of STO wasn't just about fixing UX friction, it was about <strong>rethinking the role of data in dining</strong>. By merging POS intelligence, ecosystem integration, and customer insights, Grab STO 2.0 transforms every meal into a smarter, more rewarding experience for both diners and merchants.
 				</p>
@@ -715,8 +1094,38 @@
 
 	<!-- Footer -->
 	<footer>
-		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
-			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		<div class="container footer-grid">
+			<div>
+				<h2 class="footer-heading">
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+				</h2>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<span class="footer-label">Navigation</span>
+				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+					<li><a href="index.html#Home" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Back to Home</a></li>
+					<li><a href="index.html#UX" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="index.html#Branding" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="index.html#Graphics" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+				</ul>
+				
+				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
+				<ul class="social-links">
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="container footer-copyright" style="position: relative;">
+			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham.</span>
 		</div>
 	</footer>
 
@@ -731,53 +1140,81 @@
 		});
 
 		// Design Evolution Slider Data
-		const evolutionTabs = {
-			landing: {
+		const evolutionSteps = [
+			{
 				title: "Landing Page",
 				desc: "Scanning QR lands users directly-to-menu with items exposed, reducing time to first action.",
 				before: "./wp-content/uploads/2025/scan-to-order/STO1Landing.png",
 				after: "./wp-content/uploads/2025/scan-to-order/STO2Menu.png"
 			},
-			menu: {
+			{
 				title: "Rich Menu",
 				desc: "Visual categories, upfront search bar, and guest checkout by default with optional login for rewards.",
 				before: "./wp-content/uploads/2025/scan-to-order/STO1Menu.png",
 				after: "./wp-content/uploads/2025/scan-to-order/STO2Menu.png"
 			},
-			group: {
+			{
 				title: "Group Ordering",
 				desc: "Common shared basket for the table reduces back and forth between people and gets everyone on the same page, with smart recommendations based on past order history and store upsells.",
 				before: "./wp-content/uploads/2025/scan-to-order/STO1Basket.png",
 				after: "./wp-content/uploads/2025/scan-to-order/STO2Basket.png"
 			},
-			loyalty: {
+			{
 				title: "Unobtrusive Loyalty & Deals",
 				desc: "Deals and loyalty program nudges don't distract from the ordering flow, but show up prominently right when checking the bill before checkout.",
 				before: "./wp-content/uploads/2025/scan-to-order/STO1Bill.png",
 				after: "./wp-content/uploads/2025/scan-to-order/STO2Bill.png"
 			}
-		};
+		];
 
-		const tabBtns = document.querySelectorAll('[data-evolution-tab]');
+		let currentEvoIndex = 0;
 		const beforeImg = document.getElementById('evolution-before-img');
 		const afterImg = document.getElementById('evolution-after-img');
 		const evoTitle = document.getElementById('evolution-title');
 		const evoDesc = document.getElementById('evolution-desc');
+		const evoPrevBtn = document.getElementById('evoPrevBtn');
+		const evoNextBtn = document.getElementById('evoNextBtn');
 
-		tabBtns.forEach(btn => {
-			btn.addEventListener('click', () => {
-				tabBtns.forEach(b => b.classList.remove('active'));
-				btn.classList.add('active');
-				const tab = btn.getAttribute('data-evolution-tab');
-				const data = evolutionTabs[tab];
-				if (data) {
-					beforeImg.src = data.before;
-					afterImg.src = data.after;
-					evoTitle.innerText = data.title;
-					evoDesc.innerText = data.desc;
+		function updateEvolutionDisplay() {
+			const step = evolutionSteps[currentEvoIndex];
+			if (step) {
+				beforeImg.src = step.before;
+				afterImg.src = step.after;
+				evoTitle.innerText = step.title;
+				evoDesc.innerText = step.desc;
+				
+				// Enable/Disable buttons based on index
+				if (evoPrevBtn) evoPrevBtn.disabled = (currentEvoIndex === 0);
+				if (evoNextBtn) evoNextBtn.disabled = (currentEvoIndex === evolutionSteps.length - 1);
+			}
+		}
+
+		if (evoPrevBtn) {
+			evoPrevBtn.addEventListener('click', () => {
+				if (currentEvoIndex > 0) {
+					currentEvoIndex--;
+					updateEvolutionDisplay();
 				}
 			});
-		});
+		}
+
+		if (evoNextBtn) {
+			evoNextBtn.addEventListener('click', () => {
+				if (currentEvoIndex < evolutionSteps.length - 1) {
+					currentEvoIndex++;
+					updateEvolutionDisplay();
+				}
+			});
+		}
+
+		// Initial load
+		updateEvolutionDisplay();
+
+		// Set dynamic copyright year
+		const copyrightYearEl = document.getElementById('copyrightYear');
+		if (copyrightYearEl) {
+			copyrightYearEl.textContent = new Date().getFullYear();
+		}
 
 		// Simulated Prototype Notification Banner logic
 		const triggerBtn = document.getElementById('triggerNotificationBtn');

@@ -264,15 +264,46 @@
 		<!-- Footer Navigation -->
 		<section class="cs-footer-nav" style="border-top: none;">
 			<span class="cs-footer-label">Up Next</span>
-			<a href="airport-transfers.html" class="cs-footer-link">
-				Grab Airport Transfers &amp; Reserved Rides <i class="fa-solid fa-arrow-right"></i>
+			<a href="innovision.html" class="cs-footer-link">
+				Innovision 2019 Brand Identity <i class="fa-solid fa-arrow-right"></i>
 			</a>
 		</section>
 	</main>
 
+	<!-- Footer -->
 	<footer>
-		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
-			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		<div class="container footer-grid">
+			<div>
+				<h2 class="footer-heading">
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+				</h2>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<span class="footer-label">Navigation</span>
+				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+					<li><a href="index.html#Home" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Back to Home</a></li>
+					<li><a href="index.html#UX" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="index.html#Branding" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="index.html#Graphics" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+				</ul>
+				
+				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
+				<ul class="social-links">
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="container footer-copyright" style="position: relative;">
+			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham.</span>
 		</div>
 	</footer>
 
@@ -284,6 +315,12 @@
 			const scrolled = (scrollTop / docHeight) * 100;
 			scrollProgress.style.width = scrolled + '%';
 		});
+
+		// Set dynamic copyright year
+		const copyrightYearEl = document.getElementById('copyrightYear');
+		if (copyrightYearEl) {
+			copyrightYearEl.textContent = new Date().getFullYear();
+		}
 	</script>
 </body>
 </html>

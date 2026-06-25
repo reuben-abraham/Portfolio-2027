@@ -22,17 +22,7 @@
 <body class="case-study-body">
 	<div class="scroll-progress" id="scrollProgress"></div>
 
-	<header class="case-study-header">
-		<div class="header-container">
-			<a href="index.html#UX" class="back-btn">
-				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
-			</a>
-			<div class="time-widget">
-				<span class="time-dot" style="background-color: var(--accent);"></span>
-				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
-			</div>
-		</div>
-	</header>
+
 
 	<main class="container">
 		<section class="cs-hero">
@@ -95,10 +85,10 @@
 
 					<!-- Cards Grid -->
 					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 3rem auto; max-width: 1000px;">
-						<img src="./wp-content/uploads/2025/subscriber-tv/image_2.png" alt="User Interview Learning 1" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
-						<img src="./wp-content/uploads/2025/subscriber-tv/image_3.png" alt="User Interview Learning 2" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
-						<img src="./wp-content/uploads/2025/subscriber-tv/image_4.png" alt="User Interview Learning 3" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
-						<img src="./wp-content/uploads/2025/subscriber-tv/image_5.png" alt="User Interview Learning 4" style="width:100%; border-radius:0.75rem; border:1px solid var(--border-color); background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_2.png" alt="User Interview Learning 1" style="width:100%; border-radius:0.75rem; background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_3.png" alt="User Interview Learning 2" style="width:100%; border-radius:0.75rem; background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_4.png" alt="User Interview Learning 3" style="width:100%; border-radius:0.75rem; background-color: var(--bg-card); display: block;" />
+						<img src="./wp-content/uploads/2025/subscriber-tv/image_5.png" alt="User Interview Learning 4" style="width:100%; border-radius:0.75rem; background-color: var(--bg-card); display: block;" />
 					</div>
 					
 					<div class="editorial-card" style="border-left: 4px solid var(--accent); margin-top: 2rem;">
@@ -217,7 +207,7 @@
 						To safeguard user experience, the features were deployed in three staggered steps, validating user response and tracking conversion metrics continuously:
 					</p>
 					
-					<div style="max-width: 800px; margin: 3rem auto; border: 1px solid var(--border-color); border-radius: 1rem; overflow: hidden; background: var(--bg-card);">
+					<div style="max-width: 800px; margin: 3rem auto;">
 						<img src="./wp-content/uploads/2025/subscriber-tv/image_18.png" alt="Three Step Launch Framework" style="width: 100%; display: block;" />
 					</div>
 				</div>
@@ -261,9 +251,40 @@
 		</section>
 	</main>
 
+	<!-- Footer -->
 	<footer>
-		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
-			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		<div class="container footer-grid">
+			<div>
+				<h2 class="footer-heading">
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+				</h2>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<span class="footer-label">Navigation</span>
+				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+					<li><a href="index.html#Home" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Back to Home</a></li>
+					<li><a href="index.html#UX" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="index.html#Branding" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="index.html#Graphics" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+				</ul>
+				
+				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
+				<ul class="social-links">
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="container footer-copyright" style="position: relative;">
+			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham.</span>
 		</div>
 	</footer>
 
@@ -275,6 +296,12 @@
 			const scrolled = (scrollTop / docHeight) * 100;
 			scrollProgress.style.width = scrolled + '%';
 		});
+
+		// Set dynamic copyright year
+		const copyrightYearEl = document.getElementById('copyrightYear');
+		if (copyrightYearEl) {
+			copyrightYearEl.textContent = new Date().getFullYear();
+		}
 	</script>
 </body>
 </html>

@@ -17,18 +17,6 @@
 	<!-- Scroll Progress Bar -->
 	<div class="scroll-progress" id="scrollProgress"></div>
 
-	<!-- Navigation Header -->
-	<header class="case-study-header">
-		<div class="header-container">
-			<a href="index.html#UX" class="back-btn">
-				<i class="fa-solid fa-arrow-left"></i> BACK TO PORTFOLIO
-			</a>
-			<div class="time-widget">
-				<span class="time-dot" style="background-color: var(--accent);"></span>
-				<span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">CASE STUDY</span>
-			</div>
-		</div>
-	</header>
 
 	<main class="container">
 		<!-- Hero Section -->
@@ -56,11 +44,6 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- Wide Hero Visual -->
-		<div class="cs-hero-visual" style="aspect-ratio: 16/9;">
-			<img src="./wp-content/uploads/2020/03/BS.png" alt="Disney+ Hotstar Browsing UX Cover" class="cs-hero-img" />
-		</div>
 
 		<!-- Discovery Crisis (Overview) -->
 		<section class="section-editorial-center">
@@ -143,365 +126,448 @@
 		</section>
 
 		<!-- Industry Paradigms -->
-		<section class="section-editorial-grid">
-			<div class="grid-header">
-				<span class="section-label">Paradigms</span>
-				<h2 class="section-title">Industry Context & Swiping UX</h2>
+		<section class="section-editorial-split browse-paradigm-panel">
+			<div class="paradigm-copy">
+				<span class="paradigm-kicker">As a UI construct</span>
+				<h2>Thumbnails work beautifully in other contexts</h2>
 			</div>
-			<p class="cs-body-text" style="margin-bottom: 3.5rem; max-width: 800px; font-size: 1.05rem;">We looked at how other streaming platforms provide quick contexts without leaving the scroll plane, and analyzed mobile interactions with high ease of sampling.</p>
-			
-			<div class="grid-deck">
-				<div class="editorial-card">
-					<span class="card-icon">📺</span>
-					<h4>Netflix previews</h4>
-					<p>Netflix uses autoplaying video hover previews directly on the grid to provide quick sensory contexts.</p>
-					<div style="margin-top: auto; overflow: hidden; border-radius: 0.5rem; border: 1px solid var(--border-color);">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/context_ex1.png" alt="Netflix Previews" style="width: 100%; display: block;" />
+			<div class="paradigm-phone-composition">
+				<img class="paradigm-phone paradigm-phone-left" src="./wp-content/uploads/2025/browse-sheet/figma-assets/paradigm_gallery_grid.png" alt="A mobile gallery grid showing image thumbnails" />
+				<img class="paradigm-phone paradigm-phone-right" src="./wp-content/uploads/2025/browse-sheet/figma-assets/paradigm_google_photos.png" alt="Google Photos mobile grid showing thumbnail browsing" />
+			</div>
+		</section>
+
+		<!-- Ease of Sampling -->
+		<section class="section-editorial-center sampling-section">
+			<span class="section-label">So, what's different?</span>
+			<h2 class="section-title">Ease of Sampling</h2>
+			<p class="section-desc">The use cases and user expectations are drastically different across products, but the interaction lesson was clear: when browsing is low effort, people feel comfortable sampling more.</p>
+			<div class="sampling-actions">
+				<div class="sampling-card">
+					<div class="sampling-visual sampling-visual-down">
+						<img src="./wp-content/uploads/2025/browse-sheet/pdf-assets/ease_sampling_close.png" alt="Photo thumbnail grid showing swipe down gesture context" />
 					</div>
+					<span class="sampling-index">01</span>
+					<h4>Swipe down to close</h4>
+					<p>Leave the sampled title and return to the previous context instantly.</p>
 				</div>
-				
-				<div class="editorial-card">
-					<span class="card-icon">🏷️</span>
-					<h4>Amazon Prime context</h4>
-					<p>Prime Video displays hovering overlays containing instant IMDb ratings and genre details over active thumbnails.</p>
-					<div style="margin-top: auto; overflow: hidden; border-radius: 0.5rem; border: 1px solid var(--border-color);">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/context_ex2.png" alt="Amazon Prime Context" style="width: 100%; display: block;" />
+				<div class="sampling-card">
+					<div class="sampling-visual sampling-visual-right">
+						<img src="./wp-content/uploads/2025/browse-sheet/pdf-assets/ease_sampling_next.png" alt="Photo preview showing swipe right gesture context" />
 					</div>
+					<span class="sampling-index">02</span>
+					<h4>Swipe right to go next</h4>
+					<p>Move through recommendations without committing to a full page load.</p>
 				</div>
-				
-				<div class="editorial-card" style="justify-content: flex-start;">
-					<span class="card-icon">🧭</span>
-					<h4>Swipe Mechanics</h4>
-					<p>Mobile users are primed for gestures: Swipe Down to instantly dismiss details, Swipe Left/Right to slide between titles, and Swipe Up to reveal complete directories.</p>
-					<ul style="font-size: 0.85rem; color: var(--text-secondary); padding-left: 1.25rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; list-style-type: square;">
-						<li><strong>Swipe Down</strong>: Dismiss details instantly to return to scroll.</li>
-						<li><strong>Swipe Left/Right</strong>: Slide between titles smoothly.</li>
-						<li><strong>Swipe Up</strong>: Show complete directories.</li>
-					</ul>
+				<div class="sampling-card">
+					<div class="sampling-visual sampling-visual-up">
+						<img src="./wp-content/uploads/2025/browse-sheet/pdf-assets/ease_sampling_more_info.png" alt="Media information panel showing swipe up gesture context" />
+					</div>
+					<span class="sampling-index">03</span>
+					<h4>Swipe up for more info</h4>
+					<p>Reveal deeper details only after interest has been established.</p>
 				</div>
+			</div>
+			<div class="hmw-callout centered-callout">
+				<h4>The Experiment</h4>
+				<p>Reducing interaction cost will boost sampling.</p>
 			</div>
 		</section>
 
 		<!-- Browse Sheet 1.0 (The Experiment) -->
 		<section class="section-editorial-split reverse">
-			<div class="editorial-split-visual">
-				<div style="display: flex; gap: 1.5rem; width: 100%; align-items: flex-start;">
-					<figure style="text-align: center; margin: 0; flex: 1; min-width: 0;">
-						<div class="device-canvas" style="margin-bottom: 0.5rem; max-width: 100%;">
-							<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_collapsed.png" alt="Browse Sheet 1.0 Collapsed" />
-						</div>
-						<figcaption class="cs-media-caption">Sheet Collapsed State</figcaption>
-					</figure>
-					<figure style="text-align: center; margin: 0; flex: 1; min-width: 0;">
-						<div class="device-canvas" style="margin-bottom: 0.5rem; max-width: 100%;">
-							<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_expanded.png" alt="Browse Sheet 1.0 Expanded" />
-						</div>
-						<figcaption class="cs-media-caption">Sheet Expanded State</figcaption>
-					</figure>
-				</div>
+			<div class="editorial-split-visual device-pair">
+				<figure>
+					<div class="device-canvas">
+						<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_collapsed.png" alt="Browse Sheet 1.0 collapsed state" />
+					</div>
+					<figcaption class="cs-media-caption">Collapsed sheet</figcaption>
+				</figure>
+				<figure>
+					<div class="device-canvas">
+						<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_expanded.png" alt="Browse Sheet 1.0 expanded state" />
+					</div>
+					<figcaption class="cs-media-caption">Expanded sheet</figcaption>
+				</figure>
 			</div>
 			<div class="editorial-split-text">
-				<span class="section-label">03 / Experiment</span>
-				<h2 class="section-title">Browse Sheet 1.0</h2>
-				<div class="hmw-callout" style="margin: 1rem 0;">
-					<h4>Hypothesis</h4>
-					<p>A quick-loading swipable bottom sheet presenting key decision-making factors directly on the homepage will reduce interaction cost and boost content sampling.</p>
-				</div>
-				<p class="section-desc" style="font-size: 0.95rem; line-height: 1.6;">We launched a quick MVP test featuring autoplaying trailer, upfront genres/studios tags, synopsis, and watchlist CTA.</p>
+				<span class="section-label">03 / Browse Sheet 1.0</span>
+				<h2 class="section-title">A quick swipable modal presenting key decision-making factors around content</h2>
+				<p class="section-desc">The first experiment brought the content pitch into a lightweight sheet on top of the home feed. It gave users an autoplaying trailer, high-level information upfront, a content synopsis, a watchlist action, and an episodes entry point to the full details page.</p>
 			</div>
 		</section>
 
-		<!-- Anatomy & Explorations -->
+		<section class="section-editorial-grid compact-grid-section">
+			<div class="grid-header">
+				<span class="section-label">Anatomy & Top Explorations</span>
+				<h2 class="section-title">Solving the sheet paradigm before scaling it</h2>
+			</div>
+			<div class="browse-anatomy-grid">
+				<figure class="anatomy-figure">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_anatomy.png" alt="Browse Sheet 1.0 anatomy" />
+					<figcaption class="cs-media-caption">Autoplaying trailer, title metadata, synopsis, watchlist, and episode entry points.</figcaption>
+				</figure>
+				<div class="exploration-stack">
+					<div class="insight-card">
+						<h4>How do I go back from here?</h4>
+						<p>Dismissal affordance became a key concern because the sheet sits on top of the browsing feed.</p>
+					</div>
+					<div class="insight-card">
+						<h4>Insufficient context of the previous page</h4>
+						<p>The sheet had to preserve enough of the home context to make the transition feel reversible.</p>
+					</div>
+					<div class="insight-card">
+						<h4>Horizontally stacked buttons were not scalable</h4>
+						<p>Longer text and secondary actions needed a clearer hierarchy than a row of equal buttons.</p>
+					</div>
+				</div>
+			</div>
+			<div class="exploration-image-grid">
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_a.png" alt="Browse Sheet 1.0 exploration A" />
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_b.png" alt="Browse Sheet 1.0 exploration B" />
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_c.png" alt="Browse Sheet 1.0 exploration C" />
+			</div>
+		</section>
+
 		<section class="section-editorial-grid">
 			<div class="grid-header">
-				<span class="section-label">Explorations</span>
-				<h2 class="section-title">Anatomy & Layout Options</h2>
+				<span class="section-label">Experiment Impact</span>
+				<h2 class="section-title">Browse Sheet 1.0 proved the sampling hypothesis</h2>
 			</div>
-			
-			<div class="grid-deck" style="grid-template-columns: repeat(3, 1fr); align-items: start; gap: 2rem;">
-				<div class="editorial-card" style="text-align: center; padding: 1.5rem 1.5rem 2rem;">
-					<div class="device-canvas" style="max-width: 100%; margin: 0 auto 1.5rem;">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_a.png" alt="Exploration A" />
-					</div>
-					<h4 style="text-align: center;">Option A: Low context</h4>
-					<p style="font-size: 0.85rem; text-align: center;">Kept high visual context of the underlying grid, but details page height was too short to fit episodic lists.</p>
+			<div class="metrics-deck impact-metrics">
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+35%</div>
+					<div class="metric-label">Distinct Titles Viewed</div>
+					<div class="metric-desc">Sampling increased significantly once users could preview titles in place.</div>
 				</div>
-				
-				<div class="editorial-card" style="text-align: center; padding: 1.5rem 1.5rem 2rem;">
-					<div class="device-canvas" style="max-width: 100%; margin: 0 auto 1.5rem;">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_b.png" alt="Exploration B" />
-					</div>
-					<h4 style="text-align: center;">Option B: Fixed Dismiss</h4>
-					<p style="font-size: 0.85rem; text-align: center;">Offered a dedicated click area at the top to dismiss the sheet, but users naturally preferred swiping anywhere.</p>
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+8%</div>
+					<div class="metric-label">Successful Homepage Sessions</div>
+					<div class="metric-desc">More journeys moved from home to details to watch.</div>
 				</div>
-				
-				<div class="editorial-card" style="text-align: center; padding: 1.5rem 1.5rem 2rem;">
-					<div class="device-canvas" style="max-width: 100%; margin: 0 auto 1.5rem;">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_1_exploration_c.png" alt="Exploration C" />
-					</div>
-					<h4 style="text-align: center;">Option C: Horizontal CTAs</h4>
-					<p style="font-size: 0.85rem; text-align: center;">Clean horizontal list for primary actions, but failed to establish visual priority hierarchy for 'Watch' button.</p>
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+1.6%</div>
+					<div class="metric-label">Watchtime Per User</div>
+					<div class="metric-desc">A small percentage lift became meaningful at platform scale.</div>
+				</div>
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+16%</div>
+					<div class="metric-label">Content Added to Watchlist</div>
+					<div class="metric-desc">Users saved more titles after a lower-friction preview.</div>
 				</div>
 			</div>
+			<div class="learning-grid">
+				<div class="learning-card">
+					<span>01</span>
+					<h4>Swiping up needed to scale</h4>
+					<p>5% of people who landed on the sheet swiped up to go to the full details page. Due to technical constraints this could not be built in time, but it made the next step obvious: extend the sheet paradigm to the entire page.</p>
+				</div>
+				<div class="learning-card">
+					<span>02</span>
+					<h4>Shows needed more information</h4>
+					<p>Distinct titles started for shows was lower by 0.7%. Shows require more commitment than movies, and the sheet did not provide enough information to start watching them confidently.</p>
+				</div>
+				<div class="learning-card">
+					<span>03</span>
+					<h4>Downloads needed an upfront path</h4>
+					<p>Overall downloads dropped by 3% because the upfront download button available on details was removed from the test experience.</p>
+				</div>
+			</div>
+		</section>
 
-			<div style="display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 4rem; margin-top: 5rem; align-items: center;">
-				<div>
-					<h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0 0 1rem; text-align: left;">Experiment Results</h3>
-					<p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">Browse Sheet 1.0 hit all success metrics: Distinct title sampling increased by <strong>35%</strong>, homepage sessions Watch conversion grew by <strong>8%</strong>, and watchlist additions climbed by <strong>16%</strong>.</p>
-				</div>
-				<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-					<div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.75rem;">
-						<h4 style="margin: 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); text-transform: uppercase;">TV Show Drop</h4>
-						<p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">TV starts dropped 0.7% because show sampling requires more commitment and info than movies.</p>
-					</div>
-					<div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.75rem;">
-						<h4 style="margin: 0; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); text-transform: uppercase;">Downloads Hidden</h4>
-						<p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45;">Offline downloads decreased by 3% due to download actions being hidden beneath the fold.</p>
-					</div>
-				</div>
+		<!-- Browsing Experience Revamp -->
+		<section class="section-editorial-center">
+			<span class="section-label">Next Step</span>
+			<h2 class="section-title">Browsing Experience Revamp</h2>
+			<div class="section-desc">
+				<p>The learnings from Browse Sheet came in at a fantastic point: we were looking to redesign the entire platform from the ground up. This gave us the opportunity to think about the complete content details experience from scratch.</p>
+				<p>By now, we had an intuitive paradigm in place to present content details. We took the learnings and went straight back to the drawing board to reimagine what goes inside it: the best pitch for a piece of content.</p>
+			</div>
+			<div class="hmw-callout centered-callout">
+				<h4>How might we</h4>
+				<p>Present the most intuitive, inviting and personalised pitch for a particular content.</p>
 			</div>
 		</section>
 
 		<!-- Foundational Study & Ladder -->
 		<section class="section-editorial-center">
-			<span class="section-label">04 / Redesign</span>
-			<h2 class="section-title">Foundational Study & Revamp</h2>
+			<span class="section-label">04 / Foundational Study</span>
+			<h2 class="section-title">Understanding decision-making mental models</h2>
 			<div class="section-desc">
-				<p>With Browse Sheet 1.0 proving our interaction hypothesis, we set out to redesign the entire details page experience from scratch.</p>
-				<p>We conducted a card-sorting exercise with users to map what factors influence their choice to stream movies or shows, sorting from highest to lowest priority:</p>
+				<p>We started by talking to users and running a card-sorting exercise to understand the factors that help them decide whether to watch a movie or show.</p>
 			</div>
+			<div class="priority-ladder study-ladder">
+				<div class="ladder-item">
+					<span class="ladder-badge">Most Important</span>
+					<div class="ladder-content">
+						<h4>The X Factor</h4>
+						<p>Awards, nominations, popularity, friend recommendations, and other reasons a title feels worth attention.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">02</span>
+					<div class="ladder-content">
+						<h4>Trailer</h4>
+						<p>Immediate sensory context to evaluate tone, production value, and fit.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">03</span>
+					<div class="ladder-content">
+						<h4>Genres / Studio</h4>
+						<p>Familiar categories and brands help users quickly map a title to their taste.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">04</span>
+					<div class="ladder-content">
+						<h4>Duration / Episodes</h4>
+						<p>Users estimate whether they can complete the title based on the time they have.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">05</span>
+					<div class="ladder-content">
+						<h4>Synopsis</h4>
+						<p>Useful context, but only when it is compact enough to scan.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">06</span>
+					<div class="ladder-content">
+						<h4>Cast</h4>
+						<p>Surprisingly lower in OTT decision-making compared to more traditional channels.</p>
+					</div>
+				</div>
+				<div class="ladder-item">
+					<span class="ladder-badge">Least Important</span>
+					<div class="ladder-content">
+						<h4>Release Date</h4>
+						<p>Freshness matters, but it rarely makes the decision alone.</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-			<!-- Vertical gradient Priority Ladder -->
-			<div class="priority-ladder" style="max-width: 700px; margin: 3.5rem auto 0; text-align: left;">
-				<div class="ladder-item">
-					<span class="ladder-badge">1. Critical</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Trailer / Promo Video</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Autoplaying trailers and promo snippets provide immediate sensory context to gauge visual quality and tone.</p>
-					</div>
+		<!-- Problem Discovery -->
+		<section class="section-editorial-split problem-discovery-section">
+			<div class="editorial-split-text">
+				<span class="section-label">05 / Problem Discovery</span>
+				<h2 class="section-title">Auditing the status quo details page</h2>
+				<p class="section-desc">Once we understood what users expected, we dived deep into the current experience. We uncovered a set of recurring problems: the top ones shaped the redesign direction and the solution mapping that followed.</p>
+				<div class="problem-list">
+					<div><span>01</span><p>Autoplaying trailer was misunderstood for actual content.</p></div>
+					<div><span>02</span><p>The watch button was not clear and got lost in the noise.</p></div>
+					<div><span>03</span><p>Long descriptions were skipped most often.</p></div>
+					<div><span>04</span><p>There was no information on upcoming episode drops.</p></div>
+					<div><span>05</span><p>Horizontal episode navigation was hard to navigate through.</p></div>
 				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">2. High</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Genres & Studios</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Categorical affinity (e.g. Marvel, Pixar) remains a primary interest anchor.</p>
+			</div>
+			<div class="editorial-split-visual single-device-feature">
+				<figure>
+					<div class="device-canvas">
+						<img src="./wp-content/uploads/2025/browse-sheet/mockups/status_quo_details.png" alt="Original Disney+ Hotstar details page" />
 					</div>
+					<figcaption class="cs-media-caption">Status quo details page</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- Stakeholder Alignment -->
+		<section class="section-editorial-grid">
+			<div class="grid-header">
+				<span class="section-label">06 / Design Explorations & Stakeholder Alignment</span>
+				<h2 class="section-title">350+ explorations, 20+ user interviews, 4 months later</h2>
+				<p class="grid-desc">We had a set of problems to solve on paper, so it was time to get messy in Figma. Once we had strong directions, we brought in stakeholders across product, business, and research to make sure the final layout solved both user and business goals.</p>
+			</div>
+			<div class="stakeholder-grid">
+				<div class="stat-tile">
+					<strong>350+</strong>
+					<span>Explorations</span>
 				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">3. High</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Duration / Number of Episodes</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">To gauge commitment feasibility based on immediate time availability.</p>
-					</div>
+				<div class="stat-tile">
+					<strong>20+</strong>
+					<span>User Interviews</span>
 				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">4. Medium</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Synopsis</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">High-level storyline context, though long descriptions are routinely skipped.</p>
-					</div>
+				<div class="stat-tile">
+					<strong>4 months</strong>
+					<span>Design, alignment, and validation</span>
 				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">5. Medium</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Cast</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Cast members are surprisingly less critical on OTT decision-making compared to theatrical channels.</p>
+			</div>
+			<figure class="wide-artifact">
+				<img src="./wp-content/uploads/2025/browse-sheet/slide_18.png" alt="Design explorations and stakeholder alignment work in progress" />
+			</figure>
+		</section>
+
+		<!-- Validative Study -->
+		<section class="section-editorial-split reverse">
+			<div class="editorial-split-visual device-pair">
+				<figure>
+					<div class="device-canvas">
+						<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_movie_top.png" alt="Validated movie landing top state" />
 					</div>
-				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">6. Low</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">Release Date</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Freshness of content influences selection.</p>
+					<figcaption class="cs-media-caption">Movie landing</figcaption>
+				</figure>
+				<figure>
+					<div class="device-canvas">
+						<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_show_top.png" alt="Validated show landing top state" />
 					</div>
-				</div>
-				<div class="ladder-item">
-					<span class="ladder-badge">7. Low</span>
-					<div class="ladder-content">
-						<h4 style="margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--text-primary);">The X-Factor</h4>
-						<p style="margin-top: 0.25rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Awards, nominations, popularity rankings, or recommendations from friends.</p>
-					</div>
+					<figcaption class="cs-media-caption">Show landing</figcaption>
+				</figure>
+			</div>
+			<div class="editorial-split-text">
+				<span class="section-label">07 / Validative Study</span>
+				<h2 class="section-title">Taking our best bets back to users</h2>
+				<p class="section-desc">We presented our top picks to users to understand which directions worked best for usability and overall experience. The feedback led to final tweaks before launch.</p>
+				<div class="insight-card">
+					<h4>Dragger added for extended affordance</h4>
+					<p>Because the title component floats above the sheet, some users did not immediately relate the layout to a sheet. The dragger added the extra affordance needed to make the paradigm feel familiar.</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- Browse Sheet 2.0 (The Release) -->
-		<section class="section-editorial-split">
-			<div class="editorial-split-text">
-				<span class="section-label">05 / Release</span>
-				<h2 class="section-title">Browse Sheet 2.0</h2>
-				<p class="section-desc">Browse Sheet 2.0 presents an intuitive, scannable, and personalised content details experience that maps directly to users' mental models.</p>
-				<p class="section-desc" style="font-size: 0.95rem;">When users swipe up on the sheet, it transforms into a full-screen landing template. We reconfigured this layout below the fold to ensure immediate scannability.</p>
+		<section class="section-editorial-grid">
+			<div class="grid-header">
+				<span class="section-label">08 / Browse Sheet 2.0</span>
+				<h2 class="section-title">An intuitive, scannable and personalised content details experience</h2>
+				<p class="grid-desc">The final system handled movies, shows, below-the-fold details, and episode navigation while preserving the lightweight browsing paradigm that improved sampling.</p>
 			</div>
-			<div class="editorial-split-visual">
-				<div style="display: flex; gap: 1rem; width: 100%; align-items: flex-start;">
-					<figure style="text-align: center; margin: 0; flex: 1; min-width: 0;">
-						<div class="device-canvas" style="margin-bottom: 0.5rem; max-width: 100%;">
-							<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_2_movie.png" alt="Browse Sheet 2.0 Movie Screen" />
-						</div>
-						<figcaption class="cs-media-caption">Movie details</figcaption>
-					</figure>
-					<figure style="text-align: center; margin: 0; flex: 1; min-width: 0;">
-						<div class="device-canvas" style="margin-bottom: 0.5rem; max-width: 100%;">
-							<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_2_show.png" alt="Browse Sheet 2.0 Show Screen" />
-						</div>
-						<figcaption class="cs-media-caption">Show details</figcaption>
-					</figure>
-					<figure style="text-align: center; margin: 0; flex: 1; min-width: 0;">
-						<div class="device-canvas" style="margin-bottom: 0.5rem; max-width: 100%;">
-							<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_2_episodes.png" alt="Vertical Episode Directory List" />
-						</div>
-						<figcaption class="cs-media-caption">Vertical episodes</figcaption>
-					</figure>
+			<div class="mockup-strip">
+				<figure>
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_movie_top.png" alt="Movies landing screen" />
+					<figcaption>Movies Landing</figcaption>
+				</figure>
+				<figure>
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_show_top.png" alt="Shows landing screen" />
+					<figcaption>Shows Landing</figcaption>
+				</figure>
+				<figure>
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_movie_below.png" alt="Movies below the fold screen" />
+					<figcaption>Movies Below the Fold</figcaption>
+				</figure>
+				<figure>
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_show_below.png" alt="Shows below the fold screen" />
+					<figcaption>Shows Below the Fold</figcaption>
+				</figure>
+				<figure>
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_episode_nav.png" alt="Shows episode navigation screen" />
+					<figcaption>Shows Episode Nav</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- Reflections -->
+		<section class="section-editorial-grid reflections-section">
+			<div class="grid-header">
+				<span class="section-label">09 / Reflections</span>
+				<h2 class="section-title">How research, discovery, alignment and validation shaped the page</h2>
+				<p class="grid-desc">Throughout the process, we took an extensive research-driven approach. Here is how everything came together to make the final page look and work the way it does.</p>
+			</div>
+			<div class="reflection-block">
+				<div class="reflection-copy">
+					<span>Foundational Study</span>
+					<h3>Mapped decision-making priority to layout priority</h3>
+					<p>The page structure mirrors what matters to users: trailer, title and USP, genres, duration and release date, synopsis, cast, and release-date planning for later versions.</p>
+				</div>
+				<div class="reflection-visual">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_2_watch_cta.png" alt="Browse Sheet 2.0 top layout with watch CTA" />
+				</div>
+			</div>
+			<div class="solution-proof-grid">
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/browse_sheet_2_watch_cta.png" alt="Clear upfront watch CTA" />
+					<span>Problem Discovery</span>
+					<h4>Clear and upfront watch CTA</h4>
+					<p>The watch action was made prominent so it would not get lost between trailer motion and metadata.</p>
+				</div>
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_show_top.png" alt="Upcoming episode status callout" />
+					<span>Problem Discovery</span>
+					<h4>Dedicated status callout</h4>
+					<p>Running shows gained a dedicated space for upcoming episode dates and release frequency.</p>
+				</div>
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_movie_below.png" alt="Scannable synopsis and metadata" />
+					<span>Problem Discovery</span>
+					<h4>Scannable synopsis and metadata</h4>
+					<p>Long descriptions were supported by more consumable metadata, helping users understand content faster.</p>
+				</div>
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_episode_nav.png" alt="Vertical episode navigation" />
+					<span>Problem Discovery</span>
+					<h4>Vertical episode navigation</h4>
+					<p>Episodes moved from a difficult horizontal rail to a more natural vertical list.</p>
+				</div>
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_movie_top.png" alt="Configurable USP and secondary CTA" />
+					<span>Stakeholder Alignment</span>
+					<h4>Configurable USP and secondary CTA</h4>
+					<p>The USP section and secondary CTA were made backend-configurable so product teams could test popularity, recommendations, ratings, downloads, or plan upsells.</p>
+				</div>
+				<div class="solution-proof-card">
+					<img src="./wp-content/uploads/2025/browse-sheet/mockups/landing_show_below.png" alt="Validated sheet affordance" />
+					<span>Validative Study</span>
+					<h4>Dragger for sheet affordance</h4>
+					<p>User feedback confirmed the need for clearer sheet affordance when the title floats above the main panel.</p>
 				</div>
 			</div>
 		</section>
 
-		<!-- Hotspot Coordinate Map -->
-		<section class="section-full-width-showcase">
+		<!-- Results -->
+		<section class="section-full-width-showcase results-section">
 			<div class="showcase-header">
-				<span class="section-label">Interactive Spec</span>
-				<h2 class="section-title">UX Solutions Map</h2>
-				<p class="showcase-desc">Hover over the feature cards on the left to see where each design improvement is located on the interface:</p>
+				<span class="section-label">10 / Impact & Consumer Love</span>
+				<h2 class="section-title">Browse Sheet 2.0 moved the core metrics again</h2>
+				<p class="showcase-desc">The new experience launched in developing markets including South Africa and the Middle East. Improvements were tracked against Browse Sheet 1.0 in comparable markets such as Thailand and Malaysia.</p>
 			</div>
-
-			<div class="solutions-map-container" style="max-width: 1100px; margin: 0 auto;">
-				<div class="solutions-list">
-					<div class="solution-interactive-card active" data-target-feature="watch-cta">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Upfront Watch CTA</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Designed a prominent, high-contrast action button that stands out clearly from metadata.</p>
-					</div>
-					<div class="solution-interactive-card" data-target-feature="episode-tracker">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Upcoming Episode Tracker</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Added a dedicated status line calling out release schedules and dates for running shows.</p>
-					</div>
-					<div class="solution-interactive-card" data-target-feature="genre-tags">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Consumable Genre Tags</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Replaced long description text chunks with micro-genre metadata tags for quick scannability.</p>
-					</div>
-					<div class="solution-interactive-card" data-target-feature="episode-nav">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Vertical Episode Navigation</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Rebuilt episode directories vertically, making scanning multiple episodes natural.</p>
-					</div>
-					<div class="solution-interactive-card" data-target-feature="lang-badges">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Original Language Badges</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Called out the content's original language alongside dubbed parameters clearly.</p>
-					</div>
-					<div class="solution-interactive-card" data-target-feature="secondary-cta">
-						<h4 style="margin: 0; font-family: var(--font-display); font-size: 1.05rem; color: var(--text-primary);">Configurable Secondary CTA</h4>
-						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin: 0.25rem 0 0;">Personalised action button controlled dynamically by backend for downloads or membership upgrades.</p>
-					</div>
+			<div class="metrics-deck impact-metrics">
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+4%</div>
+					<div class="metric-label">Distinct Titles Started</div>
+					<div class="metric-desc">Growth in distinct movies and shows started.</div>
 				</div>
-				
-				<div class="interactive-mockup-wrapper">
-					<div class="device-canvas">
-						<img src="./wp-content/uploads/2025/browse-sheet/mockups/detail_features_mockup.png" alt="Detailed Features & Solutions mockup" />
-						
-						<!-- Interactive wireframe overlays -->
-						<div class="hotspot-overlay-frame active" data-feature="watch-cta"></div>
-						<div class="hotspot-overlay-frame" data-feature="episode-tracker"></div>
-						<div class="hotspot-overlay-frame" data-feature="genre-tags"></div>
-						<div class="hotspot-overlay-frame" data-feature="episode-nav"></div>
-						<div class="hotspot-overlay-frame" data-feature="lang-badges"></div>
-						<div class="hotspot-overlay-frame" data-feature="secondary-cta"></div>
-					</div>
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+7%</div>
+					<div class="metric-label">Content Added to Watchlist</div>
+					<div class="metric-desc">Surprising because watchlist is less prominent in the latest design.</div>
+				</div>
+				<div class="metric-card positive-metric">
+					<div class="metric-val">+6.2%</div>
+					<div class="metric-label">Distinct Titles Started for Shows</div>
+					<div class="metric-desc">A reversal of the Browse Sheet 1.0 show-start weakness.</div>
 				</div>
 			</div>
-		</section>
-
-		<!-- Consumer Love (Tweets Masonry) -->
-		<section class="section-full-width-showcase" style="background: rgba(255,255,255,0.01);">
-			<div class="showcase-header">
-				<span class="section-label">06 / Results</span>
-				<h2 class="section-title">Impact & Consumer Love</h2>
-				<p class="showcase-desc">Following launch in South Africa and Middle East markets, Browse Sheet 2.0 saw huge positive metrics and social media appreciation.</p>
+			<div class="tweet-proof-grid">
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/tweet_feedback_1.png" alt="Consumer appreciation for Disney+ Hotstar browse sheet" />
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/tweet_feedback_2.png" alt="Consumer feedback about Disney+ Hotstar browse sheet" />
+				<img src="./wp-content/uploads/2025/browse-sheet/mockups/tweet_feedback_3.png" alt="Consumer feedback about Disney+ Hotstar redesign" />
 			</div>
-			
-			<div class="metrics-deck" style="max-width: 1000px; margin: 0 auto 4.5rem; justify-content: center;">
-				<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-					<div class="metric-val" style="color: #10b981;">+4%</div>
-					<div class="metric-label">Titles Started</div>
-					<div class="metric-desc">Growth in distinct movies/shows started per session.</div>
-				</div>
-				<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-					<div class="metric-val" style="color: #10b981;">+7%</div>
-					<div class="metric-label">Watchlist Adds</div>
-					<div class="metric-desc">Growth in content saved for later watch intent.</div>
-				</div>
-				<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-					<div class="metric-val" style="color: #10b981;">+6.2%</div>
-					<div class="metric-label">Show Starts</div>
-					<div class="metric-desc">Engaged TV show starts, reversing the v1 TV show drop.</div>
-				</div>
-			</div>
-
-			<!-- Masonry reviews -->
-			<div class="reviews-masonry-grid" style="max-width: 1100px; margin: 0 auto;">
-				<div class="tweet-card-mock">
-					<div class="tweet-user-info">
-						<div class="tweet-avatar">SS</div>
-						<div class="tweet-names">
-							<span class="tweet-display-name">Sidharth Sharma <i class="fa-solid fa-circle-check tweet-verified-badge"></i></span>
-							<span class="tweet-handle">@sid_sharma</span>
-						</div>
+			<div class="india-outlook">
+				<span class="section-label">Looking towards India</span>
+				<h2 class="section-title">Projected lift for the largest user base</h2>
+				<p>Browse Sheet 2.0 was planned for India, the largest Disney+ Hotstar market with over 300M users. Based on early launches, we projected strong improvements in title starts, homepage conversion, and watchlist saves.</p>
+				<div class="metrics-deck impact-metrics">
+					<div class="metric-card positive-metric">
+						<div class="metric-val">+15%</div>
+						<div class="metric-label">Distinct Titles Started</div>
+						<div class="metric-desc">Projected lift in content starts.</div>
 					</div>
-					<p class="tweet-content">Love the new bottom sheet on Disney+ Hotstar. Makes it so much faster to preview shows and read descriptions without losing my scrolling spot on the homepage. Great UX detail!</p>
-					<span class="tweet-date">Jun 14, 2020</span>
-				</div>
-
-				<div class="tweet-card-mock">
-					<div class="tweet-user-info">
-						<div class="tweet-avatar">AR</div>
-						<div class="tweet-names">
-							<span class="tweet-display-name">Ananya Roy</span>
-							<span class="tweet-handle">@ananya_r</span>
-						</div>
+					<div class="metric-card positive-metric">
+						<div class="metric-val">+3%</div>
+						<div class="metric-label">Successful Homepage Sessions</div>
+						<div class="metric-desc">Projected home to details to watch conversion lift.</div>
 					</div>
-					<p class="tweet-content">Finally! A vertical episode directory that doesn't make me scroll horizontally for ages to find episode 45 of my show. Swiping up from the sheet to go full screen is super smooth.</p>
-					<span class="tweet-date">Jun 20, 2020</span>
-				</div>
-
-				<div class="tweet-card-mock">
-					<div class="tweet-user-info">
-						<div class="tweet-avatar">KP</div>
-						<div class="tweet-names">
-							<span class="tweet-display-name">Karan Patel <i class="fa-solid fa-circle-check tweet-verified-badge"></i></span>
-							<span class="tweet-handle">@karan_patel</span>
-						</div>
-					</div>
-					<p class="tweet-content">Auto trailer preview, micro-genre tags, and upfront watchlist actions all in one quick-load swipe card. Disney+ Hotstar is setting design benchmarks for streaming apps in India.</p>
-					<span class="tweet-date">Jul 02, 2020</span>
-				</div>
-			</div>
-
-			<div style="max-width: 800px; margin: 5rem auto 0; text-align: center;">
-				<h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Looking Towards India</h3>
-				<p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;">
-					Browse Sheet 2.0 will launch for our biggest user base of over 300M users in India. Based on performance metrics from early market releases, we project double-digit increases in title streams and watchlist saves, boosting overall homepage-to-watch time conversions by 3%.
-				</p>
-				
-				<div class="metrics-deck" style="margin: 3rem 0; justify-content: center;">
-					<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-						<div class="metric-val" style="color: #10b981;">+15%</div>
-						<div class="metric-label">Titles Started</div>
-						<div class="metric-desc">Expected increase in distinct content catalog streams.</div>
-					</div>
-					<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-						<div class="metric-val" style="color: #10b981;">+3%</div>
-						<div class="metric-label">Home-to-Watch</div>
-						<div class="metric-desc">Successful home-to-details-to-stream conversions.</div>
-					</div>
-					<div class="metric-card" style="border-color: rgba(16, 185, 129, 0.2);">
-						<div class="metric-val" style="color: #10b981;">+12%</div>
-						<div class="metric-label">Watchlist Saves</div>
-						<div class="metric-desc">Growth in long-term catalog bookmarking actions.</div>
+					<div class="metric-card positive-metric">
+						<div class="metric-val">+12%</div>
+						<div class="metric-label">Content Added to Watchlist</div>
+						<div class="metric-desc">Projected growth in saved titles.</div>
 					</div>
 				</div>
-				
-				<h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 4rem 0 1.5rem;">Future Strategy</h3>
-				<p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0;">
-					The introduction of browse sheet on Disney+ Hotstar has had a dramatic impact on the content browsing and watching experience. More titles are being sampled, more items are being added to watchlist, and effectively more people are finding their favourite content to watch. We are committed to fine-tuning our experience over time to equip users with the right information.
-				</p>
+				<div class="future-note">
+					<h3>Future</h3>
+					<p>The introduction of Browse Sheet on Disney+ Hotstar had a dramatic impact on content browsing and watching. More titles were sampled, more items were added to watchlist, and more people found content they wanted to watch. The next step was to continue fine-tuning the experience so users always had the right information at the right moment.</p>
+				</div>
 			</div>
 		</section>
 
@@ -516,8 +582,38 @@
 
 	<!-- Footer -->
 	<footer>
-		<div class="container footer-copyright" style="border:none; padding:0; justify-content:center;">
-			<span>&copy; 2026 Reuben Abraham. All rights reserved.</span>
+		<div class="container footer-grid">
+			<div>
+				<h2 class="footer-heading">
+					Let's design <span class="italic-heading">something great</span> together.<br>
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+				</h2>
+				<p class="footer-label" style="margin-top: 2rem;">Direct Email</p>
+				<p style="font-size: 1.15rem; margin-top: 0.5rem;">
+					<a href="mailto:reubenabraham.official@gmail.com" class="magnetic-el" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">reubenabraham.official@gmail.com</a>
+				</p>
+			</div>
+
+			<div class="footer-links">
+				<span class="footer-label">Navigation</span>
+				<ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+					<li><a href="index.html#Home" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Back to Home</a></li>
+					<li><a href="index.html#UX" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">UX Case Studies</a></li>
+					<li><a href="index.html#Branding" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Branding Work</a></li>
+					<li><a href="index.html#Graphics" class="magnetic-el" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.95rem;">Other Creative Vault</a></li>
+				</ul>
+				
+				<span class="footer-label" style="margin-top: 2rem;">Digital Spaces</span>
+				<ul class="social-links">
+					<li><a href="https://www.linkedin.com/in/supereuben/" target="_blank" rel="noopener" class="social-link magnetic-el">LinkedIn</a></li>
+					<li><a href="https://vimeo.com/reubenabraham" target="_blank" rel="noopener" class="social-link magnetic-el">Vimeo</a></li>
+					<li><a href="https://medium.com/@reubenabraham.official" target="_blank" rel="noopener" class="social-link magnetic-el">Medium</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="container footer-copyright" style="position: relative;">
+			<span>&copy; <span id="copyrightYear">2026</span> Reuben Abraham.</span>
 		</div>
 	</footer>
 
@@ -531,27 +627,11 @@
 			scrollProgress.style.width = scrolled + '%';
 		});
 
-		// Interactive Hotspot Solution Map logic
-		const cards = document.querySelectorAll('.solution-interactive-card');
-		const frames = document.querySelectorAll('.hotspot-overlay-frame');
-
-		cards.forEach(card => {
-			card.addEventListener('mouseenter', () => {
-				// Remove active from all cards and frames
-				cards.forEach(c => c.classList.remove('active'));
-				frames.forEach(f => f.classList.remove('active'));
-
-				// Add active to current card
-				card.classList.add('active');
-
-				// Find and add active to corresponding frame
-				const target = card.getAttribute('data-target-feature');
-				const matchingFrame = document.querySelector(`.hotspot-overlay-frame[data-feature="${target}"]`);
-				if (matchingFrame) {
-					matchingFrame.classList.add('active');
-				}
-			});
-		});
+		// Set dynamic copyright year
+		const copyrightYearEl = document.getElementById('copyrightYear');
+		if (copyrightYearEl) {
+			copyrightYearEl.textContent = new Date().getFullYear();
+		}
 	</script>
 </body>
 </html>
