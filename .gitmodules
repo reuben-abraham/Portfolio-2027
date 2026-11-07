@@ -1,0 +1,3 @@
+[submodule "scan-dine-elevate"]
+	path = scan-dine-elevate
+	url = https://github.com/reuben-abraham/scan-dine-elevate.git
