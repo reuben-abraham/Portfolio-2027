@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Making it cheap to be curious — Disney+ Hotstar Browse Sheet · Reuben Abraham</title>
   <meta name="description" content="35% of Disney+ Hotstar's daily visitors left without watching anything. A lightweight browse sheet made sampling titles cheap: +35% distinct titles viewed, and a content details page rebuilt from research.">
-  <meta name="theme-color" content="#eee7d8">
+  <meta name="theme-color" content="#f4f4f2">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="../../assets/fonts/newsreader-normal-200-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 <body>
@@ -48,7 +48,7 @@
     <div class="wrap">
       <header class="cs-hero">
         <p class="kicker label"><span class="no">Case study No. 03</span><span>Disney+ Hotstar · Discovery</span><span>2020</span><span>~12 min read</span></p>
-        <h1>Making it cheap to be <em>curious</em></h1>
+        <h1>Making it cheap to be curious</h1>
         <p class="dek">More than a third of the people who opened Disney+ Hotstar on an average day left without watching anything, in a catalogue of 7,000 titles. They weren't short of choice. They were short of easy ways to check whether something was worth their evening.</p>
 
         <dl class="facts">
@@ -59,9 +59,9 @@
           <div><dt>Shipped</dt><dd>Browse Sheet 1.0 experiment, then 2.0 in the platform redesign</dd></div>
         </dl>
 
-        <figure class="plate cs-plate">
-          <div class="frame"><img width="1280" height="720" src="../../assets/img/generated/cover-browse.webp" alt="Risograph illustration: a person on a sofa at night, a fan of film cards rising from their phone, one lit in vermilion."></div>
-          <figcaption><span>A preview should cost less than a decision.</span></figcaption>
+        <figure class="cs-cover">
+          <img width="2400" height="1500" src="../../assets/img/covers/browse-sheet.webp" alt="Three screens from Browse Sheet 2.0: Onward's movie page, The Falcon and the Winter Soldier's show page, and its episode list." fetchpriority="high">
+          <figcaption>A preview should cost less than a decision.</figcaption>
         </figure>
 
         <section class="tldr" aria-label="Summary">
@@ -118,7 +118,7 @@
           <p>So why weren't people sampling more? In the existing flow, checking a title meant tapping a thumbnail, waiting for a new details page to load, judging it, and tapping back to the feed. Poster thumbnails are great hooks, but people need a little more upfront (genre, synopsis, release date) to know whether they're interested.</p>
         </section>
 
-        <div class="phones dark" style="--n:2; max-width:520px">
+        <div class="phones dark" style="--n:2">
           <figure><img width="600" height="1302" src="../../assets/img/browse/status-home.webp" alt="The existing Disney+ Hotstar home feed of poster thumbnails." loading="lazy"><figcaption><b>1</b>Tap a thumbnail on home…</figcaption></figure>
           <figure><img width="602" height="1302" src="../../assets/img/browse/status-details.webp" alt="The existing full content details page for Marvel's Iron Fist." loading="lazy"><figcaption><b>2</b>…wait for a full page, then go back.</figcaption></figure>
         </div>
@@ -225,14 +225,14 @@
               <h4>Watch, among everything else</h4>
               <p>The watch button sat between an autoplaying trailer and rows of metadata and actions.</p>
               <p class="why">In the audit, people lost it in the noise, and some thought the trailer was the show.</p>
-              <figure><img width="602" height="1302" src="../../assets/img/browse/status-details.webp" alt="Existing details page with the watch button among metadata." loading="lazy" style="background:#0b0d12"></figure>
+              <figure><img width="602" height="1302" src="../../assets/img/browse/status-details.webp" alt="Existing details page with the watch button among metadata." loading="lazy"></figure>
             </div>
             <div class="opt chosen">
               <span class="tag">Shipped</span>
               <h4>One clear, upfront watch button</h4>
               <p>A full-width primary action directly under the title, with secondary actions demoted below it, and the trailer clearly labelled as a trailer.</p>
               <p class="why">The page exists to get you to press play. Everything else supports that decision.</p>
-              <figure><img width="534" height="1068" src="../../assets/img/browse/bs2-watch-cta.webp" alt="Browse Sheet 2.0 for Onward with a prominent Watch Movie button." loading="lazy" style="background:#0b0d12"></figure>
+              <figure><img width="534" height="1068" src="../../assets/img/browse/bs2-watch-cta.webp" alt="Browse Sheet 2.0 for Onward with a prominent Watch Movie button." loading="lazy"></figure>
             </div>
           </div>
           <div class="cost"><span class="label">Trade-off</span><p>Watchlist and download became quieter. We expected watchlist adds to drop. They went up 7%.</p></div>
@@ -252,7 +252,7 @@
               <h4>A vertical list, and a status callout</h4>
               <p>Episodes became a vertical list with season tabs. Running shows got a dedicated callout for the next episode date and release frequency.</p>
               <p class="why">Shows were where 1.0 fell short. People need to see what they're committing to.</p>
-              <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-episodes.webp" alt="Browse Sheet 2.0 episode list for The Falcon and the Winter Soldier, with season tabs." loading="lazy" style="background:#0b0d12; max-width:280px"></figure>
+              <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-episodes.webp" alt="Browse Sheet 2.0 episode list for The Falcon and the Winter Soldier, with season tabs." loading="lazy" style="max-width:280px"></figure>
             </div>
           </div>
           <div class="cost"><span class="label">Trade-off</span><p>A vertical list takes more room, so a show's page runs longer than a movie's.</p></div>
@@ -336,7 +336,7 @@
         </a>
       </nav>
       <footer class="site-foot">
-        <p class="colophon">Product screens and figures © Disney+ Hotstar, shown for portfolio purposes; some details are simplified. Plates are illustrations made for this site.</p>
+        <p class="colophon">Product screens and figures © Disney+ Hotstar, shown for portfolio purposes; some details are simplified.</p>
         <p class="status" data-status>Singapore</p>
         <p class="keys">Press <kbd>?</kbd></p>
       </footer>

@@ -52,6 +52,11 @@
   tick();
   setInterval(tick, 15000);
 
+  /* hairline under the nav once the page moves -------------------- */
+  const markScrolled = () => document.documentElement.classList.toggle("scrolled", window.scrollY > 8);
+  document.addEventListener("scroll", markScrolled, { passive: true });
+  markScrolled();
+
   /* copy email ------------------------------------------------------ */
   const copyEmail = async () => {
     try {
@@ -134,8 +139,8 @@
   /* hello, curious engineer ---------------------------------------- */
   console.log(
     "%cHi, I'm Reuben.%c\nThis site is hand-written HTML, CSS and a little JS. No framework.\nPress ? on any page for shortcuts. Or just say hi: " + EMAIL,
-    "font: italic 20px Newsreader, Georgia, serif; color: #cf472c",
-    "font: 12px ui-monospace, monospace; color: #5e5b55"
+    "font: 500 20px Geist, Helvetica, sans-serif; letter-spacing: -0.02em; color: #0f0f0f",
+    "font: 12px 'Geist Mono', ui-monospace, monospace; color: #555"
   );
 
   /* hover preview for the ledger ----------------------------------- */
@@ -149,7 +154,7 @@
     document.body.append(peek);
     let x = 0, y = 0, raf;
     const move = () => {
-      peek.style.transform = `translate3d(${x + 22}px, ${y - 90}px, 0) rotate(-1.5deg)`;
+      peek.style.transform = `translate3d(${x + 24}px, ${y - 88}px, 0)`;
       raf = null;
     };
     peekTargets.forEach((t) => {
@@ -279,10 +284,10 @@
     const total = $(".tot span", demo);
     const ping = $(".ping", demo);
     const people = [
-      { n: "Reuben", c: "#1d2230" },
-      { n: "Zihui", c: "#cf472c" },
-      { n: "Arun", c: "#00875a" },
-      { n: "Mei", c: "#7a5af8" },
+      { n: "Reuben", c: "#0f0f0f" },
+      { n: "Zihui", c: "#2341ff" },
+      { n: "Arun", c: "#6b6b69" },
+      { n: "Mei", c: "#9a9a97" },
     ];
     const dishes = [
       ["Chicken fried rice", 8.9],
