@@ -31,13 +31,13 @@
 
   const statusFor = (h, day) => {
     const weekend = day === "Sat" || day === "Sun";
-    if (h < 6) return "asleep. Probably dreaming in Figma frames.";
-    if (h < 9) return "on the first chai of the day.";
-    if (h < 12) return weekend ? "out for kaya toast." : "deep in a flow, headphones on.";
-    if (h < 14) return "at lunch, reading menus too closely.";
-    if (h < 18) return weekend ? "baking a cheesecake, again." : "in a design review, or prototyping one.";
-    if (h < 21) return "walking somewhere along the river.";
-    return "winding down, half-watching something.";
+    if (h < 6) return "probably asleep. I'll reply in the morning.";
+    if (h < 9) return "probably still waking up.";
+    if (h < 12) return weekend ? "probably offline. It's the weekend." : "probably heads-down in Figma.";
+    if (h < 14) return "probably at lunch.";
+    if (h < 18) return weekend ? "possibly baking a cheesecake." : "probably in a design review, or prototyping one.";
+    if (h < 21) return "probably wrapping up for the day.";
+    return "probably winding down. I'll reply in the morning.";
   };
 
   const tick = () => {
@@ -93,14 +93,26 @@
     if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
   };
 
+  const jokes = [
+    "I'd tell you a UX joke, but you'd need onboarding first.",
+    "How many designers does it take to change a lightbulb? Does it have to be a lightbulb?",
+    "My grid and I broke up. It kept boxing me in.",
+    "I asked for feedback. Got 14 comments and a new font.",
+  ];
   let typed = "";
+  let lastKey = 0;
+  let jokeIdx = 0;
   document.addEventListener("keydown", (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (/input|textarea|select/i.test(e.target.tagName)) return;
     const k = e.key;
+    const now = performance.now();
+    const midWord = /^[a-z]$/i.test(k) && now - lastKey < 600;
+    lastKey = /^[a-z]$/i.test(k) ? now : 0;
     typed = (typed + k.toLowerCase()).slice(-10);
-    if (typed.endsWith("chai")) say("Two sugars, less milk. Noted.");
-    if (typed.endsWith("cheesecake")) say("Basque, slightly burnt. Correct answer.");
+    if (typed.endsWith("cheesecake")) return say("Noted. I'll bring one to the interview.");
+    if (typed.endsWith("lame")) return say(jokes[jokeIdx++ % jokes.length]);
+    if (midWord) return;
     if (k === "?") return toggleCard();
     if (k === "Escape") return toggleCard(false);
     if (k === "j") return jump(1);

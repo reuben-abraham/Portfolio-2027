@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" data-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help that answers before you ask — Disney+ Hotstar Helpdesk · Reuben Abraham</title>
+  <meta name="description" content="Designing a self-service help centre for 300 million monthly users: error-code search, a lost-account recovery portal and smarter ticket routing. +15% CSAT, −36% lost-account tickets.">
+  <meta name="theme-color" content="#eee7d8">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/newsreader-normal-200-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="site-head">
+      <a class="name" href="../../">Reuben Abraham</a>
+      <nav aria-label="Primary">
+        <a href="../../#work" aria-current="page">Work</a>
+        <a href="../../about/">About</a>
+        <a href="../../archive/">Archive</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+      <span class="clock" data-clock>SGT</span>
+    </header>
+  </div>
+
+  <nav class="toc" aria-label="In this case study">
+    <span class="label">Helpdesk</span>
+    <ol>
+      <li><a href="#context">The size of it</a></li>
+      <li><a href="#research">What people told us</a></li>
+      <li><a href="#ia">Information architecture</a></li>
+      <li><a href="#self-help">Self-help</a></li>
+      <li><a href="#tickets">Balancing support</a></li>
+      <li><a href="#after">After launch</a></li>
+      <li><a href="#outcome">Outcome</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+    </ol>
+    <span class="left label" aria-live="off"></span>
+  </nav>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="cs-hero">
+        <p class="kicker label"><span class="no">More work</span><span>Disney+ Hotstar · Support</span><span>2021</span><span>~6 min read</span></p>
+        <h1>Help that answers before you <em>ask</em></h1>
+        <p class="dek">At 300 million monthly users, even a small share of people stuck is a flood of tickets. Up to a quarter of weekly complaints were things people could have fixed themselves, if they'd been able to find out how. I designed the help centre to make that the easy path.</p>
+
+        <dl class="facts">
+          <div><dt>My role</dt><dd>Sole product designer, end to end</dd></div>
+          <div><dt>Team</dt><dd>1 product manager, support leads, engineering</dd></div>
+          <div><dt>Platform</dt><dd>Android, iOS and web</dd></div>
+          <div><dt>When</dt><dd>September 2021</dd></div>
+          <div><dt>Shipped</dt><dd>Help centre, account recovery, ticket routing</dd></div>
+        </dl>
+
+        <figure class="plate cs-plate">
+          <div class="frame"><img src="../../assets/img/generated/cover-helpdesk.webp" alt="Risograph illustration: a wall of small labelled drawers, one pulled open with a single card lit in vermilion."></div>
+          <figcaption><span>Most answers already existed. They were just in the wrong drawer.</span></figcaption>
+        </figure>
+
+        <section class="tldr" aria-label="Summary">
+          <span class="label">The short version</span>
+          <div>
+            <h2>Problem</h2>
+            <p>People searched for "Hotstar contact" twice as often as "Netflix help". 18.5–25% of weekly complaints were self-resolvable, and paying subscribers complained five times as often as free users, many because they'd lost their account.</p>
+          </div>
+          <div>
+            <h2>What I did</h2>
+            <p>Interviewed users and support staff, restructured the help content, and designed error-code search, a self-serve account recovery portal, in-app help links and a ticket funnel that routes people by need.</p>
+          </div>
+          <div>
+            <h2>Outcome</h2>
+            <p>CSAT rose 15%, lost-account tickets fell 36%, and total support load fell 9%.</p>
+          </div>
+        </section>
+      </header>
+    </div>
+
+    <article class="cs-body">
+      <div class="measure">
+
+        <section class="chapter" id="context">
+          <span class="num label">01 — The size of it</span>
+          <h2>Support at the scale of a country</h2>
+          <p>Disney+ Hotstar served more than 300 million monthly active users. The goal was a support platform that lets people solve problems themselves, or reach the right person when they can't, so customer satisfaction goes up and the support team's load comes down.</p>
+        </section>
+
+        <dl class="ledger wide" style="--n:3">
+          <div><dt>Searches for "Hotstar contact"</dt><dd>2×</dd><span class="ctx">Compared with "Netflix help", which had a dedicated portal. From Google Trends.</span></div>
+          <div><dt>Self-resolvable complaints</dt><dd>18.5–25%</dd><span class="ctx">Of all weekly complaints.</span></div>
+          <div><dt>Complaints from subscribers</dt><dd>5×</dd><span class="ctx">Paying subscribers complained almost five times as often as free users.</span></div>
+        </dl>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/helpdesk/hd-02.webp" alt="Google Trends comparison of searches for Hotstar contact and Netflix help, with a regional breakdown across India." loading="lazy">
+          <figcaption><b>Search interest</b>"Hotstar contact" against "Netflix help", by region.</figcaption>
+        </figure>
+
+        <section class="chapter" id="research">
+          <span class="num label">02 — What people told us</span>
+          <h2>The people paying the most were the most stuck</h2>
+          <p>We interviewed people who had raised complaints, and the support staff handling most of the weekly tickets.</p>
+        </section>
+
+        <div class="quotes wide" style="--n:2">
+          <blockquote><p>They said it's possible that I subscribed from some other account whose details I forgot. I had to share my payment details and other credentials over email to get it activated.</p><cite>Karan, 32, premium user</cite></blockquote>
+          <blockquote><p>I asked them to send me the steps I needed to follow in written. They said they didn't have anything like that.</p><cite>Krishna, 57, VIP user</cite></blockquote>
+          <blockquote><p>I wanted to call customer support to ask why exactly this was happening but I couldn't find the number anywhere!</p><cite>Jiya, 23, premium user</cite></blockquote>
+          <blockquote><p>Most complaints are about users losing access to their accounts. We need certain documents to verify ownership, and due to lack of a proper structure, this leads to a lot of back and forth.</p><cite>Vikram, support team</cite></blockquote>
+          <blockquote><p>Many of them are bogus which makes it really difficult to attend to the genuine ones properly. Many of these issues have simple fixes that the user can perform themselves.</p><cite>Tarun, support team</cite></blockquote>
+          <blockquote><p>I have changed my phone number but my subscription is on my previous number. I couldn't find a way to change it on the app.</p><cite>Raman, 33, premium user</cite></blockquote>
+        </div>
+
+        <p>One problem stood out. When Hotstar switched to phone-number login by default, many people who had signed up with an email and password didn't migrate. They accidentally created a new, free account, and were understandably angry when asked to pay again.<sup class="ref" data-n="1">1</sup><span class="note" data-n="1" role="note"><b>Why it mattered</b>These were paying customers, which is part of why subscribers raised five times as many complaints. Every lost account was a ticket that needed documents, manual checks and several emails.</span></p>
+
+        <section class="chapter" id="ia">
+          <span class="num label">03 — Information architecture</span>
+          <h2>Twelve categories, then four, then six</h2>
+          <p>Before any interface, the help content itself needed restructuring. I grouped 12 categories into 4 broad segments, tested it with a card sort, and iterated to a 6-section structure with a "Top categories" drawer up front.</p>
+        </section>
+
+        <div class="grid-3 wide">
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-09.webp" alt="Hand-drawn sketch of the initial help centre information architecture." loading="lazy"><figcaption><b>1</b>The initial structure, on paper.</figcaption></figure>
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-10.webp" alt="Card sorting results for the new information architecture." loading="lazy"><figcaption><b>2</b>Testing it with a card sort.</figcaption></figure>
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-11.webp" alt="Final restructured help centre screens." loading="lazy"><figcaption><b>3</b>The restructured help centre.</figcaption></figure>
+        </div>
+
+        <section class="chapter" id="self-help">
+          <span class="num label">04 — Self-help</span>
+          <h2>Meet people where the problem shows up</h2>
+          <div class="grid-2">
+            <div class="card"><span class="label">Search</span><h4>Type the error code</h4><p>The search bar understands error codes. Enter "Error 102" and you get the exact troubleshooting article, with suggested queries right below the input.</p></div>
+            <div class="card"><span class="label">Discovery</span><h4>Related articles and top queries</h4><p>Similar guides and common questions at the bottom of results keep people in the self-help loop.</p></div>
+            <div class="card"><span class="label">Recovery</span><h4>A lost-account portal</h4><p>People submit verification documents themselves and recover their paid account without waiting on an agent.</p></div>
+            <div class="card"><span class="label">In context</span><h4>Help links on error cards</h4><p>When an error appears in the app, it links straight to the matching help article.</p></div>
+          </div>
+        </section>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/helpdesk/hd-16.webp" alt="Help centre home on mobile and web: get to the help you need within the first fold." loading="lazy">
+          <figcaption><b>Help home</b>The goal: most people get to the help they need within the first fold.</figcaption>
+        </figure>
+
+        <div class="grid-2 wide">
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-15.webp" alt="Top queries list in the help centre." loading="lazy"><figcaption><b>Top queries</b>The questions most people arrive with.</figcaption></figure>
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-18.webp" alt="In-app error card: looks like you're having trouble, with an error code and a Get help link." loading="lazy"><figcaption><b>In context</b>An error card that links to its own fix.</figcaption></figure>
+        </div>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/helpdesk/hd-17.webp" alt="Lost account recovery: guidance on why access was lost, and a find-my-account form." loading="lazy">
+          <figcaption><b>Find my account</b>Self-serve recovery for people who'd signed up with email before phone login.</figcaption>
+        </figure>
+
+        <section class="chapter" id="tickets">
+          <span class="num label">05 — Balancing support</span>
+          <h2>Make contacting support easy, but not the first thing you see</h2>
+          <p>Hiding the contact options would have made people angrier; Jiya couldn't find the number at all. Putting them first would have flooded the team. The answer was a "Need more help?" funnel at the bottom of every article, so people read before they write.</p>
+        </section>
+
+        <div class="grid-2">
+          <div class="card"><span class="label">Channels</span><h4>WhatsApp or a call</h4><p>Traffic is routed to WhatsApp for simple requests and to a phone call for complex ones.</p></div>
+          <div class="card"><span class="label">Routing</span><h4>Paid users get a phone line</h4><p>Paying subscribers connect to phone support; free users raise email tickets. While someone types their issue, relevant articles appear alongside.</p></div>
+        </div>
+
+        <div class="grid-2 wide">
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-20.webp" alt="Article footer with Need more help, Contact us and Chat with us buttons." loading="lazy"><figcaption><b>Need more help?</b>Contact options after the article, not instead of it.</figcaption></figure>
+          <figure><img class="shot" src="../../assets/img/helpdesk/hd-22.webp" alt="Ticket form with related articles shown alongside." loading="lazy"><figcaption><b>Nudges</b>Related articles appear as you describe the problem.</figcaption></figure>
+        </div>
+
+        <section class="chapter" id="after">
+          <span class="num label">06 — After launch</span>
+          <h2>Designing for the agents too</h2>
+          <p>Agents had to categorise every incoming ticket. I designed a progressive, segmented issue picker that narrows 125 options down to one without cluttering the screen.</p>
+          <p>We also found many people contacting support were from Tier 2 cities and preferred regional languages, so the help centre was fully localised into Indian regional languages.</p>
+        </section>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/helpdesk/hd-23.webp" alt="Segmented issue picker across three steps, narrowing to one issue type." loading="lazy">
+          <figcaption><b>Issue picker</b>One of 125 issue types, chosen in three short steps.</figcaption>
+        </figure>
+        <figure class="slide wide">
+          <img src="../../assets/img/helpdesk/hd-24.webp" alt="Localised help centre screens in Indian regional languages." loading="lazy">
+          <figcaption><b>Localisation</b>The help centre in regional languages.</figcaption>
+        </figure>
+
+        <section class="chapter" id="outcome">
+          <span class="num label">07 — Outcome</span>
+          <h2>Happier customers, fewer tickets</h2>
+        </section>
+
+        <dl class="ledger wide" style="--n:3">
+          <div><dt>CSAT</dt><dd>+15%</dd><span class="ctx">Overall customer satisfaction.</span></div>
+          <div><dt>Lost-account tickets</dt><dd>−36%</dd><span class="ctx">"Find my account" complaints.</span></div>
+          <div><dt>Support load</dt><dd>−9%</dd><span class="ctx">Fewer tickets overall, from self-resolution.</span></div>
+        </dl>
+
+        <section class="chapter" id="reflection">
+          <span class="num label">08 — Reflection</span>
+          <h2>What I'd keep, and what I'd change</h2>
+          <div class="reflect">
+            <div class="lesson"><h3>Support staff are users too.</h3><p>Some of the most useful interviews were with agents. They knew which problems were simple and which needed documents, and the issue picker came from designing for them, not around them.</p></div>
+            <div class="lesson"><h3>Fix the cause, not only the queue.</h3><p>The lost-account problem started with a login migration. A recovery portal cut those tickets by over a third, but the cheapest ticket is the one a product change prevents.</p></div>
+          </div>
+          <div class="differently">
+            <span class="label">What I'd do differently</span>
+            <p>Bring the account-migration problem upstream sooner. The help centre handled the fallout well, but I'd push for the login team to own a migration path in the same quarter, so recovery becomes the exception, not a product.</p>
+          </div>
+        </section>
+
+      </div>
+    </article>
+
+    <div class="wrap">
+      <nav class="next" aria-label="Back to the first case study">
+        <a href="../airport-transfers/" data-next>
+          <span class="label">Back to No. 01</span>
+          <h2>Airport pickups that move with your flight</h2>
+          <span class="go">Grab · 2025 →</span>
+        </a>
+      </nav>
+      <footer class="site-foot">
+        <p class="colophon">Product screens and figures © Disney+ Hotstar, shown for portfolio purposes; some details are simplified. Interview names shortened. Plates are illustrations made for this site.</p>
+        <p class="status" data-status>Singapore</p>
+        <p class="keys">Press <kbd>?</kbd></p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

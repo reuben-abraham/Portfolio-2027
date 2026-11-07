@@ -1227,7 +1227,8 @@ kbd {
 .measure > .grid-2,
 .measure > .grid-3,
 .measure > .compare,
-.measure > .demo {
+.measure > .demo,
+.measure > .trace {
   clear: both;
 }
 
@@ -1264,7 +1265,7 @@ kbd {
   width: var(--margin);
   margin-right: calc(-1 * (var(--margin) + var(--gap)));
   margin-top: 0.3em;
-  margin-bottom: 1em;
+  margin-bottom: 28px;
   font-family: var(--mono);
   font-size: 12px;
   line-height: 1.6;
@@ -1780,6 +1781,41 @@ sup.ref {
 .rank li span {
   color: var(--ink-soft);
   font-size: 16px;
+}
+
+/* research → decision trace */
+.trace {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+.trace th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.trace td {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: baseline;
+  line-height: 1.5;
+}
+
+.trace td:first-child {
+  width: 200px;
+  padding-right: 24px;
+}
+
+.trace td .label {
+  color: var(--red);
 }
 
 /* shared basket demo */
