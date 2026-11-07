@@ -462,6 +462,7 @@ body > .wrap:has(> .site-head) {
     grid-row: auto;
   }
   .section-head .label {
+    order: -1;
     margin-bottom: var(--s-3);
   }
 }
