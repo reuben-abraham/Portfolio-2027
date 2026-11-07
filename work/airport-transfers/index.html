@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airport pickups that move with your flight — Grab case study · Reuben Abraham</title>
+  <meta name="description" content="How Grab cut passenger no-shows on reserved airport rides by syncing bookings to live flight data and guiding travellers to the car. +39% booked rides, −4.5pp no-shows.">
+  <meta name="theme-color" content="#eee7d8">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/fonts/newsreader-normal-200-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="site-head">
+      <a class="name" href="../../">Reuben Abraham</a>
+      <nav aria-label="Primary">
+        <a href="../../#work" aria-current="page">Work</a>
+        <a href="../../about/">About</a>
+        <a href="../../archive/">Archive</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+      <span class="clock" data-clock>SGT</span>
+    </header>
+  </div>
+
+  <nav class="toc" aria-label="In this case study">
+    <span class="label">Airport Transfers</span>
+    <ol>
+      <li><a href="#opportunity">The opportunity</a></li>
+      <li><a href="#failing">Where rides failed</a></li>
+      <li><a href="#constraints">Constraints</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#feedback">The course-correction</a></li>
+      <li><a href="#decisions">Three decisions</a></li>
+      <li><a href="#visual">Visual design</a></li>
+      <li><a href="#outcome">Outcome</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+    </ol>
+    <span class="left label" aria-live="off"></span>
+  </nav>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="cs-hero">
+        <p class="kicker label"><span class="no">Case study No. 01</span><span>Grab · Transport</span><span>2025</span><span>~10 min read</span></p>
+        <h1>Airport pickups that move with your <em>flight</em></h1>
+        <p class="dek">Reserved airport rides are Grab's most reliable promise, and they were breaking for a simple reason: planes don't land on schedule. We tied the booking to the flight itself and walked travellers from the gate to the car door.</p>
+
+        <dl class="facts">
+          <div><dt>My role</dt><dd>Product design and preliminary analytics</dd></div>
+          <div><dt>Team</dt><dd>Product strategy &amp; scoping, engineering</dd></div>
+          <div><dt>Platform</dt><dd>Grab app, Android &amp; iOS</dd></div>
+          <div><dt>When</dt><dd>2025, launched in SEA</dd></div>
+          <div><dt>Shipped</dt><dd>Flight sync, pickup timing, landing guide</dd></div>
+        </dl>
+
+        <figure class="plate cs-plate">
+          <div class="frame"><img src="../../assets/img/generated/cover-airport.webp" alt="Risograph illustration: a traveller with a suitcase crosses an arrivals hall at dawn towards a pickup marker, an aircraft tail visible through the window."></div>
+          <figcaption><span>The 20 minutes between "landed" and "in the car" are where reserved rides were won or lost.</span></figcaption>
+        </figure>
+
+        <section class="tldr" aria-label="Summary">
+          <span class="label">The short version</span>
+          <div>
+            <h2>Problem</h2>
+            <p>15% of reserved airport rides never completed, and 8% were cancelled because the passenger didn't show up. Riders told us why: delayed flights, long immigration queues, and bookings they couldn't change in time.</p>
+          </div>
+          <div>
+            <h2>What I did</h2>
+            <p>Sized the funnel, ran cold calls with riders who missed pickups, benchmarked Uber and Didi, and took flight input and post-landing guidance through three rounds of iteration with engineering in the room.</p>
+          </div>
+          <div>
+            <h2>Outcome</h2>
+            <p>Booked rides rose 39% and passenger no-shows fell 4.5 points. Driver cancellations crept up 1.2 points, which is the part I'd design differently next time.</p>
+          </div>
+        </section>
+      </header>
+    </div>
+
+    <article class="cs-body">
+      <div class="measure">
+
+        <section class="chapter" id="opportunity">
+          <span class="num label">01 — The opportunity</span>
+          <h2>A small share of trips, carrying a large share of trust</h2>
+          <p>Airport rides are some of the highest-value trips in ride-hailing. Across Southeast Asia, pickups split two ways: 80% are booked on demand when people land, and 20% are reserved in advance.</p>
+          <p>That 20% is the premium end of the market: travellers buying reliability and peace of mind, with better margins and room to grow. Grab fulfilled just 2% of it.<sup class="ref" data-n="1">1</sup><span class="note" data-n="1" role="note"><b>Why reserved</b>On-demand airport pickup is saturated and depends on whoever is nearby. Reserved rides are a premium, higher-margin promise, and people book them precisely because they can't afford for it to go wrong.</span></p>
+        </section>
+
+        <div class="split wide" role="img" aria-label="Airport pickups: 80% on demand, 20% reserved">
+          <div class="a">80% · On demand: high volume, saturated</div>
+          <div class="b">20% · Reserved</div>
+        </div>
+        <p class="cap wide">Southeast Asian airport pickups by booking type, from the opportunity sizing.</p>
+
+        <p>We saw three gaps in the reserved experience: <strong>fulfilment</strong>, <strong>conversion</strong>, and <strong>awareness and discovery</strong>. We picked fulfilment first.<sup class="ref" data-n="2">2</sup><span class="note" data-n="2" role="note"><b>Sequencing</b>More demand doesn't help if the rides we've already sold don't happen. Fulfilment had to be fixed before conversion or awareness would be worth working on.</span></p>
+
+        <section class="chapter" id="failing">
+          <span class="num label">02 — Where rides failed</span>
+          <h2>The ride was booked. The passenger just wasn't there.</h2>
+          <p>I started with the numbers. Of all reserved airport ride requests, 15% never became a completed trip. More than half of those, 8% of all requests, were cancelled because the passenger didn't show.</p>
+        </section>
+
+        <div class="funnel wide" role="img" aria-label="Funnel: 100% of reserved requests, 15% incomplete, 8% cancelled due to passenger no-show">
+          <div class="step" style="--h:100"><div class="col"></div><div class="pc">100%</div><div class="lb">All reserved airport ride requests</div></div>
+          <div class="step" style="--h:15"><div class="col"></div><div class="pc">15%</div><div class="lb">Incomplete rides</div></div>
+          <div class="step hi" style="--h:8"><div class="col"></div><div class="pc">8%</div><div class="lb">Cancelled: passenger no-show</div></div>
+        </div>
+
+        <p>"No-show" sounds like carelessness. To find out what it actually meant, we cold-called riders who had cancelled or missed a scheduled pickup.</p>
+
+        <div class="quotes wide">
+          <blockquote><p>I reached late at the pickup point because my flight was delayed.</p><cite>Rider · flight delay</cite></blockquote>
+          <blockquote><p>I didn't expect the wait time at immigration to be so long.</p><cite>Rider · customs wait</cite></blockquote>
+          <blockquote><p>My flight got postponed but I couldn't modify my ride in time.</p><cite>Rider · reservation lock</cite></blockquote>
+        </div>
+
+        <p>Nobody forgot their ride. The booking was tied to a time, the traveller was tied to a flight, and the gap between those two clocks was what failed. That changed the brief:</p>
+
+        <p class="pull"><span class="label">How might we</span>reduce cancellations on reserved rides to improve fulfilment, and with it, retention?</p>
+
+        <section class="chapter" id="constraints">
+          <span class="num label">03 — Constraints</span>
+          <h2>What the design had to fit inside</h2>
+          <div class="grid-2">
+            <div class="card"><span class="label">Engineering</span><h4>An MVP, not a platform</h4><p>Early concepts drew a blunt response from engineering: <em>"This could bloat up engineering timelines."</em> Scope had to fit a first release.</p></div>
+            <div class="card"><span class="label">Data</span><h4>Flight data comes from outside</h4><p>Arrival times depend on an external flight API. What we could promise in the UI was limited by what that data could reliably tell us.</p></div>
+            <div class="card"><span class="label">Operations</span><h4>Airports are messy in ways files aren't</h4><p>Immigration queues, baggage belts and terminal layouts vary by airport. Drivers waiting at the kerb cost money and goodwill.</p></div>
+            <div class="card"><span class="label">Familiarity</span><h4>Millions already know how to book</h4><p>Drop-off and vehicle selection are muscle memory for Grab users. A new service couldn't make them relearn those steps.</p></div>
+          </div>
+        </section>
+
+        <section class="chapter" id="benchmarks">
+          <span class="num label">04 — Benchmarks</span>
+          <h2>Uber and Didi both start with the flight</h2>
+          <p>We walked through how Uber in the US and Didi in China handle reserved airport pickup, from capturing the flight to guiding people after landing. Both ask for the flight early, treat the landing time rather than the booking time as the anchor, and build a waiting window around it.</p>
+        </section>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/airport/slide-uber.webp" alt="Uber US reserved airport flow: ride selection, flight arrival date, flight number entry, and landing status." loading="lazy">
+          <figcaption><b>Uber, US</b>Ride selection → when does your flight arrive → flight number → "your ride, ready when you land".</figcaption>
+        </figure>
+        <figure class="slide wide">
+          <img src="../../assets/img/airport/slide-didi.webp" alt="Didi China airport pickup flow: flight sync, departure date, ride options and car time selector." loading="lazy">
+          <figcaption><b>Didi, China</b>A dedicated airport pickup service with flight sync, departure date and suggested car time.</figcaption>
+        </figure>
+
+        <section class="chapter" id="feedback">
+          <span class="num label">05 — The course-correction</span>
+          <h2>Our first concept tried to plan the whole trip. Users wanted to find their driver.</h2>
+          <p>The first concept went big: flight-synced itinerary planning and booking, launched from the Transport home. Universal flight search would accept a flight number, airport or airline, and a smart recommendation would work out pickup time from arrival, baggage, immigration and the walk to the exit.</p>
+        </section>
+
+        <div class="phones" style="--n:3">
+          <figure class="loop"><video src="../../assets/img/airport/transport-home.mp4" poster="../../assets/img/airport/transport-home-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: Transport home with the airport pickup entry point"></video><figcaption><b>Concept</b>Transport home entry point.</figcaption></figure>
+          <figure><img src="../../assets/img/airport/flight-details.webp" alt="Flight details screen: when's your flight arriving, flight number and preferred pickup time." loading="lazy"><figcaption><b>Concept</b>Flight details and preferred pickup time.</figcaption></figure>
+          <figure><img src="../../assets/img/airport/delayed.webp" alt="Post-booking screen reassuring the traveller that the driver will wait if the flight is delayed." loading="lazy"><figcaption><b>Concept</b>"Delayed? We will wait for you."</figcaption></figure>
+        </div>
+
+        <p>We put it in front of travellers and engineers. The feedback didn't polish the concept; it redirected it.</p>
+
+        <div class="quotes wide" style="--n:2">
+          <blockquote><p>My biggest concern is usually finding a driver once I land at the new airport. Airports are usually a maze to navigate through.</p><cite>Traveller</cite></blockquote>
+          <blockquote><p>What happens if my flight is delayed? Is there a waiting fee? How long do I have to get out?</p><cite>Traveller</cite></blockquote>
+          <blockquote><p>What am I supposed to enter here?</p><cite>Traveller, at the flight field</cite></blockquote>
+          <blockquote><p>This seems like a lot of work haha!</p><cite>Traveller, on the itinerary planner</cite></blockquote>
+        </div>
+
+        <p>We narrowed the MVP to three things:<sup class="ref" data-n="3">3</sup><span class="note" data-n="3" role="note"><b>What changed</b>The itinerary planner was the part I was most attached to. It was also the part nobody asked for. We cut it from the MVP.</span></p>
+        <ol>
+          <li><strong>Simplify flight input.</strong> Forgiving search, not exact-format entry.</li>
+          <li><strong>Focus on pickups.</strong> That's where the pain and the operational upside were clearest.</li>
+          <li><strong>Rework what happens after booking.</strong> Delay reassurance, waiting rules and pickup directions in one place.</li>
+        </ol>
+
+        <section class="chapter" id="decisions">
+          <span class="num label">06 — Three decisions</span>
+          <h2>What we chose, and what we turned down</h2>
+          <p>Each of these went through at least two iterations. The rejected options aren't strawmen; each one solved part of the problem.</p>
+        </section>
+
+        <article class="decision wide" id="d1">
+          <header><span class="label">Decision 01 · Flight input</span><span class="label">3 iterations</span><h3>How should a traveller tell us their flight?</h3></header>
+          <div class="opts">
+            <div class="opt rejected">
+              <span class="tag">Iteration 1</span>
+              <h4>Ask for the flight number</h4>
+              <p>A focused entry point made the task clear.</p>
+              <p class="why">People still had to work out how a flight translated into a pickup time, and the time selector after the flight felt disconnected from it.</p>
+              <figure class="loop"><video src="../../assets/img/airport/flight-v1.mp4" poster="../../assets/img/airport/flight-v1-poster.webp" muted playsinline loop preload="none" aria-label="Prototype iteration 1: manual flight number entry"></video></figure>
+            </div>
+            <div class="opt rejected">
+              <span class="tag">Iteration 2</span>
+              <h4>Lead with the benefit</h4>
+              <p>A callout explained why flight details matter, which nudged adoption. Date and time were split, with a sensible default day.</p>
+              <p class="why">The bottom-sheet selectors broke the flow and made it feel fragmented.</p>
+              <figure class="loop"><video src="../../assets/img/airport/flight-v2.mp4" poster="../../assets/img/airport/flight-v2-poster.webp" muted playsinline loop preload="none" aria-label="Prototype iteration 2: benefit-led flight input"></video></figure>
+            </div>
+            <div class="opt chosen">
+              <span class="tag">Iteration 3 · shipped</span>
+              <h4>Easy input first, then a guided pickup time</h4>
+              <p>Start with the lightest possible input, guide the flight lookup, and recommend pickup times instead of asking people to guess.</p>
+              <p class="why">It got people moving fastest, and it was the easiest version to build on the external flight API.</p>
+              <figure class="loop"><video src="../../assets/img/airport/flight-v3.mp4" poster="../../assets/img/airport/flight-v3-poster.webp" muted playsinline loop preload="none" aria-label="Prototype iteration 3: flight-sync with recommended pickup time"></video></figure>
+            </div>
+          </div>
+          <div class="cost"><span class="label">Trade-off</span><p>Recommending a pickup time means owning the recommendation. We accepted relying on the flight data's accuracy in exchange for taking the guesswork away from the traveller.</p></div>
+        </article>
+
+        <article class="decision wide" id="d2">
+          <header><span class="label">Decision 02 · Booking steps</span><h3>Should a premium service get its own booking flow?</h3></header>
+          <div class="opts" style="--n:2">
+            <div class="opt rejected">
+              <span class="tag">Considered</span>
+              <h4>A bespoke airport booking flow</h4>
+              <p>A purpose-built flow would let the whole journey feel premium and airport-specific.</p>
+              <p class="why">It would make people relearn drop-off and car selection, steps they already do without thinking, at the moment they're most anxious.</p>
+            </div>
+            <div class="opt chosen">
+              <span class="tag">Shipped</span>
+              <h4>Change only what's new</h4>
+              <p>After flight selection, the flow returns to familiar Grab patterns: address autocomplete for drop-off and a dedicated space for choosing the taxi type.</p>
+              <p class="why">Trust comes from familiarity. The new part, the flight, gets the attention.</p>
+            </div>
+          </div>
+          <figure class="slide" style="margin-top:22px"><img src="../../assets/img/airport/slide-dropoff.webp" alt="Drop-off and taxi selection: flight details, then familiar address search and vehicle selection." loading="lazy"><figcaption>Flight details are new; address search and car selection are the screens people already know.</figcaption></figure>
+          <div class="cost"><span class="label">Trade-off</span><p>Those steps look like a normal Grab booking, so visual design has to make the service feel premium on its own.</p></div>
+        </article>
+
+        <article class="decision wide" id="d3">
+          <header><span class="label">Decision 03 · After landing</span><span class="label">2 iterations</span><h3>Who decides when the traveller is ready?</h3></header>
+          <div class="opts" style="--n:2">
+            <div class="opt rejected">
+              <span class="tag">Iteration 1</span>
+              <h4>An automatic proximity trigger</h4>
+              <p>A familiar tracking screen with contextual cards. The pickup would trigger automatically as the passenger got close to the exit.</p>
+              <p class="why">Someone stuck at immigration looks "close" to the system. False triggers would send drivers to the kerb too early and cause problems on the ground. The screen also lacked hierarchy, with no guide to the driver.</p>
+              <figure><img src="../../assets/img/airport/slide-boarding-a.webp" alt="Boarding iteration 1 slide with three tracking screens and notes on what worked and what didn't." loading="lazy"></figure>
+            </div>
+            <div class="opt chosen">
+              <span class="tag">Iteration 2 · shipped</span>
+              <h4>Flight sync plus a pickup guide</h4>
+              <p>Ride status is the title. Contextual cards change with each stage. When a flight is late, pickup time moves back automatically and the traveller is told. The traveller taps <em>I'm ready to go</em> and is guided to a specific door.</p>
+              <p class="why">The traveller knows when they're through immigration. The system doesn't. Let the person who knows decide.</p>
+              <figure class="loop"><video src="../../assets/img/airport/pickup-guide.mp4" poster="../../assets/img/airport/pickup-guide-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: go to the pickup point by 2pm, with directions to Terminal 1 Door 4" style="max-width:300px"></video></figure>
+            </div>
+          </div>
+          <div class="cost"><span class="label">Trade-off</span><p>One extra tap for the traveller, in exchange for a signal operations can trust. An automated system that's sometimes wrong is worse than a manual one that's always right.</p></div>
+        </article>
+
+        <section class="chapter" id="visual">
+          <span class="num label">07 — Visual design</span>
+          <h2>Premium, and still recognisably Grab</h2>
+          <p>Because the booking steps stay familiar, the visual layer does the work of saying "this is a planned trip, not a quick ride".</p>
+          <div class="grid-3">
+            <div class="card"><span class="label">Colour</span><p>A differentiated palette, with a sky-blue secondary next to Grab green, marks the premium service without leaving the brand.</p></div>
+            <div class="card"><span class="label">Type &amp; tone</span><p>Stronger branded type for status and reassurance: <em>"See you in Bali at 2:00 PM."</em></p></div>
+            <div class="card"><span class="label">System</span><p>A new arrival-date component was contributed back to the design system for reuse.</p></div>
+          </div>
+        </section>
+
+        <figure class="slide wide">
+          <img src="../../assets/img/airport/slide-visual.webp" alt="Visual design slide: colour accents, typography and the new arrival-date component." loading="lazy">
+          <figcaption><b>Visual system</b>Primary and secondary accents, branded status type, and the reusable arrival-date component.</figcaption>
+        </figure>
+        <div class="grid-2 wide">
+          <figure><img class="shot" src="../../assets/img/airport/service-imagery.webp" alt="A Grab driver in a green jacket waiting in an airport walkway." loading="lazy"><figcaption><b>Service imagery</b>People and airport settings, so it reads as a supported travel service, not a generic ride.</figcaption></figure>
+          <figure><img class="shot" src="../../assets/img/airport/hero-devices.webp" alt="Three phones showing the airport transfer booking, status and pickup screens." loading="lazy"><figcaption><b>Shipped</b>Booking, live status and pickup guidance.</figcaption></figure>
+        </div>
+
+        <section class="chapter" id="outcome">
+          <span class="num label">08 — Outcome</span>
+          <h2>More rides booked, fewer travellers missing them</h2>
+          <p>After launch, measured against reserved airport rides before the change:</p>
+        </section>
+
+        <dl class="ledger wide" style="--n:3">
+          <div><dt>Booked rides</dt><dd>+39%</dd><span class="ctx">More travellers chose to book their airport ride in advance.</span></div>
+          <div><dt>Passenger no-shows</dt><dd>−4.5pp</dd><span class="ctx">Flight sync pushed pickups back when flights were late, instead of letting rides lapse.</span></div>
+          <div class="worse"><dt>Driver cancellations</dt><dd>+1.2pp</dd><span class="ctx">Longer, less predictable waits landed on drivers. We're watching it alongside driver-waiting policies.</span></div>
+        </dl>
+
+        <section class="chapter" id="reflection">
+          <span class="num label">09 — Reflection</span>
+          <h2>What I'd keep, and what I'd change</h2>
+          <div class="reflect">
+            <div class="lesson"><h3>Validate UX against operations.</h3><p>Automated proximity triggers look perfect in a design file. Real immigration queues need manual buffers and flight-delay overrides. The most useful review of this project wasn't a design crit; it was asking someone who runs airport ops what would break.</p></div>
+            <div class="lesson"><h3>Flexibility isn't always kind.</h3><p>A highly adaptive UI that keeps rearranging itself makes a just-landed traveller more anxious, not less. Plain step-by-step landmarks and a clear "we'll wait" were more reassuring than anything clever.</p></div>
+          </div>
+          <div class="differently">
+            <span class="label">What I'd do differently</span>
+            <p>Design the driver's wait as carefully as the passenger's. The +1.2pp in driver cancellations tells me we moved some of the uncertainty from one side of the kerb to the other. Next time, driver-side waiting rules belong in the first iteration, not the follow-up.</p>
+          </div>
+          <a class="deck-link" href="https://docs.google.com/presentation/d/1e8vkrsBAgpB2nsrYu58GIZlGWtVvGnNZhKiswAgFOPA/edit?usp=sharing" rel="noopener">View the original presentation deck ↗</a>
+        </section>
+
+      </div>
+    </article>
+
+    <div class="wrap">
+      <nav class="next" aria-label="Next case study">
+        <a href="../scan-to-order/" data-next>
+          <span class="label">Next · No. 02</span>
+          <h2>A QR menu the whole table can order from</h2>
+          <span class="go">Grab · 2025 →</span>
+        </a>
+      </nav>
+      <footer class="site-foot">
+        <p class="colophon">Product screens and figures © Grab, shown for portfolio purposes; some details are simplified. Plates are illustrations made for this site.</p>
+        <p class="status" data-status>Singapore</p>
+        <p class="keys">Press <kbd>?</kbd></p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
