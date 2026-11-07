@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" data-root="../../">
+<html lang="en" data-root="../../" data-project="scan-to-order">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A QR menu the whole table can order from — Grab Scan to Order 2.0 · Reuben Abraham</title>
-  <meta name="description" content="Rebuilding Grab Dineout's Scan to Order around the table, not the phone: branded merchant menus, personalised recommendations and a shared basket. −33% time to order, 89% completion.">
-  <meta name="theme-color" content="#f4f4f2">
+  <title>A QR menu the whole table can order from — Grab · Reuben Abraham</title>
+  <meta name="description" content="Scan to Order 2.0: shared basket, branded menus, POS sync. −33% time to order, 89% completion.">
+  <meta name="theme-color" content="#1e7a4c">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
-<body>
+<body class="visual-cs" data-project="scan-to-order">
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
 
@@ -28,18 +28,13 @@
   </div>
 
   <nav class="toc" aria-label="In this case study">
-    <span class="label">Scan to Order 2.0</span>
+    <span class="label">Scan to Order</span>
     <ol>
-      <li><a href="#context">Where 1.0 stalled</a></li>
-      <li><a href="#market">The market</a></li>
+      <li><a href="#problem">Problem</a></li>
       <li><a href="#field">At the table</a></li>
-      <li><a href="#brief">The brief</a></li>
-      <li><a href="#correction">The course-correction</a></li>
-      <li><a href="#decisions">Three decisions</a></li>
-      <li><a href="#before-after">Before &amp; after</a></li>
-      <li><a href="#testing">Testing</a></li>
+      <li><a href="#decisions">Decisions</a></li>
+      <li><a href="#before-after">Before / after</a></li>
       <li><a href="#outcome">Outcome</a></li>
-      <li><a href="#reflection">Reflection</a></li>
     </ol>
     <span class="left label" aria-live="off"></span>
   </nav>
@@ -47,37 +42,27 @@
   <main id="main">
     <div class="wrap">
       <header class="cs-hero">
-        <p class="kicker label"><span class="no">Case study No. 02</span><span>Grab · Dineout</span><span>2025</span><span>~11 min read</span></p>
+        <p class="kicker label"><span class="no">No. 02</span><span>Grab · Dineout</span><span>2025</span><span>~4 min</span></p>
         <h1>A QR menu the whole table can order from</h1>
-        <p class="dek">Grab's first Scan to Order solved contactless ordering and not much else. Diners hit a login wall, and cashiers re-keyed every order by hand. Version 2.0 treats the table, not the phone, as the customer, and gives merchants a reason to switch it on.</p>
+        <p class="dek">Version 1.0 hit a login wall. Version 2.0 treats the table — not the phone — as the customer.</p>
 
         <dl class="facts">
-          <div><dt>My role</dt><dd>Lead product designer, concept &amp; UX research</dd></div>
-          <div><dt>Team</dt><dd>Product managers, field researchers, engineers</dd></div>
-          <div><dt>Platform</dt><dd>Mobile web, opened from a table QR code</dd></div>
+          <div><dt>Role</dt><dd>Lead PD · concept &amp; research</dd></div>
+          <div><dt>Team</dt><dd>PM, field research, eng</dd></div>
+          <div><dt>Platform</dt><dd>Mobile web · table QR</dd></div>
           <div><dt>When</dt><dd>July 2025</dd></div>
-          <div><dt>Shipped</dt><dd>Branded menus, recommendations, shared basket</dd></div>
+          <div><dt>Shipped</dt><dd>Menus · shared basket · POS</dd></div>
         </dl>
 
         <figure class="cs-cover">
-          <img width="2400" height="1500" src="../../assets/img/covers/scan-to-order.webp" alt="Three screens from Scan to Order 2.0: the branded menu, the shared table basket, and the table bill with deals." fetchpriority="high">
-          <figcaption>Group dining is one order with many authors.</figcaption>
+          <img width="2400" height="1500" src="../../assets/img/covers/scan-to-order.webp" alt="Scan to Order colour-field cover." fetchpriority="high">
         </figure>
 
         <section class="tldr" aria-label="Summary">
-          <span class="label">The short version</span>
-          <div>
-            <h2>Problem</h2>
-            <p>54% of diners abandoned their order at account verification. Merchants without POS sync re-entered orders by hand, couldn't see spend by table, and churned. Competitors already offered what 1.0 didn't.</p>
-          </div>
-          <div>
-            <h2>What I did</h2>
-            <p>Led concept and research: a competitor teardown, field visits to see how groups actually order, three iteration tracks with merchants and diners, and in-person tests with 12 people on a vibe-coded multi-user prototype.</p>
-          </div>
-          <div>
-            <h2>Outcome</h2>
-            <p>In early rollout, time to order fell 33% and 89% of orders completed. Order coverage per merchant rose 25 points, with 60% average adoption per POS partner.</p>
-          </div>
+          <span class="label">TL;DR</span>
+          <div><h2>Problem</h2><p>54% abandoned at login. Merchants re-keyed orders by hand.</p></div>
+          <div><h2>Approach</h2><p>Field visits, competitor teardown, three iteration tracks, 12-person tests.</p></div>
+          <div><h2>Outcome</h2><p>−33% time to order · 89% completion · +25pp coverage.</p></div>
         </section>
       </header>
     </div>
@@ -85,188 +70,74 @@
     <article class="cs-body">
       <div class="measure">
 
-        <section class="chapter" id="context">
-          <span class="num label">01 — Where 1.0 stalled</span>
-          <h2>Contactless ordering worked. Nothing around it did.</h2>
-          <p>Grab launched Scan to Order (STO) so diners could browse, order and pay from a QR code on the table. It answered the need for contactless ordering, but adoption stayed low on both sides of the counter.</p>
+        <section class="chapter" id="problem">
+          <span class="num label">01 — Problem</span>
+          <h2>Contactless worked. Nothing around it did.</h2>
+          <p>Diners dropped at account verification. Merchants without POS sync re-entered every order. Competitors already shipped what 1.0 didn't.</p>
         </section>
 
         <figure class="slide">
-          <img width="1913" height="2073" src="../../assets/img/sto/sto1-friction.webp" alt="STO 1.0 on mobile web: a restaurant landing page and a phone-number verification screen." loading="lazy">
-          <figcaption><b>STO 1.0</b>The user flow friction map. The first real step after scanning was proving who you are.</figcaption>
+          <img width="1913" height="2073" src="../../assets/img/sto/sto1-friction.webp" alt="STO 1.0 friction: landing and login wall." loading="lazy">
+          <figcaption><b>STO 1.0</b>First real step after scanning: prove who you are.</figcaption>
         </figure>
-
-        <div class="grid-2">
-          <div class="card"><span class="label">Diners</span><h4>54% dropped at the login wall</h4><p>Most abandoned orders ended at account verification, before anyone had looked at the menu properly.</p></div>
-          <div class="card"><span class="label">Diners</span><h4>Missing the basics</h4><p>No takeaway option, no guest ordering, no localised payment methods. Competitors offered all three.</p></div>
-          <div class="card"><span class="label">Merchants</span><h4>No POS integration</h4><p>Cashiers re-entered every order by hand, which meant delays, errors and reconciliation at the end of the night.</p></div>
-          <div class="card"><span class="label">Merchants</span><h4>No view of the table</h4><p>Orders were scattered across invoices, so merchants couldn't track spend per table.</p></div>
-        </div>
-
-        <p>Put together, merchants had no reason to keep it switched on, and diners had a reason to give up.<sup class="ref" data-n="1">1</sup><span class="note" data-n="1" role="note"><b>The loop</b>The deck's summary of 1.0 was three causes and one effect: forced login, no POS sync, no differentiator in a commoditised market. The effect was merchant churn.</span></p>
-
-        <section class="chapter" id="market">
-          <span class="num label">02 — The market</span>
-          <h2>QR ordering in 2025 is a crowded room</h2>
-          <p>To do it properly this time, we studied the leading Southeast Asian STO products. Each one did something well, and each one left a gap.</p>
-        </section>
 
         <div class="grid-3 wide">
-          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-tabsquare.webp" alt="TabSquare ordering screens: branded menu, item customisation and upsell prompts." loading="lazy"><figcaption><b>TabSquare</b>Deep menu customisation for brand identity, strong upsell nudges, rich add-on metadata. <em>Gap: no quick switch to takeaway, or per-item takeaway routing.</em></figcaption></figure>
-          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-xilnex.webp" alt="Xilnex ordering screens with live order status." loading="lazy"><figcaption><b>Xilnex</b>Live order tracking keeps staff and diners in step. <em>Gap: basic search with no ranking or context, and an interface that often feels glitchy.</em></figcaption></figure>
-          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-feedme.webp" alt="FeedMe screens: merchant profile, semantic search and membership." loading="lazy"><figcaption><b>FeedMe</b>Rich merchant profiles, semantic search, built-in membership. <em>Gap: fragmented payment options and weak local POS sync.</em></figcaption></figure>
+          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-tabsquare.webp" alt="TabSquare competitor screens." loading="lazy"><figcaption><b>TabSquare</b>Deep brand menus.</figcaption></figure>
+          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-xilnex.webp" alt="Xilnex competitor screens." loading="lazy"><figcaption><b>Xilnex</b>Live order status.</figcaption></figure>
+          <figure><img width="2000" height="1120" class="shot" src="../../assets/img/sto/comp-feedme.webp" alt="FeedMe competitor screens." loading="lazy"><figcaption><b>FeedMe</b>Profiles &amp; search.</figcaption></figure>
         </div>
 
-        <p>Matching any one of them wasn't enough. To stand out, 2.0 had to be worth something to merchants as well as diners, and that's where Grab had an unfair advantage: its ecosystem data, its loyalty programme, and its POS partners.</p>
+        <div class="field-break" aria-hidden="true">
+          <p>Table first.</p>
+          <span class="label">Field insight</span>
+        </div>
 
         <section class="chapter" id="field">
-          <span class="num label">03 — At the table</span>
-          <h2>Nobody orders alone, even when they're alone</h2>
-          <p>We went into restaurants to watch how people actually order. Cafés, buffets, families, friends and solo diners all ordered differently, and almost none of them matched the one-phone, one-person flow of 1.0.<sup class="ref" data-n="2">2</sup><span class="note" data-n="2" role="note"><b>Why groups</b>56% of orders in STO 2.0 have more than one diner. Designing for a single person at a time meant designing for the minority case.</span></p>
-        </section>
-
-        <figure class="wide">
-          <img width="2000" height="2667" class="shot" src="../../assets/img/sto/field-photo.webp" alt="A group of diners at a restaurant table, several looking at their phones while ordering." loading="lazy" style="max-height:620px; width:100%; object-fit:cover">
-          <figcaption><b>Field visit</b>Group dining: one table, several phones, one order.</figcaption>
-        </figure>
-
-        <div class="grid-3">
-          <div class="card"><span class="label">Family</span><p>One coordinator goes round the table collecting everyone's order.</p></div>
-          <div class="card"><span class="label">Friends</span><p>Confusion over how to split the bill, and what to order for the table.</p></div>
-          <div class="card"><span class="label">Solo</span><p>No sense of portion sizes. Everyone, alone or not, stalled on what to order.</p></div>
-        </div>
-
-        <section class="chapter" id="brief">
-          <span class="num label">04 — The brief</span>
-          <h2>Merchant-first, and less work for the table</h2>
-        </section>
-
-        <p class="pull"><span class="label">How might we</span>rebuild STO into a merchant-first, data-driven product that reduces friction for diners and grows average order value through personalisation and ecosystem integration?</p>
-
-        <p>We set four differentiators, two for each side of the counter:</p>
-        <div class="grid-2">
-          <div class="card"><span class="label">For merchants</span><h4>AI-driven upsells</h4><p>Recommendations built on Grab's ecosystem data, to grow order value.</p></div>
-          <div class="card"><span class="label">For merchants</span><h4>Contextual loyalty</h4><p>Grab loyalty inside the ordering flow, capturing consent and bringing diners back.</p></div>
-          <div class="card"><span class="label">For diners</span><h4>A shared basket</h4><p>The table plans and edits one order together in real time, instead of one person collecting it.</p></div>
-          <div class="card"><span class="label">For diners</span><h4>Personalisation</h4><p>A menu shaped by your preferences and history.</p></div>
-        </div>
-
-        <p>There was a tension built into that list. Personalisation and loyalty need to know who you are, and the login wall was the single biggest drop-off in 1.0. Identity had to feel like something you get, not a gate you pass through.</p>
-
-        <section class="chapter" id="correction">
-          <span class="num label">05 — The course-correction</span>
-          <h2>We designed a great menu for diners. Merchants didn't want it.</h2>
-          <p>The first test concept combined a personalised menu with a shared basket: easy category navigation, personalised recommendations with social proof, and individual orders and bills inside one basket. We tested it with diners and with merchants.</p>
+          <span class="num label">02 — At the table</span>
+          <h2>Nobody orders alone — even when they're alone.</h2>
+          <p>Groups pass phones, negotiate dishes, and want one bill. Merchants rejected generic menus that didn't look like their restaurant.</p>
         </section>
 
         <figure class="slide wide">
-          <img width="1920" height="1080" src="../../assets/img/sto/slide-concept.webp" alt="Test concept slide: personalised menu with shared basket ordering, a QR code and menu screens." loading="lazy">
-          <figcaption><b>Test concept</b>Personalised menu with shared basket ordering.</figcaption>
+          <img width="2000" height="2667" class="shot" src="../../assets/img/sto/field-photo.webp" alt="Diners ordering at a table on phones." loading="lazy" style="max-height:620px; width:100%; object-fit:cover">
+          <figcaption><b>Field</b>One order, many authors.</figcaption>
         </figure>
 
-        <div class="quotes wide">
-          <blockquote><p>It still feels rather generic. I would want my brand and my promotions to show up very clearly.</p><cite>Merchant</cite></blockquote>
-          <blockquote><p>Recommended items were missed and didn't aid in decision making.</p><cite>Diner</cite></blockquote>
-          <blockquote><p>I can edit some items in the basket while some other items are uneditable.</p><cite>Diner</cite></blockquote>
-        </div>
-
-        <p>The diner feedback was the kind you expect from a first test. The merchant feedback was a warning. In putting the diner first, we'd made every restaurant look the same, and the people who decide whether STO is switched on didn't see themselves in it.<sup class="ref" data-n="3">3</sup><span class="note" data-n="3" role="note"><b>In the deck's words</b>"Design initially over-indexed on the diner's experience, resulting in a generic menu that merchants rejected."</span></p>
-        <p>That gave us three tracks to iterate on: stronger branding and promotions, recommendations people actually notice, and a shared basket that's clear about who can change what.</p>
-
         <section class="chapter" id="decisions">
-          <span class="num label">06 — Three decisions</span>
-          <h2>Three tracks, three rounds each</h2>
-          <p>Each track went through a test concept and two more iterations. The rejected versions each got something right, and the shipped one kept it.</p>
+          <span class="num label">03 — Decisions</span>
+          <h2>Brand the menu. Recommend lightly. Share the basket.</h2>
         </section>
 
-        <article class="decision wide" id="d1">
-          <header><span class="label">Decision 01 · Branded menu</span><span class="label">3 iterations</span><h3>Whose menu is it, Grab's or the restaurant's?</h3></header>
+        <article class="decision wide">
+          <header><span class="label">01 · Branding</span><h3>Whose menu is this?</h3></header>
           <div class="opts">
-            <div class="opt rejected">
-              <span class="tag">Test concept &amp; iteration 1</span>
-              <h4>A Grab menu with the restaurant's photos</h4>
-              <p>Search up front, a clear way into offers, some brand imagery and colour.</p>
-              <p class="why">It felt impersonal and generic to diners, and gave merchants nowhere to put their own promotions.</p>
-              <figure><img width="920" height="855" src="../../assets/img/sto/crop-brand-a.webp" alt="Test concept and iteration 1: a generic menu header and a restaurant-image header." loading="lazy"></figure>
-            </div>
-            <div class="opt rejected">
-              <span class="tag">Iteration 2</span>
-              <h4>The restaurant, and you</h4>
-              <p>Full-bleed restaurant imagery and a personal welcome: <em>"Hey Zihui, welcome to Putien."</em></p>
-              <p class="why">Strong brand, strong personalisation, but the offers and promotions disappeared.</p>
-              <figure><img width="422" height="821" src="../../assets/img/sto/crop-brand-b.webp" alt="Iteration 2: full-bleed restaurant photo with a personal welcome message." loading="lazy"></figure>
-            </div>
-            <div class="opt chosen">
-              <span class="tag">Iteration 3 · preferred</span>
-              <h4>Brand, welcome, and a place for promotions</h4>
-              <p>Brand imagery and personalisation, plus dedicated space for promotional banners and small animations that draw the eye to offers.</p>
-              <p class="why">Merchants get their brand and their promotions back. Diners still get a menu that knows them.</p>
-              <figure class="loop"><video src="../../assets/img/sto/branded-welcome.mp4" poster="../../assets/img/sto/branded-welcome-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: animated restaurant welcome leading into the branded menu"></video></figure>
-            </div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Generic Grab chrome</h4><p class="why">Merchants said it wasn't theirs.</p><figure><img width="920" height="855" src="../../assets/img/sto/crop-brand-a.webp" alt="Generic menu header." loading="lazy"></figure></div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Full-bleed photo welcome</h4><p class="why">Pretty; slow to the food.</p><figure><img width="422" height="821" src="../../assets/img/sto/crop-brand-b.webp" alt="Photo welcome." loading="lazy"></figure></div>
+            <div class="opt chosen"><span class="tag">Shipped</span><h4>Branded welcome → menu</h4><p class="why">Looks like the restaurant, gets to dishes fast.</p><figure class="loop"><video src="../../assets/img/sto/branded-welcome.mp4" poster="../../assets/img/sto/branded-welcome-poster.webp" muted playsinline loop preload="none" aria-label="Branded welcome"></video></figure></div>
           </div>
-          <div class="cost"><span class="label">Trade-off</span><p>A branded menu is only as good as what the merchant gives it. We gave up a uniform Grab look in exchange for menus that change with every restaurant.</p></div>
         </article>
 
-        <article class="decision wide" id="d2">
-          <header><span class="label">Decision 02 · Recommendations</span><span class="label">3 iterations</span><h3>How loud should recommendations be?</h3></header>
+        <article class="decision wide">
+          <header><span class="label">02 · Recommendations</span><h3>How loud should “for you” be?</h3></header>
           <div class="opts">
-            <div class="opt rejected">
-              <span class="tag">Test concept &amp; iteration 1</span>
-              <h4>A section with hero images</h4>
-              <p>A personalised "Recommended for you" section that clearly broke from the rest of the menu.</p>
-              <p class="why">Most recommendations sat behind a horizontal scroll, and diners missed them.</p>
-              <figure><img width="920" height="855" src="../../assets/img/sto/crop-reco-a.webp" alt="Test concept and iteration 1: recommended-for-you grid and a horizontal carousel." loading="lazy"></figure>
-            </div>
-            <div class="opt rejected">
-              <span class="tag">Iteration 2</span>
-              <h4>Up to six, all visible</h4>
-              <p>A dedicated section showing up to six items at once.</p>
-              <p class="why">It took so much vertical space that it buried the rest of the menu and its categories.</p>
-              <figure><img width="422" height="821" src="../../assets/img/sto/crop-reco-b.webp" alt="Iteration 2: a tall recommended section with six large dish cards." loading="lazy"></figure>
-            </div>
-            <div class="opt chosen">
-              <span class="tag">Iteration 3 · preferred</span>
-              <h4>Distinct, but sized to the menu</h4>
-              <p>A visually distinct section of reasonable height with a clear "Add to cart", and short selling points called out across the menu.</p>
-              <p class="why">Recommendations are where order value grows, but the menu is why people opened the page.</p>
-              <figure><img width="720" height="821" src="../../assets/img/sto/crop-reco-c.webp" alt="Iteration 3: a compact dark recommended section with add-to-cart buttons, and the menu below." loading="lazy"></figure>
-            </div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Big reco grid</h4><p class="why">Buried the menu.</p><figure><img width="920" height="855" src="../../assets/img/sto/crop-reco-a.webp" alt="Reco grid." loading="lazy"></figure></div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Tall six-card block</h4><p class="why">Still too much chrome.</p><figure><img width="422" height="821" src="../../assets/img/sto/crop-reco-b.webp" alt="Tall reco." loading="lazy"></figure></div>
+            <div class="opt chosen"><span class="tag">Shipped</span><h4>Compact strip above menu</h4><p class="why">Nudges without owning the page.</p><figure><img width="720" height="821" src="../../assets/img/sto/crop-reco-c.webp" alt="Compact reco." loading="lazy"></figure></div>
           </div>
-          <div class="cost"><span class="label">Trade-off</span><p>Fewer recommendations in view than iteration 2, in exchange for keeping the full menu one scroll away.</p></div>
         </article>
 
-        <article class="decision wide" id="d3">
-          <header><span class="label">Decision 03 · Shared basket</span><span class="label">3 iterations</span><h3>One basket for the table, or one per person?</h3></header>
+        <article class="decision wide">
+          <header><span class="label">03 · Shared basket</span><h3>One list, or yours vs theirs?</h3></header>
           <div class="opts">
-            <div class="opt rejected">
-              <span class="tag">Test concept</span>
-              <h4>Your items, then everyone else's</h4>
-              <p>Each order tied to the person who placed it, so you could always find yours.</p>
-              <p class="why">The same dish appeared in two sections, and some items couldn't be edited, which felt arbitrary.</p>
-              <figure class="loop"><video src="../../assets/img/sto/checkout.mp4" poster="../../assets/img/sto/checkout-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: checkout split into your items and other items"></video></figure>
-            </div>
-            <div class="opt rejected">
-              <span class="tag">Iteration 2</span>
-              <h4>One list, everyone edits</h4>
-              <p>All orders combined into a single list that anyone at the table could change.</p>
-              <p class="why">Nobody could tell who had added what, which matters the moment the bill arrives.</p>
-              <figure class="loop"><video src="../../assets/img/sto/your-order.mp4" poster="../../assets/img/sto/your-order-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: a single combined order list"></video></figure>
-            </div>
-            <div class="opt chosen">
-              <span class="tag">Iteration 3 · preferred</span>
-              <h4>One list, with names on it</h4>
-              <p>Combined, editable by everyone, and every item marked with who added it.</p>
-              <p class="why">The table works on one order, and each person can still find their part of it.</p>
-              <figure class="loop"><video src="../../assets/img/sto/basket.mp4" poster="../../assets/img/sto/basket-poster.webp" muted playsinline loop preload="none" aria-label="Prototype: combined basket with an avatar showing who added each item"></video></figure>
-            </div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Split checkout</h4><p class="why">Felt like two bills at one table.</p><figure class="loop"><video src="../../assets/img/sto/checkout.mp4" poster="../../assets/img/sto/checkout-poster.webp" muted playsinline loop preload="none" aria-label="Split checkout"></video></figure></div>
+            <div class="opt rejected"><span class="tag">Tried</span><h4>Combined, no authors</h4><p class="why">Who ordered the salmon?</p><figure class="loop"><video src="../../assets/img/sto/your-order.mp4" poster="../../assets/img/sto/your-order-poster.webp" muted playsinline loop preload="none" aria-label="Combined order"></video></figure></div>
+            <div class="opt chosen"><span class="tag">Shipped</span><h4>Shared basket + avatars</h4><p class="why">One order; clear authorship.</p><figure class="loop"><video src="../../assets/img/sto/basket.mp4" poster="../../assets/img/sto/basket-poster.webp" muted playsinline loop preload="none" aria-label="Shared basket"></video></figure></div>
           </div>
-          <div class="cost"><span class="label">Trade-off</span><p>Letting anyone edit anything depends on trust at the table. It's ideal for families and close friends, and testing showed it's less comfortable for looser groups.</p></div>
         </article>
 
         <section class="chapter" id="before-after">
-          <span class="num label">07 — Before &amp; after</span>
-          <h2>Fewer steps between the QR code and the food</h2>
-          <p>Scanning now lands diners directly on the menu, with items in view, which cuts the time to the first tap. The basket and bill carry the table's shared context the whole way through.</p>
+          <span class="num label">04 — Before / after</span>
+          <h2>Fewer steps between the QR and the food.</h2>
         </section>
 
         <div class="compare wide">
@@ -279,82 +150,44 @@
           </div>
           <div class="phones" style="--n:3">
             <figure>
-              <img width="512" height="1111" src="../../assets/img/sto/sto1-landing.webp" alt="STO 1.0 landing page." loading="lazy">
-              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-menu.webp" alt="STO 2.0: scanning lands directly on the menu." loading="lazy">
-              <figcaption><b>Entry</b><span class="b">A welcome screen asks how many of you there are before showing any food.</span><span class="a">Straight to the menu, with search and categories up top.</span></figcaption>
+              <img width="512" height="1111" src="../../assets/img/sto/sto1-landing.webp" alt="STO 1.0 landing." loading="lazy">
+              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-menu.webp" alt="STO 2.0 menu." loading="lazy">
+              <figcaption><b>Entry</b><span class="b">Welcome before food.</span><span class="a">Straight to the menu.</span></figcaption>
             </figure>
             <figure>
               <img width="512" height="1109" src="../../assets/img/sto/sto1-basket.webp" alt="STO 1.0 basket." loading="lazy">
-              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-basket.webp" alt="STO 2.0 basket with a notification: 1 x Classic Poulet added by your group." loading="lazy">
-              <figcaption><b>Basket</b><span class="b">Order summary and card details on one page.</span><span class="a">The table's basket. A notification appears when someone adds an item.</span></figcaption>
+              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-basket.webp" alt="STO 2.0 shared basket." loading="lazy">
+              <figcaption><b>Basket</b><span class="b">Solo summary.</span><span class="a">Shared table basket.</span></figcaption>
             </figure>
             <figure>
               <img width="512" height="1109" src="../../assets/img/sto/sto1-bill.webp" alt="STO 1.0 bill." loading="lazy">
-              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-bill.webp" alt="STO 2.0 table bill with deals and a loyalty club sign-up." loading="lazy">
-              <figcaption><b>Bill</b><span class="b">Order status and a single receipt.</span><span class="a">The table's bill, with deals and a Grab loyalty sign-up in context.</span></figcaption>
+              <img width="512" height="1109" class="after" src="../../assets/img/sto/sto2-bill.webp" alt="STO 2.0 bill." loading="lazy">
+              <figcaption><b>Bill</b><span class="b">Single receipt.</span><span class="a">Table bill + deals.</span></figcaption>
             </figure>
           </div>
         </div>
 
-        <section class="chapter" id="testing">
-          <span class="num label">08 — Testing</span>
-          <h2>A shared basket only makes sense with more than one person</h2>
-          <p>We ran in-person usability tests and interviews with 12 participants. A shared basket is hard to test with a clickable prototype and one phone, so we built a scrappy backend that simulated several people adding to the same basket in real time.</p>
-        </section>
-
         <figure class="loop wide">
-          <video src="../../assets/img/sto/usability-test.mp4" poster="../../assets/img/sto/usability-test-poster.webp" muted playsinline loop preload="none" aria-label="Footage from an in-person usability session: a participant ordering on a phone"></video>
-          <figcaption><b>Usability session</b>One of 12 in-person sessions with the STO 2.0 prototype.</figcaption>
+          <video src="../../assets/img/sto/usability-test.mp4" poster="../../assets/img/sto/usability-test-poster.webp" muted playsinline loop preload="none" aria-label="Usability test footage"></video>
+          <figcaption><b>Test</b>12 people, multi-user prototype.</figcaption>
         </figure>
 
-        <div class="demo wide" data-basket-demo>
-          <div class="explain">
-            <span class="label">Try it · Shared basket simulation</span>
-            <h4>You're at table A12 with three friends.</h4>
-            <p>Add a dish, or let someone else at the table add one. This is roughly what the vibe-coded MVP did during testing: real-time updates, with a notification each time the basket changes.</p>
-            <button type="button" data-add-mine>Add my dish</button><button type="button" class="ghost" data-add-theirs>Someone else adds</button>
-          </div>
-          <div class="phone" aria-live="polite">
-            <div class="ping"></div>
-            <div class="hd">Table A12 basket <small>4 at the table</small></div>
-            <ul></ul>
-            <div class="tot">Place order · <span>$0.00</span></div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card"><span class="label">Core flow</span><p>Smooth and intuitive, with no major issues. People moved through it quickly.</p></div>
-          <div class="card"><span class="label">Shared basket</span><p>People liked seeing everyone's items and changing them in real time. It worked best for families and close friends.</p></div>
-          <div class="card"><span class="label">Attribution</span><p>People wanted to know who ordered what, so there's no confusion about who owes what.</p></div>
-          <div class="card"><span class="label">Payment</span><p>Unclear. People didn't know when they were supposed to pay, or who should pay how much.</p></div>
-        </div>
-
         <section class="chapter" id="outcome">
-          <span class="num label">09 — Outcome</span>
-          <h2>Faster for the table, worth switching on for the restaurant</h2>
-          <p>Early rollout data and pilot feedback:<sup class="ref" data-n="4">4</sup><span class="note" data-n="4" role="note"><b>Read with care</b>These are early numbers from rollout and pilots, not a full-market result. I'd want a few more months of data before calling them settled.</span></p>
+          <span class="num label">05 — Outcome</span>
+          <h2>Faster for the table. Worth switching on for the restaurant.</h2>
         </section>
 
         <dl class="ledger wide" style="--n:4">
-          <div><dt>Time to order</dt><dd>−33%</dd><span class="ctx">For all diners, from scan to order placed.</span></div>
-          <div><dt>Order completion</dt><dd>89%</dd><span class="ctx">Orders started that were completed.</span></div>
-          <div><dt>Order coverage</dt><dd>+25pp</dd><span class="ctx">Per merchant.</span></div>
-          <div><dt>POS adoption</dt><dd>60%</dd><span class="ctx">Average merchant adoption per POS partner.</span></div>
+          <div><dt>Time to order</dt><dd>−33%</dd><span class="ctx">Scan to placed.</span></div>
+          <div><dt>Completion</dt><dd>89%</dd><span class="ctx">Orders finished.</span></div>
+          <div><dt>Coverage</dt><dd>+25pp</dd><span class="ctx">Per merchant.</span></div>
+          <div><dt>POS adoption</dt><dd>60%</dd><span class="ctx">Avg per partner.</span></div>
         </dl>
 
-        <section class="chapter" id="reflection">
-          <span class="num label">10 — Reflection</span>
-          <h2>What I'd keep, and what I'd change</h2>
-          <div class="reflect">
-            <div class="lesson"><h3>There are two sides to every table.</h3><p>A marketplace product has two customers, and the one who installs it isn't the one who uses it. Our first concept was a good diner experience that merchants didn't want. Next time, merchant feedback goes in the first round, not the second.</p></div>
-            <div class="lesson"><h3>The menu is a data product.</h3><p>STO 2.0 wasn't only about fixing friction. It was about what data can do in a restaurant: POS intelligence, Grab's ecosystem and what diners like, combined so every meal is a little smarter for both sides.</p></div>
-          </div>
-          <div class="differently">
-            <span class="label">What I'd do differently</span>
-            <p>Test sooner. We spent a lot of time designing and debating shared-basket explorations that a scrappy multi-user prototype could have settled. When we finally built one, it answered questions the debate hadn't, and it surfaced the next problem: payment. Who pays, when, and how much is where I'd go next.</p>
-          </div>
-          <a class="deck-link" href="https://docs.google.com/presentation/d/1mPWTR38Wc2KUU_wXeufcRgJA_NJMRwcdVYUZW-shXxo/edit?usp=sharing" rel="noopener">View the original presentation deck ↗</a>
-        </section>
+        <div class="differently">
+          <span class="label">Next time</span>
+          <p>Put merchant brand in the first concept, not the course-correction. A marketplace only works when both sides recognise themselves.</p>
+        </div>
 
       </div>
     </article>
@@ -368,7 +201,7 @@
         </a>
       </nav>
       <footer class="site-foot">
-        <p class="colophon">Product screens and figures © Grab, shown for portfolio purposes; some details are simplified.</p>
+        <p class="colophon">Product screens © Grab, shown for portfolio purposes.</p>
         <p class="status" data-status>Singapore</p>
         <p class="keys">Press <kbd>?</kbd></p>
       </footer>

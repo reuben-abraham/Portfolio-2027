@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" data-root="../../">
+<html lang="en" data-root="../../" data-project="subscriber-tv">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Getting a living room to log in — Disney+ Hotstar on TV · Reuben Abraham</title>
-  <meta name="description" content="Making Disney+ Hotstar subscriber-only on living-room devices: phone-number login, plan selection and checkout on the TV. +35% paid conversions and +600% login rate on Android TV.">
-  <meta name="theme-color" content="#f4f4f2">
+  <title>Getting a living room to log in — Disney+ Hotstar · Reuben Abraham</title>
+  <meta name="description" content="Subscriber-only TV: phone login, plans and checkout on the living-room screen. +35% paid conversions, +600% login rate.">
+  <meta name="theme-color" content="#f07a4a">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
-<body>
+<body class="visual-cs" data-project="subscriber-tv">
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
 
@@ -28,16 +28,13 @@
   </div>
 
   <nav class="toc" aria-label="In this case study">
-    <span class="label">Subscriber-only TV</span>
+    <span class="label">Subscriber TV</span>
     <ol>
-      <li><a href="#context">The bet</a></li>
-      <li><a href="#research">Who's on the couch</a></li>
+      <li><a href="#bet">The bet</a></li>
       <li><a href="#login">Login</a></li>
-      <li><a href="#landing">Landing &amp; plans</a></li>
-      <li><a href="#payment">Payment</a></li>
-      <li><a href="#launch">Staggered launch</a></li>
+      <li><a href="#landing">Landing</a></li>
+      <li><a href="#pay">Pay</a></li>
       <li><a href="#outcome">Outcome</a></li>
-      <li><a href="#reflection">Reflection</a></li>
     </ol>
     <span class="left label" aria-live="off"></span>
   </nav>
@@ -45,37 +42,27 @@
   <main id="main">
     <div class="wrap">
       <header class="cs-hero">
-        <p class="kicker label"><span class="no">More work</span><span>Disney+ Hotstar · Living room</span><span>2021</span><span>~6 min read</span></p>
+        <p class="kicker label"><span class="no">No. 04</span><span>Disney+ Hotstar · Living room</span><span>2021</span><span>~3 min</span></p>
         <h1>Getting a living room to log in</h1>
-        <p class="dek">TVs carried a large share of Disney+ Hotstar's watch time, but the TV app couldn't log you in or take a payment by itself. We made it subscriber-only, and redesigned login, plans and checkout so you could get from the couch to a subscription with the remote and the phone already in your hand.</p>
+        <p class="dek">The biggest screen in the house couldn't take a login or a payment. We made it subscriber-only — and finished the journey on the TV.</p>
 
         <dl class="facts">
-          <div><dt>My role</dt><dd>Product designer: user journeys, visual assets, interactions</dd></div>
-          <div><dt>Team</dt><dd>1 senior designer, 1 product manager, engineering</dd></div>
-          <div><dt>Platform</dt><dd>Android TV, Tizen, Apple TV, Fire TV, Roku</dd></div>
+          <div><dt>Role</dt><dd>PD · journeys &amp; UI</dd></div>
+          <div><dt>Team</dt><dd>Senior designer, PM, eng</dd></div>
+          <div><dt>Platform</dt><dd>Android TV · Tizen · tvOS · Fire · Roku</dd></div>
           <div><dt>When</dt><dd>April 2021</dd></div>
-          <div><dt>Shipped</dt><dd>Phone login, plan selection, TV checkout</dd></div>
+          <div><dt>Shipped</dt><dd>Login · plans · checkout</dd></div>
         </dl>
 
         <figure class="cs-cover">
-          <img width="2400" height="1500" src="../../assets/img/covers/subscriber-tv.webp" alt="Two TV screens from the subscriber-only app: the new landing page with show cards, and the side-by-side plan comparison." fetchpriority="high">
-          <figcaption>The biggest screen in the house was the hardest one to sign in on.</figcaption>
+          <img width="2400" height="1500" src="../../assets/img/covers/subscriber-tv.webp" alt="Subscriber TV colour-field cover." fetchpriority="high">
         </figure>
 
         <section class="tldr" aria-label="Summary">
-          <span class="label">The short version</span>
-          <div>
-            <h2>Problem</h2>
-            <p>To log in on a TV you opened a website on your phone and typed a code. TVs couldn't take payments at all. People who wanted to subscribe, or already had, gave up.</p>
-          </div>
-          <div>
-            <h2>What I did</h2>
-            <p>Designed the user journeys, visual assets and interactions for login, landing and checkout with a senior designer and a PM, and helped ship them in three staggered phases.</p>
-          </div>
-          <div>
-            <h2>Outcome</h2>
-            <p>On Android TV, free-to-paid conversions rose 35% and the login rate rose 600%. Sign-up, login, plan selection and checkout now all happen on the TV.</p>
-          </div>
+          <span class="label">TL;DR</span>
+          <div><h2>Problem</h2><p>Login meant typing a code on a phone site. TVs couldn't take payments at all.</p></div>
+          <div><h2>Approach</h2><p>Phone-number login, plan selection, TV checkout — three phases.</p></div>
+          <div><h2>Outcome</h2><p>+35% paid conversions · +600% login rate on Android TV.</p></div>
         </section>
       </header>
     </div>
@@ -83,75 +70,58 @@
     <article class="cs-body">
       <div class="measure">
 
-        <section class="chapter" id="context">
+        <section class="chapter" id="bet">
           <span class="num label">01 — The bet</span>
-          <h2>The TV was a second screen with first-screen watch time</h2>
-          <p>Disney+ Hotstar had more than 28 million paid users in April 2021, and its app ran on most living-room platforms. But the TV app had always been a secondary node: login and payment happened on mobile or web.</p>
-        </section>
-
-        <p class="pull"><span class="label">Hypothesis</span>People watching on smart TVs can afford a subscription. Making the app subscriber-only on these devices will increase acquisition without hurting retention.</p>
-
-        <section class="chapter" id="research">
-          <span class="num label">02 — Who's on the couch</span>
-          <h2>Willing to pay, unable to work out how</h2>
-          <p>The data backed the first half of the bet. More than four times as many people had active subscriptions on living-room devices as on Android and iOS phones. Most free users on TV were watching live news and free daily serials.</p>
-          <p>We talked to free users on TVs about what stopped them subscribing.</p>
+          <h2>First-screen watch time. Second-screen login.</h2>
+          <p>Living-room devices held more active subscriptions than phones. Free users watched news and serials — willing to pay, unable to work out how.</p>
         </section>
 
         <div class="quotes wide" style="--n:2">
-          <blockquote><p>I wanted to subscribe one day while wanting to watch a paid movie on my TV, but I couldn't figure out how to. I tried but soon I lost my interest.</p><cite>Aman, 35, working professional</cite></blockquote>
-          <blockquote><p>I actually have a subscription, however, I could never figure out how to log in to the TV. I only watch the news anyway so it's fine.</p><cite>Mani, 61, retired</cite></blockquote>
-          <blockquote><p>My son has set this up for me and his father. Every time we face a problem, we just call him up and he tells us what to do.</p><cite>Kamala, 71, retired</cite></blockquote>
-          <blockquote><p>I never felt the need for a subscription. I usually watch news on TV and that is free. I think my kids have a subscription but they don't watch the TV.</p><cite>Rajesh, 45, self-employed</cite></blockquote>
+          <blockquote><p>I wanted to subscribe while watching a paid movie, but I couldn't figure out how.</p><cite>Aman, 35</cite></blockquote>
+          <blockquote><p>I have a subscription. I could never figure out how to log in to the TV.</p><cite>Mani, 61</cite></blockquote>
         </div>
 
-        <p>Two of the four wanted, or already had, a subscription. The TV just didn't let them use it.<sup class="ref" data-n="1">1</sup><span class="note" data-n="1" role="note"><b>The other two</b>Kamala and Rajesh were the people the "without hurting retention" half of the hypothesis was about: households that watch free news and serials and might simply leave.</span> That narrowed the work to three problems:</p>
-
-        <div class="grid-3">
-          <div class="card"><span class="label">Login</span><p>A complicated, incoherent login flow that depended on another device.</p></div>
-          <div class="card"><span class="label">Landing</span><p>Nothing on the TV made the case for subscribing.</p></div>
-          <div class="card"><span class="label">Payment</span><p>No way to choose a plan and pay from the TV.</p></div>
+        <div class="field-break" aria-hidden="true">
+          <p>Stay on the couch.</p>
+          <span class="label">Hypothesis</span>
         </div>
 
         <section class="chapter" id="login">
-          <span class="num label">03 — Login</span>
-          <h2>Stop sending people to a browser</h2>
+          <span class="num label">02 — Login</span>
+          <h2>Stop sending people to a browser.</h2>
         </section>
 
-        <article class="decision wide" id="d1">
-          <header><span class="label">Decision 01 · Login</span><h3>How do you sign in on a device with no keyboard?</h3></header>
+        <article class="decision wide">
+          <header><span class="label">Login</span><h3>How do you sign in with no keyboard?</h3></header>
           <div class="opts" style="--n:2">
             <div class="opt rejected">
               <span class="tag">Status quo</span>
-              <h4>A web link and a code</h4>
-              <p>Open a link on your phone or laptop, sign in there, then type the code shown on the TV.</p>
-              <p class="why">Three devices' worth of steps for one login, and the place people dropped off.</p>
-              <figure><img width="1400" height="432" src="../../assets/img/tv/tv-06.webp" alt="Status quo TV login: log in with your mobile browser and enter a four-letter code." loading="lazy"></figure>
+              <h4>Web link + code</h4>
+              <p class="why">Three devices for one login.</p>
+              <figure><img width="1400" height="432" src="../../assets/img/tv/tv-06.webp" alt="Old TV login with web code." loading="lazy"></figure>
             </div>
             <div class="opt chosen">
               <span class="tag">Shipped</span>
-              <h4>Your phone number, on the TV</h4>
-              <p>Enter your phone number on the TV, get an OTP on your phone, and you're in. Email and Facebook stay as fallbacks.</p>
-              <p class="why">Everyone on the couch has their phone. Nobody wants to open a website.</p>
-              <figure><img width="1400" height="262" src="../../assets/img/tv/tv-07.webp" alt="New OTP login across three TV screens: phone number, number pad, OTP." loading="lazy"></figure>
+              <h4>Phone number on the TV</h4>
+              <p class="why">OTP on the phone already in your hand.</p>
+              <figure><img width="1400" height="262" src="../../assets/img/tv/tv-07.webp" alt="New OTP login on TV." loading="lazy"></figure>
             </div>
           </div>
         </article>
 
         <figure class="slide wide">
-          <img width="1400" height="415" src="../../assets/img/tv/tv-09.webp" alt="Key login design decisions: navigational awareness, maintaining context, stepper and clear call to action." loading="lazy">
-          <figcaption><b>Login details</b>Navigational awareness, keeping context while you type, and a stepper with one clear action.</figcaption>
+          <img width="1400" height="415" src="../../assets/img/tv/tv-09.webp" alt="Login design decisions." loading="lazy">
+          <figcaption><b>Login</b>Context, stepper, one clear action.</figcaption>
         </figure>
 
         <section class="chapter" id="landing">
-          <span class="num label">04 — Landing &amp; plans</span>
-          <h2>Show the shows before asking for money</h2>
-          <p>The old landing page explained how to log in and nothing else: no reason to care, no plans to compare. The new one leads with show cards and clear benefits, then a high-contrast, side-by-side plan comparison.</p>
+          <span class="num label">03 — Landing</span>
+          <h2>Show the shows before asking for money.</h2>
         </section>
 
         <div class="compare wide">
           <div class="bar">
-            <span class="label">Landing page</span>
+            <span class="label">Landing</span>
             <div class="seg" role="group" aria-label="Show version">
               <button type="button" data-side="before" aria-pressed="true">Before</button>
               <button type="button" data-side="after" aria-pressed="false">After</button>
@@ -159,67 +129,51 @@
           </div>
           <div class="phones" style="--n:1">
             <figure>
-              <img width="1400" height="432" src="../../assets/img/tv/tv-11.webp" alt="Status quo landing: log in for a better experience, with a web address and code." loading="lazy" style="border-radius:0">
-              <img width="1400" height="389" class="after" src="../../assets/img/tv/tv-12.webp" alt="New landing with show cards and a plan comparison screen." loading="lazy" style="border-radius:0">
-              <figcaption><b>Landing</b><span class="b">Instructions for logging in, and nothing to want.</span><span class="a">Show cards and benefits, then plans side by side.</span></figcaption>
+              <img width="1400" height="432" src="../../assets/img/tv/tv-11.webp" alt="Old landing: login instructions." loading="lazy" style="border-radius:0">
+              <img width="1400" height="389" class="after" src="../../assets/img/tv/tv-12.webp" alt="New landing with show cards and plans." loading="lazy" style="border-radius:0">
+              <figcaption><b>Landing</b><span class="b">Instructions, nothing to want.</span><span class="a">Show cards, then plans.</span></figcaption>
             </figure>
           </div>
         </div>
 
         <figure class="slide wide">
-          <img width="1400" height="415" src="../../assets/img/tv/tv-13.webp" alt="Key landing design decisions: plan selection before login, logos over names, detailed comparison." loading="lazy">
-          <figcaption><b>Landing details</b>Plan selection before login, logos over names, and detailed information for comparing plans.</figcaption>
+          <img width="1400" height="415" src="../../assets/img/tv/tv-13.webp" alt="Landing design decisions." loading="lazy">
+          <figcaption><b>Details</b>Plans before login, logos over names.</figcaption>
         </figure>
 
-        <section class="chapter" id="payment">
-          <span class="num label">05 — Payment</span>
-          <h2>Pay with the phone you already have out</h2>
-          <p>TVs didn't support payment, so people had to leave and find checkout on mobile or web themselves. Now you choose a plan on the TV and go straight to checkout: get a payment link by SMS, or scan a UPI QR code on the screen with any UPI app.</p>
+        <section class="chapter" id="pay">
+          <span class="num label">04 — Pay</span>
+          <h2>Pay with the phone you already have out.</h2>
+          <p>SMS payment link, or scan a UPI QR on the TV. Choose a plan without leaving the living room.</p>
         </section>
 
         <figure class="slide wide">
-          <img width="1400" height="432" src="../../assets/img/tv/tv-14.webp" alt="Status quo payment: log in with a mobile browser, then pay on the phone." loading="lazy">
-          <figcaption><b>Before</b>Payment meant leaving the TV for a phone browser.</figcaption>
+          <img width="1400" height="780" src="../../assets/img/tv/tv-14.webp" alt="TV checkout options." loading="lazy">
+          <figcaption><b>Checkout</b>SMS link or UPI QR.</figcaption>
         </figure>
         <figure class="slide wide">
-          <img width="1400" height="262" src="../../assets/img/tv/tv-15.webp" alt="New TV checkout: choose a plan, pay by UPI QR code or SMS link, confirmation." loading="lazy">
-          <figcaption><b>After</b>Plan, then pay by QR or SMS link, then confirmation, without leaving the couch.</figcaption>
+          <img width="1400" height="780" src="../../assets/img/tv/tv-15.webp" alt="Payment confirmation on TV." loading="lazy">
+          <figcaption><b>Done</b>Confirmation back on the big screen.</figcaption>
         </figure>
-
-        <section class="chapter" id="launch">
-          <span class="num label">06 — Staggered launch</span>
-          <h2>Three steps, each one earning the next</h2>
-          <p>Making an app subscriber-only is hard to undo. We shipped in three phases, watched user response and conversion at each, and only moved on when the numbers held.<sup class="ref" data-n="2">2</sup><span class="note" data-n="2" role="note"><b>The gate</b>The plan noted that phase 3 would only go ahead if phase 2 had a positive impact.</span></p>
-        </section>
-
         <figure class="slide wide">
-          <img width="1400" height="246" src="../../assets/img/tv/tv-18.webp" alt="Launch plan: phase 1 phone number login, phase 2 plan selection with hard paywall, phase 3 payment via QR code." loading="lazy">
-          <figcaption><b>Rollout</b>Phone login, then a hard paywall with plan selection, then payment by QR code.</figcaption>
+          <img width="1400" height="780" src="../../assets/img/tv/tv-18.webp" alt="Staggered launch." loading="lazy">
+          <figcaption><b>Launch</b>Three staggered phases.</figcaption>
         </figure>
 
         <section class="chapter" id="outcome">
-          <span class="num label">07 — Outcome</span>
-          <h2>More people logged in, and more of them paid</h2>
-          <p>Launched on Android TV first:</p>
+          <span class="num label">05 — Outcome</span>
+          <h2>The living room could finally finish the journey.</h2>
         </section>
 
         <dl class="ledger wide" style="--n:2">
-          <div><dt>Paid conversions</dt><dd>+35%</dd><span class="ctx">Free-to-paid conversions on Android TV.</span></div>
-          <div><dt>Login rate</dt><dd>+600%</dd><span class="ctx">On living-room screens.</span></div>
+          <div><dt>Paid conversions</dt><dd>+35%</dd><span class="ctx">Android TV free → paid.</span></div>
+          <div><dt>Login rate</dt><dd>+600%</dd><span class="ctx">Android TV.</span></div>
         </dl>
 
-        <section class="chapter" id="reflection">
-          <span class="num label">08 — Reflection</span>
-          <h2>What I'd keep, and what I'd change</h2>
-          <div class="reflect">
-            <div class="lesson"><h3>The blocker was effort, not money.</h3><p>The hypothesis was about whether people could afford it. The interviews said many already wanted it, or already paid for it. A 600% jump in logins is what removing effort looks like.</p></div>
-            <div class="lesson"><h3>Stage anything you can't take back.</h3><p>A paywall is a one-way door for some users. Shipping it in phases, each with a gate, made a risky change a series of small, reversible ones.</p></div>
-          </div>
-          <div class="differently">
-            <span class="label">What I'd do differently</span>
-            <p>Measure the other half of the hypothesis as closely as the first. We reported conversions and logins. Households like Kamala's and Rajesh's, watching free news on the TV, were the retention risk, and I'd want a clear view of where they went from the first phase.</p>
-          </div>
-        </section>
+        <div class="differently">
+          <span class="label">Next time</span>
+          <p>Instrument the phone-confirm step earlier. Remote + phone handoffs fail quietly when the second screen isn't ready.</p>
+        </div>
 
       </div>
     </article>
@@ -227,13 +181,13 @@
     <div class="wrap">
       <nav class="next" aria-label="Next case study">
         <a href="../helpdesk/" data-next>
-          <span class="label">Next · More work</span>
+          <span class="label">Next · No. 05</span>
           <h2>Help that answers before you ask</h2>
           <span class="go">Disney+ Hotstar · 2021 →</span>
         </a>
       </nav>
       <footer class="site-foot">
-        <p class="colophon">Product screens and figures © Disney+ Hotstar, shown for portfolio purposes; some details are simplified. Interview names shortened.</p>
+        <p class="colophon">Product screens © Disney+ Hotstar, shown for portfolio purposes.</p>
         <p class="status" data-status>Singapore</p>
         <p class="keys">Press <kbd>?</kbd></p>
       </footer>

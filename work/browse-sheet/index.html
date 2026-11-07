@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" data-root="../../">
+<html lang="en" data-root="../../" data-project="browse-sheet">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Making it cheap to be curious — Disney+ Hotstar Browse Sheet · Reuben Abraham</title>
-  <meta name="description" content="35% of Disney+ Hotstar's daily visitors left without watching anything. A lightweight browse sheet made sampling titles cheap: +35% distinct titles viewed, and a content details page rebuilt from research.">
-  <meta name="theme-color" content="#f4f4f2">
+  <title>Making it cheap to be curious — Disney+ Hotstar · Reuben Abraham</title>
+  <meta name="description" content="Browse Sheet made sampling titles cheap: +35% titles viewed, then a rebuilt content-details page.">
+  <meta name="theme-color" content="#2e4bd6">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
-<body>
+<body class="visual-cs" data-project="browse-sheet">
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
 
@@ -30,16 +30,10 @@
   <nav class="toc" aria-label="In this case study">
     <span class="label">Browse Sheet</span>
     <ol>
-      <li><a href="#problem">The discovery problem</a></li>
-      <li><a href="#sampling">Sampling</a></li>
-      <li><a href="#cost">Interaction cost</a></li>
-      <li><a href="#experiment">Browse Sheet 1.0</a></li>
-      <li><a href="#learned">What 1.0 got wrong</a></li>
-      <li><a href="#research">How people decide</a></li>
-      <li><a href="#decisions">Decisions</a></li>
-      <li><a href="#final">Browse Sheet 2.0</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#experiment">1.0</a></li>
+      <li><a href="#rebuild">2.0</a></li>
       <li><a href="#outcome">Outcome</a></li>
-      <li><a href="#reflection">Reflection</a></li>
     </ol>
     <span class="left label" aria-live="off"></span>
   </nav>
@@ -47,37 +41,27 @@
   <main id="main">
     <div class="wrap">
       <header class="cs-hero">
-        <p class="kicker label"><span class="no">Case study No. 03</span><span>Disney+ Hotstar · Discovery</span><span>2020</span><span>~12 min read</span></p>
+        <p class="kicker label"><span class="no">No. 03</span><span>Disney+ Hotstar · Discovery</span><span>2020</span><span>~4 min</span></p>
         <h1>Making it cheap to be curious</h1>
-        <p class="dek">More than a third of the people who opened Disney+ Hotstar on an average day left without watching anything, in a catalogue of 7,000 titles. They weren't short of choice. They were short of easy ways to check whether something was worth their evening.</p>
+        <p class="dek">A third of daily visitors left without watching. The fix wasn't more content — it was cheaper looks.</p>
 
         <dl class="facts">
-          <div><dt>My role</dt><dd>Product designer, end-to-end owner</dd></div>
-          <div><dt>Team</dt><dd>2 user researchers, 2 product managers, engineering</dd></div>
-          <div><dt>Platform</dt><dd>Mobile app, Android &amp; iOS</dd></div>
-          <div><dt>When</dt><dd>January – August 2020</dd></div>
-          <div><dt>Shipped</dt><dd>Browse Sheet 1.0 experiment, then 2.0 in the platform redesign</dd></div>
+          <div><dt>Role</dt><dd>PD, end-to-end</dd></div>
+          <div><dt>Team</dt><dd>2 researchers, 2 PMs, eng</dd></div>
+          <div><dt>Platform</dt><dd>Mobile · iOS &amp; Android</dd></div>
+          <div><dt>When</dt><dd>Jan – Aug 2020</dd></div>
+          <div><dt>Shipped</dt><dd>Browse Sheet 1.0 → 2.0</dd></div>
         </dl>
 
         <figure class="cs-cover">
-          <img width="2400" height="1500" src="../../assets/img/covers/browse-sheet.webp" alt="Three screens from Browse Sheet 2.0: Onward's movie page, The Falcon and the Winter Soldier's show page, and its episode list." fetchpriority="high">
-          <figcaption>A preview should cost less than a decision.</figcaption>
+          <img width="2400" height="1500" src="../../assets/img/covers/browse-sheet.webp" alt="Browse Sheet colour-field cover." fetchpriority="high">
         </figure>
 
         <section class="tldr" aria-label="Summary">
-          <span class="label">The short version</span>
-          <div>
-            <h2>Problem</h2>
-            <p>35% of daily visitors left without streaming a title. People who watched had sampled about 5 titles per session; people who left had sampled 1.5. Every sample meant loading a full page and coming back.</p>
-          </div>
-          <div>
-            <h2>What I did</h2>
-            <p>Owned the design end to end: a swipeable preview sheet run as an experiment, then a research-led rebuild of the whole content details page through 350+ explorations, 20+ interviews and a validation round.</p>
-          </div>
-          <div>
-            <h2>Outcome</h2>
-            <p>1.0 lifted distinct titles viewed by 35% but hurt show starts and downloads. 2.0 fixed the show problem, with show starts up 6.2% and watchlist adds up 7% against 1.0.</p>
-          </div>
+          <span class="label">TL;DR</span>
+          <div><h2>Problem</h2><p>35% left without streaming. Watchers sampled 5.1 titles; leavers sampled 1.5.</p></div>
+          <div><h2>Approach</h2><p>Swipeable preview experiment, then 350+ explorations and 20+ interviews for 2.0.</p></div>
+          <div><h2>Outcome</h2><p>+35% titles viewed · show starts +6.2% in 2.0.</p></div>
         </section>
       </header>
     </div>
@@ -86,243 +70,76 @@
       <div class="measure">
 
         <section class="chapter" id="problem">
-          <span class="num label">01 — The discovery problem</span>
-          <h2>A huge catalogue, and a third of people leaving empty-handed</h2>
-          <p>Disney+ Hotstar is India's leading streaming service, with over 300 million active users and 50 million subscribers. In January 2020 the data showed something uncomfortable: on an average day, 35% of the people who came in couldn't find anything they wanted to watch, and left without streaming a single title.</p>
-          <p>That was despite more than 7,000 premium titles from Marvel, Star, ABC, HBO and Disney.</p>
+          <span class="num label">01 — Problem</span>
+          <h2>7,000 titles. A third of people leaving empty-handed.</h2>
+          <p>People who watched had looked around first. Every sample meant loading a full page and coming back.</p>
         </section>
 
         <dl class="ledger wide" style="--n:3">
-          <div><dt>Daily drop-off</dt><dd>35%</dd><span class="ctx">Visitors who left without streaming a title.</span></div>
-          <div><dt>Catalogue</dt><dd>7,000+</dd><span class="ctx">Premium titles across Marvel, HBO, Disney, ABC and Star.</span></div>
-          <div><dt>Audience</dt><dd>300M</dd><span class="ctx">Active users, 50M of them subscribers.</span></div>
+          <div><dt>Daily drop-off</dt><dd>35%</dd><span class="ctx">Left without streaming.</span></div>
+          <div><dt>Watchers sampled</dt><dd>5.1</dd><span class="ctx">Titles per session.</span></div>
+          <div><dt>Leavers sampled</dt><dd>1.5</dd><span class="ctx">Titles per session.</span></div>
         </dl>
 
-        <section class="chapter" id="sampling">
-          <span class="num label">02 — Sampling</span>
-          <h2>People who watched had looked around first</h2>
-          <p>We split sessions by whether they ended in a stream. The difference was how much people <em>sampled</em>: opened a title's details page to read about it or watch the trailer.<sup class="ref" data-n="1">1</sup><span class="note" data-n="1" role="note"><b>Correlation first</b>This only shows that sampling and watching travel together. Browse Sheet 1.0 was built as an experiment to test whether making sampling easier would cause more watching.</span></p>
-        </section>
+        <figure class="slide wide">
+          <img width="1920" height="1080" src="../../assets/img/browse/slide-sampling.webp" alt="Sampling behaviour slide." loading="lazy">
+          <figcaption><b>Sampling</b>Curiosity had a high interaction cost.</figcaption>
+        </figure>
 
-        <div class="bars wide" data-reveal role="img" aria-label="Titles sampled per session: 5.1 for people who watched, 1.5 for people who dropped off">
-          <div class="b"><span>Ended up watching</span><div class="track"><div class="fill" style="--w:100%"></div></div><span class="v">5.1</span></div>
-          <div class="b hi"><span>Dropped off</span><div class="track"><div class="fill" style="--w:29.4%"></div></div><span class="v">1.5</span></div>
+        <div class="field-break" aria-hidden="true">
+          <p>Look cheaper.</p>
+          <span class="label">Hypothesis</span>
         </div>
-        <p class="cap wide">Titles sampled per session, January 2020.</p>
-
-        <p class="pull"><span class="label">The finding</span>85% of people who sampled more than five titles ended up watching something.</p>
-
-        <section class="chapter" id="cost">
-          <span class="num label">03 — Interaction cost</span>
-          <h2>Every preview was a round trip</h2>
-          <p>So why weren't people sampling more? In the existing flow, checking a title meant tapping a thumbnail, waiting for a new details page to load, judging it, and tapping back to the feed. Poster thumbnails are great hooks, but people need a little more upfront (genre, synopsis, release date) to know whether they're interested.</p>
-        </section>
-
-        <div class="phones dark" style="--n:2">
-          <figure><img width="600" height="1302" src="../../assets/img/browse/status-home.webp" alt="The existing Disney+ Hotstar home feed of poster thumbnails." loading="lazy"><figcaption><b>1</b>Tap a thumbnail on home…</figcaption></figure>
-          <figure><img width="602" height="1302" src="../../assets/img/browse/status-details.webp" alt="The existing full content details page for Marvel's Iron Fist." loading="lazy"><figcaption><b>2</b>…wait for a full page, then go back.</figcaption></figure>
-        </div>
-
-        <p>Thumbnails work beautifully elsewhere. A photo gallery is a wall of thumbnails too, and nobody hesitates to open a photo. The difference is what it costs to look and leave.</p>
-
-        <div class="grid-3 wide">
-          <figure><img width="872" height="1504" class="shot" src="../../assets/img/browse/ease-close.webp" style="aspect-ratio:4/5; object-fit:cover; object-position:top; width:100%" alt="Photo gallery: an open photo that can be swiped down to return to the grid." loading="lazy"><figcaption><b>Swipe down to close</b>Leave and return to where you were, instantly.</figcaption></figure>
-          <figure><img width="868" height="834" class="shot" src="../../assets/img/browse/ease-next.webp" style="aspect-ratio:4/5; object-fit:cover; object-position:top; width:100%" alt="Photo viewer: swiping right to the next photo." loading="lazy"><figcaption><b>Swipe right for the next</b>Move on without committing to a page load.</figcaption></figure>
-          <figure><img width="868" height="656" class="shot" src="../../assets/img/browse/ease-more.webp" style="aspect-ratio:4/5; object-fit:cover; object-position:top; width:100%" alt="Photo viewer: swiping up reveals photo details." loading="lazy"><figcaption><b>Swipe up for more</b>Details appear only once you're interested.</figcaption></figure>
-        </div>
-
-        <p class="pull"><span class="label">Hypothesis</span>Reducing the interaction cost of a preview will increase sampling, and more sampling will lead to more watching.</p>
 
         <section class="chapter" id="experiment">
-          <span class="num label">04 — Browse Sheet 1.0</span>
-          <h2>A preview that slides over the feed instead of replacing it</h2>
-          <p>The experiment moved the title's pitch into a light sheet on top of the home feed: an autoplaying trailer, key information up front, a short synopsis, a watchlist action, and a way into episodes on the full details page.</p>
+          <span class="num label">02 — Browse Sheet 1.0</span>
+          <h2>A swipeable preview on top of the home feed.</h2>
+          <p>Lift distinct titles viewed by 35%. Hurt show starts and downloads — the sheet was movie-shaped.</p>
         </section>
 
         <div class="phones dark" style="--n:3">
-          <figure><img width="600" height="1068" src="../../assets/img/browse/bs1-collapsed.webp" alt="Browse Sheet 1.0 collapsed over the home feed, showing Avengers: Endgame." loading="lazy"><figcaption><b>Collapsed</b>The feed stays visible behind it.</figcaption></figure>
-          <figure><img width="600" height="1068" src="../../assets/img/browse/bs1-expanded.webp" alt="Browse Sheet 1.0 expanded for The Mandalorian." loading="lazy"><figcaption><b>Expanded</b>Trailer, metadata and actions.</figcaption></figure>
-          <figure><img width="760" height="960" src="../../assets/img/browse/bs1-anatomy.webp" alt="Anatomy of the sheet: trailer, title metadata, synopsis, watchlist and episodes." loading="lazy"><figcaption><b>Anatomy</b>Trailer, metadata, synopsis, watchlist, episodes.</figcaption></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs1-collapsed.webp" alt="Browse Sheet 1.0 collapsed." loading="lazy"><figcaption><b>1.0</b>Collapsed</figcaption></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs1-expanded.webp" alt="Browse Sheet 1.0 expanded." loading="lazy"><figcaption><b>1.0</b>Expanded</figcaption></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs1-anatomy.webp" alt="Browse Sheet 1.0 anatomy." loading="lazy"><figcaption><b>1.0</b>Anatomy</figcaption></figure>
         </div>
 
-        <p>A sheet over a feed raises its own problems, and I had to solve them before the experiment could be trusted.<sup class="ref" data-n="2">2</sup><span class="note" data-n="2" role="note"><b>Why it mattered</b>If people couldn't work out how to leave the sheet, a drop in sampling would tell us about the sheet's affordances, not about the hypothesis.</span></p>
+        <section class="chapter" id="rebuild">
+          <span class="num label">03 — Browse Sheet 2.0</span>
+          <h2>Rebuild the content-details page from how people decide.</h2>
+          <p>Movies and shows needed different shapes. Episodes, trailer, and watch CTA had to earn their place.</p>
+        </section>
 
-        <div class="grid-3">
-          <div class="card"><span class="label">Problem</span><h4>How do I get back?</h4><p>Because the sheet sits on top of the feed, dismissal had to be obvious.</p></div>
-          <div class="card"><span class="label">Problem</span><h4>Where was I?</h4><p>It had to keep enough of the home feed in view to feel reversible.</p></div>
-          <div class="card"><span class="label">Problem</span><h4>Buttons in a row don't scale</h4><p>Longer labels and secondary actions needed real hierarchy, not equal buttons.</p></div>
-        </div>
+        <figure class="slide wide">
+          <img width="1920" height="1080" src="../../assets/img/browse/slide-explorations.webp" alt="Exploration collage." loading="lazy">
+          <figcaption><b>Explorations</b>350+ layouts before the cut.</figcaption>
+        </figure>
 
         <div class="phones dark" style="--n:3">
-          <figure><img width="560" height="994" src="../../assets/img/browse/bs1-explore-a.webp" alt="Exploration: a sheet with a close button and the feed visible above." loading="lazy"></figure>
-          <figure><img width="560" height="996" src="../../assets/img/browse/bs1-explore-b.webp" alt="Exploration: a sheet with a stacked primary watch action." loading="lazy"></figure>
-          <figure><img width="560" height="996" src="../../assets/img/browse/bs1-explore-c.webp" alt="Exploration: a sheet with watch and download as separate actions." loading="lazy"></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs2-movie-top.webp" alt="Movie page top." loading="lazy"><figcaption><b>Movie</b>Watch CTA up top</figcaption></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs2-show-top.webp" alt="Show page top." loading="lazy"><figcaption><b>Show</b>First episode CTA</figcaption></figure>
+          <figure><img width="750" height="1624" src="../../assets/img/browse/bs2-episodes.webp" alt="Episode list." loading="lazy"><figcaption><b>Episodes</b>Season sheet</figcaption></figure>
         </div>
-        <p class="cap">Three of the top explorations for dismissal, context and action hierarchy.</p>
 
-        <p>The experiment proved the hypothesis:</p>
-
-        <dl class="ledger wide" style="--n:4">
-          <div><dt>Distinct titles viewed</dt><dd>+35%</dd><span class="ctx">Sampling jumped once titles could be previewed in place.</span></div>
-          <div><dt>Successful home sessions</dt><dd>+8%</dd><span class="ctx">More journeys went from home to details to watching.</span></div>
-          <div><dt>Watch time per user</dt><dd>+1.6%</dd><span class="ctx">Small as a percentage, large at this scale.</span></div>
-          <div><dt>Watchlist adds</dt><dd>+16%</dd><span class="ctx">People saved more titles after a cheaper preview.</span></div>
-        </dl>
-
-        <section class="chapter" id="learned">
-          <span class="num label">05 — What 1.0 got wrong</span>
-          <h2>The numbers that didn't go our way</h2>
-          <p>The headline metrics were good. Three smaller ones told us what to do next.</p>
-        </section>
-
-        <dl class="ledger wide" style="--n:3">
-          <div><dt>Swiped up for more</dt><dd>5%</dd><span class="ctx">Of people on the sheet tried to swipe up to the full details page. Technical constraints meant we couldn't build that in time.</span></div>
-          <div class="worse"><dt>Show starts</dt><dd>−0.7%</dd><span class="ctx">Shows ask for more commitment than movies, and the sheet didn't carry enough information to start one confidently.</span></div>
-          <div class="worse"><dt>Downloads</dt><dd>−3%</dd><span class="ctx">The upfront download button on the details page wasn't in the test experience.</span></div>
-        </dl>
-
-        <p>The 5% was the important one. People were already trying to pull the sheet further, so the next step wasn't a better sheet over a page. It was the sheet <em>as</em> the page.<sup class="ref" data-n="3">3</sup><span class="note" data-n="3" role="note"><b>Timing</b>The learnings landed just as the whole platform was being redesigned from the ground up, which let us rethink the whole content details experience instead of patching the old one.</span></p>
-
-        <p class="pull"><span class="label">How might we</span>present the most intuitive, inviting and personalised pitch for a piece of content?</p>
-
-        <section class="chapter" id="research">
-          <span class="num label">06 — How people decide</span>
-          <h2>Ranking what actually makes someone press play</h2>
-          <p>We had the container. Now we needed what goes in it. With two researchers, I ran interviews and a card-sorting exercise on the factors that help people decide whether to watch a movie or show.</p>
-        </section>
-
-        <ol class="rank">
-          <li><strong>The X factor</strong><span>Awards, nominations, popularity, a friend's recommendation: why it's worth your attention.</span></li>
-          <li><strong>Trailer</strong><span>An instant sense of tone, production value and fit.</span></li>
-          <li><strong>Genres &amp; studio</strong><span>Familiar categories and brands map a title to your taste quickly.</span></li>
-          <li><strong>Duration &amp; episodes</strong><span>Can I finish this in the time I have?</span></li>
-          <li><strong>Synopsis</strong><span>Useful, but only if it's short enough to scan.</span></li>
-          <li><strong>Cast</strong><span>Surprisingly low for streaming, compared with film and TV listings.</span></li>
-          <li><strong>Release date</strong><span>Freshness matters, but rarely decides on its own.</span></li>
-        </ol>
-        <p class="cap">Card sort, most to least important.</p>
-
-        <p>Then we audited the existing details page against those expectations. Five problems came up again and again:</p>
-        <ol>
-          <li>The autoplaying trailer was mistaken for the actual content.</li>
-          <li>The watch button wasn't clear and got lost in the noise.</li>
-          <li>Long descriptions were the part people skipped most.</li>
-          <li>There was no information about when new episodes would drop.</li>
-          <li>Horizontal episode navigation was hard to move through.</li>
-        </ol>
-
-        <section class="chapter" id="decisions">
-          <span class="num label">07 — Decisions</span>
-          <h2>350 explorations, and the ones that made it</h2>
-          <p>Over four months I worked through 350+ explorations and 20+ user interviews, then brought product, business and research into the room to make sure the layout served users and business goals. Our best bets went back to users in a validation study before launch.</p>
-        </section>
-
-        <article class="decision wide" id="d1">
-          <header><span class="label">Decision 01 · The watch action</span><h3>What should the page ask you to do first?</h3></header>
-          <div class="opts" style="--n:2">
-            <div class="opt rejected">
-              <span class="tag">Status quo</span>
-              <h4>Watch, among everything else</h4>
-              <p>The watch button sat between an autoplaying trailer and rows of metadata and actions.</p>
-              <p class="why">In the audit, people lost it in the noise, and some thought the trailer was the show.</p>
-              <figure><img width="602" height="1302" src="../../assets/img/browse/status-details.webp" alt="Existing details page with the watch button among metadata." loading="lazy"></figure>
-            </div>
-            <div class="opt chosen">
-              <span class="tag">Shipped</span>
-              <h4>One clear, upfront watch button</h4>
-              <p>A full-width primary action directly under the title, with secondary actions demoted below it, and the trailer clearly labelled as a trailer.</p>
-              <p class="why">The page exists to get you to press play. Everything else supports that decision.</p>
-              <figure><img width="534" height="1068" src="../../assets/img/browse/bs2-watch-cta.webp" alt="Browse Sheet 2.0 for Onward with a prominent Watch Movie button." loading="lazy"></figure>
-            </div>
-          </div>
-          <div class="cost"><span class="label">Trade-off</span><p>Watchlist and download became quieter. We expected watchlist adds to drop. They went up 7%.</p></div>
-        </article>
-
-        <article class="decision wide" id="d2">
-          <header><span class="label">Decision 02 · Episodes</span><h3>How do you move through a season?</h3></header>
-          <div class="opts" style="--n:2">
-            <div class="opt rejected">
-              <span class="tag">Status quo</span>
-              <h4>A horizontal episode rail</h4>
-              <p>Episodes scrolled sideways in a row of thumbnails, one season at a time.</p>
-              <p class="why">Hard to scan, hard to find your place, and it hid the information people use to commit to a show.</p>
-            </div>
-            <div class="opt chosen">
-              <span class="tag">Shipped</span>
-              <h4>A vertical list, and a status callout</h4>
-              <p>Episodes became a vertical list with season tabs. Running shows got a dedicated callout for the next episode date and release frequency.</p>
-              <p class="why">Shows were where 1.0 fell short. People need to see what they're committing to.</p>
-              <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-episodes.webp" alt="Browse Sheet 2.0 episode list for The Falcon and the Winter Soldier, with season tabs." loading="lazy" style="max-width:280px"></figure>
-            </div>
-          </div>
-          <div class="cost"><span class="label">Trade-off</span><p>A vertical list takes more room, so a show's page runs longer than a movie's.</p></div>
-        </article>
-
-        <p>Every other part of the layout traces back to a specific piece of research:</p>
-
-        <table class="trace wide">
-          <thead><tr><th>Where it came from</th><th>What it changed</th></tr></thead>
-          <tbody>
-            <tr><td><span class="label">Card sort</span></td><td>Layout order mirrors decision priority: trailer, title and USP, genres, duration and release, synopsis, cast.</td></tr>
-            <tr><td><span class="label">Audit</span></td><td>Long synopses backed by short, scannable metadata.</td></tr>
-            <tr><td><span class="label">Stakeholders</span></td><td>The USP line and secondary action became backend-configurable, so teams could test popularity, recommendations, ratings, downloads or plan upsells without a release.</td></tr>
-            <tr><td><span class="label">Validation</span></td><td>Because the title floats above the sheet, some people didn't read it as a sheet. A dragger handle gave it the affordance it was missing.</td></tr>
-          </tbody>
-        </table>
-
-        <section class="chapter" id="final">
-          <span class="num label">08 — Browse Sheet 2.0</span>
-          <h2>One system for movies, shows and everything below the fold</h2>
-          <p>The final design handles movies, shows, the details below the fold and episode navigation, while keeping the light, swipe-away behaviour that made sampling cheap in the first place.</p>
-        </section>
-
-        <div class="phones dark full" style="--n:5">
-          <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-movie-top.webp" alt="Movie landing for Onward." loading="lazy"><figcaption><b>Movie</b>Landing.</figcaption></figure>
-          <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-show-top.webp" alt="Show landing for The Falcon and the Winter Soldier." loading="lazy"><figcaption><b>Show</b>Landing, with status callout.</figcaption></figure>
-          <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-movie-below.webp" alt="Movie details below the fold: more like this, extras." loading="lazy"><figcaption><b>Movie</b>Below the fold.</figcaption></figure>
-          <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-show-below.webp" alt="Show details below the fold: episodes and more like this." loading="lazy"><figcaption><b>Show</b>Below the fold.</figcaption></figure>
-          <figure><img width="526" height="1052" src="../../assets/img/browse/bs2-episodes.webp" alt="Episode navigation with season tabs." loading="lazy"><figcaption><b>Show</b>Episodes.</figcaption></figure>
-        </div>
+        <figure class="slide wide">
+          <img width="1920" height="1080" src="../../assets/img/browse/slide-bs2.webp" alt="Browse Sheet 2.0 overview." loading="lazy">
+          <figcaption><b>2.0</b>Platform content-details page.</figcaption>
+        </figure>
 
         <section class="chapter" id="outcome">
-          <span class="num label">09 — Outcome</span>
-          <h2>The weak spot became the strongest number</h2>
-          <p>Browse Sheet 2.0 launched in developing markets including South Africa and the Middle East. We measured it against Browse Sheet 1.0 in comparable markets such as Thailand and Malaysia.</p>
+          <span class="num label">04 — Outcome</span>
+          <h2>Cheaper looks. More watches.</h2>
         </section>
 
         <dl class="ledger wide" style="--n:3">
-          <div><dt>Distinct titles started</dt><dd>+4%</dd><span class="ctx">Movies and shows, against 1.0.</span></div>
-          <div><dt>Watchlist adds</dt><dd>+7%</dd><span class="ctx">A surprise, since watchlist is less prominent in 2.0.</span></div>
-          <div><dt>Show starts</dt><dd>+6.2%</dd><span class="ctx">Reversing 1.0's −0.7% for shows.</span></div>
+          <div><dt>Titles viewed (1.0)</dt><dd>+35%</dd><span class="ctx">Distinct titles per session.</span></div>
+          <div><dt>Show starts (2.0)</dt><dd>+6.2%</dd><span class="ctx">Vs Browse Sheet 1.0.</span></div>
+          <div><dt>Watchlist (2.0)</dt><dd>+7%</dd><span class="ctx">Vs Browse Sheet 1.0.</span></div>
         </dl>
 
-        <div class="grid-3 wide">
-          <figure><img width="1112" height="538" class="shot" src="../../assets/img/browse/tweet-1.webp" alt="Tweet praising the new Disney+ Hotstar interface." loading="lazy"></figure>
-          <figure><img width="1432" height="228" class="shot" src="../../assets/img/browse/tweet-2.webp" alt="Tweet: the app is beautiful, loving it already." loading="lazy"></figure>
-          <figure><img width="1432" height="538" class="shot" src="../../assets/img/browse/tweet-3.webp" alt="Tweet describing a smooth launch experience across devices." loading="lazy"></figure>
+        <div class="differently">
+          <span class="label">Next time</span>
+          <p>Don't ship a movie-shaped sheet for a catalogue full of shows. Format differences belong in the first experiment.</p>
         </div>
-        <p class="cap wide">Unprompted feedback after launch.</p>
-
-        <p>India, with over 300 million users, was next. Based on the early launches, we projected:<sup class="ref" data-n="4">4</sup><span class="note" data-n="4" role="note"><b>Projections</b>These are forecasts from the early markets, not measured results in India.</span></p>
-
-        <dl class="ledger wide" style="--n:3">
-          <div class="proj"><dt>Distinct titles started</dt><dd>+15%</dd><span class="ctx">Projected.</span></div>
-          <div class="proj"><dt>Successful home sessions</dt><dd>+3%</dd><span class="ctx">Projected home → details → watch.</span></div>
-          <div class="proj"><dt>Watchlist adds</dt><dd>+12%</dd><span class="ctx">Projected.</span></div>
-        </dl>
-
-        <section class="chapter" id="reflection">
-          <span class="num label">10 — Reflection</span>
-          <h2>What I'd keep, and what I'd change</h2>
-          <div class="reflect">
-            <div class="lesson"><h3>Make curiosity cheap before making it rich.</h3><p>The first win didn't come from better content on the page. It came from making the page cheaper to open and leave. Only once looking was cheap did it pay to work on what people saw.</p></div>
-            <div class="lesson"><h3>Ship an experiment, then a system.</h3><p>Browse Sheet 1.0 was deliberately small. Its metrics, especially the ones that went the wrong way, gave the platform redesign a brief nobody could argue with: the 5% who swiped up, and the shows that didn't start.</p></div>
-          </div>
-          <div class="differently">
-            <span class="label">What I'd do differently</span>
-            <p>Treat downloads as a guardrail from day one. The experiment dropped the upfront download button, and downloads fell 3%. For people who download to watch later, that button was the reason to open the page. Next time I'd keep paths people rely on in the test, or at least watch them as closely as the metric we're trying to move.</p>
-          </div>
-        </section>
 
       </div>
     </article>
@@ -330,13 +147,13 @@
     <div class="wrap">
       <nav class="next" aria-label="Next case study">
         <a href="../subscriber-tv/" data-next>
-          <span class="label">Next · More work</span>
+          <span class="label">Next · No. 04</span>
           <h2>Getting a living room to log in</h2>
           <span class="go">Disney+ Hotstar · 2021 →</span>
         </a>
       </nav>
       <footer class="site-foot">
-        <p class="colophon">Product screens and figures © Disney+ Hotstar, shown for portfolio purposes; some details are simplified.</p>
+        <p class="colophon">Product screens © Disney+ Hotstar, shown for portfolio purposes.</p>
         <p class="status" data-status>Singapore</p>
         <p class="keys">Press <kbd>?</kbd></p>
       </footer>

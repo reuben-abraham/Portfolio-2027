@@ -52,6 +52,20 @@
   --dark: #0f0f0f;
   --on-dark: #f4f4f2;
 
+  /* Colour-field project accents — flat field + ink; matches tools/make-covers.py */
+  --field: var(--well);
+  --field-ink: var(--ink);
+  --field-airport: #a9d1f5;
+  --field-airport-ink: #0a2540;
+  --field-sto: #1e7a4c;
+  --field-sto-ink: #eef7f0;
+  --field-browse: #2e4bd6;
+  --field-browse-ink: #f1f3ff;
+  --field-tv: #f07a4a;
+  --field-tv-ink: #2b0f05;
+  --field-help: #cbc4f3;
+  --field-help-ink: #1b1446;
+
   --r-0: 0;
   --r-1: 2px;
   --r-device: 22px;
@@ -74,6 +88,27 @@
     --section: var(--s-9);
     --r-device: 14px;
   }
+}
+
+[data-project="airport"] {
+  --field: var(--field-airport);
+  --field-ink: var(--field-airport-ink);
+}
+[data-project="scan-to-order"] {
+  --field: var(--field-sto);
+  --field-ink: var(--field-sto-ink);
+}
+[data-project="browse-sheet"] {
+  --field: var(--field-browse);
+  --field-ink: var(--field-browse-ink);
+}
+[data-project="subscriber-tv"] {
+  --field: var(--field-tv);
+  --field-ink: var(--field-tv-ink);
+}
+[data-project="helpdesk"] {
+  --field: var(--field-help);
+  --field-ink: var(--field-help-ink);
 }
 
 /* 2. Base ------------------------------------------------------------------- */
@@ -1274,12 +1309,16 @@ sup.ref {
   grid-template-columns: repeat(var(--n), minmax(0, 1fr));
   gap: var(--s-6);
   padding: var(--s-8) clamp(var(--s-5), 5vw, var(--s-9));
-  background: var(--well);
+  background: var(--field, var(--well));
   justify-content: center;
 }
 
 .phones.dark {
   background: var(--dark);
+}
+
+.phones.well {
+  background: var(--well);
 }
 
 .phones figure {
@@ -2663,7 +2702,102 @@ sup.ref {
   margin-top: var(--s-5);
 }
 
-/* 26. Motion & print -------------------------------------------------------- */
+/* 26. Colour-field graphic style -------------------------------------------- */
+.field-break {
+  display: grid;
+  place-items: end start;
+  min-height: clamp(120px, 18vw, 220px);
+  margin: var(--s-9) 0;
+  padding: var(--s-6) var(--s-7);
+  background: var(--field);
+  color: var(--field-ink);
+}
+
+.field-break .label {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.field-break p {
+  max-width: 18ch;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.cs-hero .kicker .no {
+  color: var(--field-ink);
+}
+
+[data-project] .progress {
+  background: var(--field);
+}
+
+[data-project] .toc a.active {
+  color: var(--field-ink);
+}
+
+[data-project] .phones:not(.dark):not(.well) figcaption,
+[data-project] .phones:not(.dark):not(.well) figcaption b {
+  color: var(--field-ink);
+}
+
+[data-project] .next a:hover h2 {
+  color: var(--field-ink);
+}
+
+.entry .cover {
+  background: var(--field, var(--well));
+}
+
+.work > li:nth-child(1) .entry { --field: var(--field-airport); }
+.work > li:nth-child(2) .entry { --field: var(--field-sto); }
+.work > li:nth-child(3) .entry { --field: var(--field-browse); }
+.work > li:nth-child(4) .entry { --field: var(--field-tv); }
+.work > li:nth-child(5) .entry { --field: var(--field-help); }
+
+@media (min-width: 901px) {
+  .hero .lede {
+    max-width: 42ch;
+  }
+}
+
+.entry .dek {
+  max-width: 46ch;
+}
+
+.cs-hero .dek {
+  max-width: 46ch;
+}
+
+.visual-cs .chapter > p {
+  max-width: 52ch;
+  color: var(--ink-2);
+}
+
+.visual-cs .tldr p {
+  font-size: var(--t-small);
+}
+
+.visual-cs .decision .opt > p:not(.why) {
+  font-size: var(--t-small);
+}
+
+.visual-cs .decision .why {
+  font-size: var(--t-cap);
+}
+
+.about-grid .text p {
+  max-width: 48ch;
+}
+
+.arch .copy p {
+  max-width: 48ch;
+  color: var(--ink-2);
+}
+
+/* 27. Motion & print -------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
