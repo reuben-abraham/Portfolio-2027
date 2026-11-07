@@ -1,10 +1,10 @@
 """Compose case-study covers in the colour-field style.
 
 Each cover is one flat project colour, the project name set edge to edge in
-Geist, and real product screens overlapping the bottom of the wordmark and
-bleeding off the bottom edge.
+Space Grotesk, and real product screens overlapping the bottom of the wordmark
+and bleeding off the bottom edge.
 
-Usage: python3 tools/make-covers.py [path/to/Geist-Medium.ttf]
+Usage: python3 tools/make-covers.py [path/to/SpaceGrotesk-Medium.ttf]
 Writes assets/img/covers/<name>.webp at 2400x1500 (16:10).
 The project colours must match the --field / --field-ink tokens in site.css.
 """
@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 IMG = ROOT / "assets" / "img"
 OUT = IMG / "covers"
-FONT = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent / "Geist-Medium.ttf")
+FONT = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent / "SpaceGrotesk-Medium.ttf")
 W, H = 2400, 1500
 MARGIN = 120
 
