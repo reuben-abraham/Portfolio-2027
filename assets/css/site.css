@@ -11,7 +11,7 @@
   --font-sans: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --t-display: clamp(3rem, 7.4vw, 7.5rem);
+  --t-display: clamp(3rem, 8.2vw, 8.5rem);
   --t-title: clamp(2.5rem, 5.6vw, 5.5rem);
   --t-h2: clamp(1.75rem, 2.9vw, 2.625rem);
   --t-h3: clamp(1.25rem, 1.6vw, 1.5rem);
