@@ -100,20 +100,34 @@
           <blockquote><p>I couldn't modify my ride in time.</p><cite>Rider</cite></blockquote>
         </div>
 
+        
         <figure class="slide wide">
-          <img width="1920" height="1080" src="../../assets/img/airport/slide-uber.webp" alt="Uber US reserved airport flow." loading="lazy">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/opportunity.webp" alt="Airport pickup market: 80% on demand, 20% reserved." loading="lazy">
+          <figcaption><b>Opportunity</b>Reserved rides are the premium, under-penetrated slice.</figcaption>
+        </figure>
+        <figure class="slide wide">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/funnel.webp" alt="Funnel slide: 15% incomplete, 8% passenger no-show." loading="lazy">
+          <figcaption><b>Funnel</b>No-shows were the fulfilment leak.</figcaption>
+        </figure>
+        <figure class="slide wide">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/uber.webp" alt="Uber US reserved airport flow." loading="lazy">
           <figcaption><b>Uber</b>Flight number → “ready when you land”.</figcaption>
         </figure>
         <figure class="slide wide">
-          <img width="1920" height="1080" src="../../assets/img/airport/slide-didi.webp" alt="Didi China airport pickup flow." loading="lazy">
+          <img width="1920" height="1080" src="../../assets/img/airport/slides/didi.webp" alt="Didi China airport pickup flow." loading="lazy">
           <figcaption><b>Didi</b>Dedicated airport pickup with flight sync.</figcaption>
         </figure>
 
         <div class="phones" style="--n:3">
-          <figure class="loop"><video src="../../assets/img/airport/transport-home.mp4" poster="../../assets/img/airport/transport-home-poster.webp" muted playsinline loop preload="none" aria-label="Transport home entry point"></video><figcaption><b>Concept</b>Home entry</figcaption></figure>
+          <figure class="loop"><img width="540" height="1170" src="../../assets/img/airport/gif/transport-home.gif" alt="Transport home entry point" loading="lazy"><figcaption><b>Concept</b>Home entry</figcaption></figure>
           <figure><img width="750" height="1624" src="../../assets/img/airport/flight-details.webp" alt="Flight details screen." loading="lazy"><figcaption><b>Concept</b>Flight details</figcaption></figure>
           <figure><img width="1125" height="2436" src="../../assets/img/airport/delayed.webp" alt="Delayed flight reassurance." loading="lazy"><figcaption><b>Concept</b>We'll wait</figcaption></figure>
         </div>
+
+        <figure class="slide wide">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/feedback.webp" alt="User and engineering feedback that redirected the MVP." loading="lazy">
+          <figcaption><b>Course-correction</b>Users wanted the driver, not an itinerary planner.</figcaption>
+        </figure>
 
         <section class="chapter" id="decisions">
           <span class="num label">03 — Decisions</span>
@@ -123,24 +137,25 @@
 
         <article class="decision wide" id="d1">
           <header><span class="label">01 · Flight input</span><h3>How should a traveller tell us their flight?</h3></header>
+          <figure class="slide"><img width="2000" height="1125" src="../../assets/img/airport/slides/flight-c.webp" alt="Flight input iterations summary." loading="lazy"><figcaption>Three rounds; shipped easy input + guided pickup time.</figcaption></figure>
           <div class="opts">
             <div class="opt rejected">
               <span class="tag">Tried</span>
               <h4>Ask for the flight number</h4>
               <p class="why">Clear task, disconnected from pickup time.</p>
-              <figure class="loop"><video src="../../assets/img/airport/flight-v1.mp4" poster="../../assets/img/airport/flight-v1-poster.webp" muted playsinline loop preload="none" aria-label="Flight input v1"></video></figure>
+              <figure class="loop"><img width="540" height="1170" src="../../assets/img/airport/gif/flight-v1.gif" alt="Flight input v1" loading="lazy"></figure>
             </div>
             <div class="opt rejected">
               <span class="tag">Tried</span>
               <h4>Lead with the benefit</h4>
               <p class="why">Adoption up; bottom sheets broke the flow.</p>
-              <figure class="loop"><video src="../../assets/img/airport/flight-v2.mp4" poster="../../assets/img/airport/flight-v2-poster.webp" muted playsinline loop preload="none" aria-label="Flight input v2"></video></figure>
+              <figure class="loop"><img width="540" height="1170" src="../../assets/img/airport/gif/flight-v2.gif" alt="Flight input v2" loading="lazy"></figure>
             </div>
             <div class="opt chosen">
               <span class="tag">Shipped</span>
               <h4>Easy input, then guided pickup time</h4>
               <p class="why">Fastest path; fits the external flight API.</p>
-              <figure class="loop"><video src="../../assets/img/airport/flight-v3.mp4" poster="../../assets/img/airport/flight-v3-poster.webp" muted playsinline loop preload="none" aria-label="Flight input v3"></video></figure>
+              <figure class="loop"><img width="540" height="1170" src="../../assets/img/airport/gif/flight-v3.gif" alt="Flight input v3" loading="lazy"></figure>
             </div>
           </div>
         </article>
@@ -159,7 +174,7 @@
               <p class="why">Flight is new; address and vehicle stay familiar.</p>
             </div>
           </div>
-          <figure class="slide"><img width="1920" height="1080" src="../../assets/img/airport/slide-dropoff.webp" alt="Drop-off and taxi selection after flight details." loading="lazy"><figcaption>Flight is new; the rest is Grab.</figcaption></figure>
+          <figure class="slide"><img width="1920" height="1080" src="../../assets/img/airport/slides/dropoff.webp" alt="Drop-off and taxi selection after flight details." loading="lazy"><figcaption>Flight is new; the rest is Grab.</figcaption></figure>
         </article>
 
         <article class="decision wide" id="d3">
@@ -169,13 +184,14 @@
               <span class="tag">Tried</span>
               <h4>Automatic proximity trigger</h4>
               <p class="why">Immigration looks “close”. False triggers send drivers early.</p>
-              <figure><img width="2000" height="1125" src="../../assets/img/airport/slide-boarding-a.webp" alt="Boarding iteration 1." loading="lazy"></figure>
+              <figure><img width="2000" height="1125" src="../../assets/img/airport/slides/boarding-a.webp" alt="Boarding iteration 1." loading="lazy"></figure>
             </div>
             <div class="opt chosen">
               <span class="tag">Shipped</span>
               <h4>Flight sync + pickup guide</h4>
               <p class="why">Traveller taps “I'm ready” and is walked to a door.</p>
-              <figure class="loop"><video src="../../assets/img/airport/pickup-guide.mp4" poster="../../assets/img/airport/pickup-guide-poster.webp" muted playsinline loop preload="none" aria-label="Pickup guide" style="max-width:300px"></video></figure>
+              <figure><img width="2000" height="1125" src="../../assets/img/airport/slides/boarding-b.webp" alt="Shipped boarding: status, delay sync, pickup guide." loading="lazy"></figure>
+              <figure class="loop"><img width="540" height="1170" src="../../assets/img/airport/gif/pickup-guide.gif" alt="Pickup guide" loading="lazy" style="max-width:300px"></figure>
             </div>
           </div>
         </article>
@@ -187,7 +203,7 @@
         </section>
 
         <figure class="slide wide">
-          <img width="2000" height="1125" src="../../assets/img/airport/slide-visual.webp" alt="Visual system slide." loading="lazy">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/visual.webp" alt="Visual system slide." loading="lazy">
           <figcaption><b>Visual system</b>Accents, status type, arrival-date component.</figcaption>
         </figure>
         <div class="grid-2 wide">
@@ -199,6 +215,11 @@
           <span class="num label">05 — Outcome</span>
           <h2>More rides booked. Fewer travellers missing them.</h2>
         </section>
+
+        <figure class="slide wide">
+          <img width="2000" height="1125" src="../../assets/img/airport/slides/impact.webp" alt="Impact metrics and reflection from the deck." loading="lazy">
+          <figcaption><b>Impact</b>From the project deck.</figcaption>
+        </figure>
 
         <dl class="ledger wide" style="--n:3">
           <div><dt>Booked rides</dt><dd>+39%</dd><span class="ctx">More travellers booked ahead.</span></div>

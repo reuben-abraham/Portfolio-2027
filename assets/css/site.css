@@ -1373,9 +1373,19 @@ sup.ref {
   max-width: 100%;
 }
 
-.loop video {
+.loop video,
+.loop img {
   cursor: pointer;
   background: var(--well);
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.phones .loop img,
+.opt .loop img {
+  border-radius: var(--r-device);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 .loop .state {
