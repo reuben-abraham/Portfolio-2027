@@ -9,7 +9,7 @@
 /* 1. Tokens ----------------------------------------------------------------- */
 :root {
   --font-sans: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: "Space Grotesk", "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Syne", "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --t-display: clamp(3rem, 8.2vw, 8.5rem);
@@ -42,9 +42,9 @@
   --section: var(--s-11);
 
   /* Pin-inspired shell: cool grey stage frame (pin 1), colour in the work (pin 2) */
-  --bg: #e6e6e2;
-  --surface: #fbfbf9;
-  --well: #e0e0dc;
+  --bg: #f3f3ef;
+  --surface: #f3f3ef;
+  --well: #e4e4de;
   --ink: #121212;
   --ink-2: #5a5a56;
   --ink-3: #8e8e88;
@@ -52,10 +52,11 @@
   --rule-2: #121212;
   --accent: #2341ff;
   --dark: #121212;
-  --on-dark: #fbfbf9;
-  --stage-r: clamp(20px, 2.4vw, 32px);
+  --on-dark: #f3f3ef;
+  --stage-r: 20px;
   --shell-pad: clamp(12px, 1.8vw, 24px);
-  --shadow: 0 18px 50px rgba(18, 18, 18, 0.08);
+  --shadow: none;
+  --nav-h: 64px;
 
   /* Colour-field project accents — flat field + ink; matches tools/make-covers.py */
   --field: var(--well);
@@ -2870,27 +2871,32 @@ sup.ref {
 
 .shell > .site-head {
   position: sticky;
-  top: var(--shell-pad);
+  top: 0;
   z-index: 50;
   max-width: none;
   width: 100%;
-  height: auto;
-  min-height: 56px;
-  margin: 0 0 var(--shell-pad);
-  padding: 14px clamp(18px, 2vw, 28px);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  backdrop-filter: blur(14px) saturate(1.1);
-  -webkit-backdrop-filter: blur(14px) saturate(1.1);
-  box-shadow: 0 1px 0 rgba(18, 18, 18, 0.06);
+  height: var(--nav-h);
+  min-height: var(--nav-h);
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
   align-items: center;
+}
+
+.scrolled .shell > .site-head {
+  border-bottom-color: var(--rule);
 }
 
 .shell > .site-head .name {
   grid-column: 1 / span 3;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 
 .shell > .site-head nav {
@@ -2900,7 +2906,9 @@ sup.ref {
 }
 
 .shell > .site-head nav a[aria-current="page"] {
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
   color: var(--ink);
   font-weight: 500;
 }
@@ -2910,11 +2918,11 @@ sup.ref {
 }
 
 .stage {
-  background: var(--surface);
-  border-radius: var(--stage-r);
-  box-shadow: var(--shadow);
-  padding: clamp(28px, 4vw, 56px) clamp(22px, 3.5vw, 48px);
-  margin-bottom: var(--shell-pad);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: clamp(28px, 4vw, 56px) 0;
+  margin-bottom: 0;
 }
 
 .hero-stage {
@@ -2922,19 +2930,41 @@ sup.ref {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: min(88vh, 920px);
-  padding-top: clamp(48px, 8vh, 96px);
+  min-height: min(78vh, 820px);
+  padding-top: clamp(40px, 7vh, 88px);
   padding-bottom: 0;
   overflow: hidden;
   position: relative;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero-stage .kicker,
 .hero-stage h1,
 .hero-stage .lede,
-.hero-stage > .pill {
+.hero-stage > .pill,
+.hero-stage > .text-cta {
   max-width: 22ch;
   margin-inline: auto;
+}
+
+.hero-stage > .text-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--t-small);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  margin-bottom: var(--s-6);
+}
+
+.hero-stage > .text-cta:hover {
+  color: var(--accent);
 }
 
 .hero-stage .kicker {
@@ -2944,11 +2974,11 @@ sup.ref {
 
 .hero-stage h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.4vw, 4.6rem);
-  line-height: 0.96;
-  letter-spacing: -0.045em;
-  font-weight: 500;
-  max-width: 14ch;
+  font-size: clamp(2.6rem, 5.8vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  max-width: 13ch;
   margin: 0 auto var(--s-5);
 }
 
@@ -3000,52 +3030,52 @@ sup.ref {
 
 .hero-fan {
   margin-top: auto;
-  width: min(100%, 920px);
+  width: min(100%, 880px);
   display: grid;
-  grid-template-columns: 1fr 1.15fr 1fr;
-  gap: clamp(10px, 1.6vw, 18px);
+  grid-template-columns: 1fr 1.12fr 1fr;
+  gap: clamp(8px, 1.2vw, 14px);
   align-items: end;
-  padding: 0 clamp(8px, 1vw, 16px);
-  transform: translateY(18%);
+  padding: 0;
+  transform: translateY(12%);
 }
 
 .hero-fan img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 18px 18px 0 0;
-  box-shadow: 0 20px 40px rgba(18, 18, 18, 0.12);
+  border-radius: 12px 12px 0 0;
+  box-shadow: none;
   background: var(--well);
 }
 
 .hero-fan img:nth-child(1) {
-  transform: rotate(-6deg) translateY(18px);
+  transform: rotate(-3deg) translateY(10px);
 }
 
 .hero-fan img:nth-child(2) {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   z-index: 2;
 }
 
 .hero-fan img:nth-child(3) {
-  transform: rotate(6deg) translateY(18px);
+  transform: rotate(3deg) translateY(10px);
 }
 
 .stack-head {
   display: flex;
   flex-direction: column;
   gap: var(--s-3);
-  padding: var(--s-6) clamp(8px, 1vw, 16px) var(--s-5);
+  padding: var(--s-7) 0 var(--s-5);
   max-width: var(--max);
   margin-inline: auto;
 }
 
 .stack-head h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  font-weight: 500;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -3055,27 +3085,27 @@ sup.ref {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--shell-pad);
+  gap: var(--s-5);
 }
 
 .panel {
   position: sticky;
-  top: calc(var(--shell-pad) + 68px);
+  top: var(--nav-h);
   border-radius: var(--stage-r);
   background: var(--panel, var(--surface));
   color: var(--panel-ink, var(--ink));
-  box-shadow: var(--shadow);
+  box-shadow: none;
   overflow: hidden;
-  min-height: min(78vh, 820px);
+  min-height: 0;
 }
 
 .panel-link {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(24px, 3vw, 48px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(20px, 2.5vw, 36px);
   align-items: center;
-  min-height: inherit;
-  padding: clamp(28px, 4vw, 56px);
+  min-height: 0;
+  padding: clamp(20px, 2.8vw, 36px);
   color: inherit;
   text-decoration: none;
 }
@@ -3084,8 +3114,8 @@ sup.ref {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s-4);
-  max-width: 34ch;
+  gap: var(--s-3);
+  max-width: 32ch;
 }
 
 .panel-copy .label {
@@ -3094,48 +3124,48 @@ sup.ref {
 
 .panel-copy h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.4vw, 3rem);
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
   line-height: 1.02;
-  letter-spacing: -0.04em;
-  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-weight: 700;
   margin: 0;
 }
 
 .panel-copy > p {
   margin: 0;
   color: color-mix(in srgb, var(--panel-ink, var(--ink)) 78%, transparent);
-  font-size: var(--t-lead);
-  line-height: 1.4;
+  font-size: var(--t-small);
+  line-height: 1.45;
 }
 
 .panel-nums {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--s-4) var(--s-6);
-  margin: var(--s-3) 0 var(--s-2);
+  gap: var(--s-3) var(--s-5);
+  margin: var(--s-2) 0 0;
   width: 100%;
 }
 
 .panel-nums dt {
   font-size: var(--t-cap);
   color: color-mix(in srgb, var(--panel-ink, var(--ink)) 58%, transparent);
-  margin-bottom: 0.25em;
+  margin-bottom: 0.2em;
 }
 
 .panel-nums dd {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  letter-spacing: -0.03em;
-  font-weight: 500;
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  letter-spacing: -0.025em;
+  font-weight: 700;
   line-height: 1;
 }
 
 .panel-media {
   margin: 0;
-  border-radius: calc(var(--stage-r) - 8px);
+  border-radius: 12px;
   overflow: hidden;
-  background: color-mix(in srgb, var(--panel-ink, #000) 8%, transparent);
-  box-shadow: 0 16px 40px rgba(18, 18, 18, 0.12);
+  background: transparent;
+  box-shadow: none;
 }
 
 .panel-media img {
@@ -3144,6 +3174,7 @@ sup.ref {
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  box-shadow: none;
 }
 
 .panel .pill.ghost {
@@ -3194,15 +3225,15 @@ body.visual-cs {
 }
 
 body.visual-cs .shell > .site-head {
-  margin-bottom: var(--shell-pad);
+  margin-bottom: 0;
 }
 
 body.visual-cs .cs-stage {
-  background: var(--surface);
-  border-radius: var(--stage-r);
-  box-shadow: var(--shadow);
-  padding: clamp(28px, 4vw, 56px) clamp(18px, 3vw, 40px) clamp(40px, 5vw, 72px);
-  margin-bottom: var(--shell-pad);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: clamp(24px, 3vw, 40px) 0 clamp(40px, 5vw, 72px);
+  margin-bottom: 0;
 }
 
 body.visual-cs .cs-stage .wrap,
@@ -3213,13 +3244,15 @@ body.visual-cs .cs-stage .measure {
 
 body.visual-cs .cs-hero h1 {
   font-family: var(--font-display);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
+  font-weight: 700;
 }
 
 body.visual-cs .cs-cover {
-  border-radius: calc(var(--stage-r) - 10px);
+  border-radius: 12px;
   overflow: hidden;
   background: var(--field, var(--well));
+  box-shadow: none;
 }
 
 body.visual-cs .cs-cover img {
@@ -3233,17 +3266,18 @@ body.visual-cs .next {
 }
 
 body.visual-cs .next a {
-  background: var(--surface);
-  border-radius: var(--stage-r);
-  box-shadow: var(--shadow);
-  padding: clamp(24px, 3vw, 40px);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border-top: 1px solid var(--rule);
+  padding: clamp(24px, 3vw, 40px) 0;
 }
 
 body.visual-cs .toc {
-  background: var(--surface);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  border-color: transparent;
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: none;
+  border-color: var(--rule);
 }
 
 .page-stage {
@@ -3274,9 +3308,9 @@ body.visual-cs .toc {
 
 @media (max-width: 900px) {
   .shell > .site-head {
-    top: 8px;
-    border-radius: 20px;
-    padding: 12px 16px;
+    top: 0;
+    border-radius: 0;
+    padding: 0;
   }
 
   .hero-stage {
@@ -3290,7 +3324,7 @@ body.visual-cs .toc {
 
   .hero-fan {
     width: 100%;
-    transform: translateY(12%);
+    transform: translateY(8%);
   }
 
   .panel {
@@ -3301,7 +3335,7 @@ body.visual-cs .toc {
 
   .panel-link {
     grid-template-columns: 1fr;
-    padding: clamp(22px, 5vw, 32px);
+    padding: clamp(18px, 4vw, 28px);
   }
 
   .panel-copy {

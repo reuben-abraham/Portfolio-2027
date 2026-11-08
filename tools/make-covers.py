@@ -1,10 +1,10 @@
 """Compose case-study covers in the colour-field style.
 
 Each cover is one flat project colour, the project name set edge to edge in
-Space Grotesk, and real product screens overlapping the bottom of the wordmark
-and bleeding off the bottom edge.
+Syne, and real product screens overlapping the bottom of the wordmark
+and bleeding off the bottom edge — flatter frames, no drop shadow.
 
-Usage: python3 tools/make-covers.py [path/to/SpaceGrotesk-Medium.ttf]
+Usage: python3 tools/make-covers.py [path/to/Syne-Medium.ttf]
 Writes assets/img/covers/<name>.webp at 2400x1500 (16:10).
 The project colours must match the --field / --field-ink tokens in site.css.
 """
@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 IMG = ROOT / "assets" / "img"
 OUT = IMG / "covers"
-FONT = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent / "SpaceGrotesk-Medium.ttf")
+FONT = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent / "Syne-Medium.ttf")
 W, H = 2400, 1500
 MARGIN = 120
 
@@ -55,31 +55,29 @@ def wordmark(canvas, text, ink, max_height=380):
     return MARGIN + layer.height
 
 
-def rounded(im, radius, edge):
+def rounded(im, radius):
+    """Flat rounded frame — no outline, no drop shadow."""
     im = im.convert("RGBA")
     mask = Image.new("L", im.size, 0)
     ImageDraw.Draw(mask).rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius, fill=255)
     im.putalpha(mask)
-    line = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    ImageDraw.Draw(line).rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius, outline=edge, width=2)
-    return Image.alpha_composite(im, line)
+    return im
 
 
 def fit_width(im, width):
     return im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
 
 
-def cover(name, title, parts, widths, gap=72, overlap=0.2, radius=0.075):
+def cover(name, title, parts, widths, gap=64, overlap=0.16, radius=0.04):
     field, ink = (hex_rgb(c) for c in PROJECTS[name])
     canvas = Image.new("RGBA", (W, H), field + (255,))
     bottom = wordmark(canvas, title, ink)
     top = int(bottom - overlap * (bottom - MARGIN))
-    edge = ink + (40,)
     total = sum(widths) + gap * (len(widths) - 1)
     x = (W - total) // 2
     for part, width in zip(parts, widths):
         im = part if isinstance(part, Image.Image) else Image.open(IMG / part)
-        p = rounded(fit_width(im, width), round(width * radius), edge)
+        p = rounded(fit_width(im, width), round(width * radius))
         canvas.alpha_composite(p, (x, top))
         x += width + gap
     OUT.mkdir(parents=True, exist_ok=True)
