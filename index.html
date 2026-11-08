@@ -8,16 +8,16 @@
   <meta property="og:title" content="Reuben Abraham — Product Designer">
   <meta property="og:description" content="Designing the few seconds before someone decides. Case studies from Grab and Disney+ Hotstar.">
   <meta property="og:image" content="assets/img/covers/airport.webp">
-  <meta name="theme-color" content="#f4f4f2">
+  <meta name="theme-color" content="#e6e6e2">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/space-grotesk-medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
+<body class="home-pins">
   <a class="skip" href="#main">Skip to content</a>
 
-  <div class="wrap">
+  <div class="shell">
     <header class="site-head">
       <a class="name" href="./">Reuben Abraham</a>
       <nav aria-label="Primary">
@@ -28,148 +28,144 @@
       </nav>
       <span class="clock" data-clock>SGT</span>
     </header>
-  </div>
 
-  <main id="main">
-    <div class="wrap">
-      <section class="hero" aria-labelledby="hero-title">
+    <main id="main">
+      <section class="stage hero-stage" aria-labelledby="hero-title">
         <p class="kicker label">Lead product designer · Grab · Singapore</p>
         <h1 id="hero-title">I design the few seconds before someone decides.</h1>
         <p class="lede">What to watch. What the table orders. When to walk to the car.</p>
-        <dl class="meta">
-          <div><dt class="label">Now</dt><dd>Lead product designer, Transport &amp; Dine-in at Grab</dd></div>
-          <div><dt class="label">Previously</dt><dd>Product designer, Disney+ Hotstar</dd></div>
-          <div><dt class="label">Focus</dt><dd>Research-led, prototypes in code</dd></div>
-          <div><dt class="label">Local time</dt><dd><span data-clock>SGT</span>, Singapore</dd></div>
-        </dl>
+        <a class="pill" href="#work">View selected work</a>
+
+        <div class="hero-fan" aria-hidden="true">
+          <img src="assets/img/covers/airport.webp" alt="" width="800" height="500">
+          <img src="assets/img/covers/scan-to-order.webp" alt="" width="800" height="500">
+          <img src="assets/img/covers/browse-sheet.webp" alt="" width="800" height="500">
+        </div>
       </section>
 
-      <div class="section-head" id="work">
-        <h2>Selected work</h2>
-        <p class="label">01 · Five case studies</p>
+      <div class="stack-head" id="work">
+        <p class="label">01 · Selected work</p>
+        <h2>Five case studies</h2>
       </div>
 
-      <ol class="work">
-        <li>
-          <a class="entry" href="work/airport-transfers/">
-            <figure class="cover"><img width="2400" height="1500" src="assets/img/covers/airport.webp" alt="Airport Transfers colour-field cover with three Grab pickup screens." fetchpriority="high"></figure>
-            <div class="row">
-              <span class="no label">No. 01</span>
-              <div class="copy">
-                <span class="label">Grab · Transport · 2025</span>
-                <h3>Airport pickups that move with your flight</h3>
-                <p class="dek">Flight-synced reserved rides and a gate-to-kerb pickup guide.</p>
-                <span class="more">Case study <span class="arrow">→</span></span>
-              </div>
-              <dl class="nums">
+      <ol class="work-stack">
+        <li class="panel" data-project="airport" style="--panel: var(--field-airport); --panel-ink: var(--field-airport-ink)">
+          <a class="panel-link" href="work/airport-transfers/">
+            <div class="panel-copy">
+              <span class="label">No. 01 · Grab · Transport · 2025</span>
+              <h3>Airport pickups that move with your flight</h3>
+              <p>Flight-synced reserved rides and a gate-to-kerb pickup guide.</p>
+              <dl class="panel-nums">
                 <div><dt>Booked rides</dt><dd>+39%</dd></div>
                 <div><dt>No-shows</dt><dd>−4.5pp</dd></div>
               </dl>
+              <span class="pill ghost">Read case study →</span>
             </div>
+            <figure class="panel-media">
+              <img width="2400" height="1500" src="assets/img/covers/airport.webp" alt="Airport Transfers cover with three Grab pickup screens." fetchpriority="high">
+            </figure>
           </a>
         </li>
-        <li>
-          <a class="entry" href="work/scan-to-order/">
-            <figure class="cover"><img width="2400" height="1500" src="assets/img/covers/scan-to-order.webp" alt="Scan to Order colour-field cover with menu, basket and bill screens." loading="lazy"></figure>
-            <div class="row">
-              <span class="no label">No. 02</span>
-              <div class="copy">
-                <span class="label">Grab · Dine-in · 2025</span>
-                <h3>A QR menu the whole table can order from</h3>
-                <p class="dek">Shared basket, branded menus, orders into the kitchen POS.</p>
-                <span class="more">Case study <span class="arrow">→</span></span>
-              </div>
-              <dl class="nums">
+        <li class="panel" data-project="scan-to-order" style="--panel: var(--field-sto); --panel-ink: var(--field-sto-ink)">
+          <a class="panel-link" href="work/scan-to-order/">
+            <div class="panel-copy">
+              <span class="label">No. 02 · Grab · Dine-in · 2025</span>
+              <h3>A QR menu the whole table can order from</h3>
+              <p>Shared basket, branded menus, orders into the kitchen POS.</p>
+              <dl class="panel-nums">
                 <div><dt>Time to order</dt><dd>−33%</dd></div>
                 <div><dt>Completion</dt><dd>89%</dd></div>
               </dl>
+              <span class="pill ghost">Read case study →</span>
             </div>
+            <figure class="panel-media">
+              <img width="2400" height="1500" src="assets/img/covers/scan-to-order.webp" alt="Scan to Order cover." loading="lazy">
+            </figure>
           </a>
         </li>
-        <li>
-          <a class="entry" href="work/browse-sheet/">
-            <figure class="cover"><img width="2400" height="1500" src="assets/img/covers/browse-sheet.webp" alt="Browse Sheet colour-field cover with three Hotstar title screens." loading="lazy"></figure>
-            <div class="row">
-              <span class="no label">No. 03</span>
-              <div class="copy">
-                <span class="label">Disney+ Hotstar · Discovery · 2020</span>
-                <h3>Making it cheap to be curious</h3>
-                <p class="dek">A lightweight title preview that became the content-details page.</p>
-                <span class="more">Case study <span class="arrow">→</span></span>
-              </div>
-              <dl class="nums">
+        <li class="panel" data-project="browse-sheet" style="--panel: var(--field-browse); --panel-ink: var(--field-browse-ink)">
+          <a class="panel-link" href="work/browse-sheet/">
+            <div class="panel-copy">
+              <span class="label">No. 03 · Disney+ Hotstar · Discovery · 2020</span>
+              <h3>Making it cheap to be curious</h3>
+              <p>A lightweight title preview that became the content-details page.</p>
+              <dl class="panel-nums">
                 <div><dt>Titles viewed</dt><dd>+35%</dd></div>
                 <div><dt>Watchlist</dt><dd>+16%</dd></div>
               </dl>
+              <span class="pill ghost">Read case study →</span>
             </div>
+            <figure class="panel-media">
+              <img width="2400" height="1500" src="assets/img/covers/browse-sheet.webp" alt="Browse Sheet cover." loading="lazy">
+            </figure>
           </a>
         </li>
-        <li>
-          <a class="entry" href="work/subscriber-tv/">
-            <figure class="cover"><img width="2400" height="1500" src="assets/img/covers/subscriber-tv.webp" alt="Subscriber TV colour-field cover with two living-room screens." loading="lazy"></figure>
-            <div class="row">
-              <span class="no label">No. 04</span>
-              <div class="copy">
-                <span class="label">Disney+ Hotstar · Living room · 2021</span>
-                <h3>Getting a living room to log in</h3>
-                <p class="dek">Phone login, plans and checkout on the biggest screen in the house.</p>
-                <span class="more">Case study <span class="arrow">→</span></span>
-              </div>
-              <dl class="nums">
+        <li class="panel" data-project="subscriber-tv" style="--panel: var(--field-tv); --panel-ink: var(--field-tv-ink)">
+          <a class="panel-link" href="work/subscriber-tv/">
+            <div class="panel-copy">
+              <span class="label">No. 04 · Disney+ Hotstar · Living room · 2021</span>
+              <h3>Getting a living room to log in</h3>
+              <p>Phone login, plans and checkout on the biggest screen in the house.</p>
+              <dl class="panel-nums">
                 <div><dt>Paid conversions</dt><dd>+35%</dd></div>
                 <div><dt>Login rate</dt><dd>+600%</dd></div>
               </dl>
+              <span class="pill ghost">Read case study →</span>
             </div>
+            <figure class="panel-media">
+              <img width="2400" height="1500" src="assets/img/covers/subscriber-tv.webp" alt="Subscriber TV cover." loading="lazy">
+            </figure>
           </a>
         </li>
-        <li>
-          <a class="entry" href="work/helpdesk/">
-            <figure class="cover"><img width="2400" height="1500" src="assets/img/covers/helpdesk.webp" alt="Helpdesk colour-field cover with desktop and mobile help centre." loading="lazy"></figure>
-            <div class="row">
-              <span class="no label">No. 05</span>
-              <div class="copy">
-                <span class="label">Disney+ Hotstar · Support · 2021</span>
-                <h3>Help that answers before you ask</h3>
-                <p class="dek">Self-serve recovery and smarter routing for 300M monthly users.</p>
-                <span class="more">Case study <span class="arrow">→</span></span>
-              </div>
-              <dl class="nums">
+        <li class="panel" data-project="helpdesk" style="--panel: var(--field-help); --panel-ink: var(--field-help-ink)">
+          <a class="panel-link" href="work/helpdesk/">
+            <div class="panel-copy">
+              <span class="label">No. 05 · Disney+ Hotstar · Support · 2021</span>
+              <h3>Help that answers before you ask</h3>
+              <p>Self-serve recovery and smarter routing for 300M monthly users.</p>
+              <dl class="panel-nums">
                 <div><dt>CSAT</dt><dd>+15%</dd></div>
                 <div><dt>Lost-account tickets</dt><dd>−36%</dd></div>
               </dl>
+              <span class="pill ghost">Read case study →</span>
             </div>
+            <figure class="panel-media">
+              <img width="2400" height="1500" src="assets/img/covers/helpdesk.webp" alt="Helpdesk cover." loading="lazy">
+            </figure>
           </a>
         </li>
       </ol>
 
-      <div class="section-head">
-        <h2>Earlier</h2>
-        <p class="label">02 · Archive</p>
-      </div>
-      <ul class="ledger-list">
-        <li><a href="archive/#barter" data-peek="assets/img/archive/barter-cover.webp"><span class="yr">2020</span><span class="t">Barter, campus lending <i>Concept</i></span><span class="sig">Two-week sprint</span></a></li>
-        <li><a href="archive/#innovision" data-peek="assets/img/archive/inno-1.webp"><span class="yr">2019</span><span class="t">Innovision identity <i>Festival, 10k people</i></span><span class="sig">Led 4 designers</span></a></li>
-        <li><a href="archive/#mun" data-peek="assets/img/archive/mun-1.webp"><span class="yr">2018</span><span class="t">International MUN identity <i>Conference</i></span><span class="sig">Solo</span></a></li>
-      </ul>
-
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <p class="label">03 · Contact</p>
-        <h2 id="contact-title">Building something people have to choose? I'd like to hear.</h2>
-        <div class="ways">
-          <button class="copy-email" type="button" data-copy-email>reubenabraham.official@gmail.com</button>
-          <a href="https://www.linkedin.com/in/supereuben/" rel="me">LinkedIn ↗</a>
-          <a href="https://medium.com/@reubenabraham.official" rel="me">Medium ↗</a>
-          <a href="https://vimeo.com/reubenabraham" rel="me">Vimeo ↗</a>
+      <section class="stage lower-stage">
+        <div class="stack-head">
+          <p class="label">02 · Archive</p>
+          <h2>Earlier</h2>
         </div>
-      </section>
+        <ul class="ledger-list">
+          <li><a href="archive/#barter" data-peek="assets/img/archive/barter-cover.webp"><span class="yr">2020</span><span class="t">Barter, campus lending <i>Concept</i></span><span class="sig">Two-week sprint</span></a></li>
+          <li><a href="archive/#innovision" data-peek="assets/img/archive/inno-1.webp"><span class="yr">2019</span><span class="t">Innovision identity <i>Festival, 10k people</i></span><span class="sig">Led 4 designers</span></a></li>
+          <li><a href="archive/#mun" data-peek="assets/img/archive/mun-1.webp"><span class="yr">2018</span><span class="t">International MUN identity <i>Conference</i></span><span class="sig">Solo</span></a></li>
+        </ul>
 
-      <footer class="site-foot">
-        <p class="colophon">Set in Space Grotesk and Geist. Colour-field covers from shipped product screens. Hand-written HTML. © 2026 Reuben Abraham.</p>
-        <p class="status" data-status>Singapore</p>
-        <p class="keys">Press <kbd>?</kbd></p>
-      </footer>
-    </div>
-  </main>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+          <p class="label">03 · Contact</p>
+          <h2 id="contact-title">Building something people have to choose? I'd like to hear.</h2>
+          <div class="ways">
+            <button class="pill" type="button" data-copy-email>reubenabraham.official@gmail.com</button>
+            <a class="pill ghost" href="https://www.linkedin.com/in/supereuben/" rel="me">LinkedIn ↗</a>
+            <a class="pill ghost" href="https://medium.com/@reubenabraham.official" rel="me">Medium ↗</a>
+            <a class="pill ghost" href="https://vimeo.com/reubenabraham" rel="me">Vimeo ↗</a>
+          </div>
+        </section>
+
+        <footer class="site-foot">
+          <p class="colophon">Set in Space Grotesk and Geist. Colour-field panels from shipped product screens. Hand-written HTML. © 2026 Reuben Abraham.</p>
+          <p class="status" data-status>Singapore</p>
+          <p class="keys">Press <kbd>?</kbd></p>
+        </footer>
+      </section>
+    </main>
+  </div>
 
   <script src="assets/js/site.js" defer></script>
 </body>
